@@ -1,0 +1,2 @@
+class TunesController < ApplicationController
+end
