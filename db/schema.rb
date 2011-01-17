@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110117025618) do
+ActiveRecord::Schema.define(:version => 20110117051839) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -21,6 +21,74 @@ ActiveRecord::Schema.define(:version => 20110117025618) do
   end
 
   add_index "authentications", ["user_id"], :name => "index_authentications_on_user_id"
+
+  create_table "chord_qualities", :force => true do |t|
+    t.string "name"
+    t.string "code"
+  end
+
+  create_table "chord_scales", :force => true do |t|
+    t.integer "chord_id"
+    t.integer "mode_id"
+    t.integer "strength"
+    t.text    "information"
+  end
+
+  create_table "chord_symbols", :force => true do |t|
+    t.integer "chord_id"
+    t.string  "name"
+    t.boolean "case_sensitive", :default => false
+    t.integer "strength"
+    t.boolean "primary",        :default => false
+  end
+
+  create_table "chord_tones", :force => true do |t|
+    t.integer "chord_id"
+    t.integer "position"
+    t.integer "tone"
+    t.integer "letter_index"
+    t.integer "strength"
+    t.boolean "omitable",     :default => false
+    t.text    "information"
+  end
+
+  create_table "chords", :force => true do |t|
+    t.integer "chord_quality_id"
+    t.integer "parent_id"
+    t.string  "name"
+    t.text    "synonyms"
+    t.text    "information"
+  end
+
+  create_table "keys", :force => true do |t|
+    t.string  "name"
+    t.string  "long_name"
+    t.boolean "primary",      :default => true
+    t.integer "index"
+    t.integer "letter_index"
+    t.integer "cycle_index"
+  end
+
+  create_table "modes", :force => true do |t|
+    t.integer "scale_id"
+    t.integer "mode"
+    t.string  "name"
+    t.text    "synonyms"
+    t.integer "dissonance"
+  end
+
+  create_table "scale_tones", :force => true do |t|
+    t.integer "scale_id"
+    t.integer "position"
+    t.integer "tone"
+    t.integer "letter_index"
+  end
+
+  create_table "scales", :force => true do |t|
+    t.string  "name"
+    t.string  "information"
+    t.integer "symmetry_index"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"
@@ -45,5 +113,19 @@ ActiveRecord::Schema.define(:version => 20110117025618) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "voicing_tones", :force => true do |t|
+    t.integer "voicings_id"
+    t.integer "position"
+    t.integer "tone"
+    t.integer "tone_reference_offset", :default => 0
+    t.text    "information"
+  end
+
+  create_table "voicings", :force => true do |t|
+    t.integer "chord_id"
+    t.string  "name"
+    t.text    "information"
+  end
 
 end
