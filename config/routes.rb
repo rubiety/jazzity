@@ -6,5 +6,6 @@ Jazzity::Application.routes.draw do
   resources :progressions
   resources :scales
   resources :notes_collections, :as => :notes
+  resources :tunes
 
 end
