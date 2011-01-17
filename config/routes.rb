@@ -1,5 +1,7 @@
 Jazzity::Application.routes.draw do
 
+  get "dashboards/show"
+
   devise_for :users
 
   resources :authentications
