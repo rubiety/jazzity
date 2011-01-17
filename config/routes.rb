@@ -5,16 +5,43 @@ Jazzity::Application.routes.draw do
   resources :authentications
   resources :searches
 
-  resources :musicians
-  resources :chords
-  resources :chord_qualities
-  resources :voicings
-  resources :progressions
-  resources :scales
-  resources :notes_collections, :as => "notes"
-  resources :tunes
   resources :keys
-  resources :concepts
+  resources :concepts do
+    resources :comments
+    resources :suggestions
+  end
+
+  resources :musicians do
+    resources :comments
+    resources :suggestions
+  end
+
+  resources :tunes do
+    resources :comments
+    resources :suggestions
+  end
+
+  resources :chord_qualities
+  resources :chords do
+    resources :comments
+  end
+
+  resources :voicings do
+    resources :comments
+    resources :suggestions
+  end
+
+  resources :progressions do
+    resources :comments
+    resources :suggestions
+  end
+
+  resources :scales do
+    resources :comments
+    resources :suggestions
+  end
+
+  resources :notes_collections, :as => "notes"
 
   root :to => "dashboards#index"
 
