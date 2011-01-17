@@ -1,5 +1,9 @@
 Jazzity::Application.routes.draw do
 
+  get "keys/index"
+
+  get "keys/show"
+
   get "dashboards/show"
 
   devise_for :users
