@@ -1,5 +1,8 @@
 Jazzity::Application.routes.draw do
 
+  devise_for :users
+
+  resources :authentications
   resources :searches
   resources :chords
   resources :voicings
@@ -7,5 +10,7 @@ Jazzity::Application.routes.draw do
   resources :scales
   resources :notes_collections, :as => :notes
   resources :tunes
+
+  root :to => "dashboards#index"
 
 end
