@@ -2,7 +2,16 @@ Jazzity::Application.routes.draw do
   
   resources :searches
   
-  resources :keys
+  resources :keys do
+    resources :chords
+    resources :voicings
+    resources :progressions
+    resources :notes_collections, :as => "notes"
+    resources :scales do
+      resources :modes
+    end
+  end
+  
   resources :concepts
   resources :musicians
   resources :tunes
@@ -10,8 +19,10 @@ Jazzity::Application.routes.draw do
   resources :chords
   resources :voicings
   resources :progressions
-  resources :scales
   resources :notes_collections, :as => "notes"
+  resources :scales do
+    resources :modes
+  end
   
   root :to => "dashboards#index"
   
