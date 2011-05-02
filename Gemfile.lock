@@ -30,7 +30,7 @@ GEM
     activesupport (3.0.6)
     acts_as_list (0.1.2)
     acts_as_tree (0.1.1)
-    addressable (2.2.4)
+    addressable (2.2.5)
     arel (2.0.9)
     babosa (0.3.3)
     builder (2.1.2)
