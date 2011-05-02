@@ -7,10 +7,6 @@ gem "haml"
 gem "haml-rails"
 gem "compass"
 gem "html5-boilerplate"
-gem "cancan"
-
-gem "devise"
-gem "omniauth"
 
 gem "will_paginate"
 gem "acts_as_list"

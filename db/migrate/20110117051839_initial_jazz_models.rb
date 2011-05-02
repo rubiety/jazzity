@@ -15,7 +15,7 @@ class InitialJazzModels < ActiveRecord::Migration
     end
     
     create_table :chords do |t|
-      t.belongs_to :chord_quality
+      t.references :chord_quality
       t.integer :parent_id
       t.string :name
       t.text :synonyms
@@ -23,7 +23,7 @@ class InitialJazzModels < ActiveRecord::Migration
     end
     
     create_table :chord_symbols do |t|
-      t.belongs_to :chord
+      t.references :chord
       t.string :name
       t.boolean :case_sensitive, :default => false
       t.integer :strength
@@ -31,7 +31,7 @@ class InitialJazzModels < ActiveRecord::Migration
     end
     
     create_table :chord_tones do |t|
-      t.belongs_to :chord
+      t.references :chord
       t.integer :position
       t.integer :tone
       t.integer :letter_index
@@ -47,14 +47,14 @@ class InitialJazzModels < ActiveRecord::Migration
     end
     
     create_table :scale_tones do |t|
-      t.belongs_to :scale
+      t.references :scale
       t.integer :position
       t.integer :tone
       t.integer :letter_index
     end
     
     create_table :modes do |t|
-      t.belongs_to :scale
+      t.references :scale
       t.integer :mode
       t.string :name
       t.text :synonyms
@@ -62,20 +62,20 @@ class InitialJazzModels < ActiveRecord::Migration
     end
     
     create_table :chord_scales do |t|
-      t.belongs_to :chord
-      t.belongs_to :mode
+      t.references :chord
+      t.references :mode
       t.integer :strength
       t.text :information
     end
     
     create_table :voicings do |t|
-      t.belongs_to :chord
+      t.references :chord
       t.string :name
       t.text :information
     end
     
     create_table :voicing_tones do |t|
-      t.belongs_to :voicings
+      t.references :voicings
       t.integer :position
       t.integer :tone
       t.integer :tone_reference_offset, :default => 0
