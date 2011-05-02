@@ -1,10 +1,7 @@
 Jazzity::Application.routes.draw do
-
-  devise_for :users
-
-  resources :authentications
+  
   resources :searches
-
+  
   resources :keys
   resources :concepts
   resources :musicians
