@@ -4,6 +4,7 @@ class CreateMusicians < ActiveRecord::Migration
       t.string :first_name
       t.string :last_name
       t.string :nickname
+      t.string :cached_slug
       t.date :born_on
       t.date :died_on
       t.integer :prominence
@@ -13,6 +14,7 @@ class CreateMusicians < ActiveRecord::Migration
     end
 
     add_index :musicians, :instrument_id
+    add_index :musicians, :cached_slug, :unique => true
   end
 
   def self.down

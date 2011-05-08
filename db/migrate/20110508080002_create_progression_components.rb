@@ -5,6 +5,7 @@ class CreateProgressionComponents < ActiveRecord::Migration
       t.integer :position
       t.integer :chord_id
       t.integer :index
+      t.string :notes
       t.timestamps
     end
 

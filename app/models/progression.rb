@@ -4,6 +4,8 @@ class Progression < ActiveRecord::Base
   has_many :components, :class_name => "ProgressionComponent"
   has_many :chords, :through => :components
 
+  has_friendly_id :name, :use_slug => true
+
   scope :full_tune, where(:full_tune => true)
   scope :partial, where(:full_tune => false)
 

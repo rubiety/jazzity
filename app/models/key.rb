@@ -1,6 +1,8 @@
 class Key < ActiveRecord::Base
   Letters = ['C' => 0, 'D' => 1, 'E' => 2, 'F' => 3, 'G' => 4, 'A' => 5, 'B' => 6]
 
+  has_friendly_id :name, :use_slug => true
+
   validates :name, :presence => true
   validates :index, :presence => true
   validates :letter_index, :presence => true

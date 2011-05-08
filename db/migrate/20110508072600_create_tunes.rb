@@ -3,6 +3,7 @@ class CreateTunes < ActiveRecord::Migration
     create_table :tunes do |t|
       t.string :name
       t.string :alternate_name
+      t.string :cached_slug
       t.integer :vehicle_id
       t.integer :meter_id
       t.integer :key_id
@@ -20,6 +21,7 @@ class CreateTunes < ActiveRecord::Migration
       t.timestamps
     end
 
+    add_index :tunes, :cached_slug, :unique => true
     add_index :tunes, :vehicle_id
     add_index :tunes, :meter_id
     add_index :tunes, :key_id

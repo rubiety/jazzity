@@ -2,6 +2,7 @@ class Chord < ActiveRecord::Base
   include KeyContext
   
   acts_as_tree
+  has_friendly_id :name, :use_slug => true
   
   belongs_to :chord_quality
 

@@ -6,6 +6,8 @@ class Mode < ActiveRecord::Base
 	has_many :chord_scales
 	has_many :chords, :through => :chord_scales, :extend => ChordCollection
 
+  has_friendly_id :name, :use_slug => true
+
 	delegate :notes, :to => :tones
 
   validates :name, :presence => true
