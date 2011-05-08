@@ -1,0 +1,28 @@
+%article#scale
+  %header
+    %h1= @scale.title
+    %p= @scale.information
+    %p
+      %label Intervals:
+      Whole Step, Whole Step, Half Step, Whole Step
+
+  %nav#modes-list
+    %ul
+      - @scale.modes.each do |mode|
+        %li= link_to_unless mode == @mode, mode, [@key, @scale, mode]
+
+  %aside#key-selector
+    %h2 Key:
+    %ul
+      - Key.primaries.each do |key|
+        %li= link_to_unless @key == key, key, [key, @scale, @mode]
+
+  %section#mode
+    %h2= @mode.title
+    %h3= @mode.notes.join(", ")
+    %nav.related-chords
+      %h3 Related Chords:
+      %ul
+        - @mode.chords.each do |chord|
+          %li= link_to chord, [@key, chord]
+

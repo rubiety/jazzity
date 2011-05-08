@@ -7,7 +7,7 @@ module ToneSequence
 
 	# Manually specifies the key context for this tone sequence only.
 	def in_key_of(in_key = nil)
-		@key = in_key.instance_of?(String) ? Key[in_key] : in_key
+		@key = in_key.is_a?(Key) ? in_key : Key[in_key]
 		self
 	end
 

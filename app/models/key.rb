@@ -1,7 +1,7 @@
 class Key < ActiveRecord::Base
   Letters = ['C' => 0, 'D' => 1, 'E' => 2, 'F' => 3, 'G' => 4, 'A' => 5, 'B' => 6]
 
-  has_friendly_id :name, :use_slug => true
+  has_friendly_id :name
 
   validates :name, :presence => true
   validates :index, :presence => true
@@ -10,6 +10,10 @@ class Key < ActiveRecord::Base
 
   def to_s
     name
+  end
+
+  def main?
+    name == "C"
   end
 
   # Finds a key given a tonal index 0-11 and a letter index (to disambiguate enharmonic keys)
@@ -31,7 +35,7 @@ class Key < ActiveRecord::Base
 
   # Returns an array of the 12 primary keys (definitions around the cycle of fourths)
   def self.primaries
-    find_all_by_primary(true)
+    where(:primary => true)
   end
 
   def self.default

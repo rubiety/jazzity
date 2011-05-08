@@ -13,4 +13,45 @@ body.scales, body.modes {
     }
   }
 
+  article#scale {
+    header {
+      p {
+        label { font-weight: bold; }
+      }
+    }
+
+    #modes-list {
+      margin-top: 10px;
+      background: #CCC;
+      padding: 5px;
+      @include border-radius(6px);
+
+      ul {
+        @include horizontal-list;
+        li { margin: 0 10px 0 0; }
+      }
+    }
+
+    #key-selector {
+      width: 5%;
+      float: right;
+      margin-top: 15px;
+      background: #CCC;
+      padding: 10px;
+      ul {
+        list-style-type: none;
+        margin: 0;
+        li { padding: 5px; }
+      }
+    }
+
+    #mode {
+      float: left;
+      width: 90%;
+      margin-top: 15px;
+
+      h2 { font-size: 1.2em; }
+    }
+  }
+
 }

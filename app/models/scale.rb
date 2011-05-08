@@ -16,6 +16,14 @@ class Scale < ActiveRecord::Base
     name
   end
 
+  def title
+    if key
+      "The #{key} #{name} Scale"
+    else
+      "The #{name} Scale"
+    end
+  end
+
 	class << self
 		def resolve(symbol)
 			in_key = nil

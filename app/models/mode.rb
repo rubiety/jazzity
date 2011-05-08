@@ -18,6 +18,18 @@ class Mode < ActiveRecord::Base
     name
   end
 
+  def title
+    if key
+      "#{key} #{name}"
+    else
+      name
+    end
+  end
+
+  def main?
+    mode == 1
+  end
+
 	def tones
 		if self.key
 			self.scale.tones.in_mode(self.mode).in_key_of(self.key)

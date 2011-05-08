@@ -4,7 +4,7 @@ module KeyContext
 			attr_accessor :key
 		
 			def in_key_of(name)
-				self.key = Key.find_by_name(name)
+				self.key = name.is_a?(Key) ? name : Key[name]
 				self
 			end
 			alias_method :in, :in_key_of
