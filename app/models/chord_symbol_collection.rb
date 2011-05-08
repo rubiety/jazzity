@@ -10,6 +10,7 @@ module ChordSymbolCollection
       cs.case_sensitive? ? (cs.name == symbol) : (cs.name.downcase == symbol.downcase)
     end
   end
+
   alias_method :[], :resolve
 
 end

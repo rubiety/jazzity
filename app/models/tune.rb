@@ -8,6 +8,7 @@ class Tune < ActiveRecord::Base
   belongs_to :ending_chord, :class_name => "Chord"
   belongs_to :contrafact_of_tune, :class_name => "Tune"
 
+  validates :name, :presence => true
   validates :tonality, :inclusion => ["Major", "Minor"]
   validates :concept, :inclusion => ["Instrumental", "Vocal"]
 

@@ -5,4 +5,7 @@ class ScaleTone < Tone
 
 	delegate :key, :to => :scale
 
+  validates :tone, :presence => true, :numericality => true
+  validates :letter_index, :presence => true, :numericality => true
+
 end

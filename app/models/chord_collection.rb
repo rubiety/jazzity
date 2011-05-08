@@ -53,6 +53,7 @@ module ChordCollection
     chord.key = in_key unless in_key.nil?
     chord
   end
+
   alias_method :[], :resolve
 
 end

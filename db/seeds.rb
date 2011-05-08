@@ -159,8 +159,8 @@ Scale.create!(:name => 'Major').tap do |s|
   s.modes.create!(:mode => 3, :name => 'Phrygian')
   s.modes.create!(:mode => 4, :name => 'Lydian')
   s.modes.create!(:mode => 5, :name => 'Mixolydian')
-  s.modes.create!(:name => 6, :name => 'Aeolian')
-  s.modes.create!(:name => 7, :name => 'Locrian')
+  s.modes.create!(:mode => 6, :name => 'Aeolian')
+  s.modes.create!(:mode => 7, :name => 'Locrian')
 end
 
 Scale.create!(:name => 'Melodic Minor').tap do |s|
@@ -179,8 +179,8 @@ Scale.create!(:name => 'Melodic Minor').tap do |s|
   s.modes.create!(:mode => 3, :name => 'Lydian Augmented')
   s.modes.create!(:mode => 4, :name => 'Lydian Dominant', :synonyms => 'Mixolydian #4')
   s.modes.create!(:mode => 5, :name => 'Mixolydian b6')
-  s.modes.create!(:name => 6, :name => 'Locrian #2', :synonyms => 'Aeolian b5')
-  s.modes.create!(:name => 7, :name => 'Super Locrian', :synonyms => 'Diminished Whole Tone')
+  s.modes.create!(:mode => 6, :name => 'Locrian #2', :synonyms => 'Aeolian b5')
+  s.modes.create!(:mode => 7, :name => 'Super Locrian', :synonyms => 'Diminished Whole Tone')
 end
 
 Scale.create!(:name => 'Whole Tone', :symmetry_index => 2).tap do |s|
@@ -296,7 +296,7 @@ ChordQuality.create!(:name => 'Major', :code => 'MAJ').tap do |q|
       {:tone => Tone::Interval::MAJOR_7TH, :letter_index => Tone::LetterInterval::SEVENTH, :strength => 2}
     ])
 
-    c.children.create!(:name => 'Major 7 #11').tap do |cc|
+    c.children.create!(:chord_quality => q, :name => 'Major 7 #11').tap do |cc|
       cc.symbols.create!(:name => 'maj7#11', :primary => true)
       cc.symbols.create!(:name => 'M7#11')
       cc.symbols.create!(:name => 'major7#11')
@@ -314,7 +314,7 @@ ChordQuality.create!(:name => 'Major', :code => 'MAJ').tap do |q|
       cc.chord_scales << ChordScale.specify(Scale['Major'][4])
     end
 
-    c.children.create!(:name => 'Lydian Augmented').tap do |cc|
+    c.children.create!(:chord_quality => q, :name => 'Lydian Augmented').tap do |cc|
       cc.symbols.create!(:name => 'maj7#4#5', :primary => true)
       cc.symbols.create!(:name => 'lydaug')
       cc.symbols.create!(:name => 'maj7#11#5')
@@ -468,7 +468,7 @@ ChordQuality.create!(:name => 'Dominant', :code => 'DOM').tap do |q|
 
     c.chord_scales << ChordScale.specify(Scale['Major']['Mixolydian'])
 
-    c.children.create!(:name => 'Dominant 9').tap do |cc|
+    c.children.create!(:chord_quality => q, :name => 'Dominant 9').tap do |cc|
       cc.symbols.create!(:name => '9', :primary => true)
       cc.symbols.create!(:name => 'dom9')
 
@@ -483,7 +483,7 @@ ChordQuality.create!(:name => 'Dominant', :code => 'DOM').tap do |q|
       cc.chord_scales << ChordScale.specify(Scale['Major']['Mixolydian'])
     end
 
-    c.children.create!(:name => 'Dominant 6/9').tap do |cc|
+    c.children.create!(:chord_quality => q, :name => 'Dominant 6/9').tap do |cc|
       cc.symbols.create!(:name => '6/9', :primary => true)
       cc.symbols.create!(:name => '69')
 
@@ -500,7 +500,7 @@ ChordQuality.create!(:name => 'Dominant', :code => 'DOM').tap do |q|
       cc.chord_scales << ChordScale.specify(Scale['Major']['Ionian'])
     end
 
-    c.children.create!(:name => 'Dominant b9').tap do |cc|
+    c.children.create!(:chord_quality => q, :name => 'Dominant b9').tap do |cc|
       cc.symbols.create!(:name => '7b9', :primary => true)
 
       cc.tones.create([
@@ -515,7 +515,7 @@ ChordQuality.create!(:name => 'Dominant', :code => 'DOM').tap do |q|
       cc.chord_scales << ChordScale.specify(Scale['Major']['Mixolydian'], 2)
     end
 
-    c.children.create!(:name => 'Dominant #9').tap do |cc|
+    c.children.create!(:chord_quality => q, :name => 'Dominant #9').tap do |cc|
       cc.symbols.create!(:name => '7#9', :primary => true)
 
       cc.tones.create([
@@ -530,7 +530,7 @@ ChordQuality.create!(:name => 'Dominant', :code => 'DOM').tap do |q|
       cc.chord_scales << ChordScale.specify(Scale['Diminished'][1], 2)
     end
 
-    c.children.create!(:name => 'Dominant #11').tap do |cc|
+    c.children.create!(:chord_quality => q, :name => 'Dominant #11').tap do |cc|
       cc.symbols.create!(:name => '7#11', :primary => true)
       cc.symbols.create!(:name => 'lyd7')
       cc.symbols.create!(:name => 'lydiandom')
@@ -546,7 +546,7 @@ ChordQuality.create!(:name => 'Dominant', :code => 'DOM').tap do |q|
       cc.chord_scales << ChordScale.specify(Scale['Melodic Minor'][4])
     end
 
-    c.children.create!(:name => 'Mixoylidian b6').tap do |cc|
+    c.children.create!(:chord_quality => q, :name => 'Mixoylidian b6').tap do |cc|
       cc.symbols.create!(:name => '7b6', :primary => true)
 
       cc.tones.create([
@@ -560,7 +560,7 @@ ChordQuality.create!(:name => 'Dominant', :code => 'DOM').tap do |q|
       cc.chord_scales << ChordScale.specify(Scale['Melodic Minor'][5])
     end
 
-    c.children.create!(:name => 'Altered').tap do |cc|
+    c.children.create!(:chord_quality => q, :name => 'Altered').tap do |cc|
       cc.symbols.create!(:name => 'alt', :primary => true)
       cc.symbols.create!(:name => 'altered')
       cc.symbols.create!(:name => '7#9#5')
@@ -581,7 +581,7 @@ ChordQuality.create!(:name => 'Dominant', :code => 'DOM').tap do |q|
       cc.chord_scales << ChordScale.specify(Scale['Melodic Minor'][7])
     end
 
-    c.children.create!(:name => 'Dominant b5').tap do |cc|
+    c.children.create!(:chord_quality => q, :name => 'Dominant b5').tap do |cc|
       cc.symbols.create!(:name => '7b5', :primary => true)
 
       cc.tones.create([

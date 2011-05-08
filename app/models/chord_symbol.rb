@@ -1,13 +1,17 @@
 class ChordSymbol < ActiveRecord::Base
   belongs_to :chord
 
-  class << self
-    # Finds a chord symbol
-    def resolve(symbol)
-      self.all.detect do |cs|
-        cs.case_sensitive? ? (cs.name == symbol) : (cs.name.downcase == symbol.downcase)
-      end
+  validates :name, :presence => true
+  validates :chord, :presence => true
+
+  # Finds a chord symbol
+  def self.resolve(symbol)
+    all.detect do |cs|
+      cs.case_sensitive? ? (cs.name == symbol) : (cs.name.downcase == symbol.downcase)
     end
+  end
+
+  class << self
     alias_method :[], :resolve
   end
 

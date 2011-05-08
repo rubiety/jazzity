@@ -4,4 +4,10 @@ class Voicing < ActiveRecord::Base
 
 	delegate :key, :to => :chord
 
+  validates :name, :presence => true
+
+  def to_s
+    name
+  end
+
 end

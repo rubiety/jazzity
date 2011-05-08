@@ -8,6 +8,8 @@ class Scale < ActiveRecord::Base
 	delegate :notes, :to => :tones
 	delegate :chords, :to => :main_mode
 
+  validates :name, :presence => true
+
   def to_s
     name
   end

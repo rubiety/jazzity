@@ -15,6 +15,9 @@ class Chord < ActiveRecord::Base
 
   delegate :notes, :to => :tones
 
+  validates :name, :presence => true
+  validates :chord_quality, :presence => true
+
   def to_s
     name
   end
@@ -23,42 +26,41 @@ class Chord < ActiveRecord::Base
     self.symbols.map {|s| s.name }.join(', ')
   end
 
-  class << self
+  # Resolves a chord symbol into a chord.
+  # Implementation is somewhat flakey due to the potential ambiguities arising 
+  # from specifying key and symbols together.
+  def self.resolve(symbol)
+    in_key = nil
   
-    # Resolves a chord symbol into a chord.
-    # Implementation is somewhat flakey due to the potential ambiguities arising 
-    # from specifying key and symbols together.
-    def resolve(symbol)
-      in_key = nil
-    
-      return nil if symbol.nil?
-      symbol = symbol.dup
-    
-      Key.all.each do |k|
-        if symbol.starts_with?(k.name)
-          in_key = k
-          symbol.sub!(k.name, '').strip
-          break
-        end
+    return nil if symbol.nil?
+    symbol = symbol.dup
+  
+    Key.all.each do |k|
+      if symbol.starts_with?(k.name)
+        in_key = k
+        symbol.sub!(k.name, '').strip
+        break
       end
-    
-      chord_symbol = ChordSymbol[symbol]
-    
-      # Perhaps the matched key was really part of the name of the chord, try that:
-      if chord_symbol.nil? && !in_key.nil?
-        symbol = in_key.name + symbol
-        chord_symbol = ChordSymbol[symbol]
-      end
-    
-      # If still not found, must be invalid:
-      return nil if chord_symbol.nil?
-    
-      chord = chord_symbol.chord
-      chord.key = in_key unless in_key.nil?
-      chord
     end
-    alias_method :[], :resolve
   
+    chord_symbol = ChordSymbol[symbol]
+  
+    # Perhaps the matched key was really part of the name of the chord, try that:
+    if chord_symbol.nil? && !in_key.nil?
+      symbol = in_key.name + symbol
+      chord_symbol = ChordSymbol[symbol]
+    end
+  
+    # If still not found, must be invalid:
+    return nil if chord_symbol.nil?
+  
+    chord = chord_symbol.chord
+    chord.key = in_key unless in_key.nil?
+    chord
+  end
+
+  class << self
+    alias_method :[], :resolve
   end
 
 end

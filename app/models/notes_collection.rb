@@ -1,4 +1,4 @@
-require 'set'
+require "set"
 
 class NotesCollection
 	include Enumerable
@@ -40,12 +40,6 @@ class NotesCollection
 			end.flatten
 		end.extend(ChordCollection)
 	end
-
-	# XML Representation
-	def to_xml
-		'<NotesCollection name="' + @value_as_given.to_s + '"></NotesCollection>'
-	end
-
 
 	private
 

@@ -8,6 +8,10 @@ class Mode < ActiveRecord::Base
 
 	delegate :notes, :to => :tones
 
+  validates :name, :presence => true
+  validates :mode, :presence => true, :numericality => true
+  validates :scale, :presence => true
+
   def to_s
     name
   end
