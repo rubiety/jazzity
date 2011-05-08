@@ -1,8 +1,7 @@
-%ul#scales-list
-  - @scales.each do |scale|
-    %li
-      = scale
-      - unless scale.modes.empty?
-        %ul
-          - scale.modes.each do |mode|
-            %li= mode
+- @scales.each do |scale|
+  %article[scale]
+    %h3= link_to scale, scale
+    - unless scale.modes.empty?
+      %ul.modes-list
+        - scale.modes.each do |mode|
+          %li[mode]= mode
