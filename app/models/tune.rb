@@ -14,4 +14,11 @@ class Tune < ActiveRecord::Base
   validates :tonality, :inclusion => ["Major", "Minor"]
   validates :concept, :inclusion => ["Instrumental", "Vocal"]
 
+  def title
+    alternate_name.present? ? "#{name} (#{alternate_name})" : name
+  end
+
+  def to_s
+    title
+  end
 end

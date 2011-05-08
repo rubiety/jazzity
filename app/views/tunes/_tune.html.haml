@@ -1,0 +1,29 @@
+%article[tune]
+  %h3= link_to tune.title, tune
+  - if tune.vehicle
+    %p
+      %label Vehicle: 
+      = tune.vehicle
+  - if tune.meter
+    %p
+      %label Meter: 
+      = tune.meter
+  - if tune.concept
+    %p
+      %label Concept: 
+      = tune.concept
+  - if tune.key
+    %p
+      %label Key:
+      = tune.key
+      = tune.tonality
+      = " (Also #{tune.secondary_key})" if tune.secondary_key
+  - if tune.form
+    %p
+      %label Form:
+      = tune.form
+      = "#{tune.form_length} Bars" if tune.form_length
+      = tune.form_lengths if tune.form_lengths
+
+
+
