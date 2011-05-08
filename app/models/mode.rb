@@ -8,6 +8,10 @@ class Mode < ActiveRecord::Base
 
 	delegate :notes, :to => :tones
 
+  def to_s
+    name
+  end
+
 	def tones
 		if self.key
 			self.scale.tones.in_mode(self.mode).in_key_of(self.key)

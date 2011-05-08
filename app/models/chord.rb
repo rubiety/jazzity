@@ -15,6 +15,10 @@ class Chord < ActiveRecord::Base
 
   delegate :notes, :to => :tones
 
+  def to_s
+    name
+  end
+
   def symbols_list
     self.symbols.map {|s| s.name }.join(', ')
   end

@@ -1,0 +1,8 @@
+%ul#scales-list
+  - @scales.each do |scale|
+    %li
+      = scale
+      - unless scale.modes.empty?
+        %ul
+          - scale.modes.each do |mode|
+            %li= mode

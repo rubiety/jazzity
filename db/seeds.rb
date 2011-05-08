@@ -9,6 +9,7 @@
 
 ### CLEAR EXISTING JAZZ MODEL TABLE ###
 %w(
+  forms
   chord_qualities
   chord_scales
   chord_symbols
@@ -23,6 +24,17 @@
 ).each do |table|
   ActiveRecord::Base.connection.execute "TRUNCATE TABLE `#{table}`"
 end
+
+
+### FORMS ###
+Form.create!(:name => "A-A-B-A")
+Form.create!(:name => "A-A-B")
+Form.create!(:name => "A-B-A-C")
+Form.create!(:name => "A-B-C")
+Form.create!(:name => "A-B-A")
+Form.create!(:name => "A-B")
+Form.create!(:name => "A-B-C-D")
+Form.create!(:name => "A-B-A-B")
 
 
 ### KEYS ###

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110117051839) do
+ActiveRecord::Schema.define(:version => 20110508071520) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -58,6 +58,12 @@ ActiveRecord::Schema.define(:version => 20110117051839) do
     t.string  "name"
     t.text    "synonyms"
     t.text    "information"
+  end
+
+  create_table "forms", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "keys", :force => true do |t|

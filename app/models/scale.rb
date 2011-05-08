@@ -8,6 +8,10 @@ class Scale < ActiveRecord::Base
 	delegate :notes, :to => :tones
 	delegate :chords, :to => :main_mode
 
+  def to_s
+    name
+  end
+
 	class << self
 		def resolve(symbol)
 			in_key = nil
