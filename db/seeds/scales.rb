@@ -1,4 +1,4 @@
-Scale.create!(:name => 'Major').tap do |s|
+Scale.create!(:name => 'Major', :information => "The major scale and its modes is the most commonly-used scale in western music.").tap do |s|
   s.tones.create([
     {:tone => 0, :letter_index => Tone::LetterInterval::FIRST},
     {:tone => 2, :letter_index => Tone::LetterInterval::SECOND},
@@ -18,7 +18,7 @@ Scale.create!(:name => 'Major').tap do |s|
   s.modes.create!(:mode => 7, :name => 'Locrian')
 end
 
-Scale.create!(:name => 'Melodic Minor').tap do |s|
+Scale.create!(:name => 'Melodic Minor', :information => "The melodic minor scale is similar to the major scale with only one difference - it uses a minor third instead of a major third.").tap do |s|
   s.tones.create([
     {:tone => 0, :letter_index => Tone::LetterInterval::FIRST},
     {:tone => 2, :letter_index => Tone::LetterInterval::SECOND},
@@ -38,7 +38,7 @@ Scale.create!(:name => 'Melodic Minor').tap do |s|
   s.modes.create!(:mode => 7, :name => 'Super Locrian', :synonyms => 'Diminished Whole Tone')
 end
 
-Scale.create!(:name => 'Whole Tone', :symmetry_index => 2).tap do |s|
+Scale.create!(:name => 'Whole Tone', :symmetry_index => 2, :information => "The whole tone scale is in open, suspended harmony and works well with #5 chords.").tap do |s|
   s.tones.create([
     {:tone => 0, :letter_index => Tone::LetterInterval::FIRST},
     {:tone => 2, :letter_index => Tone::LetterInterval::SECOND},
@@ -51,7 +51,7 @@ Scale.create!(:name => 'Whole Tone', :symmetry_index => 2).tap do |s|
   s.modes.create!(:mode => 1, :name => 'Whole Tone')
 end
 
-Scale.create!(:name => 'Pentatonic').tap do |s|
+Scale.create!(:name => 'Pentatonic', :information => "A foundation of the major bebop scale and used significantly in jazz, the Pentatonic scale models the black keys on the piano.").tap do |s|
   s.tones.create([
     {:tone => 0, :letter_index => Tone::LetterInterval::FIRST},
     {:tone => 2, :letter_index => Tone::LetterInterval::SECOND},
@@ -63,7 +63,7 @@ Scale.create!(:name => 'Pentatonic').tap do |s|
   s.modes.create!(:mode => 1, :name => 'Pentatonic')
 end
 
-Scale.create!(:name => 'Blues').tap do |s|
+Scale.create!(:name => 'Blues', :information => "The blues scale is used pervasively in the jazz idiom, and works especiall well with the most common progression in Jazz - the Blues Progression.").tap do |s|
   s.tones.create([
     {:tone => 0, :letter_index => Tone::LetterInterval::FIRST},
     {:tone => 2, :letter_index => Tone::LetterInterval::SECOND},
@@ -77,7 +77,7 @@ Scale.create!(:name => 'Blues').tap do |s|
   s.modes.create!(:mode => 5, :name => 'Minor Blues')
 end
 
-Scale.create!(:name => 'Diminished', :symmetry_index => 3).tap do |s|
+Scale.create!(:name => 'Diminished', :symmetry_index => 3, :information => "The diminished scale alternatives whole steps and half steps to produce a symmetric scale with some interesting attributes.").tap do |s|
   s.tones.create([
     {:tone => 0, :letter_index => Tone::LetterInterval::FIRST},
     {:tone => 1, :letter_index => Tone::LetterInterval::SECOND},
@@ -93,7 +93,7 @@ Scale.create!(:name => 'Diminished', :symmetry_index => 3).tap do |s|
   s.modes.create!(:mode => 2, :name => 'Whole-Half')
 end
 
-Scale.create!(:name => 'Harmonic Minor').tap do |s|
+Scale.create!(:name => 'Harmonic Minor', :information => "The harmonic minor scale is used mostly in classical but many jazz musicians alternate this with other minor scales.").tap do |s|
   s.tones.create([
     {:tone => 0, :letter_index => Tone::LetterInterval::FIRST},
     {:tone => 2, :letter_index => Tone::LetterInterval::SECOND},
@@ -105,7 +105,7 @@ Scale.create!(:name => 'Harmonic Minor').tap do |s|
   ])
 end
 
-Scale.create!(:name => 'Bebop').tap do |s|
+Scale.create!(:name => 'Bebop', :information => "The bebop scale introduces a passing tone 7th to the major scale, resulting in an 8-note scale that fits well with typical even meters.").tap do |s|
   s.tones.create([
     {:tone => 0, :letter_index => Tone::LetterInterval::FIRST},
     {:tone => 2, :letter_index => Tone::LetterInterval::SECOND},

@@ -1,7 +1,1 @@
-- @scales.each do |scale|
-  %article[scale]
-    %h3= link_to scale, scale
-    - unless scale.modes.empty?
-      %ul.modes-list
-        - scale.modes.each do |mode|
-          %li[mode]= mode
+= render @scales

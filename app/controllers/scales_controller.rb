@@ -12,6 +12,6 @@ class ScalesController < ApplicationController
   protected
 
   def find_scale
-    @scale = Scale[params[:id]]
+    @scale = Scale.find(params[:id])
   end
 end

@@ -82,6 +82,7 @@ class InitialJazzModels < ActiveRecord::Migration
       t.string :cached_slug
       t.text :synonyms
       t.integer :dissonance
+      t.text :information
     end
 
     add_index :modes, :scale_id
