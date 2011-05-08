@@ -1,3 +1,68 @@
-body.dashboard {
+body.dashboards {
+  
+  section#search {
+    background: #CCC;
+    padding: 15px;
+    form {
+      label { 
+        display: inline;
+        margin-right: 10px;
+      }
+      input { margin-top: 0; }
+      input#query {
+        margin-right: 5px;
+        font-size: 1.2em;
+        width: 500px;
+      }
+    }
+  }
+
+  section#search-examples {
+    @include clearfix;
+    padding: 15px;
+    border-bottom: 5px solid #CCC;
+    margin-bottom: 10px;
+    h2 {
+      float: left;
+      width: 100px;
+    }
+    ul {
+      width: 200px;
+      float: left;
+      list-style-type: none;
+      margin-left: 0;
+      font-size: 0.8em;
+      li { padding: 3px; }
+    }
+    footer {
+      margin-left: 100px;
+      input[type=submit] {
+        font-size: 14px;
+      }
+    }
+  }
+
+  section#about-site {
+    float: left;
+    width: 40%;
+    padding: 15px;
+    h2 {
+      margin-bottom: 5px;
+    }
+  }
+
+  section#features-overview {
+    float: right;
+    width: 50%;
+    padding: 15px;
+    border-left: 1px solid #666;
+
+    article {
+      margin-bottom: 15px;
+      h2 {
+        margin-bottom: 5px;
+      }
+    }
+  }
 
 }

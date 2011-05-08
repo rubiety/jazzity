@@ -1,0 +1,53 @@
+%section#search
+  - form_tag searches_path do
+    = label_tag "Explore Jazz: "
+    = text_field_tag :query
+    = submit_tag "Go"
+
+%section#search-examples
+  %h2 Examples: 
+  %ul
+    %li= link_to "Cherokee", "#"
+    %li= link_to "Giant Steps", "#"
+    %li= link_to "Rhythm Changes", "#"
+    %li= link_to "Blues Progression", "#"
+  %ul
+    %li= link_to "Eb Dorian", "#"
+    %li= link_to "C Major Scale", "#"
+    %li= link_to "Bb Diminished Whole Tone", "#"
+    %li= link_to "Tritone Substitution"
+  %ul
+    %li= link_to "Ebmaj7"
+    %li= link_to "C7alt"
+    %li= link_to "Amin7/C"
+    %li= link_to "So What Voicing"
+  %ul
+    %li= link_to "C E G A"
+    %li= link_to "Eb G Bb D"
+    %li= link_to "A C E G in C Major"
+  %footer
+    = button_to "What kinds of information can I search for?", "#"
+
+%section#about-site
+  %h2 What is Jazzity?
+  %p Phasellus ac libero a lorem auctor mattis.
+  %p
+    Suspendisse vestibulum dignissim quam. Integer vel augue. Phasellus nulla purus, interdum ac, venenatis non, varius rutrum, leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
+
+%section#features-overview
+  %article
+    %h2 Explore Chord/Scale Relationships
+    %p
+      Morbi non erat non ipsum pharetra tempus. Donec orci. Proin in ante. Pellentesque sit amet purus. Cras egestas diam sed ante. Etiam imperdiet urna sit amet risus. Donec ornare arcu id erat. Aliquam ultrices scelerisque sem. In elit nulla, molestie vel, ornare sit amet, interdum vel, mauris. Etiam dignissim imperdiet metus.
+  %article
+    %h2 Analyze a Note Sequence
+    %p
+      Morbi non erat non ipsum pharetra tempus. Donec orci. Proin in ante. Pellentesque sit amet purus. Cras egestas diam sed ante. Etiam imperdiet urna sit amet risus. Donec ornare arcu id erat. Aliquam ultrices scelerisque sem. In elit nulla, molestie vel, ornare sit amet, interdum vel, mauris. Etiam dignissim imperdiet metus.
+  %article
+    %h2 Explore Popular Jazz Tunes
+    %p
+      Morbi non erat non ipsum pharetra tempus. Donec orci. Proin in ante. Pellentesque sit amet purus. Cras egestas diam sed ante. Etiam imperdiet urna sit amet risus. Donec ornare arcu id erat. Aliquam ultrices scelerisque sem. In elit nulla, molestie vel, ornare sit amet, interdum vel, mauris. Etiam dignissim imperdiet metus.
+  %article
+    %h2 Discuss Jazz Concepts
+    %p
+      Morbi non erat non ipsum pharetra tempus. Donec orci. Proin in ante. Pellentesque sit amet purus. Cras egestas diam sed ante. Etiam imperdiet urna sit amet risus. Donec ornare arcu id erat. Aliquam ultrices scelerisque sem. In elit nulla, molestie vel, ornare sit amet, interdum vel, mauris. Etiam dignissim imperdiet metus.
