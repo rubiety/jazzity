@@ -10,6 +10,8 @@
 ### CLEAR EXISTING JAZZ MODEL TABLE ###
 %w(
   forms
+  vehicles
+  tunes
   chord_qualities
   chord_scales
   chord_symbols
@@ -27,6 +29,7 @@ end
 
 
 ### FORMS ###
+
 Form.create!(:name => "A-A-B-A")
 Form.create!(:name => "A-A-B")
 Form.create!(:name => "A-B-A-C")
@@ -36,6 +39,19 @@ Form.create!(:name => "A-B")
 Form.create!(:name => "A-B-C-D")
 Form.create!(:name => "A-B-A-B")
 
+### VEHICLES ###
+
+Vehicle.create!(:name => "Standard")
+Vehicle.create!(:name => "Bebop")
+Vehicle.create!(:name => "Swing")
+Vehicle.create!(:name => "Bossa")
+Vehicle.create!(:name => "Waltz")
+Vehicle.create!(:name => "Dixieland")
+Vehicle.create!(:name => "Ballad")
+
+### TUNES ###
+
+# TODO
 
 ### KEYS ###
 

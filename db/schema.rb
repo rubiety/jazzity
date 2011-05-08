@@ -10,17 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110508071520) do
-
-  create_table "authentications", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "provider"
-    t.string   "uid"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "authentications", ["user_id"], :name => "index_authentications_on_user_id"
+ActiveRecord::Schema.define(:version => 20110508073244) do
 
   create_table "chord_qualities", :force => true do |t|
     t.string "name"
@@ -75,6 +65,14 @@ ActiveRecord::Schema.define(:version => 20110508071520) do
     t.integer "cycle_index"
   end
 
+  create_table "meters", :force => true do |t|
+    t.string   "name"
+    t.integer  "beats"
+    t.integer  "division"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "modes", :force => true do |t|
     t.integer "scale_id"
     t.integer "mode"
@@ -96,29 +94,42 @@ ActiveRecord::Schema.define(:version => 20110508071520) do
     t.integer "symmetry_index"
   end
 
-  create_table "users", :force => true do |t|
+  create_table "tunes", :force => true do |t|
     t.string   "name"
-    t.boolean  "administrator",                       :default => false
-    t.string   "email",                               :default => "",    :null => false
-    t.string   "encrypted_password",   :limit => 128, :default => "",    :null => false
-    t.string   "password_salt",                       :default => "",    :null => false
-    t.string   "reset_password_token"
-    t.string   "remember_token"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                       :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
+    t.string   "alternate_name"
+    t.integer  "vehicle_id"
+    t.integer  "meter_id"
+    t.integer  "key_id"
+    t.integer  "secondary_key_id"
+    t.string   "tonality",                   :default => "Major"
+    t.string   "concept",                    :default => "Instrumental"
+    t.integer  "form_id"
+    t.integer  "form_length"
+    t.string   "form_lengths"
+    t.integer  "starting_chord_id"
+    t.integer  "ending_chord_id"
+    t.integer  "contrafact_of_tune_id"
+    t.integer  "tempo"
+    t.integer  "aebersold_playalong_number"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "tunes", ["aebersold_playalong_number"], :name => "index_tunes_on_aebersold_playalong_number"
+  add_index "tunes", ["form_id"], :name => "index_tunes_on_form_id"
+  add_index "tunes", ["key_id"], :name => "index_tunes_on_key_id"
+  add_index "tunes", ["meter_id"], :name => "index_tunes_on_meter_id"
+  add_index "tunes", ["secondary_key_id"], :name => "index_tunes_on_secondary_key_id"
+  add_index "tunes", ["vehicle_id"], :name => "index_tunes_on_vehicle_id"
+
+  create_table "vehicles", :force => true do |t|
+    t.string   "name"
+    t.integer  "parent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "vehicles", ["parent_id"], :name => "index_vehicles_on_parent_id"
 
   create_table "voicing_tones", :force => true do |t|
     t.integer "voicings_id"
