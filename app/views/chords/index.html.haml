@@ -1,8 +1,1 @@
-%ul#chords-list
-  - @chord_qualities.each do |chord_quality|
-    %li
-      = chord_quality
-      - unless chord_quality.chords.empty?
-        %ul
-          - chord_quality.chords.each do |chord|
-            %li= chord
+= render @chord_qualities

@@ -127,6 +127,7 @@ ActiveRecord::Schema.define(:version => 20110508172047) do
     t.string  "cached_slug"
     t.text    "synonyms"
     t.integer "dissonance"
+    t.text    "information"
   end
 
   add_index "modes", ["cached_slug"], :name => "index_modes_on_cached_slug", :unique => true
