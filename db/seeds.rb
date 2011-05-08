@@ -15,6 +15,8 @@
   tunes
   instruments
   musicians
+  progressions
+  progression_components
   chord_qualities
   chord_scales
   chord_symbols
@@ -78,6 +80,11 @@ Instrument.create!(:name => "Trombone")
 
 # TODO
 # 
+
+### PROGRESSIONS ###
+
+Progression.create!(:name => "Blues", :bars => 12, :full_tune => true, :form => Form['A-B-C'])
+Progression.create!(:name => "Rhythm Changes", :bars => 32, :full_tune => true, :form => Form['A-A-B-A'])
 
 ### KEYS ###
 
