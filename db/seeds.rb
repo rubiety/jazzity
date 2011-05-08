@@ -9,9 +9,12 @@
 
 ### CLEAR EXISTING JAZZ MODEL TABLE ###
 %w(
+  meters
   forms
   vehicles
   tunes
+  instruments
+  musicians
   chord_qualities
   chord_scales
   chord_symbols
@@ -27,6 +30,14 @@
   ActiveRecord::Base.connection.execute "TRUNCATE TABLE `#{table}`"
 end
 
+
+### Meters ###
+
+Meter.create!(:name => "2/4", :beats => 2, :division => 4)
+Meter.create!(:name => "4/4", :beats => 4, :division => 4)
+Meter.create!(:name => "3/4", :beats => 3, :division => 4)
+Meter.create!(:name => "6/8", :beats => 6, :division => 8)
+Meter.create!(:name => "7/8", :beats => 7, :division => 8)
 
 ### FORMS ###
 
@@ -52,6 +63,21 @@ Vehicle.create!(:name => "Ballad")
 ### TUNES ###
 
 # TODO
+#
+
+### INSTRUMENTS ###
+
+Instrument.create!(:name => "Piano")
+Instrument.create!(:name => "Bass")
+Instrument.create!(:name => "Drums")
+Instrument.create!(:name => "Saxophone")
+Instrument.create!(:name => "Trumpet")
+Instrument.create!(:name => "Trombone")
+
+### MUSICIANS ###
+
+# TODO
+# 
 
 ### KEYS ###
 
