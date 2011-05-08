@@ -47,10 +47,14 @@ body.scales, body.modes {
 
     #mode {
       float: left;
-      width: 90%;
+      width: 92%;
       margin-top: 15px;
 
       h2 { font-size: 1.2em; }
+
+      nav.related-chords {
+        margin-top: 30px;
+      }
     }
   }
 

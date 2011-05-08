@@ -2,7 +2,7 @@ class ChordsController < ApplicationController
   before_filter :find_chord, :except => [:index, :new, :create]
 
   def index
-    @chord_qualities = ChordQuality.all
+    @chord_qualities = ChordQuality.includes(:chords)
   end
 
   def show

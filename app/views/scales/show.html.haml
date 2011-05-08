@@ -22,7 +22,6 @@
     %h3= @mode.notes.join(", ")
     %nav.related-chords
       %h3 Related Chords:
-      %ul
-        - @mode.chords.each do |chord|
-          %li= link_to chord, [@key, chord]
+      %ul.chords-list
+        = render @mode.chords
 
