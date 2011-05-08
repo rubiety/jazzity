@@ -7,6 +7,8 @@ class CreateProgressions < ActiveRecord::Migration
       t.boolean :full_tune, :default => false
       t.integer :meter_id
       t.integer :form_id
+      t.string :summary
+      t.text :information
       t.timestamps
     end
 

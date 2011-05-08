@@ -2,6 +2,7 @@ class ProgressionsController < ApplicationController
   before_filter :find_progression, :except => [:index, :new, :create]
 
   def index
+    @progressions = Progression.all
   end
 
   def show
@@ -11,6 +12,6 @@ class ProgressionsController < ApplicationController
   protected
 
   def find_progression
-    @progression = Progression[params[:id]]
+    @progression = Progression.find(params[:id])
   end
 end
