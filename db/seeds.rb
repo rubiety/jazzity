@@ -17,6 +17,7 @@
   musicians
   progressions
   progression_components
+  concepts
   chord_qualities
   chord_scales
   chord_symbols
@@ -85,6 +86,11 @@ Instrument.create!(:name => "Trombone")
 
 Progression.create!(:name => "Blues", :bars => 12, :full_tune => true, :form => Form['A-B-C'])
 Progression.create!(:name => "Rhythm Changes", :bars => 32, :full_tune => true, :form => Form['A-A-B-A'])
+
+### CONCEPTS ###
+
+Concept.create!(:name => "Drop-2", :about => "Test")
+Concept.create!(:name => "Tri-Tone Substitution", :about => "Test")
 
 ### KEYS ###
 

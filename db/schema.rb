@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110508073244) do
+ActiveRecord::Schema.define(:version => 20110508080838) do
 
   create_table "chord_qualities", :force => true do |t|
     t.string "name"
@@ -50,7 +50,20 @@ ActiveRecord::Schema.define(:version => 20110508073244) do
     t.text    "information"
   end
 
+  create_table "concepts", :force => true do |t|
+    t.string   "name"
+    t.text     "about"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "forms", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "instruments", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -80,6 +93,46 @@ ActiveRecord::Schema.define(:version => 20110508073244) do
     t.text    "synonyms"
     t.integer "dissonance"
   end
+
+  create_table "musicians", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "nickname"
+    t.date     "born_on"
+    t.date     "died_on"
+    t.integer  "prominence"
+    t.integer  "instrument_id"
+    t.text     "biography"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "musicians", ["instrument_id"], :name => "index_musicians_on_instrument_id"
+
+  create_table "progression_components", :force => true do |t|
+    t.integer  "progression_id"
+    t.integer  "position"
+    t.integer  "chord_id"
+    t.integer  "index"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "progression_components", ["chord_id"], :name => "index_progression_components_on_chord_id"
+  add_index "progression_components", ["position"], :name => "index_progression_components_on_position"
+  add_index "progression_components", ["progression_id"], :name => "index_progression_components_on_progression_id"
+
+  create_table "progressions", :force => true do |t|
+    t.string   "name"
+    t.integer  "bars"
+    t.boolean  "full_tune",  :default => false
+    t.integer  "meter_id"
+    t.integer  "form_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "progressions", ["meter_id"], :name => "index_progressions_on_meter_id"
 
   create_table "scale_tones", :force => true do |t|
     t.integer "scale_id"
