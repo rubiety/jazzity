@@ -1,6 +1,45 @@
-// Only apply the blueprint form styles to forms with
-// a class of "bp". This makes it easier to style
-// forms from scratch if you need to.
+form {
+  p.input {
+    margin-bottom: 10px;
+  }
+  
+  input {
+    font-size: 16px;
+  }
+  
+  input[type=text],
+  input[type=email],
+  input[type=tel],
+  input[type=password],
+  textarea {
+    @include border-radius(6px);
+    @include linear-gradient(color-stops(#f6f6f6, #fff));
+    color: #333;
+    padding: 3px;
+    outline: none;
+  }
 
-form.bp {
-  @include blueprint-form; }
+  p.field_with_errors {
+    input, textarea {
+      border: 1px solid #ccc;
+    }
+
+    span.error {
+      margin-left: 10px;
+      color: #ccc;
+      font-weight: bold;
+    }
+  }
+  
+  label {
+    display: block;
+    color: #666;
+    font-weight: bold;
+    margin: 0 0 0 0;
+  }
+  
+  input[type=submit] {
+    margin-top: 10px;
+    @include fancy-button;
+  }
+}

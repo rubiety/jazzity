@@ -1,24 +1,23 @@
-// First, set some default constants
-@import "partials/base";
-
-// Then we'll import the compass extension
+@import "compass";
 @import "html5-boilerplate";
+@import "fancy-buttons";
 
-// Now you can choose to include the whole
-// enchilada by uncommeting this line
-//@include html5-boilerplate;
-
-// Or, you can pick and choose only the
-// sections you want to include
-//@include html5-boilerplate-reset;
-//@include html5-boilerplate-fonts;
-//@include html5-boilerplate-styles;
-//@include html5-boilerplate-helpers;
-//@include html5-boilerplate-media;
-
-// Or else, you can import this partial if you
-// want more controll over which mixins to use
-@import "partials/example";
-
-// Finally, put your own styles in this partial
+@import "partials/resets";
+@import "partials/base";
+@import "partials/fonts";
+@import "partials/tags";
 @import "partials/page";
+@import "partials/form";
+@import "partials/messages";
+
+@import "partials/home";
+@import "partials/tunes";
+@import "partials/musicians";
+@import "partials/chords";
+@import "partials/scales";
+@import "partials/voicings";
+@import "partials/progressions";
+@import "partials/concepts";
+@import "partials/notes_collections";
+
+@import "partials/media";
