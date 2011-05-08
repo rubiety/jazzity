@@ -1,0 +1,15 @@
+%article[musician]
+  %h3= musician
+  - if musician.instrument
+    %p
+      %label Instrument:
+      = musician.instrument
+  - if musician.born_on
+    %p
+      %label Born:
+      = musician.born_on
+  - if musician.died_on
+    %p
+      %label Died:
+      = musician.died_on
+  %p= musician.biography
