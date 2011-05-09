@@ -1,0 +1,36 @@
+%article#chord
+  %aside#key-selector
+    %h2 Key:
+    %ul
+      - Key.primaries.each do |key|
+        %li= link_to_unless @key == key, key, [key, @chord]
+
+  %header
+    %h1= @chord
+    %p= @chord.information
+    - if @chord.parent
+      %p
+        %label Parent Chord:
+        = link_to @chord.parent, [@key, @chord.parent]
+    %p
+      %label Quality:
+      = @chord.chord_quality
+    %p
+      %label Intervals:
+      Whole Step, Whole Step, Half Step, Whole Step
+    %p
+      %label Symbols:
+      = @chord.symbols_list
+
+  %section#notes-sequence
+    %h3= @chord.notes.join(", ")
+
+  %nav.related-modes
+    %h3 Related Scales/Modes:
+    %ul.modes-list
+      = render @chord.modes
+
+  %nav.related-voicings
+    %h3 Voicings for #{@chord}:
+    %ul.voicings-list
+      = render @chord.voicings

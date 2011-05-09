@@ -2,5 +2,4 @@
   %h3= link_to scale.title, scale
   %p= scale.information
   %ul.modes-list
-    - scale.modes.each do |mode|
-      %li[mode]= link_to mode, [scale, mode]
+    = render scale.modes

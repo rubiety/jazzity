@@ -1,5 +1,5 @@
 Tune.create!(
-  :name => "All The Things You ARe",
+  :name => "All The Things You Are",
   :vehicle => Vehicle["Standard"],
   :meter => Meter["4/4"],
   :key => Key["Ab"],
