@@ -1,0 +1,9 @@
+%h1 Search Results for #{params[:id]}
+
+%ul#search-results
+  - @results.each do |result|
+    - model = [result].flatten.last
+
+    %li
+      = "#{model.class.name.titleize}: "
+      = link_to model, result

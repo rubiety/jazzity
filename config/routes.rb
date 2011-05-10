@@ -3,6 +3,8 @@ Jazzity::Application.routes.draw do
   resources :searches
   
   resources :keys do
+    resources :tunes
+    resources :chord_qualities
     resources :chords
     resources :voicings
     resources :progressions

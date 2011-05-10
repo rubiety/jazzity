@@ -1,7 +1,7 @@
 class Tune < ActiveRecord::Base
   belongs_to :vehicle
   belongs_to :meter
-  belongs_to :key
+  belongs_to :primary_key, :class_name => "Key"
   belongs_to :secondary_key, :class_name => "Key"
   belongs_to :form
   belongs_to :starting_chord, :class_name => "Chord"
@@ -21,4 +21,13 @@ class Tune < ActiveRecord::Base
   def to_s
     title
   end
+
+  def self.resolve(name)
+    find_by_name(name)
+  end
+
+  class << self
+    alias_method :[], :resolve
+  end
+
 end

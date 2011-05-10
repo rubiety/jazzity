@@ -96,7 +96,6 @@ ActiveRecord::Schema.define(:version => 20110508172047) do
 
   create_table "keys", :force => true do |t|
     t.string  "name"
-    t.string  "cached_slug"
     t.string  "long_name"
     t.boolean "primary",      :default => true
     t.integer "index"
@@ -104,7 +103,6 @@ ActiveRecord::Schema.define(:version => 20110508172047) do
     t.integer "cycle_index"
   end
 
-  add_index "keys", ["cached_slug"], :name => "index_keys_on_cached_slug", :unique => true
   add_index "keys", ["cycle_index"], :name => "index_keys_on_cycle_index"
   add_index "keys", ["letter_index"], :name => "index_keys_on_letter_index"
   add_index "keys", ["name"], :name => "index_keys_on_name", :unique => true
@@ -215,7 +213,7 @@ ActiveRecord::Schema.define(:version => 20110508172047) do
     t.string   "cached_slug"
     t.integer  "vehicle_id"
     t.integer  "meter_id"
-    t.integer  "key_id"
+    t.integer  "primary_key_id"
     t.integer  "secondary_key_id"
     t.string   "tonality",                   :default => "Major"
     t.string   "concept",                    :default => "Instrumental"
@@ -234,8 +232,8 @@ ActiveRecord::Schema.define(:version => 20110508172047) do
   add_index "tunes", ["aebersold_playalong_number"], :name => "index_tunes_on_aebersold_playalong_number"
   add_index "tunes", ["cached_slug"], :name => "index_tunes_on_cached_slug", :unique => true
   add_index "tunes", ["form_id"], :name => "index_tunes_on_form_id"
-  add_index "tunes", ["key_id"], :name => "index_tunes_on_key_id"
   add_index "tunes", ["meter_id"], :name => "index_tunes_on_meter_id"
+  add_index "tunes", ["primary_key_id"], :name => "index_tunes_on_primary_key_id"
   add_index "tunes", ["secondary_key_id"], :name => "index_tunes_on_secondary_key_id"
   add_index "tunes", ["vehicle_id"], :name => "index_tunes_on_vehicle_id"
 

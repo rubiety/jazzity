@@ -6,7 +6,7 @@ class CreateTunes < ActiveRecord::Migration
       t.string :cached_slug
       t.integer :vehicle_id
       t.integer :meter_id
-      t.integer :key_id
+      t.integer :primary_key_id
       t.integer :secondary_key_id
       t.string :tonality, :default => "Major"  # OR: Minor
       t.string :concept, :default => "Instrumental"  # OR: Vocal
@@ -24,7 +24,7 @@ class CreateTunes < ActiveRecord::Migration
     add_index :tunes, :cached_slug, :unique => true
     add_index :tunes, :vehicle_id
     add_index :tunes, :meter_id
-    add_index :tunes, :key_id
+    add_index :tunes, :primary_key_id
     add_index :tunes, :secondary_key_id
     add_index :tunes, :form_id
     add_index :tunes, :aebersold_playalong_number

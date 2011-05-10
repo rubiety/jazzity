@@ -38,4 +38,37 @@ class Mode < ActiveRecord::Base
 		end
 	end
 
+  def self.resolve(symbol)
+    in_key = nil
+  
+    return nil if symbol.nil?
+    symbol = symbol.dup
+  
+    Key.all.each do |k|
+      if symbol.starts_with?(k.name)
+        in_key = k
+        symbol.gsub!(/^#{k.name}/, '').strip!
+        break
+      end
+    end
+  
+    mode = find_by_name(symbol)
+  
+    # Perhaps the matched key was really part of the name, try that:
+    if mode.nil? && !in_key.nil?
+      symbol = in_key.name + symbol
+      mode = all.detect {|s| s.name == symbol}
+    end
+  
+    # If still not found, must be invalid:
+    return nil if mode.nil?
+  
+    mode.key = in_key
+    mode
+  end
+
+	class << self
+		alias_method :[], :resolve
+	end
+
 end

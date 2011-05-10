@@ -12,10 +12,10 @@
   %p
     %label Concept: 
     = @tune.concept
-- if @tune.key
+- if @tune.primary_key
   %p
     %label Key:
-    = @tune.key
+    = @tune.primary_key
     = @tune.tonality
     = " (Also #{@tune.secondary_key})" if @tune.secondary_key
 - if @tune.form

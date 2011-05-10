@@ -2,7 +2,6 @@ class InitialJazzModels < ActiveRecord::Migration
   def self.up
     create_table :keys do |t|
       t.string :name
-      t.string :cached_slug
       t.string :long_name
       t.boolean :primary, :default => true
       t.integer :index
@@ -11,7 +10,6 @@ class InitialJazzModels < ActiveRecord::Migration
     end
 
     add_index :keys, :name, :unique => true
-    add_index :keys, :cached_slug, :unique => true
     add_index :keys, :letter_index
     add_index :keys, :cycle_index
     
