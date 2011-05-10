@@ -1,7 +1,12 @@
 source "http://rubygems.org"
 
-gem "rails", "3.0.7"
-gem "mysql2", "~> 0.2.7"
+gem "rails", "3.1.0.beta1"
+gem "mysql2"
+
+gem "sass"
+gem "coffee-script"
+gem "uglifier"
+gem "jquery-rails"
 
 gem "haml"
 gem "haml-rails"
@@ -22,9 +27,11 @@ gem "twitter"
 group :development do
   gem "capistrano"
   gem "factory_girl_rails"
+  gem "ruby-debug19", :require => "ruby-debug"
 end
 
 group :test do
+  gem "turn", :require => false
   gem "faker"
   gem "rspec-rails"
   gem "cucumber-rails"
