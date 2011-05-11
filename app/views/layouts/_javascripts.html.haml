@@ -11,7 +11,9 @@
 :javascript
   !window.jQuery && document.write(unescape('%3Cscript src="/javascripts/jquery-1.4.4.min.js"%3E%3C/script%3E'))
   
-= javascript_include_tag 'rails', 'plugins', 'application', 'vexflow', 'vextabdiv'
+= javascript_include_tag "application"
+= javascript_include_tag "vexflow"
+= javascript_include_tag "vextabdiv"
 
 /[if lt IE 7 ]
   :javascript
@@ -19,10 +21,6 @@
     
 -#  Append your own using content_for :javascripts
 = yield :javascripts
-
--# yui profiler and profileviewer
-- if Rails.env == 'development'
-  = javascript_include_tag 'profiling/yahoo-profiling.min', 'profiling/config'
 
 -# asynchronous google analytics: mathiasbynens.be/notes/async-analytics-snippet
 -# Looks for google_account_id first in ENV['GOOGLE_ACCOUNT_ID'] then in config/google.yml

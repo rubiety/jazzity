@@ -1,18 +1,22 @@
 source "http://rubygems.org"
 
+# Core Gems
 gem "rails", "3.1.0.beta1"
 gem "mysql2"
 
+# Asset Template Engines
 gem "sass"
 gem "coffee-script"
 gem "uglifier"
 gem "jquery-rails"
 
+# Views
 gem "haml"
 gem "haml-rails"
 gem "compass"
 gem "html5-boilerplate"
 
+# Bread & Butter Gems
 gem "acts_as_list"
 gem "acts_as_tree"
 gem "fancy-buttons"
@@ -20,6 +24,7 @@ gem "simple_form"
 gem "paperclip"
 gem "friendly_id"
 
+# API Integration
 gem "feedzirra"
 gem "twitter"
 
