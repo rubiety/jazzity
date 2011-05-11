@@ -13,7 +13,6 @@ gem "haml-rails"
 gem "compass"
 gem "html5-boilerplate"
 
-gem "will_paginate"
 gem "acts_as_list"
 gem "acts_as_tree"
 gem "fancy-buttons"
