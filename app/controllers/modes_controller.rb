@@ -13,7 +13,7 @@ class ModesController < ApplicationController
     if @mode.main?
       redirect_to [@key, @scale].compact
     else
-      respond_with @mode do |format|
+      respond_with @scale, @mode do |format|
         format.html { render "scales/show" }
       end
     end

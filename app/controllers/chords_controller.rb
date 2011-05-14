@@ -6,11 +6,14 @@ class ChordsController < ApplicationController
 
   def index
     @chord_qualities = ChordQuality.includes(:chords)
-    respond_with @chord_qualities
+
+    respond_with @chord_qualities do |format|
+      format.json { render :json => @chord_qualities.to_json(:include => [:chords]) }
+    end
   end
 
   def show
-    respond_with @chord_quality
+    respond_with @chord
   end
 
 
