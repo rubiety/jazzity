@@ -1,0 +1,2 @@
+window.Jazzity = 
+  test: "One"
