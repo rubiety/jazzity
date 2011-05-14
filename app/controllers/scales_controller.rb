@@ -2,11 +2,15 @@ class ScalesController < ApplicationController
   before_filter :find_key
   before_filter :find_scale, :except => [:index, :new, :create]
 
+  respond_to :html, :json
+
   def index
     @scales = Scale.scoped
+    respond_with @scales
   end
 
   def show
+    respond_with @scale
   end
 
 
