@@ -1,2 +1,7 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+/* DO NOT MODIFY. This file was compiled Sat, 14 May 2011 05:33:33 GMT from
+ * /Users/bhughes/Workspace/jazzity/app/coffeescripts/application.coffee
+ */
+
+(function() {
+  alert("Hello There");
+}).call(this);

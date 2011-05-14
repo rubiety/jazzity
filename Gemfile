@@ -7,6 +7,7 @@ gem "haml"
 gem "haml-rails"
 gem "compass"
 gem "html5-boilerplate"
+gem "barista"
 
 gem "will_paginate"
 gem "acts_as_list"
@@ -22,6 +23,7 @@ gem "twitter"
 group :development do
   gem "capistrano"
   gem "factory_girl_rails"
+  gem "ruby-debug19", :require => "ruby-debug"
 end
 
 group :test do
