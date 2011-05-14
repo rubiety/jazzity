@@ -1,5 +1,7 @@
 Jazzity::Application.routes.draw do
   
+  ActiveAdmin.routes(self)
+
   resources :searches
   
   resources :keys do

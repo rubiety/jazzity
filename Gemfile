@@ -20,6 +20,8 @@ gem "friendly_id"
 gem "feedzirra"
 gem "twitter"
 
+gem "activeadmin"
+
 group :development do
   gem "capistrano"
   gem "factory_girl_rails"
