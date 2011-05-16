@@ -48,7 +48,9 @@ module ToneSequence
 	# Does the magic in determining the actual note from the tones 
 	# with tone and letter indexes. 
 	def notes
-		all.map do |tone|
+    return @notes if defined?(@notes)
+
+		@notes = all.map do |tone|
 			Key.from_index(tone.tone, tone.letter_index).name
 		end.extend(NoteSequence)
 	end

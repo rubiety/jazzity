@@ -1,0 +1,33 @@
+= Functional Beta (June 1st)
+
+[ ] Build-out of VexFlow Integration & Models
+[ ] Notes/Chords Sequence/Collection Refactoring
+[ ] Note Sequence Implementation & Chord/Scale Matching
+[ ] Chord Sequence Implementation & Progression Matching (Progression Build-out also)
+[ ] Voicings Implementation
+[ ] Voicings Voice Leading with Progressions
+[ ] Search Bars for each Sub-Section
+[ ] Full RSpec Test Suite
+[ ] Full Cucumber Integration Tests
+
+= Launch (June 22nd)
+
+[ ] Jazzity Logo/Branding
+[ ] Disqus for Commenting
+[ ] Newsletter Signup
+[ ] Chord Substitution Possibilities
+[ ] Design Application
+[ ] Caching/Database Pre-loading with Rails 3.1 Identity Maps?
+[ ] Musicians Database Build-Out
+[ ] Tunes Database Build-Out
+[ ] Jazz Camps Database
+
+= Post-Launch Refinement
+
+[ ] JavaScript Tests for Backbone.js Models
+
+= Jazzity Pro
+
+[ ] Access to JSON API
+[ ] Analysis of MIDI Files
+[ ] Musician Profiles & Musician Finder

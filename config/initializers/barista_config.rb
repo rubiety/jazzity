@@ -38,6 +38,8 @@ Barista.configure do |c|
   # Turn off preambles and exceptions on failure
   
   # c.verbose = false
+
+  c.embedded_interpreter = false
   
   # Or, make sure it is always on
   # c.verbose!

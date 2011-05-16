@@ -24,6 +24,8 @@
 
   %section#notes-sequence
     %h3= @chord.notes.join(", ")
+  %section#staff
+    .staff.chord-staff{"data-id" => @chord.id, "data-notes" => @chord.notes.to_json}
 
   %nav.related-modes
     %h3 Related Scales/Modes:

@@ -64,4 +64,7 @@ class Chord < ActiveRecord::Base
     alias_method :[], :resolve
   end
 
+  def to_json(options = {})
+    super({:methods => [:notes]}.merge(options))
+  end
 end

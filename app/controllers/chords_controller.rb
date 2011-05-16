@@ -28,6 +28,6 @@ class ChordsController < ApplicationController
 
   def find_chord
     @chord = Chord.find(params[:id])
-    @chord.in_key_of(@key) if @key
+    @chord = @chord.in_key_of(@key) if @key
   end
 end
