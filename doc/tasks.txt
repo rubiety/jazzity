@@ -1,6 +1,8 @@
 = Functional Beta (June 1st)
 
 [ ] Build-out of VexFlow Integration & Models
+  [ ] Add Support for Octave Context
+  [ ] Scales
 [ ] Notes/Chords Sequence/Collection Refactoring
 [ ] Note Sequence Implementation & Chord/Scale Matching
 [ ] Chord Sequence Implementation & Progression Matching (Progression Build-out also)
