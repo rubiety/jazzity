@@ -17,6 +17,7 @@
 [ ] Jazzity Logo/Branding
 [ ] Disqus for Commenting
 [ ] Newsletter Signup
+[ ] Suggestion Forms
 [ ] Chord Substitution Possibilities
 [ ] Design Application
 [ ] Caching/Database Pre-loading with Rails 3.1 Identity Maps?
