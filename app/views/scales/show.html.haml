@@ -20,8 +20,11 @@
   %section#mode
     %h2= @mode.title
     %h3= @mode.notes.join(", ")
-    %nav.related-chords
-      %h3 Related Chords:
-      %ul.chords-list
-        = render @mode.chords
+  %section#staff
+    .staff.scale-staff{"data-id" => @scale.id, "data-staff-notes" => @mode.notes.to_json, "data-staff-clef" => "treble"}
+
+  %nav.related-chords
+    %h3 Related Chords:
+    %ul.chords-list
+      = render @mode.chords
 

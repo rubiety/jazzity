@@ -27,5 +27,6 @@ class ScalesController < ApplicationController
     @scale = Scale.find(params[:id])
     @scale = @scale.in_key_of(@key) if @key
     @mode = @scale.main_mode
+    @mode = @mode.in_key_of(@key) if @key
   end
 end
