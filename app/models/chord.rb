@@ -23,6 +23,14 @@ class Chord < ActiveRecord::Base
     name
   end
 
+  def title
+    if key
+      "#{key} #{name}"
+    else
+      name
+    end
+  end
+
   def symbols_list
     self.symbols.map {|s| s.name }.join(', ')
   end
