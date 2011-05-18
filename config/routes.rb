@@ -10,7 +10,7 @@ Jazzity::Application.routes.draw do
     resources :chords
     resources :voicings
     resources :progressions
-    resources :notes_collections, :as => "notes"
+    resources :notes_collections
     resources :scales do
       resources :modes
     end
@@ -27,7 +27,7 @@ Jazzity::Application.routes.draw do
   resources :voicings
   resources :progressions
   resources :concepts
-  resources :notes_collections, :as => "notes"
+  resources :notes_collections
   
   root :to => "dashboards#show"
   
