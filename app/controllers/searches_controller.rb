@@ -8,7 +8,7 @@ class SearchesController < ApplicationController
     @results = @search.all
 
     if @results.size == 0
-      redirect_to root_path, :notice => "Sorry, but no results were found."
+      redirect_to root_path, :alert => "Sorry, but no results were found."
     elsif @results.size == 1
       redirect_to @results[0]
     else

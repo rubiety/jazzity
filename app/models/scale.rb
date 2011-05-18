@@ -29,6 +29,8 @@ class Scale < ActiveRecord::Base
   
     return nil if symbol.nil?
     symbol = symbol.dup
+
+    symbol.gsub!(/ Scale/i, "")
   
     Key.all.each do |k|
       if symbol.starts_with?(k.name)
