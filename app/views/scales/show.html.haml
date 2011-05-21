@@ -23,9 +23,8 @@
   %section#staff
     .staff.scale-staff{"data-id" => @scale.id, "data-staff-notes" => @mode.notes.to_json, "data-staff-clef" => "treble"}
 
-  /
-    %nav.related-chords
-      %h3 Related Chords:
-      %ul.chords-list
-        = render @mode.chords, :key => @key
+  %nav.related-chords
+    %h3 Related Chords:
+    %ul.chords-list
+      = render @mode.chords, :key => @key
 
