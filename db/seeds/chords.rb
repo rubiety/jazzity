@@ -25,6 +25,22 @@ ChordQuality.create!(:name => 'Major', :code => 'MAJ').tap do |q|
       {:tone => Tone::Interval::MAJOR_7TH, :letter_index => Tone::LetterInterval::SEVENTH, :strength => 2}
     ])
 
+    c.voicings.create!(:name => "Guide Tones I", :octave_offset => -1).tap do |v|
+      v.tones.create([
+        {:tone => Tone::Interval::ROOT, :letter_index => Tone::LetterInterval::FIRST, :strength => 0, :omitable => true},
+        {:tone => Tone::Interval::MAJOR_7TH, :letter_index => Tone::LetterInterval::SEVENTH, :strength => 1},
+        {:tone => Tone::Interval::MAJOR_3RD, :letter_index => Tone::LetterInterval::THIRD, :strength => 2}
+      ])
+    end
+
+    c.voicings.create!(:name => "Guide Tones II", :octave_offset => -1).tap do |v|
+      v.tones.create([
+        {:tone => Tone::Interval::ROOT, :letter_index => Tone::LetterInterval::FIRST, :strength => 0, :omitable => true},
+        {:tone => Tone::Interval::MAJOR_3RD, :letter_index => Tone::LetterInterval::THIRD, :strength => 2},
+        {:tone => Tone::Interval::MAJOR_7TH, :letter_index => Tone::LetterInterval::SEVENTH, :strength => 1}
+      ])
+    end
+
     c.children.create!(:chord_quality => q, :name => 'Major 7 #11').tap do |cc|
       cc.symbols.create!(:name => 'maj7#11', :primary => true)
       cc.symbols.create!(:name => 'M7#11')
@@ -75,6 +91,22 @@ ChordQuality.create!(:name => 'Major', :code => 'MAJ').tap do |q|
       {:tone => Tone::Interval::MAJOR_6TH, :letter_index => Tone::LetterInterval::SIXTH, :strength => 3}
     ])
 
+    c.voicings.create!(:name => "Guide Tones I", :octave_offset => -1).tap do |v|
+      v.tones.create([
+        {:tone => Tone::Interval::ROOT, :letter_index => Tone::LetterInterval::FIRST, :strength => 0, :omitable => true},
+        {:tone => Tone::Interval::MAJOR_6TH, :letter_index => Tone::LetterInterval::SIXTH, :strength => 1},
+        {:tone => Tone::Interval::MAJOR_3RD, :letter_index => Tone::LetterInterval::THIRD, :strength => 2}
+      ])
+    end
+
+    c.voicings.create!(:name => "Guide Tones II", :octave_offset => -1).tap do |v|
+      v.tones.create([
+        {:tone => Tone::Interval::ROOT, :letter_index => Tone::LetterInterval::FIRST, :strength => 0, :omitable => true},
+        {:tone => Tone::Interval::MAJOR_3RD, :letter_index => Tone::LetterInterval::THIRD, :strength => 2},
+        {:tone => Tone::Interval::MAJOR_6TH, :letter_index => Tone::LetterInterval::SIXTH, :strength => 1}
+      ])
+    end
+
     c.chord_scales << ChordScale.specify(Scale['Pentatonic'][1])
     c.chord_scales << ChordScale.specify(Scale['Major'][1], 2)
   end
@@ -110,6 +142,22 @@ ChordQuality.create!(:name => 'Minor', :code => 'MIN').tap do |q|
       {:tone => Tone::Interval::MINOR_7TH, :letter_index => Tone::LetterInterval::SEVENTH, :strength => 1}
     ])
 
+    c.voicings.create!(:name => "Guide Tones I", :octave_offset => -1).tap do |v|
+      v.tones.create([
+        {:tone => Tone::Interval::ROOT, :letter_index => Tone::LetterInterval::FIRST, :strength => 0, :omitable => true},
+        {:tone => Tone::Interval::MINOR_7TH, :letter_index => Tone::LetterInterval::SEVENTH, :strength => 1},
+        {:tone => Tone::Interval::MINOR_3RD, :letter_index => Tone::LetterInterval::THIRD, :strength => 2}
+      ])
+    end
+
+    c.voicings.create!(:name => "Guide Tones II", :octave_offset => -1).tap do |v|
+      v.tones.create([
+        {:tone => Tone::Interval::ROOT, :letter_index => Tone::LetterInterval::FIRST, :strength => 0, :omitable => true},
+        {:tone => Tone::Interval::MINOR_3RD, :letter_index => Tone::LetterInterval::THIRD, :strength => 2},
+        {:tone => Tone::Interval::MINOR_7TH, :letter_index => Tone::LetterInterval::SEVENTH, :strength => 1}
+      ])
+    end
+
     c.chord_scales << ChordScale.specify(Scale['Major'][2])
     c.chord_scales << ChordScale.specify(Scale['Major'][6], 2)
   end
@@ -125,6 +173,22 @@ ChordQuality.create!(:name => 'Minor', :code => 'MIN').tap do |q|
       {:tone => Tone::Interval::PERFECT_5TH, :letter_index => Tone::LetterInterval::FIFTH, :strength => 2},
       {:tone => Tone::Interval::MAJOR_6TH, :letter_index => Tone::LetterInterval::SIXTH, :strength => 1}
     ])
+
+    c.voicings.create!(:name => "Guide Tones I", :octave_offset => -1).tap do |v|
+      v.tones.create([
+        {:tone => Tone::Interval::ROOT, :letter_index => Tone::LetterInterval::FIRST, :strength => 0, :omitable => true},
+        {:tone => Tone::Interval::MAJOR_6TH, :letter_index => Tone::LetterInterval::SIXTH, :strength => 1},
+        {:tone => Tone::Interval::MINOR_3RD, :letter_index => Tone::LetterInterval::THIRD, :strength => 2}
+      ])
+    end
+
+    c.voicings.create!(:name => "Guide Tones II", :octave_offset => -1).tap do |v|
+      v.tones.create([
+        {:tone => Tone::Interval::ROOT, :letter_index => Tone::LetterInterval::FIRST, :strength => 0, :omitable => true},
+        {:tone => Tone::Interval::MINOR_3RD, :letter_index => Tone::LetterInterval::THIRD, :strength => 2},
+        {:tone => Tone::Interval::MAJOR_6TH, :letter_index => Tone::LetterInterval::SIXTH, :strength => 1}
+      ])
+    end
 
     c.chord_scales << ChordScale.specify(Scale['Major'][1])
   end
@@ -194,6 +258,22 @@ ChordQuality.create!(:name => 'Dominant', :code => 'DOM').tap do |q|
       {:tone => Tone::Interval::PERFECT_5TH, :letter_index => Tone::LetterInterval::FIFTH, :strength => 3, :omitable => true},
       {:tone => Tone::Interval::DOMINANT_7TH, :letter_index => Tone::LetterInterval::SEVENTH, :strength => 2}
     ])
+
+    c.voicings.create!(:name => "Guide Tones I", :octave_offset => -1).tap do |v|
+      v.tones.create([
+        {:tone => Tone::Interval::ROOT, :letter_index => Tone::LetterInterval::FIRST, :strength => 0, :omitable => true},
+        {:tone => Tone::Interval::DOMINANT_7TH, :letter_index => Tone::LetterInterval::SEVENTH, :strength => 1},
+        {:tone => Tone::Interval::MAJOR_3RD, :letter_index => Tone::LetterInterval::THIRD, :strength => 2}
+      ])
+    end
+
+    c.voicings.create!(:name => "Guide Tones II", :octave_offset => -1).tap do |v|
+      v.tones.create([
+        {:tone => Tone::Interval::ROOT, :letter_index => Tone::LetterInterval::FIRST, :strength => 0, :omitable => true},
+        {:tone => Tone::Interval::MAJOR_3RD, :letter_index => Tone::LetterInterval::THIRD, :strength => 2},
+        {:tone => Tone::Interval::DOMINANT_7TH, :letter_index => Tone::LetterInterval::SEVENTH, :strength => 1}
+      ])
+    end
 
     c.chord_scales << ChordScale.specify(Scale['Major']['Mixolydian'])
 

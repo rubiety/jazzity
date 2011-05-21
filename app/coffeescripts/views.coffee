@@ -27,7 +27,7 @@ Jazzity.Staff = Backbone.View.extend
       return null unless key_model
       index = key_model.get("index")
 
-      octave ||= (starting_octave + Math.floor((running_index + 1) / 12))
+      octave ||= (starting_octave + Math.floor((running_index + 0) / 12))
 
       index_or_plus_12 = if (index < last_index) then (index + 12) else index
       running_index += index_or_plus_12 - last_index

@@ -99,8 +99,10 @@ class InitialJazzModels < ActiveRecord::Migration
     
     create_table :voicings do |t|
       t.references :chord
+      t.integer :parent_id
       t.string :name
       t.string :cached_slug
+      t.integer :octave_offset, :default => 0
       t.text :information
     end
 
@@ -111,7 +113,9 @@ class InitialJazzModels < ActiveRecord::Migration
       t.references :voicing
       t.integer :position
       t.integer :tone
-      t.integer :tone_reference_offset, :default => 0
+      t.integer :letter_index
+      t.integer :strength
+      t.boolean :omitable, :default => false
       t.text :information
     end
 

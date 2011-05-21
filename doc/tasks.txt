@@ -8,6 +8,7 @@
 [ ] Chord Sequence Implementation & Progression Matching (Progression Build-out also)
 [ ] Voicings Implementation with Octave Context
 [ ] Voicings Voice Leading with Progressions
+[ ] Transparently Handle Treble/Bass Clef Combinations with VexFlow
 [ ] Search Bars for each Sub-Section
 [ ] Full RSpec Test Suite
 [ ] Full Cucumber Integration Tests

@@ -267,7 +267,9 @@ ActiveRecord::Schema.define(:version => 20110514002112) do
     t.integer "voicing_id"
     t.integer "position"
     t.integer "tone"
-    t.integer "tone_reference_offset", :default => 0
+    t.integer "letter_index"
+    t.integer "strength"
+    t.boolean "omitable",     :default => false
     t.text    "information"
   end
 
@@ -275,8 +277,10 @@ ActiveRecord::Schema.define(:version => 20110514002112) do
 
   create_table "voicings", :force => true do |t|
     t.integer "chord_id"
+    t.integer "parent_id"
     t.string  "name"
     t.string  "cached_slug"
+    t.integer "octave_offset", :default => 0
     t.text    "information"
   end
 
