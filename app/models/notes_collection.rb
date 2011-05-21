@@ -52,7 +52,7 @@ class NotesCollection
 	class << self
 	  def resolve(value)
 	    collection = new(value)
-	    if collection.invalid_keys.empty?
+	    if collection.invalid_keys.empty? and collection.keys.size > 1
 	      collection
       else
         nil

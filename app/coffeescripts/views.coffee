@@ -27,10 +27,10 @@ Jazzity.Staff = Backbone.View.extend
       return null unless key_model
       index = key_model.get("index")
 
-      octave ||= (starting_octave + Math.floor((running_index + 0) / 12))
+      octave ||= (starting_octave + Math.floor((running_index + 1) / 12))
 
       index_or_plus_12 = if (index < last_index) then (index + 12) else index
-      running_index += index_or_plus_12 - last_index
+      running_index += (index_or_plus_12 - last_index)
       last_index = index
 
       "#{key}/#{octave}"
@@ -65,3 +65,8 @@ Jazzity.ScaleStaff = Jazzity.Staff.extend
     this.draw_notes _(this.normalize_keys(this.model.get("notes"))).map (note) ->
       { keys: [note] }
 
+Jazzity.ProgressionStaff = Jazzity.Staff.extend
+  render: ->
+    this.draw_stave "treble", width: 600
+    this.draw_notes _(this.model.get("notes")).map (chord) ->
+      { keys: chord }
