@@ -16,6 +16,8 @@
 
 = coffeescript_include_tag "models", "views", "application"
 
+= render "layouts/javascript_data"
+
 /[if lt IE 7 ]
   :javascript
     $.getScript("/javascripts/dd_belatedpng.js",function(){ DD_belatedPNG.fix('img, .png_bg'); });

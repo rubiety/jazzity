@@ -8,3 +8,5 @@ Jazzity.Voicing = Backbone.Model.extend url: -> "/voicings/" + this.id
 Jazzity.Progression = Backbone.Model.extend url: -> "/progressions/" + this.id
 Jazzity.Scale = Backbone.Model.extend url: -> "/scales/" + this.id
 Jazzity.NotesCollection = Backbone.Model.extend url: -> "/notes_collections/" + this.id
+
+Jazzity.KeyCollection = Backbone.Collection.extend model: Jazzity.Key

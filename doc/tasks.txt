@@ -1,12 +1,12 @@
 = Functional Beta (June 1st)
 
-[ ] Build-out of VexFlow Integration & Models
-  [ ] Add Support for Octave Context
-  [ ] Scales
+[X] Build-out of VexFlow Integration & Models
+  [X] Add Support for Octave Context
+  [X] Scales
 [ ] Notes/Chords Sequence/Collection Refactoring
-[ ] Note Sequence Implementation & Chord/Scale Matching
+[X] Note Sequence Implementation & Chord/Scale Matching
 [ ] Chord Sequence Implementation & Progression Matching (Progression Build-out also)
-[ ] Voicings Implementation
+[ ] Voicings Implementation with Octave Context
 [ ] Voicings Voice Leading with Progressions
 [ ] Search Bars for each Sub-Section
 [ ] Full RSpec Test Suite

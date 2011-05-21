@@ -35,9 +35,9 @@ ChordQuality.create!(:name => 'Major', :code => 'MAJ').tap do |q|
       cc.tones.create([
         {:tone => Tone::Interval::ROOT, :letter_index => Tone::LetterInterval::FIRST, :strength => 0, :omitable => true},
         {:tone => Tone::Interval::MAJOR_3RD, :letter_index => Tone::LetterInterval::THIRD, :strength => 1},
+        {:tone => Tone::Interval::AUGMENTED_4TH, :letter_index => Tone::LetterInterval::FOURTH, :strength => 3},
         {:tone => Tone::Interval::PERFECT_5TH, :letter_index => Tone::LetterInterval::FIFTH, :strength => 2, :omitable => true},
-        {:tone => Tone::Interval::MAJOR_7TH, :letter_index => Tone::LetterInterval::SEVENTH, :strength => 2},
-        {:tone => Tone::Interval::AUGMENTED_4TH, :letter_index => Tone::LetterInterval::FOURTH, :strength => 3}
+        {:tone => Tone::Interval::MAJOR_7TH, :letter_index => Tone::LetterInterval::SEVENTH, :strength => 2}
       ])
 
       cc.chord_scales << ChordScale.specify(Scale['Major'][4])
@@ -51,9 +51,9 @@ ChordQuality.create!(:name => 'Major', :code => 'MAJ').tap do |q|
       cc.tones.create([
         {:tone => Tone::Interval::ROOT, :letter_index => Tone::LetterInterval::FIRST, :strength => 0, :omitable => true},
         {:tone => Tone::Interval::MAJOR_3RD, :letter_index => Tone::LetterInterval::THIRD, :strength => 1},
+        {:tone => Tone::Interval::AUGMENTED_4TH, :letter_index => Tone::LetterInterval::FOURTH, :strength => 3},
         {:tone => Tone::Interval::AUGMENTED_5TH, :letter_index => Tone::LetterInterval::FIFTH, :strength => 2, :omitable => true},
-        {:tone => Tone::Interval::MAJOR_7TH, :letter_index => Tone::LetterInterval::SEVENTH, :strength => 2},
-        {:tone => Tone::Interval::AUGMENTED_4TH, :letter_index => Tone::LetterInterval::FOURTH, :strength => 3}
+        {:tone => Tone::Interval::MAJOR_7TH, :letter_index => Tone::LetterInterval::SEVENTH, :strength => 2}
       ])
 
       cc.chord_scales << ChordScale.specify(Scale['Melodic Minor'][3])
@@ -139,9 +139,9 @@ ChordQuality.create!(:name => 'Minor', :code => 'MIN').tap do |q|
 
     c.tones.create([
       {:tone => Tone::Interval::ROOT, :letter_index => Tone::LetterInterval::FIRST, :strength => 0, :omitable => true},
+      {:tone => Tone::Interval::MINOR_2ND, :letter_index => Tone::LetterInterval::SECOND, :strength => 1},
       {:tone => Tone::Interval::MINOR_3RD, :letter_index => Tone::LetterInterval::THIRD, :strength => 1},
       {:tone => Tone::Interval::PERFECT_5TH, :letter_index => Tone::LetterInterval::FIFTH, :strength => 2},
-      {:tone => Tone::Interval::MINOR_2ND, :letter_index => Tone::LetterInterval::SECOND, :strength => 1},
       {:tone => Tone::Interval::MINOR_6TH, :letter_index => Tone::LetterInterval::SIXTH, :strength => 3}
     ])
 
@@ -220,9 +220,9 @@ ChordQuality.create!(:name => 'Dominant', :code => 'DOM').tap do |q|
         {:tone => Tone::Interval::ROOT, :letter_index => Tone::LetterInterval::FIRST, :strength => 0, :omitable => true},
         {:tone => Tone::Interval::MAJOR_3RD, :letter_index => Tone::LetterInterval::THIRD, :strength => 1},
         {:tone => Tone::Interval::PERFECT_5TH, :letter_index => Tone::LetterInterval::FIFTH, :strength => 3, :omitable => true},
+        {:tone => Tone::Interval::MAJOR_6TH, :letter_index => Tone::LetterInterval::SIXTH, :strength => 4},
         {:tone => Tone::Interval::DOMINANT_7TH, :letter_index => Tone::LetterInterval::SEVENTH, :strength => 2},
-        {:tone => Tone::Interval::MAJOR_2ND, :letter_index => Tone::LetterInterval::SECOND, :strength => 4},
-        {:tone => Tone::Interval::MAJOR_6TH, :letter_index => Tone::LetterInterval::SIXTH, :strength => 4}
+        {:tone => Tone::Interval::MAJOR_2ND, :letter_index => Tone::LetterInterval::SECOND, :strength => 4}
       ])
 
       cc.chord_scales << ChordScale.specify(Scale['Major']['Mixolydian'])
@@ -301,10 +301,10 @@ ChordQuality.create!(:name => 'Dominant', :code => 'DOM').tap do |q|
       cc.tones.create([
         {:tone => Tone::Interval::ROOT, :letter_index => Tone::LetterInterval::FIRST, :strength => 0, :omitable => true},
         {:tone => Tone::Interval::MAJOR_3RD, :letter_index => Tone::LetterInterval::THIRD, :strength => 1},
+        {:tone => Tone::Interval::AUGMENTED_5TH, :letter_index => Tone::LetterInterval::FIFTH, :strength => 4},
         {:tone => Tone::Interval::DOMINANT_7TH, :letter_index => Tone::LetterInterval::SEVENTH, :strength => 2},
         {:tone => Tone::Interval::MINOR_2ND, :letter_index => Tone::LetterInterval::SECOND, :strength => 4},
-        {:tone => Tone::Interval::AUGMENTED_2ND, :letter_index => Tone::LetterInterval::SECOND, :strength => 4},
-        {:tone => Tone::Interval::AUGMENTED_5TH, :letter_index => Tone::LetterInterval::FIFTH, :strength => 4}
+        {:tone => Tone::Interval::AUGMENTED_2ND, :letter_index => Tone::LetterInterval::SECOND, :strength => 4}
       ])
 
       cc.chord_scales << ChordScale.specify(Scale['Melodic Minor'][7])
