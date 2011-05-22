@@ -59,12 +59,8 @@ class Scale < ActiveRecord::Base
 		alias_method :[], :resolve
 	end
 
-	def [](name)
-		name.is_a?(String) ? self.modes.find_by_name(name) : self.modes.find_by_mode(name)
-	end
-
 	def main_mode
-		self[1]
+		modes.find_by_mode(1)
 	end
 
 	def symmetric?
