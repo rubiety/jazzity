@@ -4,7 +4,7 @@ module ModeSequence
 		return nil if mode_object.nil?
 	
 		# Pass Along Key Information
-		mode_object.key = proxy_owner.key if proxy_owner.respond_to?(:key) and !proxy_owner.key.nil?
+		# TODO: FAILING mode_object.key = proxy_owner.key if proxy_owner.respond_to?(:key) and !proxy_owner.key.nil?
 		mode_object
 	end
 end
