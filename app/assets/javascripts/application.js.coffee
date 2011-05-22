@@ -1,3 +1,6 @@
+//= require jquery_ujs
+//= require_tree .
+
 $ ->
 
   $(".chord-staff").each ->

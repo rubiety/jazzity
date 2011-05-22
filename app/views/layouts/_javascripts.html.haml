@@ -11,8 +11,11 @@
 :javascript
   !window.jQuery && document.write(unescape('%3Cscript src="/javascripts/jquery-1.4.4.min.js"%3E%3C/script%3E'))
   
-= javascript_include_tag "rails", "plugins", "underscore", "json2", "backbone"
+= javascript_include_tag "json2"
+= javascript_include_tag "underscore"
+= javascript_include_tag "backbone"
 = javascript_include_tag "vexflow"
+
 = javascript_include_tag "application"
 
 = render "layouts/javascript_data"

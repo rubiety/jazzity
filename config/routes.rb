@@ -1,6 +1,7 @@
 Jazzity::Application.routes.draw do
   
-  ActiveAdmin.routes(self)
+  # TODO: Doesn't work with Rails 3.1:
+  # ActiveAdmin.routes(self)
 
   resources :searches
   
