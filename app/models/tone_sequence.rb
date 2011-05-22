@@ -2,7 +2,7 @@ module ToneSequence
 	# Takes manually specified key context for this collection or 
 	# delegates to th association owner.
 	def key
-		@key # TODO: FAILING || (proxy_owner.key if proxy_owner.respond_to?(:key))
+		@key || (proxy_owner.key if defined?(proxy_owner) and proxy_owner.respond_to?(:key))
 	end
 
 	# Manually specifies the key context for this tone sequence only.
@@ -23,7 +23,7 @@ module ToneSequence
 	# Takes manually specified mode context for this collection or 
 	# delegates to the association owner.
 	def mode
-		@mode # TODO: FAILING || (proxy_owner.mode if proxy_owner.respond_to?(:mode))
+		@mode || (proxy_owner.mode if defined?(proxy_owner) and proxy_owner.respond_to?(:mode))
 	end
 
 	# Manually specifies the mode context for this tone sequence only.
