@@ -1,14 +1,14 @@
 class Scale < ActiveRecord::Base
-	include KeyContext
-	include ModeContext
+  include KeyContext
+  include ModeContext
   
-	has_many :modes, :extend => ModeSequence, :dependent => :destroy
-	has_many :tones, :class_name => 'ScaleTone', :extend => ToneSequence, :dependent => :destroy
+  has_many :modes, :extend => ModeSequence, :dependent => :destroy
+  has_many :tones, :class_name => 'ScaleTone', :extend => ToneSequence, :dependent => :destroy
 
   has_friendly_id :name, :use_slug => true
 
-	delegate :notes, :to => :tones
-	delegate :chords, :to => :main_mode
+  delegate :notes, :to => :tones
+  delegate :chords, :to => :main_mode
 
   validates :name, :presence => true
 
@@ -55,17 +55,17 @@ class Scale < ActiveRecord::Base
     scale
   end
 
-	class << self
-		alias_method :[], :resolve
-	end
+  class << self
+    alias_method :[], :resolve
+  end
 
-	def main_mode
-		modes.find_by_mode(1)
-	end
+  def main_mode
+    modes.find_by_mode(1)
+  end
 
-	def symmetric?
-		!self.symmetry_index.nil?
-	end
+  def symmetric?
+    !self.symmetry_index.nil?
+  end
 
   def to_json
     super(:methods => [:notes])

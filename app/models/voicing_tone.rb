@@ -1,7 +1,7 @@
 class VoicingTone < Tone
-	belongs_to :voicing
+  belongs_to :voicing
 
-	acts_as_list :scope => :voicing
+  acts_as_list :scope => :voicing
 
   delegate :key, :to => :voicing
   delegate :octave, :to => :voicing

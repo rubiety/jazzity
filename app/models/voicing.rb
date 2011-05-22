@@ -5,8 +5,8 @@ class Voicing < ActiveRecord::Base
   acts_as_tree
   has_friendly_id :name, :use_slug => true
 
-	belongs_to :chord
-	has_many :tones, :class_name => 'VoicingTone', :extend => ToneSequence
+  belongs_to :chord
+  has_many :tones, :class_name => 'VoicingTone', :extend => ToneSequence
 
   delegate :notes, :to => :tones
 

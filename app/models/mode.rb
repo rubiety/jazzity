@@ -1,14 +1,14 @@
 class Mode < ActiveRecord::Base
-	include KeyContext
+  include KeyContext
 
-	belongs_to :scale
+  belongs_to :scale
 
-	has_many :chord_scales
-	has_many :chords, :through => :chord_scales, :extend => ChordCollection
+  has_many :chord_scales
+  has_many :chords, :through => :chord_scales, :extend => ChordCollection
 
   has_friendly_id :name, :use_slug => true
 
-	delegate :notes, :to => :tones
+  delegate :notes, :to => :tones
 
   validates :name, :presence => true
   validates :mode, :presence => true, :numericality => true
@@ -30,13 +30,13 @@ class Mode < ActiveRecord::Base
     mode == 1
   end
 
-	def tones
-		if self.key
-			self.scale.tones.in_mode(self.mode).in_key_of(self.key)
-		else
-			self.scale.tones.in_mode(self.mode)
-		end
-	end
+  def tones
+    if self.key
+      self.scale.tones.in_mode(self.mode).in_key_of(self.key)
+    else
+      self.scale.tones.in_mode(self.mode)
+    end
+  end
 
   def self.resolve(symbol)
     in_key = nil
@@ -67,8 +67,8 @@ class Mode < ActiveRecord::Base
     mode
   end
 
-	class << self
-		alias_method :[], :resolve
-	end
+  class << self
+    alias_method :[], :resolve
+  end
 
 end
