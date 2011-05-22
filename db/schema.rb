@@ -10,7 +10,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110508172047) do
+ActiveRecord::Schema.define(:version => 20110514002112) do
+
+  create_table "active_admin_comments", :force => true do |t|
+    t.integer  "resource_id",   :null => false
+    t.string   "resource_type", :null => false
+    t.integer  "author_id"
+    t.string   "author_type"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "namespace"
+  end
+
+  add_index "active_admin_comments", ["author_type", "author_id"], :name => "index_active_admin_comments_on_author_type_and_author_id"
+  add_index "active_admin_comments", ["namespace"], :name => "index_active_admin_comments_on_namespace"
+  add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_admin_notes_on_resource_type_and_resource_id"
 
   create_table "chord_qualities", :force => true do |t|
     t.string "name"
@@ -252,7 +267,9 @@ ActiveRecord::Schema.define(:version => 20110508172047) do
     t.integer "voicing_id"
     t.integer "position"
     t.integer "tone"
-    t.integer "tone_reference_offset", :default => 0
+    t.integer "letter_index"
+    t.integer "strength"
+    t.boolean "omitable",     :default => false
     t.text    "information"
   end
 
@@ -260,8 +277,10 @@ ActiveRecord::Schema.define(:version => 20110508172047) do
 
   create_table "voicings", :force => true do |t|
     t.integer "chord_id"
+    t.integer "parent_id"
     t.string  "name"
     t.string  "cached_slug"
+    t.integer "octave_offset", :default => 0
     t.text    "information"
   end
 

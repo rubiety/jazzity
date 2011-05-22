@@ -1,0 +1,37 @@
+= Functional Beta (June 1st)
+
+[ ] Upgrade to Rails 3.1 / Sprockets
+[ ] Note Collection Sequences
+[ ] Search Pre-emption of appending "in [A-G]( Major| Minor|)?"
+[ ] Implementation of octavized_notes within models
+[ ] Transparently Handle Treble/Bass Clef Combinations with VexFlow
+[ ] Search Bars for each Sub-Section & Generic Search Results/Partials
+[ ] Progressions
+[ ] Progression Matching of Chord Sequences
+[ ] Engine for Voice Leading Chords
+[ ] Relating Tunes to Jazz Concepts, Progressions, Voicings, etc.
+
+[ ] Full RSpec Test Suite
+[ ] Full Cucumber Integration Tests
+
+= Launch (June 22nd)
+
+[ ] Jazzity Logo/Branding
+[ ] Commenting / User Signup
+[ ] Newsletter Signup
+[ ] Suggestion Forms
+[ ] Chord Substitution Possibilities
+[ ] Caching/Database Pre-loading with Rails 3.1 Identity Maps?
+[ ] Musicians Database Build-Out
+[ ] Tunes Database Build-Out
+[ ] Jazz Concepts Build-Out
+
+= Post-Launch Refinement
+
+[ ] JavaScript Tests for Backbone.js Models
+
+= Jazzity Pro
+
+[ ] Access to JSON API
+[ ] Analysis of MIDI Files
+[ ] Musician Profiles & Musician Finder

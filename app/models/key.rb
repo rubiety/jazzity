@@ -47,4 +47,7 @@ class Key < ActiveRecord::Base
     self.index == another_key.index
   end
 
+  def to_json
+    attributes.except("id").merge("id" => name).to_json
+  end
 end

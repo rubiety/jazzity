@@ -23,6 +23,14 @@ class Chord < ActiveRecord::Base
     name
   end
 
+  def title
+    if key
+      "#{key} #{name}"
+    else
+      name
+    end
+  end
+
   def symbols_list
     self.symbols.map {|s| s.name }.join(', ')
   end
@@ -35,6 +43,8 @@ class Chord < ActiveRecord::Base
   
     return nil if symbol.nil?
     symbol = symbol.dup
+  
+    symbol.gsub!(/ Chord/i, "")
   
     Key.all.each do |k|
       if symbol.starts_with?(k.name)
@@ -64,4 +74,7 @@ class Chord < ActiveRecord::Base
     alias_method :[], :resolve
   end
 
+  def to_json(options = {})
+    super({:methods => [:notes]}.merge(options))
+  end
 end

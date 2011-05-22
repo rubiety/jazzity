@@ -1,5 +1,5 @@
+- chord = chord.in_key_of(key) if local_assigns[:key]
+
 %li[chord]
-  %h3= link_to chord, chord
-  %div.vex-tabdiv{:width => 160, :scale => 1}
-    tabstave notation=true tablature=false
-    notes 4-5/3
+  %h3= link_to chord.title, chord
+  .staff.chord-staff{"data-id" => chord.id, "data-staff-notes" => chord.notes.to_json, "data-staff-clef" => "treble"}

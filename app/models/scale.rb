@@ -29,6 +29,8 @@ class Scale < ActiveRecord::Base
   
     return nil if symbol.nil?
     symbol = symbol.dup
+
+    symbol.gsub!(/ Scale/i, "")
   
     Key.all.each do |k|
       if symbol.starts_with?(k.name)
@@ -69,9 +71,7 @@ class Scale < ActiveRecord::Base
 		!self.symmetry_index.nil?
 	end
 
-
-	def to_xml(options = {})
-		super(options.merge(:skip_types => true))
-	end
-
+  def to_json
+    super(:methods => [:notes])
+  end
 end

@@ -1,7 +1,7 @@
 source "http://rubygems.org"
 
 # Core Gems
-gem "rails", "3.1.0.beta1"
+gem "rails", "3.1.0.rc1"
 gem "mysql2"
 
 # Asset Template Engines
@@ -28,6 +28,9 @@ gem "friendly_id"
 gem "feedzirra"
 gem "twitter"
 
+# TODO: This doesn't work with 3.1 yet:
+# gem "activeadmin"
+
 group :development do
   gem "capistrano"
   gem "factory_girl_rails"
@@ -40,7 +43,6 @@ group :test do
   gem "rspec-rails"
   gem "cucumber-rails"
   gem "capybara"
-  gem "capybara-firebug"
   gem "database_cleaner"
   gem "launchy"
   gem "pickle"

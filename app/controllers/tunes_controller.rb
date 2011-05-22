@@ -1,11 +1,15 @@
 class TunesController < ApplicationController
   before_filter :find_tune, :except => [:index, :new, :create]
 
+  respond_to :html, :json
+
   def index
     @tunes = Tune.all
+    respond_with @tunes
   end
 
   def show
+    respond_with @tune
   end
 
 

@@ -38,6 +38,9 @@ module Jazzity
     # config.action_view.javascript_expansions[:defaults] = %w(jquery jquery_ujs)
 
 
+    # Configure ActiveRecord::Base to never include root (for Backbone.js integration)
+    config.active_record.include_root_in_json = false
+
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 

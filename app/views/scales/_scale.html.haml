@@ -1,5 +1,6 @@
 %article[scale]
   %h3= link_to scale.title, scale
   %p= scale.information
+  .staff.scale-staff{"data-id" => scale.id, "data-staff-notes" => scale.notes.to_json, "data-staff-clef" => "treble"}
   %ul.modes-list
     = render scale.modes

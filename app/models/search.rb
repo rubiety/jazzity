@@ -4,8 +4,8 @@ class Search
   end
   
   def all
-    [Chord, ChordQuality, Concept, Form, Instrument, Meter, Mode, Progression, Scale, Tune, Vehicle, Voicing].map do |klass|
-      puts "Trying #{klass.name}..."
+    [Chord, ChordQuality, Concept, Form, Instrument, Meter, Mode, Progression, Scale, Tune, Vehicle, Voicing, NotesCollection, ChordSequence].map do |klass|
+      ActiveRecord::Base.logger.info "Trying '#{@query}' for #{klass.name}..."
       klass[@query]
     end.flatten.compact.map do |result|
       if result.is_a?(Mode)

@@ -1,6 +1,7 @@
 require "set"
 
 class NotesCollection
+  extend ActiveModel::Naming
 	include Enumerable
 	include KeyContext
 
@@ -24,8 +25,41 @@ class NotesCollection
 		end
 	end
 
+  def to_s
+    name
+  end
+
+  def name
+    keys.join(", ")
+  end
+
+  def to_param
+    keys.join(",")
+  end
+
+  def title
+    if key
+      "#{name} in #{key}"
+    else
+      name
+    end
+  end
+
+  def notes
+    keys.map(&:name)
+  end
+
 	class << self
-		alias_method :[], :new
+	  def resolve(value)
+	    collection = new(value)
+	    if collection.invalid_keys.empty? and collection.keys.size > 1
+	      collection
+      else
+        nil
+      end
+    end
+    
+		alias_method :[], :resolve
 	end
 
 	delegate :each, :to => :keys

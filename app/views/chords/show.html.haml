@@ -24,13 +24,15 @@
 
   %section#notes-sequence
     %h3= @chord.notes.join(", ")
+  %section#staff
+    .staff.chord-staff{"data-id" => @chord.id, "data-staff-notes" => @chord.notes.to_json, "data-staff-clef" => "treble"}
 
   %nav.related-modes
     %h3 Related Scales/Modes:
     %ul.modes-list
-      = render @chord.modes
+      = render @chord.modes, :key => @key
 
   %nav.related-voicings
     %h3 Voicings for #{@chord}:
     %ul.voicings-list
-      = render @chord.voicings
+      = render @chord.voicings, :key => @key

@@ -1,10 +1,15 @@
 class KeysController < ApplicationController
   before_filter :find_key, :except => [:index, :new, :create]
 
+  respond_to :html, :json
+
   def index
+    @keys = Key.all
+    respond_with @keys
   end
 
   def show
+    respond_with @key
   end
 
 

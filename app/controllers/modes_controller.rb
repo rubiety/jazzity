@@ -3,6 +3,8 @@ class ModesController < ApplicationController
   before_filter :find_scale
   before_filter :find_mode
 
+  respond_to :html, :json
+
   def index
     redirect_to scale
   end
@@ -11,7 +13,9 @@ class ModesController < ApplicationController
     if @mode.main?
       redirect_to [@key, @scale].compact
     else
-      render "scales/show"
+      respond_with @scale, @mode do |format|
+        format.html { render "scales/show" }
+      end
     end
   end
 
