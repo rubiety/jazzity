@@ -6,7 +6,7 @@
         %li= link_to_unless @key == key, key, [key, @chord]
 
   %header
-    %h1= @chord
+    %h1= @chord.title
     %p= @chord.information
     - if @chord.parent
       %p
