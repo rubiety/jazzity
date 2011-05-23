@@ -17,29 +17,10 @@ Jazzity.Staff = Backbone.View.extend
     this.stave    = new Vex.Flow.Stave(10, 0, options["width"] - 20)
     this.stave.addClef(clef).setContext(this.context).draw()
   
-  normalize_keys: (keys, starting_octave = 4) ->
-    running_index = 0
-    last_index = 0
-
-    _(keys).map (key_string, i)->
-      [key, octave] = key_string.split("/")
-      key_model = Jazzity.Keys.get(key)
-      return null unless key_model
-      index = key_model.get("index")
-
-      octave ||= (starting_octave + Math.floor((running_index + 1) / 12))
-
-      index_or_plus_12 = if (index < last_index) then (index + 12) else index
-      running_index += (index_or_plus_12 - last_index)
-      last_index = index
-
-      "#{key}/#{octave}"
-  
   draw_notes: (notes)->
     self = this
     stave_notes = _(notes).map (note)->
       note.duration ||= "q"
-      note.keys = self.normalize_keys(note.keys)
       
       stave_note = new Vex.Flow.StaveNote(note)
       _(note.keys).each (key, i)->
@@ -62,7 +43,7 @@ Jazzity.ChordStaff = Jazzity.Staff.extend
 Jazzity.ScaleStaff = Jazzity.Staff.extend
   render: ->
     this.draw_stave "treble", width: 600
-    this.draw_notes _(this.normalize_keys(this.model.get("notes"))).map (note) ->
+    this.draw_notes _(this.model.get("notes")).map (note) ->
       { keys: [note] }
 
 Jazzity.ProgressionStaff = Jazzity.Staff.extend

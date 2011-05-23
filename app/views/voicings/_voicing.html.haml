@@ -2,4 +2,4 @@
 
 %li[voicing]
   %h3= link_to voicing.title, voicing
-  .staff.chord-staff{"data-id" => voicing.id, "data-staff-notes" => voicing.notes.to_json, "data-staff-clef" => "treble"}
+  .staff.chord-staff{"data-id" => voicing.id, "data-staff-notes" => voicing.octavized_notes.to_json, "data-staff-clef" => "treble"}

@@ -9,6 +9,7 @@ class Voicing < ActiveRecord::Base
   has_many :tones, :class_name => 'VoicingTone', :extend => Tones
 
   delegate :notes, :to => :tones
+  delegate :octavized_notes, :to => :tones
 
   validates :name, :presence => true
 

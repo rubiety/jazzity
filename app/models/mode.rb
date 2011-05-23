@@ -9,6 +9,7 @@ class Mode < ActiveRecord::Base
   has_friendly_id :name, :use_slug => true
 
   delegate :notes, :to => :tones
+  delegate :octavized_notes, :to => :tones
 
   validates :name, :presence => true
   validates :mode, :presence => true, :numericality => true

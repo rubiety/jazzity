@@ -49,6 +49,22 @@ class NoteSequence
     keys.map(&:name)
   end
 
+  # TODO: This is duplicated! Bad bad!
+  def octavized_notes(octave = 4)
+    return [] if keys.empty?
+
+    octave -= 1 if (8..11).include?(keys.first.index)
+    last_index = keys.first.index
+
+    ["#{notes.first}/#{octave}"] + keys.from(1).map do |key|
+      index = key.index > last_index ? key.index : key.index + 12
+      octave += 1 if (last_index..index).include?(12)
+      last_index = key.index
+      "#{key.name}/#{octave}"
+    end
+  end
+
+
   class << self
     def resolve(value)
       sequence = new(value)

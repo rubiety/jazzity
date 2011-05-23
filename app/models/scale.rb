@@ -8,6 +8,7 @@ class Scale < ActiveRecord::Base
   has_friendly_id :name, :use_slug => true
 
   delegate :notes, :to => :tones
+  delegate :octavized_notes, :to => :tones
   delegate :chords, :to => :main_mode
 
   validates :name, :presence => true

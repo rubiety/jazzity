@@ -47,11 +47,29 @@ module Tones
 
   # Does the magic in determining the actual note from the tones 
   # with tone and letter indexes. 
-  def notes
-    return @notes if defined?(@notes)
+  def keys
+    return @keys if defined?(@keys)
 
-    @notes = all.map do |tone|
-      Key.from_index(tone.tone, tone.letter_index).name
+    @keys = all.map do |tone|
+      Key.from_index(tone.tone, tone.letter_index)
+    end
+  end
+
+  def notes
+    keys.map(&:name)
+  end
+
+  def octavized_notes(octave = 4)
+    return [] if keys.empty?
+
+    octave -= 1 if (8..11).include?(keys.first.index)
+    last_index = keys.first.index
+
+    ["#{notes.first}/#{octave}"] + keys.from(1).map do |key|
+      index = key.index > last_index ? key.index : key.index + 12
+      octave += 1 if (last_index..index).include?(12)
+      last_index = key.index
+      "#{key.name}/#{octave}"
     end
   end
 

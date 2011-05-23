@@ -49,6 +49,9 @@ class ChordNoteSequence
   def notes
     note_sequences.map(&:notes)
   end
+  def octavized_notes
+    note_sequences.map(&:octavized_notes)
+  end
 
   def chords
     note_sequences.map(&:chords)

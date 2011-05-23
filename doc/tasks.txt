@@ -1,7 +1,7 @@
 = Functional Beta (June 1st)
 
 [X] Upgrade to Rails 3.1 / Sprockets
-[ ] Note Collection Sequences
+[X] Note Collection Sequences
 [ ] Search Pre-emption of appending "in [A-G]( Major| Minor|)?"
 [ ] Implementation of octavized_notes within models
 [ ] Transparently Handle Treble/Bass Clef Combinations with VexFlow

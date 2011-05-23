@@ -15,6 +15,7 @@ class Chord < ActiveRecord::Base
   has_many :voicings
 
   delegate :notes, :to => :tones
+  delegate :octavized_notes, :to => :tones
 
   validates :name, :presence => true
   validates :chord_quality, :presence => true

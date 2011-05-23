@@ -9,7 +9,7 @@
         %li= link_to_unless @key == key, key, [key, @chord_sequence]
 
   %section#staff
-    .staff.progression-staff{"data-staff-notes" => @chord_sequence.notes.to_json, "data-staff-clef" => "treble"}
+    .staff.progression-staff{"data-staff-notes" => @chord_sequence.octavized_notes.to_json, "data-staff-clef" => "treble"}
 
   %nav.related-progressions
     %h3 Related Progressions:
