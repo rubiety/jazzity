@@ -52,6 +52,6 @@ namespace :deploy do
   end
   
   task :migrate_database, :roles => [:db] do
-    run "cd #{release_path} && rake db:drop && rake db:create && rake db:migrate --trace && rake db:seed --trace RAILS_ENV=#{rails_env}"
+    run "cd #{release_path} && export RAILS_ENV=#{rails_env} && rake db:drop && rake db:create && rake db:migrate --trace && rake db:seed --trace"
   end
 end

@@ -37,6 +37,10 @@ group :development do
   gem "ruby-debug19", :require => "ruby-debug"
 end
 
+group :staging do
+  gem "therubyracer"
+end
+
 group :test do
   gem "turn", :require => false
   gem "faker"
