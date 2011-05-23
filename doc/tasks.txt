@@ -3,7 +3,7 @@
 [X] Upgrade to Rails 3.1 / Sprockets
 [X] Note Collection Sequences
 [ ] Search Pre-emption of appending "in [A-G]( Major| Minor|)?"
-[ ] Implementation of octavized_notes within models
+[X] Implementation of octavized_notes within models
 [ ] Transparently Handle Treble/Bass Clef Combinations with VexFlow
 [ ] Search Bars for each Sub-Section & Generic Search Results/Partials
 [ ] Progressions
@@ -21,7 +21,6 @@
 [ ] Newsletter Signup
 [ ] Suggestion Forms
 [ ] Chord Substitution Possibilities
-[ ] Caching/Database Pre-loading with Rails 3.1 Identity Maps?
 [ ] Musicians Database Build-Out
 [ ] Tunes Database Build-Out
 [ ] Jazz Concepts Build-Out
