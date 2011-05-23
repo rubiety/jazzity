@@ -4,6 +4,10 @@ class ChordSymbol < ActiveRecord::Base
   validates :name, :presence => true
   validates :chord, :presence => true
 
+  def to_s
+    name
+  end
+
   # Finds a chord symbol
   def self.resolve(symbol)
     all.detect do |cs|

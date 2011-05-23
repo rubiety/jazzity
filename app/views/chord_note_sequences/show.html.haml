@@ -1,0 +1,19 @@
+%article#chord-note-sequence
+  %header
+    %h1= @chord_note_sequence.title
+    %h3= @chord_note_sequence.chords.map {|g| g.map(&:short_name).join(" or ")}.join(" | ")
+
+  %aside#key-selector
+    %h2 Key:
+    %ul
+      - Key.primaries.each do |key|
+        %li= link_to_unless @key == key, key, [key, @chord_sequence]
+
+  %section#staff
+    .staff.progression-staff{"data-staff-notes" => @chord_note_sequence.notes.to_json, "data-staff-clef" => "treble"}
+
+  %nav.related-progressions
+    %h3 Related Progressions:
+    %ul.progressions-list
+      = render @chord_note_sequence.progressions
+

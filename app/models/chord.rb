@@ -23,6 +23,10 @@ class Chord < ActiveRecord::Base
     name
   end
 
+  def short_name
+    "#{key}#{primary_symbol}"
+  end
+
   def title
     if key
       "#{key} #{name}"

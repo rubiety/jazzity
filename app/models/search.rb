@@ -4,7 +4,9 @@ class Search
   end
   
   def all
-    [Chord, ChordQuality, Concept, Form, Instrument, Meter, Mode, Progression, Scale, Tune, Vehicle, Voicing, NoteSequence, ChordSequence].map do |klass|
+    [Chord, ChordQuality, Concept, Form, Instrument, Meter, Mode, Progression, 
+      Scale, Tune, Vehicle, Voicing, NoteSequence, ChordSequence, ChordNoteSequence
+    ].map do |klass|
       ActiveRecord::Base.logger.info "Trying '#{@query}' for #{klass.name}..."
       klass[@query]
     end.flatten.compact.map do |result|

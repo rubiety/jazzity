@@ -51,9 +51,9 @@ class NoteSequence
 
   class << self
     def resolve(value)
-      collection = new(value)
-      if collection.invalid_keys.empty? and collection.keys.size > 1
-        collection
+      sequence = new(value)
+      if sequence.invalid_keys.empty? and sequence.keys.size > 1
+        sequence
       else
         nil
       end
