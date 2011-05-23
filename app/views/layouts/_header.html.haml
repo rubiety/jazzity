@@ -3,10 +3,10 @@
 
 %nav
   %ul
-    %li= link_to "Home", root_path
-    %li= link_to "Tunes", tunes_path
-    %li= link_to "Musicians", musicians_path
-    %li= link_to "Scales & Modes", scales_path
-    %li= link_to "Chords & Voicings", chords_path
-    %li= link_to "Progressions & Form", progressions_path
-    %li= link_to "Jazz Concepts", concepts_path
+    = navigation_link_to "Home", root_path, DashboardsController
+    = navigation_link_to "Tunes", tunes_path, TunesController
+    = navigation_link_to "Musicians", musicians_path, MusiciansController
+    = navigation_link_to "Scales & Modes", scales_path, [ScalesController, ModesController]
+    = navigation_link_to "Chords & Voicings", chords_path, [ChordsController, VoicingsController, ChordSequencesController, NoteSequencesController]
+    = navigation_link_to "Progressions & Form", progressions_path, [ProgressionsController, ChordNoteSequencesController]
+    = navigation_link_to "Jazz Concepts", concepts_path, ConceptsController

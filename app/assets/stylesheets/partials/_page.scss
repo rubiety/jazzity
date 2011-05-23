@@ -31,6 +31,7 @@ body {
     ul {
       @include horizontal-list;
       li { margin: 0 15px 0 0; }
+      li.current { font-weight: bold; }
     }
   }
 }
