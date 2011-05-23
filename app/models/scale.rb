@@ -2,8 +2,8 @@ class Scale < ActiveRecord::Base
   include KeyContext
   include ModeContext
   
-  has_many :modes, :extend => ModeSequence, :dependent => :destroy
-  has_many :tones, :class_name => 'ScaleTone', :extend => ToneSequence, :dependent => :destroy
+  has_many :modes, :dependent => :destroy
+  has_many :tones, :class_name => 'ScaleTone', :extend => Tones, :dependent => :destroy
 
   has_friendly_id :name, :use_slug => true
 

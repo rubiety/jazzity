@@ -1,6 +1,6 @@
-body.notes_collections {
+body.note_sequences {
 
-  article.notes-collection {
+  article.note-sequence {
     border: 1px solid #666;
     padding: 15px;
     margin-bottom: 15px;
@@ -9,7 +9,7 @@ body.notes_collections {
     }
   }
 
-  article#notes-collection {
+  article#note-sequence {
     header {
       p {
         label { font-weight: bold; }

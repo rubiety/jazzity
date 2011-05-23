@@ -7,6 +7,7 @@ Jazzity.Chord = Backbone.Model.extend url: -> "/chords/" + this.id
 Jazzity.Voicing = Backbone.Model.extend url: -> "/voicings/" + this.id
 Jazzity.Progression = Backbone.Model.extend url: -> "/progressions/" + this.id
 Jazzity.Scale = Backbone.Model.extend url: -> "/scales/" + this.id
-Jazzity.NotesCollection = Backbone.Model.extend url: -> "/notes_collections/" + this.id
+Jazzity.NoteSeqquence = Backbone.Model.extend url: -> "/notes/" + this.id
+Jazzity.ChordSequence = Backbone.Model.extend url: -> "/chord-sequences/" + this.id
 
 Jazzity.KeyCollection = Backbone.Collection.extend model: Jazzity.Key

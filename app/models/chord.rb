@@ -6,12 +6,12 @@ class Chord < ActiveRecord::Base
   
   belongs_to :chord_quality
 
-  has_many :symbols, :class_name => 'ChordSymbol', :extend => ChordSymbolCollection
+  has_many :symbols, :class_name => 'ChordSymbol'
   has_one :primary_symbol, :class_name => 'ChordSymbol', :conditions => {:primary => true}
 
   has_many :chord_scales
   has_many :modes, :through => :chord_scales
-  has_many :tones, :class_name => 'ChordTone', :extend => ToneSequence
+  has_many :tones, :class_name => 'ChordTone', :extend => Tones
   has_many :voicings
 
   delegate :notes, :to => :tones

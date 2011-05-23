@@ -1,4 +1,4 @@
-module ToneSequence
+module Tones
   # Takes manually specified key context for this collection or 
   # delegates to th association owner.
   def key
@@ -52,7 +52,7 @@ module ToneSequence
 
     @notes = all.map do |tone|
       Key.from_index(tone.tone, tone.letter_index).name
-    end.extend(NoteSequence)
+    end
   end
 
 end

@@ -1,4 +1,4 @@
-module ChordCollection
+module Chords
 
   # Formats chord collection
   def to_s(format = :symbols)

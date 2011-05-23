@@ -4,7 +4,7 @@ class Mode < ActiveRecord::Base
   belongs_to :scale
 
   has_many :chord_scales
-  has_many :chords, :through => :chord_scales, :extend => ChordCollection
+  has_many :chords, :through => :chord_scales, :extend => Chords
 
   has_friendly_id :name, :use_slug => true
 

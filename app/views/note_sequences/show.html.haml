@@ -1,0 +1,18 @@
+%article#note-sequence
+  %header
+    %h1= @note_sequence.title
+
+  %aside#key-selector
+    %h2 Key:
+    %ul
+      - Key.primaries.each do |key|
+        %li= link_to_unless @key == key, key, [key, @note_sequence]
+
+  %section#staff
+    .staff.chord-staff{"data-staff-notes" => @note_sequence.notes.to_json, "data-staff-clef" => "treble"}
+
+  %nav.related-chords
+    %h3 Related Chords:
+    %ul.chords-list
+      = render @note_sequence.chords
+

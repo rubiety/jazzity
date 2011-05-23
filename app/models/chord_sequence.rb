@@ -79,7 +79,7 @@ class ChordSequence
   #     Key.primaries.map do |in_key|
   #       chords_in_key(in_key)
   #     end.flatten
-  #   end.extend(ChordCollection)
+  #   end.extend(Chords)
   # end
 
   # private
