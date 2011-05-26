@@ -62,8 +62,7 @@ module Tones
   def octavized_notes(octave = 4)
     return [] if keys.empty?
 
-    # TODO: Would like to do this, but need consistency between the treble/bass note splitting methods in JS
-    # octave -= 1 if (8..11).include?(keys.first.index)
+    octave -= 1 if (8..11).include?(keys.first.index)
     last_index = keys.first.index
 
     ["#{notes.first}/#{octave}"] + keys.from(1).map do |key|

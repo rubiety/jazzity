@@ -6,7 +6,7 @@ Jazzity.Staff = Backbone.View.extend
 
   initialize: ->
     this.stave_offset = 0
-    this.stave_delta = 70
+    this.stave_delta = 80
     this.staves = {}
 
   draw_canvas: (options = {})->
@@ -34,6 +34,7 @@ Jazzity.Staff = Backbone.View.extend
       new_note = _.clone(note)
       new_note.duration ||= "q"
       new_note.stem_direction = -1
+
       new_note.keys = _(new_note.keys).map (key, i)->
         [note_portion, octave_portion] = key.split("/")
         octave_portion = parseInt(octave_portion) + 1
@@ -43,7 +44,7 @@ Jazzity.Staff = Backbone.View.extend
   draw_notes: (notes)->
     treble_notes = _(notes).map (note)->
       new_note = _.clone(note)
-      new_note.duration ||= "q"
+      new_note.duration ||= "h"
       new_note.keys = _(new_note.keys).select (key, i)->
         [note_portion, octave_portion] = key.split("/")
         if parseInt(octave_portion) < 4 then false else true
@@ -51,7 +52,7 @@ Jazzity.Staff = Backbone.View.extend
     
     bass_notes   = _(notes).map (note)->
       new_note = _.clone(note)
-      new_note.duration ||= "q"
+      new_note.duration ||= "h"
       new_note.keys = _(new_note.keys).select (key, i)->
         [note_portion, octave_portion] = key.split("/")
         if parseInt(octave_portion) < 4 then true else false
@@ -61,14 +62,22 @@ Jazzity.Staff = Backbone.View.extend
     bass_notes   = _(bass_notes).reject (note)-> note.keys.length == 0
     bass_notes   = this.adjust_bass_notes(bass_notes) if bass_notes.length > 0
 
-    this.draw_notes_on_stave treble_notes, "treble" if this.staves["treble"] and treble_notes.length > 0
-    this.draw_notes_on_stave bass_notes, "bass" if this.staves["bass"] and bass_notes.length > 0
+    treble_stave_notes = this.build_stave_notes(treble_notes)
+    bass_stave_notes = this.build_stave_notes(bass_notes)
+    
+    mc = new Vex.Flow.ModifierContext()
+    treble_stave_notes[0].addToModifierContext(mc) if treble_stave_notes.length > 0
+    bass_stave_notes[0].addToModifierContext(mc) if bass_stave_notes.length > 0
 
-  
-  draw_notes_on_stave: (notes, clef = "treble")->
-    self = this
-    stave_notes = _(notes).map (note)->
-      note.duration ||= "q"
+    this.draw_notes_on_stave treble_stave_notes, "treble" if this.staves["treble"] and treble_notes.length > 0
+    this.draw_notes_on_stave bass_stave_notes, "bass" if this.staves["bass"] and bass_notes.length > 0
+
+  draw_notes_on_stave: (stave_notes, clef = "treble")->
+    Vex.Flow.Formatter.FormatAndDraw this.context, this.staves[clef], stave_notes
+
+  build_stave_notes: (notes)->
+    _(notes).map (note)->
+      note.duration ||= "h"
       
       stave_note = new Vex.Flow.StaveNote(note)
       _(note.keys).each (key, i)->
@@ -77,8 +86,6 @@ Jazzity.Staff = Backbone.View.extend
         if accidental.length > 0
           stave_note.addAccidental(i, new Vex.Flow.Accidental(accidental))
       stave_note
-    
-    Vex.Flow.Formatter.FormatAndDraw this.context, this.staves[clef], stave_notes
     
 
 Jazzity.ChordStaff = Jazzity.Staff.extend
@@ -91,7 +98,7 @@ Jazzity.ChordStaff = Jazzity.Staff.extend
 
 Jazzity.VoicingStaff = Jazzity.Staff.extend
   render: ->
-    this.draw_canvas(height: 180)
+    this.draw_canvas(height: 235)
     this.draw_stave "treble", width: 170
     this.draw_stave "bass", width: 170
     this.draw_notes [
