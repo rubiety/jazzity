@@ -1,7 +1,8 @@
 //= require jquery_ujs
+//= require pjax
 //= require_tree .
 
-$ ->
+$(document).bind "pageChanged", ->
 
   $(".chord-staff").each ->
     model = new Jazzity.Chord id: $(this).attr("data-id"), notes: JSON.parse($(this).attr("data-staff-notes"))

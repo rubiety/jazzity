@@ -9,6 +9,7 @@ gem "sass"
 gem "coffee-script"
 gem "uglifier"
 gem "jquery-rails"
+gem "pjax_rails"
 
 # Views
 gem "haml"

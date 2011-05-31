@@ -52,6 +52,10 @@ namespace :deploy do
   end
   
   task :migrate_database, :roles => [:db] do
-    run "cd #{release_path} && export RAILS_ENV=#{rails_env} && rake db:drop && rake db:create && rake db:migrate --trace && rake db:seed --trace"
+    run "cd #{release_path} && export RAILS_ENV=#{rails_env} && bundle exec rake db:drop && bundle exec rake db:create && bundle exec rake db:migrate --trace && bundle exec rake db:seed --trace"
+  end
+  
+  task :compile_stylesheets, :roles => [:app] do
+    run "bundle exec compass compile"
   end
 end

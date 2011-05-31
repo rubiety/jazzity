@@ -7,7 +7,7 @@
     #container
       %header#header
         = render :partial => 'layouts/header'
-      #main
+      #main{"data-pjax-container" => true}
         = render :partial => 'layouts/flashes'
         = yield
       %footer#footer

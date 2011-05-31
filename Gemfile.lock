@@ -171,6 +171,8 @@ GEM
     pickle (0.4.7)
       cucumber (>= 0.8)
       rake
+    pjax_rails (0.1.6)
+      jquery-rails
     polyglot (0.3.1)
     rack (1.3.0.beta2)
     rack-cache (1.0.2)
@@ -291,6 +293,7 @@ DEPENDENCIES
   mysql2
   paperclip
   pickle
+  pjax_rails
   rails (= 3.1.0.rc1)
   rspec-rails
   ruby-debug19
