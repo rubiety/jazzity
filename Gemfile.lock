@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/norman/friendly_id.git
+  revision: 491398a9b60624a19ec27b69ce2d2c66c2a8c705
+  specs:
+    friendly_id (3.2.1.1)
+      babosa (~> 0.3.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -105,8 +112,6 @@ GEM
       nokogiri (> 0.0.0)
       sax-machine (>= 0.0.12)
     ffi (1.0.9)
-    friendly_id (3.2.1.1)
-      babosa (~> 0.3.0)
     fssm (0.2.7)
     gherkin (2.3.8)
       json (>= 1.4.6)
@@ -278,7 +283,7 @@ DEPENDENCIES
   faker
   fancy-buttons
   feedzirra
-  friendly_id
+  friendly_id!
   growl
   guard
   guard-bundler
