@@ -32,6 +32,7 @@ set :shared_paths, %w(
 )
 
 after "deploy:symlink", "deploy:shared"
+after "deploy:symlink", "deploy:compile_stylesheets"
 after "deploy:symlink", "deploy:migrate_database"
 
 namespace :deploy do
