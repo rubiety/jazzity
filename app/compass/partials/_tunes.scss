@@ -1,21 +1,5 @@
 body.tunes {
-  section#search {
-    background: #CCC;
-    padding: 15px;
-    form {
-      label { 
-        display: inline;
-        margin-right: 10px;
-      }
-      input { margin-top: 0; }
-      input#query {
-        margin-right: 5px;
-        font-size: 1.2em;
-        width: 500px;
-      }
-    }
-  }
-
+  
   article.tune {
     border: 1px solid #666;
     padding: 15px;
