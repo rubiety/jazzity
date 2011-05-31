@@ -23,7 +23,7 @@ gem "acts_as_tree"
 gem "fancy-buttons"
 gem "simple_form"
 gem "paperclip"
-gem "friendly_id"
+gem "friendly_id", :git => "git://github.com/norman/friendly_id.git"
 
 # API Integration
 gem "feedzirra"

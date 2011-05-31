@@ -58,9 +58,9 @@ namespace :deploy do
   end
   
   task :generate_friendly_ids, :roles => [:db] do
-    %w(chord concept form instrument key meter mode musician progression scale tune vehicle voicing).each do |model|
-      run "cd #{release_path} && export RAILS_ENV=#{rails_env} && bundle exec rake friendly_id:make_slugs MODEL=#{model}"
-    end
+    # %w(chord concept form instrument meter mode musician progression scale tune vehicle voicing).each do |model|
+    #   run "cd #{release_path} && export RAILS_ENV=#{rails_env} && bundle exec rake friendly_id:make_slugs MODEL=#{model}; true"
+    # end
   end
   
   task :compile_stylesheets, :roles => [:app] do
