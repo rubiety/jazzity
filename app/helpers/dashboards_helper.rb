@@ -5,6 +5,6 @@ module DashboardsHelper
   end
 
   def link_to_search_example(name)
-    link_to name, search_path(u(name))
+    link_to name, search_path(u(name)), "data-skip-pjax" => true
   end
 end
