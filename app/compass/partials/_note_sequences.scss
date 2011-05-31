@@ -15,20 +15,7 @@ body.note_sequences {
         label { font-weight: bold; }
       }
     }
-
-    #key-selector {
-      width: 5%;
-      float: right;
-      margin-top: 15px;
-      background: #CCC;
-      padding: 10px;
-      ul {
-        list-style-type: none;
-        margin: 0;
-        li { padding: 5px; }
-      }
-    }
-
+    
     nav.related-chords {
       float: left;
       width: 92%;

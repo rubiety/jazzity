@@ -11,7 +11,7 @@
       - @scale.modes.each do |mode|
         %li= link_to_unless mode == @mode, mode, [@key, @scale, mode]
 
-  %aside#key-selector
+  %nav#key-selector
     %h2 Key:
     %ul
       - Key.primaries.each do |key|
