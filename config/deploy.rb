@@ -3,7 +3,7 @@ require 'rvm/capistrano'
 
 require 'bundler/capistrano'
 
-set :rvm_ruby_string, '1.9.2-p180'
+set :rvm_ruby_string, '1.9.2-p290@jazzity'
 
 ## Configuration
 set :application, "jazzity"
@@ -65,7 +65,7 @@ namespace :deploy do
   end
   
   task :migrate_database, :roles => [:db] do
-    run "cd #{release_path} && export RAILS_ENV=#{rails_env} && bundle exec rake db:drop && bundle exec rake db:create && bundle exec rake db:migrate --trace && bundle exec rake db:seed --trace"
+    # run "cd #{release_path} && export RAILS_ENV=#{rails_env} && bundle exec rake db:drop && bundle exec rake db:create && bundle exec rake db:migrate --trace && bundle exec rake db:seed --trace"
   end
   
   task :generate_friendly_ids, :roles => [:db] do
