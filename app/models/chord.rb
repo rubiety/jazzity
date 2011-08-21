@@ -1,8 +1,9 @@
 class Chord < ActiveRecord::Base
+  extend FriendlyId
   include KeyContext
   
   acts_as_tree
-  has_friendly_id :name, :use_slug => true
+  friendly_id :name, :use => :slugged
   
   belongs_to :chord_quality
 

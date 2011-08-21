@@ -1,7 +1,8 @@
 class ChordQuality < ActiveRecord::Base
+  extend FriendlyId
   has_many :chords
 
-  has_friendly_id :name, :use_slug => true
+  friendly_id :name, :use => :slugged
 
   validates :name, :presence => true
   validates :code, :presence => true

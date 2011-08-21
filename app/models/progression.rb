@@ -1,10 +1,12 @@
 class Progression < ActiveRecord::Base
+  extend FriendlyId
+  
   belongs_to :meter
   belongs_to :form
   has_many :components, :class_name => "ProgressionComponent"
   has_many :chords, :through => :components
 
-  has_friendly_id :name, :use_slug => true
+  friendly_id :name, :use => :slugged
 
   scope :full_tune, where(:full_tune => true)
   scope :partial, where(:full_tune => false)

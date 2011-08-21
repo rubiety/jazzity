@@ -1,7 +1,7 @@
 source "http://rubygems.org"
 
 # Core Gems
-gem "rails", "3.1.0.rc1"
+gem "rails", "3.1.0.rc6"
 gem "mysql2"
 
 # Asset Template Engines

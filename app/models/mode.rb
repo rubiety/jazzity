@@ -1,4 +1,5 @@
 class Mode < ActiveRecord::Base
+  extend FriendlyId
   include KeyContext
 
   belongs_to :scale
@@ -6,7 +7,7 @@ class Mode < ActiveRecord::Base
   has_many :chord_scales
   has_many :chords, :through => :chord_scales, :extend => Chords
 
-  has_friendly_id :name, :use_slug => true
+  friendly_id :name, :use => :slugged
 
   delegate :notes, :to => :tones
   delegate :octavized_notes, :to => :tones

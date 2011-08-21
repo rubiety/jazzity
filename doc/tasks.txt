@@ -5,7 +5,6 @@
 [X] Search Pre-emption of appending "in [A-G]( Major| Minor|)?"
 [X] Implementation of octavized_notes within models
 [X] Transparently Handle Treble/Bass Clef Combinations with VexFlow
-[ ] Search Bars for each Sub-Section & Generic Search Results/Partials
 [ ] Progressions
 [ ] Progression Matching of Chord Sequences
 [ ] Engine for Voice Leading Chords

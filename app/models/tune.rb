@@ -1,4 +1,6 @@
 class Tune < ActiveRecord::Base
+  extend FriendlyId
+  
   belongs_to :vehicle
   belongs_to :meter
   belongs_to :primary_key, :class_name => "Key"
@@ -8,7 +10,7 @@ class Tune < ActiveRecord::Base
   belongs_to :ending_chord, :class_name => "Chord"
   belongs_to :contrafact_of_tune, :class_name => "Tune"
 
-  has_friendly_id :name, :use_slug => true
+  friendly_id :name, :use => :slugged
 
   validates :name, :presence => true
   validates :tonality, :inclusion => ["Major", "Minor"]

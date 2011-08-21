@@ -9,7 +9,6 @@
 
 ### CLEAR EXISTING JAZZ MODEL TABLE ###
 %w(
-  slugs
   meters
   forms
   vehicles

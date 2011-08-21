@@ -1,5 +1,7 @@
 class Meter < ActiveRecord::Base
-  has_friendly_id :name, :use_slug => true
+  extend FriendlyId
+  
+  friendly_id :name, :use => :slugged
 
   validates :name, :presence => true
   validates :beats, :presence => true, :numericality => true

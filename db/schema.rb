@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,30 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110514002112) do
+ActiveRecord::Schema.define(:version => 20110821184412) do
 
-  create_table "active_admin_comments", :force => true do |t|
-    t.integer  "resource_id",   :null => false
-    t.string   "resource_type", :null => false
-    t.integer  "author_id"
-    t.string   "author_type"
+  create_table "admin_notes", :force => true do |t|
+    t.integer  "resource_id",     :null => false
+    t.string   "resource_type",   :null => false
+    t.integer  "admin_user_id"
+    t.string   "admin_user_type"
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "namespace"
   end
 
-  add_index "active_admin_comments", ["author_type", "author_id"], :name => "index_active_admin_comments_on_author_type_and_author_id"
-  add_index "active_admin_comments", ["namespace"], :name => "index_active_admin_comments_on_namespace"
-  add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_admin_notes_on_resource_type_and_resource_id"
+  add_index "admin_notes", ["admin_user_type", "admin_user_id"], :name => "index_admin_notes_on_admin_user_type_and_admin_user_id"
+  add_index "admin_notes", ["resource_type", "resource_id"], :name => "index_admin_notes_on_resource_type_and_resource_id"
 
   create_table "chord_qualities", :force => true do |t|
     t.string "name"
     t.string "code"
-    t.string "cached_slug"
+    t.string "slug"
   end
 
-  add_index "chord_qualities", ["cached_slug"], :name => "index_chord_qualities_on_cached_slug", :unique => true
+  add_index "chord_qualities", ["slug"], :name => "index_chord_qualities_on_cached_slug", :unique => true
 
   create_table "chord_scales", :force => true do |t|
     t.integer "chord_id"
@@ -72,42 +71,42 @@ ActiveRecord::Schema.define(:version => 20110514002112) do
     t.integer "chord_quality_id"
     t.integer "parent_id"
     t.string  "name"
-    t.string  "cached_slug"
+    t.string  "slug"
     t.text    "synonyms"
     t.text    "information"
   end
 
-  add_index "chords", ["cached_slug"], :name => "index_chords_on_cached_slug", :unique => true
   add_index "chords", ["chord_quality_id"], :name => "index_chords_on_chord_quality_id"
   add_index "chords", ["parent_id"], :name => "index_chords_on_parent_id"
+  add_index "chords", ["slug"], :name => "index_chords_on_cached_slug", :unique => true
 
   create_table "concepts", :force => true do |t|
     t.string   "name"
-    t.string   "cached_slug"
+    t.string   "slug"
     t.text     "about"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "concepts", ["cached_slug"], :name => "index_concepts_on_cached_slug", :unique => true
+  add_index "concepts", ["slug"], :name => "index_concepts_on_cached_slug", :unique => true
 
   create_table "forms", :force => true do |t|
     t.string   "name"
-    t.string   "cached_slug"
+    t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "forms", ["cached_slug"], :name => "index_forms_on_cached_slug", :unique => true
+  add_index "forms", ["slug"], :name => "index_forms_on_cached_slug", :unique => true
 
   create_table "instruments", :force => true do |t|
     t.string   "name"
-    t.string   "cached_slug"
+    t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "instruments", ["cached_slug"], :name => "index_instruments_on_cached_slug", :unique => true
+  add_index "instruments", ["slug"], :name => "index_instruments_on_cached_slug", :unique => true
 
   create_table "keys", :force => true do |t|
     t.string  "name"
@@ -124,34 +123,34 @@ ActiveRecord::Schema.define(:version => 20110514002112) do
 
   create_table "meters", :force => true do |t|
     t.string   "name"
-    t.string   "cached_slug"
+    t.string   "slug"
     t.integer  "beats"
     t.integer  "division"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "meters", ["cached_slug"], :name => "index_meters_on_cached_slug", :unique => true
+  add_index "meters", ["slug"], :name => "index_meters_on_cached_slug", :unique => true
 
   create_table "modes", :force => true do |t|
     t.integer "scale_id"
     t.integer "mode"
     t.string  "name"
-    t.string  "cached_slug"
+    t.string  "slug"
     t.text    "synonyms"
     t.integer "dissonance"
     t.text    "information"
   end
 
-  add_index "modes", ["cached_slug"], :name => "index_modes_on_cached_slug", :unique => true
   add_index "modes", ["mode"], :name => "index_modes_on_mode"
   add_index "modes", ["scale_id"], :name => "index_modes_on_scale_id"
+  add_index "modes", ["slug"], :name => "index_modes_on_cached_slug", :unique => true
 
   create_table "musicians", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "nickname"
-    t.string   "cached_slug"
+    t.string   "slug"
     t.date     "born_on"
     t.date     "died_on"
     t.integer  "prominence"
@@ -161,8 +160,8 @@ ActiveRecord::Schema.define(:version => 20110514002112) do
     t.datetime "updated_at"
   end
 
-  add_index "musicians", ["cached_slug"], :name => "index_musicians_on_cached_slug", :unique => true
   add_index "musicians", ["instrument_id"], :name => "index_musicians_on_instrument_id"
+  add_index "musicians", ["slug"], :name => "index_musicians_on_cached_slug", :unique => true
 
   create_table "progression_components", :force => true do |t|
     t.integer  "progression_id"
@@ -180,7 +179,7 @@ ActiveRecord::Schema.define(:version => 20110514002112) do
 
   create_table "progressions", :force => true do |t|
     t.string   "name"
-    t.string   "cached_slug"
+    t.string   "slug"
     t.integer  "bars"
     t.boolean  "full_tune",   :default => false
     t.integer  "meter_id"
@@ -191,8 +190,8 @@ ActiveRecord::Schema.define(:version => 20110514002112) do
     t.datetime "updated_at"
   end
 
-  add_index "progressions", ["cached_slug"], :name => "index_progressions_on_cached_slug", :unique => true
   add_index "progressions", ["meter_id"], :name => "index_progressions_on_meter_id"
+  add_index "progressions", ["slug"], :name => "index_progressions_on_cached_slug", :unique => true
 
   create_table "scale_tones", :force => true do |t|
     t.integer "scale_id"
@@ -203,29 +202,17 @@ ActiveRecord::Schema.define(:version => 20110514002112) do
 
   create_table "scales", :force => true do |t|
     t.string  "name"
-    t.string  "cached_slug"
+    t.string  "slug"
     t.string  "information"
     t.integer "symmetry_index"
   end
 
-  add_index "scales", ["cached_slug"], :name => "index_scales_on_cached_slug", :unique => true
-
-  create_table "slugs", :force => true do |t|
-    t.string   "name"
-    t.integer  "sluggable_id"
-    t.integer  "sequence",                     :default => 1, :null => false
-    t.string   "sluggable_type", :limit => 40
-    t.string   "scope"
-    t.datetime "created_at"
-  end
-
-  add_index "slugs", ["name", "sluggable_type", "sequence", "scope"], :name => "index_slugs_on_n_s_s_and_s", :unique => true
-  add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
+  add_index "scales", ["slug"], :name => "index_scales_on_cached_slug", :unique => true
 
   create_table "tunes", :force => true do |t|
     t.string   "name"
     t.string   "alternate_name"
-    t.string   "cached_slug"
+    t.string   "slug"
     t.integer  "vehicle_id"
     t.integer  "meter_id"
     t.integer  "primary_key_id"
@@ -245,23 +232,23 @@ ActiveRecord::Schema.define(:version => 20110514002112) do
   end
 
   add_index "tunes", ["aebersold_playalong_number"], :name => "index_tunes_on_aebersold_playalong_number"
-  add_index "tunes", ["cached_slug"], :name => "index_tunes_on_cached_slug", :unique => true
   add_index "tunes", ["form_id"], :name => "index_tunes_on_form_id"
   add_index "tunes", ["meter_id"], :name => "index_tunes_on_meter_id"
   add_index "tunes", ["primary_key_id"], :name => "index_tunes_on_primary_key_id"
   add_index "tunes", ["secondary_key_id"], :name => "index_tunes_on_secondary_key_id"
+  add_index "tunes", ["slug"], :name => "index_tunes_on_cached_slug", :unique => true
   add_index "tunes", ["vehicle_id"], :name => "index_tunes_on_vehicle_id"
 
   create_table "vehicles", :force => true do |t|
     t.string   "name"
-    t.string   "cached_slug"
+    t.string   "slug"
     t.integer  "parent_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "vehicles", ["cached_slug"], :name => "index_vehicles_on_cached_slug", :unique => true
   add_index "vehicles", ["parent_id"], :name => "index_vehicles_on_parent_id"
+  add_index "vehicles", ["slug"], :name => "index_vehicles_on_cached_slug", :unique => true
 
   create_table "voicing_tones", :force => true do |t|
     t.integer "voicing_id"
@@ -279,12 +266,12 @@ ActiveRecord::Schema.define(:version => 20110514002112) do
     t.integer "chord_id"
     t.integer "parent_id"
     t.string  "name"
-    t.string  "cached_slug"
+    t.string  "slug"
     t.integer "octave_offset", :default => 0
     t.text    "information"
   end
 
-  add_index "voicings", ["cached_slug"], :name => "index_voicings_on_cached_slug", :unique => true
   add_index "voicings", ["chord_id"], :name => "index_voicings_on_chord_id"
+  add_index "voicings", ["slug"], :name => "index_voicings_on_cached_slug", :unique => true
 
 end

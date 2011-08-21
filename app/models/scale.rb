@@ -1,11 +1,12 @@
 class Scale < ActiveRecord::Base
+  extend FriendlyId
   include KeyContext
   include ModeContext
   
   has_many :modes, :dependent => :destroy
   has_many :tones, :class_name => 'ScaleTone', :extend => Tones, :dependent => :destroy
 
-  has_friendly_id :name, :use_slug => true
+  friendly_id :name, :use => :slugged
 
   delegate :notes, :to => :tones
   delegate :octavized_notes, :to => :tones

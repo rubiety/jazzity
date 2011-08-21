@@ -1,7 +1,9 @@
 class Key < ActiveRecord::Base
+  extend FriendlyId
+  
   Letters = ['C' => 0, 'D' => 1, 'E' => 2, 'F' => 3, 'G' => 4, 'A' => 5, 'B' => 6]
 
-  has_friendly_id :name
+  friendly_id :name
 
   validates :name, :presence => true
   validates :index, :presence => true
