@@ -27,6 +27,17 @@ task :staging do
   set :user, "apps"
 end
 
+task :production do
+  role :app, "jazzity.com"
+  role :web, "jazzity.com"
+  role :db,  "jazzity.com", :primary => true
+    
+  set :rails_env, "production"
+  set :branch, "master"
+  set :deploy_to, "/var/www/jazzity.com"
+  set :user, "apps"
+end
+
 set :shared_paths, %w(
   config/database.yml
 )

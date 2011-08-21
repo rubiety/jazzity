@@ -10,4 +10,15 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+  
+  if Rails.env.production?
+    before_filter :force_landing_page
+    
+    def force_landing_page
+      unless request.path == "/"
+        redirect_to "/"
+        return false
+      end
+    end
+  end
 end
