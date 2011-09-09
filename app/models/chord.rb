@@ -38,7 +38,7 @@ class Chord < ActiveRecord::Base
   end
 
   def symbols_list
-    self.symbols.map {|s| s.name }.join(', ')
+    symbols.map {|s| s.name }.join(', ')
   end
 
   # Resolves a chord symbol into a chord.

@@ -1,5 +1,27 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe Mode do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context "associations" do
+    it { should belong_to(:scale) }
+    it { should have_many(:chord_scales) }
+    it { should have_many(:chords).through(:chord_scales) }
+  end
+  
+  context "delegations" do
+    it "should delegate notes to tones"
+    it "should delegate octavized_notes to tones"
+  end
+  
+  context "validations" do
+    it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:mode) }
+    it { should validate_presence_of(:scale) }
+  end
+  
+  it "should expose #to_s as name" do
+    described_class.new(:name => "Test").to_s.should == "Test"
+  end
+  
+  # TODO
+  
 end
