@@ -35,6 +35,7 @@ gem "twitter"
 group :development do
   gem "capistrano"
   gem "factory_girl_rails"
+  gem "ruby-debug19"
 end
 
 group :test do
