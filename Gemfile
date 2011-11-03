@@ -1,11 +1,11 @@
 source "http://rubygems.org"
 
 # Core Gems
-gem "rails", "3.1.1.rc1"
+gem "rails", "3.1.1"
 gem "mysql2"
 
 # Asset Template Engines
-gem "sass"
+gem "sass-rails"
 gem "coffee-script"
 gem "uglifier"
 gem "jquery-rails"
@@ -23,14 +23,15 @@ gem "acts_as_tree"
 gem "fancy-buttons"
 gem "simple_form"
 gem "paperclip"
-gem "friendly_id", :git => "git://github.com/norman/friendly_id.git"
+gem "friendly_id", "4.0.0.beta14"
 
 # API Integration
 gem "feedzirra"
 gem "twitter"
 
-# TODO: This doesn't work with 3.1 yet:
-# gem "activeadmin"
+# Administration
+gem "activeadmin"
+gem "meta_search"
 
 group :development do
   gem "capistrano"
