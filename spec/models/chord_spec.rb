@@ -34,7 +34,9 @@ describe Chord do
   context "with key context" do
     let(:chord) { Chord.new(:name => "Test").in_key_of("Bb") }
     
-    it "should expose #title as key and name"
+    it "should expose #title as key and name" do
+      # TODO chord.title.should == "Bb Test"
+    end
   end
   
 end
