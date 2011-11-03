@@ -68,7 +68,7 @@ GEM
       execjs
     coffee-script-source (1.1.2)
     columnize (0.3.4)
-    compass (0.11.5)
+    compass (0.12.alpha.0)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
@@ -317,7 +317,7 @@ DEPENDENCIES
   capistrano
   capybara
   coffee-script
-  compass
+  compass (= 0.12.alpha.0)
   cucumber-rails
   database_cleaner
   factory_girl_rails

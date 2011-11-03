@@ -14,7 +14,7 @@ gem "pjax_rails"
 # Views
 gem "haml"
 gem "haml-rails"
-gem "compass"
+gem "compass", "0.12.alpha.0"
 gem "html5-boilerplate"
 
 # Bread & Butter Gems
