@@ -75,6 +75,7 @@ namespace :deploy do
   end
   
   task :compile_stylesheets, :roles => [:app] do
-    run "cd #{release_path} && export RAILS_ENV=#{rails_env} && bundle exec compass compile"
+    # TODO: Need asset pipeline precompile
+    # run "cd #{release_path} && export RAILS_ENV=#{rails_env} && bundle exec compass compile"
   end
 end
