@@ -52,6 +52,7 @@ module Jazzity
 
     # Enable the asset pipeline
     config.assets.enabled = true
+    config.assets.compile = true
     
     # Configure Tools
     config.generators do |g|
