@@ -1,6 +1,13 @@
+//= require jquery
 //= require jquery_ujs
 //= require pjax
-//= require_tree .
+//= require json2
+//= require underscore
+//= require backbone
+//= require vexflow
+//
+//= require models
+//= require views
 
 $(document).bind "pageChanged", ->
 
