@@ -25,22 +25,6 @@ Jazzity.Staff = Backbone.View.extend
     this.staves[clef].addClef(clef).setContext(this.context).draw()
     this.stave_offset += this.stave_delta
 
-  # This is necessary because VexFlow does not have any real implementation of a bass clef. 
-  # So, we're basically taking bass-denominated notes and presenting them as if they were treble clef.
-  # Come on VexFlow, this is pretty ridiculous.
-  # 
-  adjust_bass_notes: (notes)->
-    _(notes).map (note)->
-      new_note = _.clone(note)
-      new_note.duration ||= "q"
-      new_note.stem_direction = -1
-
-      new_note.keys = _(new_note.keys).map (key, i)->
-        [note_portion, octave_portion] = key.split("/")
-        octave_portion = parseInt(octave_portion) + 1
-        "#{note_portion}/#{octave_portion}"
-      new_note
-
   draw_notes: (notes)->
     treble_notes = _(notes).map (note)->
       new_note = _.clone(note)
@@ -60,7 +44,6 @@ Jazzity.Staff = Backbone.View.extend
 
     treble_notes = _(treble_notes).reject (note)-> note.keys.length == 0
     bass_notes   = _(bass_notes).reject (note)-> note.keys.length == 0
-    bass_notes   = this.adjust_bass_notes(bass_notes) if bass_notes.length > 0
 
     treble_stave_notes = this.build_stave_notes(treble_notes)
     bass_stave_notes = this.build_stave_notes(bass_notes)
