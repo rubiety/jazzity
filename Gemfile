@@ -58,7 +58,3 @@ group :test do
   gem "guard-rspec"
   gem "guard-spork"
 end
-
-group :staging, :production do
-  gem "therubyracer"
-end

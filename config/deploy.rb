@@ -43,6 +43,7 @@ set :shared_paths, %w(
 )
 
 after "deploy:symlink", "deploy:shared"
+after "deploy:symlink", "deploy:compile_stylesheets"
 after "deploy:symlink", "deploy:migrate_database"
 after "deploy:symlink", "deploy:generate_friendly_ids"
 
@@ -71,5 +72,9 @@ namespace :deploy do
     # %w(chord concept form instrument meter mode musician progression scale tune vehicle voicing).each do |model|
     #   run "cd #{release_path} && export RAILS_ENV=#{rails_env} && bundle exec rake friendly_id:make_slugs MODEL=#{model}; true"
     # end
+  end
+  
+  task :compile_stylesheets, :roles => [:app] do
+    run "cd #{release_path} && export RAILS_ENV=#{rails_env} && bundle exec compass compile"
   end
 end
