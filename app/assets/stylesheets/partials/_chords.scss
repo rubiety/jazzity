@@ -1,0 +1,43 @@
+body.chords, body.chord_qualities {
+
+  article.chord_quality {
+    border: 1px solid #666;
+    padding: 15px;
+    margin-bottom: 15px;
+    h3 {
+      margin-bottom: 8px;
+    }
+  }
+
+  article#chord {
+    header {
+      p {
+        label { font-weight: bold; }
+      }
+    }
+  }
+
+}
+
+/* Potentially Used Elsewhere */
+ul.chords-list {
+  @include clearfix;
+  list-style-type: none;
+  margin: 0;
+
+  li.chord {
+    float: left;
+    border: 1px solid #666;
+    margin: 0 10px 10px 0;
+    padding: 10px;
+    width: 184px;
+    height: 184px;
+
+    h3 { margin: 0; }
+    
+    div.vex-tabdiv {
+      padding-left: 0;
+    }
+  }
+}
+
