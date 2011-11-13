@@ -3,7 +3,7 @@
 -ie_html :lang => 'en', :class => 'no-js' do
   = render :partial => 'layouts/head'
 
-  %body{ :class => "landing" }
+  %body
     = yield
     
     -# Javascript at the bottom for fast page loading

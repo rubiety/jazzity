@@ -14,8 +14,15 @@
   %title
     == #{ controller.controller_name.titleize } - #{ controller.action_name.titleize }
   
-  %meta{ :content => "", :name => "description" }/
-  %meta{ :content => "", :name => "author" }/
+  %meta{ :content => "Jazzity - The Jazz Community & Knowledge Engine", :name => "description" }/
+  %meta{ :content => "Ben Hughes", :name => "author" }/
+
+  -# Open Graph
+  %meta{ :property => "og:title", :content => "Jazzity - The Jazz Community & Knowledge Engine" }
+  %meta{ :property => "og:type", :content => "company" }
+  %meta{ :property => "og:site_name", :content => "Jazzity" }
+  %meta{ :property => "og:url", :content => "http://www.jazzity.com/" }
+  %meta{ :property => "og:image", :content => "" }
   
   -# Mobile viewport optimized: j.mp/bplateviewport
   %meta{ :content => "width=device-width, initial-scale=1.0", :name => "viewport" }/
