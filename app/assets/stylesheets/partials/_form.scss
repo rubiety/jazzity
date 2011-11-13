@@ -13,7 +13,7 @@ form {
   input[type=password],
   textarea {
     @include border-radius(6px);
-    @include linear-gradient(color-stops(#f6f6f6, #fff));
+    @include background-image(linear-gradient(#f6f6f6,#ffffff));
     color: #333;
     padding: 3px;
     outline: none;

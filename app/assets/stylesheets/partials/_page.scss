@@ -9,7 +9,7 @@ body {
   width: 960px;
   background: #FFF;
   
-  @include box-shadow(#666, 0, 0, 15px, 5px);
+  @include single-box-shadow(#666, 0, 0, 15px, 5px);
 }
 
 #header {
