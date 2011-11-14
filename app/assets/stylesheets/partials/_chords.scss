@@ -1,4 +1,4 @@
-body.chords, body.chord_qualities {
+body.chords, body.chord-qualities {
 
   article.chord_quality {
     @include full;
@@ -33,7 +33,6 @@ ul.chords-list {
     margin: 0 10px 10px 0;
     padding: 10px;
     width: 184px;
-    height: 184px;
 
     h3 { margin: 0; }
     
