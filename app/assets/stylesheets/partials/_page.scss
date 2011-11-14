@@ -1,61 +1,61 @@
 body {
   font-family: Helvetica, Arial, sans-serif;
   margin: 0 40px;
-  background: #CCC;
+  background: #FFF;
 }
 
 #container {
-  margin: 0 auto;
-  width: 960px;
-  background: #FFF;
-  
-  @include single-box-shadow(#666, 0, 0, 15px, 5px);
+  @include container;
 }
 
 #header {
-  padding: 10px;
+  @include full;
+  margin-top: 10px;
   
-  h1 {
-    font-size: 2em;
-  }
-  h2 {
-    font-size: 0.8em;
-  }
+  h1 { font-size: 3em; }
+  h2 { font-size: 0.8em; }
 
   nav {
     margin-top: 10px;
-    background: #CCC;
     padding: 5px;
-    @include border-radius(6px);
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
     
     ul {
       @include horizontal-list;
       li { margin: 0 15px 0 0; }
       li.current { font-weight: bold; }
+      a {
+        color: #000;
+        text-size: 1.1em;
+        &:visited { color: #000; }
+        &:hover { color: #000; text-decoration: none; }
+      }
     }
+  }
+}
+
+#flash {
+  @include full;
+  ul {
+    padding: 10px;
+    margin: 0 0 10px 0;
+    color: #FFFFFF;
+    
+    @include no-bullets;
+    @include border-radius(4px);
+
+    &.notice { background-color: #3B9C3B; }
+    &.warn { background-color: #A11010; }
   }
 }
 
 #main {
-  @include clearfix;
-  padding: 10px;
-
-  #flash {
-    ul {
-      padding: 10px;
-      margin: 0 0 10px 0;
-      color: #FFFFFF;
-      
-      @include no-bullets;
-      @include border-radius(4px);
-
-      &.notice { background-color: #3B9C3B; }
-      &.warn { background-color: #A11010; }
-    }
-  }
+  margin-top: 10px;
 }
 
 #footer {
+  @include full;
   padding: 10px;
   font-size: 0.7em;
 }

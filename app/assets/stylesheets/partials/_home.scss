@@ -1,6 +1,7 @@
 body.dashboards {
   
   section#search {
+    @include full;
     background: #CCC;
     padding: 15px;
     form {
@@ -18,10 +19,11 @@ body.dashboards {
   }
 
   section#search-examples {
+    @include full;
     @include clearfix;
+    margin-bottom: 15px;
     padding: 15px;
     border-bottom: 5px solid #CCC;
-    margin-bottom: 10px;
     h2 {
       float: left;
       width: 100px;
@@ -43,19 +45,14 @@ body.dashboards {
   }
 
   section#about-site {
-    float: left;
-    width: 40%;
-    padding: 15px;
-    h2 {
-      margin-bottom: 5px;
-    }
+    @include columns(5);
+    @include alpha;
+    h2 { margin-bottom: 5px; }
   }
 
   section#features-overview {
-    float: right;
-    width: 50%;
-    padding: 15px;
-    border-left: 1px solid #666;
+    @include columns(7);
+    @include omega;
 
     article {
       margin-bottom: 15px;

@@ -15,6 +15,7 @@ gem "pjax_rails"
 gem "haml"
 gem "haml-rails"
 gem "compass", "0.12.alpha.0"
+gem "compass-susy-plugin", :require => "susy"
 gem "html5-boilerplate"
 
 # Bread & Butter Gems
