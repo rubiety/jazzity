@@ -1,9 +1,26 @@
 body.chords, body.chord-qualities {
 
-  section#chords {
-    @include full;
+  nav#chords-index {
+    @include columns(2);
+    @include alpha;
+    background: #CCC;
+
+    article {
+      padding: 10px;
+      h2 { margin-bottom: 6px; }
+      ul {
+        margin-left: 0;
+        @include no-bullets;
+        li { padding-bottom: 4px; }
+      }
+    }
   }
 
+  section#chords {
+    @include columns(10);
+    @include omega;
+  }
+  
   article.chord_quality {
     border: 3px solid #CCC;
     padding: 15px;
@@ -16,7 +33,8 @@ body.chords, body.chord-qualities {
   }
 
   article#chord {
-    @include full;
+    @include columns(10);
+    @include omega;
 
     header {
       p {

@@ -1,6 +1,6 @@
 body.tunes {
 
-  section#filters {
+  nav#filters {
     @include columns(2);
     @include alpha;
     background: #CCC;
