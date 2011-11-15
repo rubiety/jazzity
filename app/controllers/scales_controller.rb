@@ -1,11 +1,11 @@
 class ScalesController < ApplicationController
   before_filter :find_key
   before_filter :find_scale, :except => [:index, :new, :create]
+  before_filter :find_scales
 
   respond_to :html, :json
 
   def index
-    @scales = Scale.scoped
     respond_with @scales
   end
 
@@ -28,5 +28,9 @@ class ScalesController < ApplicationController
     @scale = @scale.in_key_of(@key) if @key
     @mode = @scale.main_mode
     @mode = @mode.in_key_of(@key) if @key
+  end
+
+  def find_scales
+    @scales = Scale.scoped(:include => [:modes])
   end
 end

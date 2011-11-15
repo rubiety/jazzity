@@ -2,6 +2,7 @@ class ModesController < ApplicationController
   before_filter :find_key
   before_filter :find_scale
   before_filter :find_mode
+  before_filter :find_scales
 
   respond_to :html, :json
 
@@ -37,5 +38,9 @@ class ModesController < ApplicationController
   def find_mode
     @mode = @scale.modes.find(params[:id])
     @mode = @mode.in_key_of(@key) if @key
+  end
+
+  def find_scales
+    @scales = Scale.scoped(:include => [:modes])
   end
 end

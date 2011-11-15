@@ -1,7 +1,24 @@
 body.scales, body.modes {
 
+  nav#scales-index {
+    @include columns(2);
+    @include alpha;
+    background: #CCC;
+
+    article {
+      padding: 10px;
+      h2 { margin-bottom: 6px; }
+      ul {
+        margin-left: 0;
+        @include no-bullets;
+        li { padding-bottom: 4px; }
+      }
+    }
+  }
+
   section#scales {
-    @include full;
+    @include columns(10);
+    @include omega;
   }
 
   article.scale {
@@ -22,7 +39,8 @@ body.scales, body.modes {
   }
 
   article#scale {
-    @include full;
+    @include columns(10);
+    @include omega;
 
     header {
       p {
