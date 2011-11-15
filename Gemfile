@@ -35,6 +35,7 @@ gem "activeadmin"
 gem "meta_search"
 
 group :development do
+  gem "thin"
   gem "capistrano"
   gem "factory_girl_rails"
   gem "ruby-debug19"
