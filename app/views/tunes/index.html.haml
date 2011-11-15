@@ -1,1 +1,22 @@
-= render @tunes
+%section#filters
+  %article
+    %h2 By Form:
+    %ul
+      - Form.all.each do |form|
+        %li= link_to form, tunes_path(:form => form)
+
+  %article
+    %h2 By Vehicle:
+    %ul
+      - Vehicle.all.each do |vehicle|
+        %li= link_to vehicle, tunes_path(:vehicle => vehicle)
+
+  %article
+    %h2 By Meter:
+    %ul
+      - Meter.all.each do |meter|
+        %li= link_to meter, tunes_path(:meter => meter)
+
+
+%section#tunes
+  = render @tunes

@@ -1,7 +1,27 @@
 body.tunes {
+
+  section#filters {
+    @include columns(2);
+    @include alpha;
+    background: #CCC;
+
+    article {
+      padding: 10px;
+      h2 { margin-bottom: 6px; }
+      ul {
+        margin-left: 0;
+        @include no-bullets;
+        li { padding-bottom: 4px; }
+      }
+    }
+  }
   
+  section#tunes {
+    @include columns(10);
+    @include omega;
+  }
+
   article.tune {
-    @include full;
     border: 1px solid #666;
     padding: 15px;
     margin-bottom: 15px;
