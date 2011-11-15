@@ -10,7 +10,7 @@ ChordQuality.create!(:name => 'Major', :code => 'MAJ').tap do |q|
       {:tone => Tone::Interval::PERFECT_5TH, :letter_index => Tone::LetterInterval::FIFTH, :strength => 1}
     ])
 
-    c.chord_scales << ChordScale.specify(Scale['Major'][1])
+    c.chord_scales << ChordScale.specify(Scale['Major'].modes[0])
   end
 
   q.chords.create!(:name => 'Major 7').tap do |c|
@@ -56,7 +56,7 @@ ChordQuality.create!(:name => 'Major', :code => 'MAJ').tap do |q|
         {:tone => Tone::Interval::MAJOR_7TH, :letter_index => Tone::LetterInterval::SEVENTH, :strength => 2}
       ])
 
-      cc.chord_scales << ChordScale.specify(Scale['Major'][4])
+      cc.chord_scales << ChordScale.specify(Scale['Major'].modes[3])
     end
 
     c.children.create!(:chord_quality => q, :name => 'Lydian Augmented').tap do |cc|
@@ -72,10 +72,10 @@ ChordQuality.create!(:name => 'Major', :code => 'MAJ').tap do |q|
         {:tone => Tone::Interval::MAJOR_7TH, :letter_index => Tone::LetterInterval::SEVENTH, :strength => 2}
       ])
 
-      cc.chord_scales << ChordScale.specify(Scale['Melodic Minor'][3])
+      cc.chord_scales << ChordScale.specify(Scale['Melodic Minor'].modes[2])
     end
 
-    c.chord_scales << ChordScale.specify(Scale['Major'][1])
+    c.chord_scales << ChordScale.specify(Scale['Major'].modes[0])
   end
 
   q.chords.create!(:name => 'Major 6').tap do |c|
@@ -107,8 +107,8 @@ ChordQuality.create!(:name => 'Major', :code => 'MAJ').tap do |q|
       ])
     end
 
-    c.chord_scales << ChordScale.specify(Scale['Pentatonic'][1])
-    c.chord_scales << ChordScale.specify(Scale['Major'][1], 2)
+    c.chord_scales << ChordScale.specify(Scale['Pentatonic'].modes[0])
+    c.chord_scales << ChordScale.specify(Scale['Major'].modes[0], 2)
   end
 end
 
@@ -125,9 +125,9 @@ ChordQuality.create!(:name => 'Minor', :code => 'MIN').tap do |q|
       {:tone => Tone::Interval::PERFECT_5TH, :letter_index => Tone::LetterInterval::FIFTH, :strength => 2}
     ])
 
-    c.chord_scales << ChordScale.specify(Scale['Major'][2])
-    c.chord_scales << ChordScale.specify(Scale['Major'][6], 2)
-    c.chord_scales << ChordScale.specify(Scale['Major'][3], 3)
+    c.chord_scales << ChordScale.specify(Scale['Major'].modes[1])
+    c.chord_scales << ChordScale.specify(Scale['Major'].modes[5], 2)
+    c.chord_scales << ChordScale.specify(Scale['Major'].modes[2], 3)
   end
 
   q.chords.create!(:name => 'Minor 7').tap do |c|
@@ -158,8 +158,8 @@ ChordQuality.create!(:name => 'Minor', :code => 'MIN').tap do |q|
       ])
     end
 
-    c.chord_scales << ChordScale.specify(Scale['Major'][2])
-    c.chord_scales << ChordScale.specify(Scale['Major'][6], 2)
+    c.chord_scales << ChordScale.specify(Scale['Major'].modes[1])
+    c.chord_scales << ChordScale.specify(Scale['Major'].modes[5], 2)
   end
 
   q.chords.create!(:name => 'Minor 6').tap do |c|
@@ -190,7 +190,8 @@ ChordQuality.create!(:name => 'Minor', :code => 'MIN').tap do |q|
       ])
     end
 
-    c.chord_scales << ChordScale.specify(Scale['Major'][1])
+    c.chord_scales << ChordScale.specify(Scale['Major'].modes[1])
+    c.chord_scales << ChordScale.specify(Scale['Major'].modes[5], 2)
   end
 
   q.chords.create!(:name => 'Phrygian').tap do |c|
@@ -209,7 +210,7 @@ ChordQuality.create!(:name => 'Minor', :code => 'MIN').tap do |q|
       {:tone => Tone::Interval::MINOR_6TH, :letter_index => Tone::LetterInterval::SIXTH, :strength => 3}
     ])
 
-    c.chord_scales << ChordScale.specify(Scale['Major'][3])
+    c.chord_scales << ChordScale.specify(Scale['Major'].modes[2])
   end
 
   q.chords.create!(:name => 'Minor b6').tap do |c|
@@ -225,7 +226,7 @@ ChordQuality.create!(:name => 'Minor', :code => 'MIN').tap do |q|
       {:tone => Tone::Interval::MINOR_6TH, :letter_index => Tone::LetterInterval::SIXTH, :strength => 3}
     ])
 
-    c.chord_scales << ChordScale.specify(Scale['Major'][6])
+    c.chord_scales << ChordScale.specify(Scale['Major'].modes[5])
   end
 
   q.chords.create!(:name => 'Major-Minor').tap do |c|
@@ -242,7 +243,7 @@ ChordQuality.create!(:name => 'Minor', :code => 'MIN').tap do |q|
       {:tone => Tone::Interval::MAJOR_7TH, :letter_index => Tone::LetterInterval::SEVENTH, :strength => 1}
     ])
 
-    c.chord_scales << ChordScale.specify(Scale['Melodic Minor'][1])
+    c.chord_scales << ChordScale.specify(Scale['Melodic Minor'].modes[0])
   end
 end
 
@@ -275,7 +276,7 @@ ChordQuality.create!(:name => 'Dominant', :code => 'DOM').tap do |q|
       ])
     end
 
-    c.chord_scales << ChordScale.specify(Scale['Major']['Mixolydian'])
+    c.chord_scales << ChordScale.specify(Scale['Major'].modes[4])
 
     c.children.create!(:chord_quality => q, :name => 'Dominant 9').tap do |cc|
       cc.symbols.create!(:name => '9', :primary => true)
@@ -289,7 +290,7 @@ ChordQuality.create!(:name => 'Dominant', :code => 'DOM').tap do |q|
         {:tone => Tone::Interval::MAJOR_2ND, :letter_index => Tone::LetterInterval::SECOND, :strength => 4}
       ])
 
-      cc.chord_scales << ChordScale.specify(Scale['Major']['Mixolydian'])
+      cc.chord_scales << ChordScale.specify(Scale['Major'].modes[4])
     end
 
     c.children.create!(:chord_quality => q, :name => 'Dominant 6/9').tap do |cc|
@@ -305,8 +306,8 @@ ChordQuality.create!(:name => 'Dominant', :code => 'DOM').tap do |q|
         {:tone => Tone::Interval::MAJOR_2ND, :letter_index => Tone::LetterInterval::SECOND, :strength => 4}
       ])
 
-      cc.chord_scales << ChordScale.specify(Scale['Major']['Mixolydian'])
-      cc.chord_scales << ChordScale.specify(Scale['Major']['Ionian'])
+      cc.chord_scales << ChordScale.specify(Scale['Major'].modes[4])
+      cc.chord_scales << ChordScale.specify(Scale['Major'].modes[0])
     end
 
     c.children.create!(:chord_quality => q, :name => 'Dominant b9').tap do |cc|
@@ -320,8 +321,8 @@ ChordQuality.create!(:name => 'Dominant', :code => 'DOM').tap do |q|
         {:tone => Tone::Interval::MINOR_2ND, :letter_index => Tone::LetterInterval::SECOND, :strength => 4}
       ])
 
-      cc.chord_scales << ChordScale.specify(Scale['Diminished'][1])
-      cc.chord_scales << ChordScale.specify(Scale['Major']['Mixolydian'], 2)
+      cc.chord_scales << ChordScale.specify(Scale['Diminished'].modes[0])
+      cc.chord_scales << ChordScale.specify(Scale['Major'].modes[4], 2)
     end
 
     c.children.create!(:chord_quality => q, :name => 'Dominant #9').tap do |cc|
@@ -335,8 +336,8 @@ ChordQuality.create!(:name => 'Dominant', :code => 'DOM').tap do |q|
         {:tone => Tone::Interval::AUGMENTED_2ND, :letter_index => Tone::LetterInterval::SECOND, :strength => 4}
       ])
 
-      cc.chord_scales << ChordScale.specify(Scale['Melodic Minor'][7])
-      cc.chord_scales << ChordScale.specify(Scale['Diminished'][1], 2)
+      cc.chord_scales << ChordScale.specify(Scale['Melodic Minor'].modes[6])
+      cc.chord_scales << ChordScale.specify(Scale['Diminished'].modes[0], 2)
     end
 
     c.children.create!(:chord_quality => q, :name => 'Dominant #11').tap do |cc|
@@ -352,7 +353,7 @@ ChordQuality.create!(:name => 'Dominant', :code => 'DOM').tap do |q|
         {:tone => Tone::Interval::AUGMENTED_4TH, :letter_index => Tone::LetterInterval::FOURTH, :strength => 4}
       ])
 
-      cc.chord_scales << ChordScale.specify(Scale['Melodic Minor'][4])
+      cc.chord_scales << ChordScale.specify(Scale['Melodic Minor'].modes[3])
     end
 
     c.children.create!(:chord_quality => q, :name => 'Mixoylidian b6').tap do |cc|
@@ -366,7 +367,7 @@ ChordQuality.create!(:name => 'Dominant', :code => 'DOM').tap do |q|
         {:tone => Tone::Interval::MINOR_6TH, :letter_index => Tone::LetterInterval::SIXTH, :strength => 4}
       ])
 
-      cc.chord_scales << ChordScale.specify(Scale['Melodic Minor'][5])
+      cc.chord_scales << ChordScale.specify(Scale['Melodic Minor'].modes[4])
     end
 
     c.children.create!(:chord_quality => q, :name => 'Altered').tap do |cc|
@@ -387,7 +388,7 @@ ChordQuality.create!(:name => 'Dominant', :code => 'DOM').tap do |q|
         {:tone => Tone::Interval::AUGMENTED_2ND, :letter_index => Tone::LetterInterval::SECOND, :strength => 4}
       ])
 
-      cc.chord_scales << ChordScale.specify(Scale['Melodic Minor'][7])
+      cc.chord_scales << ChordScale.specify(Scale['Melodic Minor'].modes[6])
     end
 
     c.children.create!(:chord_quality => q, :name => 'Dominant b5').tap do |cc|
@@ -400,7 +401,7 @@ ChordQuality.create!(:name => 'Dominant', :code => 'DOM').tap do |q|
         {:tone => Tone::Interval::DOMINANT_7TH, :letter_index => Tone::LetterInterval::SEVENTH, :strength => 2}
       ])
 
-      cc.chord_scales << ChordScale.specify(Scale['Melodic Minor'][4])
+      cc.chord_scales << ChordScale.specify(Scale['Melodic Minor'].modes[3])
     end
 
   end
@@ -418,8 +419,8 @@ ChordQuality.create!(:name => 'Diminished', :code => 'DIM').tap do |q|
       {:tone => Tone::Interval::DIMINISHED_5TH, :letter_index => Tone::LetterInterval::FIFTH, :strength => 1}
     ])
 
-    c.chord_scales << ChordScale.specify(Scale['Diminished'][1])
-    c.chord_scales << ChordScale.specify(Scale['Diminished'][2])
+    c.chord_scales << ChordScale.specify(Scale['Diminished'].modes[0])
+    c.chord_scales << ChordScale.specify(Scale['Diminished'].modes[1])
   end
 
   q.chords.create!(:name => 'Half Diminished').tap do |c|
@@ -433,8 +434,8 @@ ChordQuality.create!(:name => 'Diminished', :code => 'DIM').tap do |q|
       {:tone => Tone::Interval::MINOR_7TH, :letter_index => Tone::LetterInterval::SEVENTH, :strength => 1}
     ])
 
-    c.chord_scales << ChordScale.specify(Scale['Major'][7])
-    c.chord_scales << ChordScale.specify(Scale['Melodic Minor'][6])
+    c.chord_scales << ChordScale.specify(Scale['Major'].modes[6])
+    c.chord_scales << ChordScale.specify(Scale['Melodic Minor'].modes[5])
   end
 
   q.chords.create!(:name => 'Full Diminished').tap do |c|
@@ -448,7 +449,7 @@ ChordQuality.create!(:name => 'Diminished', :code => 'DIM').tap do |q|
       {:tone => Tone::Interval::DIMINISHED_7TH, :letter_index => Tone::LetterInterval::SEVENTH, :strength => 1}
     ])
 
-    c.chord_scales << ChordScale.specify(Scale['Diminished'][1])
-    c.chord_scales << ChordScale.specify(Scale['Diminished'][2])
+    c.chord_scales << ChordScale.specify(Scale['Diminished'].modes[0])
+    c.chord_scales << ChordScale.specify(Scale['Diminished'].modes[1])
   end
 end
