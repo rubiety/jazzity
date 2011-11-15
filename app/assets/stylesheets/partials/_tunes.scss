@@ -16,6 +16,12 @@ body.tunes {
     }
   }
   
+  section#search {
+    @include columns(10);
+    @include omega;
+    margin-bottom: 15px;
+  }
+
   section#tunes {
     @include columns(10);
     @include omega;

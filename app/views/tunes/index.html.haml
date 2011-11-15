@@ -17,6 +17,11 @@
       - Meter.all.each do |meter|
         %li= link_to meter, tunes_path(:meter => meter)
 
+%section#search
+  = form_tag searches_path do
+    = label_tag "Explore Jazz: "
+    = text_field_tag :query
+    = submit_tag "Go"
 
 %section#tunes
   = render @tunes
