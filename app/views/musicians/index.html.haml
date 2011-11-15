@@ -1,1 +1,15 @@
-= render @musicians
+%section#filters
+  %article
+    %h2 By Instrument:
+    %ul
+      - Instrument.all.each do |instrument|
+        %li= link_to instrument, musicians_path(:instrument => instrument)
+
+%section#search
+  = form_tag searches_path do
+    = label_tag "Search Musicians: "
+    = text_field_tag :query
+    = submit_tag "Go"
+
+%section#musicians
+  = render @musicians
