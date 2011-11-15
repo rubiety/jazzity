@@ -1,5 +1,5 @@
 - chord = chord.in_key_of(key) if local_assigns[:key]
 
 %li[chord]
-  %h3= link_to chord.title, chord
+  %h3= link_to chord.title, chord, "data-skip-pjax" => true
   .staff.chord-staff{"data-id" => chord.id, "data-staff-notes" => chord.octavized_notes.to_json, "data-staff-clef" => "treble"}
