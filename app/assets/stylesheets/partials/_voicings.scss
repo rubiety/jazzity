@@ -10,7 +10,8 @@ ul.voicings-list {
 
   li.voicing {
     float: left;
-    border: 1px solid #666;
+    border: 1px solid #CCC;
+    @include border-radius(5px);
     margin: 0 10px 10px 0;
     padding: 10px;
     width: 184px;
