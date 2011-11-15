@@ -39,10 +39,19 @@ group :development do
   gem "capistrano"
   gem "factory_girl_rails"
   gem "ruby-debug19"
+
+  gem "guard"
+  gem "guard-spork"
+  gem "guard-rspec"
+  gem "guard-cucumber"
+  gem "rb-inotify", :require => false
+  gem "rb-fsevent", :require => false
+  gem "rb-fchange", :require => false
 end
 
 group :test do
   gem "turn", :require => false
+  gem "minitest"
   gem "faker"
   gem "rspec-rails"
   gem "cucumber-rails"
