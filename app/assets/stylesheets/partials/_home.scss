@@ -4,6 +4,7 @@ body.dashboards {
     @include full;
     background: #CCC;
     padding: 15px;
+
     form {
       label { 
         display: inline;
@@ -19,11 +20,13 @@ body.dashboards {
   }
 
   section#search-examples {
-    @include full;
-    @include clearfix;
+    @include columns(9);
+    @include alpha;
+    margin-top: 15px;
     margin-bottom: 15px;
-    padding: 15px;
     border-bottom: 5px solid #CCC;
+    padding-bottom: 10px;
+
     h2 {
       float: left;
       width: 100px;
@@ -37,6 +40,7 @@ body.dashboards {
       li { padding: 3px; }
     }
     footer {
+      clear: both;
       margin-left: 100px;
       input[type=submit] {
         font-size: 14px;
@@ -45,14 +49,13 @@ body.dashboards {
   }
 
   section#about-site {
-    @include columns(5);
+    @include columns(4);
     @include alpha;
     h2 { margin-bottom: 5px; }
   }
 
   section#features-overview {
-    @include columns(7);
-    @include omega;
+    @include columns(5);
 
     article {
       margin-bottom: 15px;
@@ -60,6 +63,13 @@ body.dashboards {
         margin-bottom: 5px;
       }
     }
+  }
+
+  section#activity {
+    @include columns(3);
+    @include omega;
+    margin-top: 15px;
+    margin-bottom: 15px;
   }
 
 }
