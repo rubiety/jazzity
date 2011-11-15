@@ -1,13 +1,8 @@
-= Functional Beta (June 1st)
+= Functional Beta
 
-[X] Upgrade to Rails 3.1 / Sprockets
-[X] Note Collection Sequences
-[X] Search Pre-emption of appending "in [A-G]( Major| Minor|)?"
-[X] Implementation of octavized_notes within models
-
-[ ] Upgrade to Rails 3.1 & Sprockets with Compass
-[ ] Reactivate Rails Admin or Similar
-[ ] Transparently Handle Treble/Bass Clef Combinations with VexFlow (Update VexFlow)
+[ ] Searchables
+[ ] Interval System (And Show Intervals for Chords/Scales)
+[ ] Voicings Build-Out
 [ ] Progressions
 [ ] Progression Matching of Chord Sequences
 [ ] Engine for Voice Leading Chords
