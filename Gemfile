@@ -41,6 +41,9 @@ gem "omniauth-github"
 gem "activeadmin"
 gem "meta_search"
 
+# Temporary: Fixes
+gem "curb", "0.7.15"
+
 group :development do
   gem "thin"
   gem "capistrano"
