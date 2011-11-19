@@ -15,10 +15,7 @@ class Search
   protected
 
   def results(query)
-    [
-      Chord, ChordQuality, Concept, Form, Instrument, Meter, Mode, Progression, 
-      Scale, Tune, Vehicle, Voicing, NoteSequence, ChordSequence, ChordNoteSequence
-    ].map {|klass| klass[query] }
+    Searchable.where("name LIKE ?", "%#{query}%").map(&:target)
   end
 
   def normalize_results(results)

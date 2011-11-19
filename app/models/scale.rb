@@ -2,6 +2,7 @@ class Scale < ActiveRecord::Base
   extend FriendlyId
   include KeyContext
   include ModeContext
+  include Searchable::Model
   
   has_many :modes, :dependent => :destroy
   has_many :tones, :class_name => 'ScaleTone', :extend => Tones, :dependent => :destroy
@@ -13,6 +14,14 @@ class Scale < ActiveRecord::Base
   delegate :chords, :to => :main_mode
 
   validates :name, :presence => true
+
+  define_searchables do
+    searchables.create(:name => "#{name} Scale")
+
+    Key.primaries.each do |key|
+      searchables.create(:name => "#{key.name} #{name} Scale", :key => key)
+    end
+  end
 
   def to_s
     name
@@ -72,4 +81,5 @@ class Scale < ActiveRecord::Base
   def to_json
     super(:methods => [:notes])
   end
+
 end

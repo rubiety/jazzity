@@ -1,6 +1,7 @@
 class Chord < ActiveRecord::Base
   extend FriendlyId
   include KeyContext
+  include Searchable::Model
   
   acts_as_tree
   friendly_id :name, :use => :slugged
@@ -20,6 +21,23 @@ class Chord < ActiveRecord::Base
 
   validates :name, :presence => true
   validates :chord_quality, :presence => true
+
+  define_searchables do
+    searchables.create(:name => "#{name} Chord")
+
+    symbols.each {|symbol| searchables.create(:name => "#{symbol} Chord") }
+
+    Key.primaries.each do |key|
+      searchables.create(:name => "#{key.name} #{name} Chord", :key => key)
+      symbols.each {|symbol| searchables.create(:name => "#{key.name}#{symbol} Chord", :key => key) }
+
+      in_key_of(key).tap do |chord|
+        searchables.create(:name => chord.notes.join(", "), :display_name => "#{chord.notes.join(', ')} (#{title})", :key => key, :priority => 2)
+      end
+    end
+  
+    modes.each(&:generate_searchables)
+  end
 
   def to_s
     name
@@ -83,4 +101,5 @@ class Chord < ActiveRecord::Base
   def to_json(options = {})
     super({:methods => [:notes]}.merge(options))
   end
+
 end

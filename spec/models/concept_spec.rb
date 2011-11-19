@@ -1,6 +1,10 @@
 require "spec_helper"
 
 describe Concept do
+  context "associations" do
+    it { should have_many(:searchables) }
+  end
+
   context "validations" do
     it { should validate_presence_of(:name) }
   end

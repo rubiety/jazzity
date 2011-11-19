@@ -1,6 +1,8 @@
 class Progression < ActiveRecord::Base
   extend FriendlyId
+  include Searchable::Model
   
+  has_many :searchables, :as => :model
   belongs_to :meter
   belongs_to :form
   has_many :components, :class_name => "ProgressionComponent"
@@ -12,6 +14,10 @@ class Progression < ActiveRecord::Base
   scope :partial, where(:full_tune => false)
 
   validates :name, :presence => true
+
+  define_searchables do
+    searchables.create(:name => name)
+  end
 
   def to_s
     name

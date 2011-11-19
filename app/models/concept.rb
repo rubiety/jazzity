@@ -1,9 +1,14 @@
 class Concept < ActiveRecord::Base
   extend FriendlyId
-  
+  include Searchable::Model
+
   friendly_id :name, :use => :slugged
 
   validates :name, :presence => true
+
+  define_searchables do
+    searchables.create(:name => name)
+  end
 
   def to_s
     name
@@ -16,5 +21,4 @@ class Concept < ActiveRecord::Base
   class << self
     alias_method :[], :resolve
   end
-
 end

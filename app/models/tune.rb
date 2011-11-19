@@ -1,6 +1,8 @@
 class Tune < ActiveRecord::Base
   extend FriendlyId
+  include Searchable::Model
   
+  has_many :searchables, :as => :model
   belongs_to :vehicle
   belongs_to :meter
   belongs_to :primary_key, :class_name => "Key"
@@ -15,6 +17,11 @@ class Tune < ActiveRecord::Base
   validates :name, :presence => true
   validates :tonality, :inclusion => ["Major", "Minor"]
   validates :concept, :inclusion => ["Instrumental", "Vocal"]
+
+  define_searchables do
+    searchables.destroy_all
+    searchables.create(:name => title)
+  end
 
   def title
     alternate_name.present? ? "#{name} (#{alternate_name})" : name
@@ -31,5 +38,4 @@ class Tune < ActiveRecord::Base
   class << self
     alias_method :[], :resolve
   end
-
 end
