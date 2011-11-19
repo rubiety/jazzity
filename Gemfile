@@ -24,6 +24,7 @@ gem "fancy-buttons"
 gem "simple_form"
 gem "paperclip"
 gem "friendly_id", "4.0.0.beta14"
+gem "awesome_nested_set"
 
 # API Integration
 gem "feedzirra"
