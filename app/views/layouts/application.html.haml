@@ -7,10 +7,14 @@
     #container
       %header#header
         = render :partial => 'layouts/header'
+
       = render :partial => 'layouts/flashes'
-      #main{"data-pjax-container" => true}
+
+      #main
         = yield
+      
       %footer#footer
         = render :partial => 'layouts/footer'
+    
     -# Javascript at the bottom for fast page loading
     = render :partial => 'layouts/javascripts'

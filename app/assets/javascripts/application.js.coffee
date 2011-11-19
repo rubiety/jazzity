@@ -1,7 +1,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require pjax
 //= require json2
 //= require underscore
 //= require backbone
@@ -10,7 +9,7 @@
 //= require models
 //= require views
 
-$(document).bind "pageChanged", ->
+$(document).bind "ready", ->
 
   $(".chord-staff").each ->
     model = new Jazzity.Chord id: $(this).attr("data-id"), notes: JSON.parse($(this).attr("data-staff-notes"))
