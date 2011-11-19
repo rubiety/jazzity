@@ -30,6 +30,13 @@ gem "awesome_nested_set"
 gem "feedzirra"
 gem "twitter"
 
+# Authentication
+gem "omniauth"
+gem "omniauth-facebook"
+gem "omniauth-twitter"
+gem "omniauth-linkedin"
+gem "omniauth-github"
+
 # Administration
 gem "activeadmin"
 gem "meta_search"
