@@ -1,5 +1,6 @@
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require pjax
 //= require json2
 //= require underscore
