@@ -6,38 +6,38 @@ Jazzity::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  resources :searches do
+  resources :searches, :only => [:create, :show] do
     get :autocomplete, :on => :collection
   end
   
-  resources :keys do
-    resources :tunes
-    resources :chord_qualities
-    resources :chords
-    resources :voicings
-    resources :progressions
-    resources :note_sequences, :path => "notes"
-    resources :chord_sequences, :path => "chord-sequences"
-    resources :chord_note_sequences, :path => "chord-notes"
-    resources :scales do
-      resources :modes
+  resources :keys, :only => [:show] do
+    resources :tunes, :only => [:index, :show]
+    resources :chord_qualities, :only => [:index, :show]
+    resources :chords, :only => [:index, :show]
+    resources :voicings, :only => [:index, :show]
+    resources :progressions, :only => [:index, :show]
+    resources :note_sequences, :path => "notes", :only => [:index, :show]
+    resources :chord_sequences, :path => "chord-sequences", :only => [:show]
+    resources :chord_note_sequences, :path => "chord-notes", :only => [:index, :show]
+    resources :scales, :only => [:index, :show] do
+      resources :modes, :only => [:index, :show]
     end
   end
   
-  resources :tunes
-  resources :musicians
-  resources :chord_qualities
-  resources :chords
-  resources :scales do
-    resources :modes
+  resources :tunes, :only => [:index, :show]
+  resources :musicians, :only => [:index, :show]
+  resources :chord_qualities, :only => [:index, :show]
+  resources :chords, :only => [:index, :show]
+  resources :scales, :only => [:index, :show] do
+    resources :modes, :only => [:index, :show]
   end
 
-  resources :voicings
-  resources :progressions
-  resources :concepts
-  resources :note_sequences, :path => "notes"
-  resources :chord_sequences, :path => "chord-sequences"
-  resources :chord_note_sequences, :path => "chord-notes"
+  resources :voicings, :only => [:index, :show]
+  resources :progressions, :only => [:index, :show]
+  resources :concepts, :only => [:index, :show]
+  resources :note_sequences, :path => "notes", :only => [:show]
+  resources :chord_sequences, :path => "chord-sequences", :only => [:show]
+  resources :chord_note_sequences, :path => "chord-notes", :only => [:show]
   
   root :to => "dashboards#show"
   
