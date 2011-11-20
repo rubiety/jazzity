@@ -4,9 +4,6 @@
   %header
     %h1= @scale.title
     %p= @scale.information
-    %p
-      %label Intervals:
-      Whole Step, Whole Step, Half Step, Whole Step
 
   %nav#modes-list
     %ul
@@ -19,14 +16,21 @@
       - Key.primaries.each do |key|
         %li= link_to_unless @key == key, key, [key, @scale, @mode]
 
-  %section#mode
+  #mode
     %h2= @mode.title
     %h3= @mode.notes.join(", ")
-  %section#staff
-    .staff.scale-staff{"data-id" => @scale.id, "data-staff-notes" => @mode.octavized_notes.to_json, "data-staff-clef" => "treble"}
+    %p
+      %label Steps:
+      = @mode.step_names.join(", ")
+    %p
+      %label Intervals:
+      = @mode.interval_names.join(", ")
 
-  %nav.related-chords
-    %h3 Related Chords:
-    %ul.chords-list
-      = render @mode.chords, :key => @key
+    %section#staff
+      .staff.scale-staff{"data-id" => @scale.id, "data-staff-notes" => @mode.octavized_notes.to_json, "data-staff-clef" => "treble"}
+
+    %nav.related-chords
+      %h3 Related Chords:
+      %ul.chords-list
+        = render @mode.chords, :key => @mode.notes.first
 

@@ -73,4 +73,19 @@ module Tones
     end
   end
 
+  def intervals
+    previous = 0
+    keys.map(&:index).map do |index|
+      (index - previous).tap { previous = index }
+    end[1..-1].map {|i| i % 12 }
+  end
+
+  def step_names
+    intervals.map {|step| Key::Steps.invert[step] }
+  end
+
+  def interval_names
+    intervals.map {|step| Key::Intervals.invert[step] }
+  end
+
 end

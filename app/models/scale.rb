@@ -12,6 +12,9 @@ class Scale < ActiveRecord::Base
   delegate :notes, :to => :tones
   delegate :octavized_notes, :to => :tones
   delegate :chords, :to => :main_mode
+  delegate :intervals, :to => :tones
+  delegate :step_names, :to => :tones
+  delegate :interval_names, :to => :tones
 
   validates :name, :presence => true
 

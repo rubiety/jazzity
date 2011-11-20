@@ -1,2 +1,4 @@
 %li[mode]
-  = link_to mode.title, [@key, mode.scale, mode]
+  %h3= link_to mode.title, [mode.scale, mode]
+  %p= mode.scale.information
+  .staff.scale-staff{"data-id" => mode.id, "data-staff-notes" => mode.octavized_notes.to_json, "data-staff-clef" => "treble"}

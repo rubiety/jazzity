@@ -38,8 +38,15 @@ body.chords, body.chord-qualities {
 
     header {
       p {
-        label { font-weight: bold; }
+        label {
+          font-weight: bold;
+        }
       }
+    }
+    
+    nav.related-modes, nav.related-voicings {
+      margin-top: 1em;
+      h3 { margin-bottom: 0.4em; }
     }
   }
 

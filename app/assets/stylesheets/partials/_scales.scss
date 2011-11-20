@@ -65,12 +65,34 @@ body.scales, body.modes {
       width: 92%;
       margin-top: 15px;
 
-      h2 { font-size: 1.2em; }
+      h2 { font-size: 1.4em; }
+    }
 
-      nav.related-chords {
-        margin-top: 30px;
-      }
+    nav.related-chords {
+      h3 { margin-bottom: 0.4em; }
     }
   }
 
 }
+
+/* Potentially Used Elsewhere */
+ul.modes-list {
+  @include clearfix;
+  list-style-type: none;
+  margin: 0;
+
+  li.mode {
+    border: 1px solid #CCC;
+    @include border-radius(5px);
+    margin: 0 10px 10px 0;
+    padding: 10px;
+    width: 600px;
+
+    h3 { margin: 0; }
+    
+    div.vex-tabdiv {
+      padding-left: 0;
+    }
+  }
+}
+
