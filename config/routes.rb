@@ -1,5 +1,7 @@
 Jazzity::Application.routes.draw do
   
+  devise_for :musicians
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config

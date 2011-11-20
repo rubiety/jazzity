@@ -358,6 +358,7 @@ DEPENDENCIES
   cucumber-rails
   curb (= 0.7.15)
   database_cleaner
+  devise
   factory_girl_rails
   faker
   fancy-buttons

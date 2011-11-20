@@ -69,7 +69,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = "b06eff0e082e749268c07ecd6ca7d26d554b88b1691ff908da371a177d8136f1cf97450fb056b4bcbc1deb1071ed934689a78ae66711eab7871d2496c35d0443"
+  # config.pepper = "9e3a009b1c22a6cde746554011aecf0ccdb9c32f219456fafd43d90292bc3f3e9c66e5b24a4c06b22cbe955fa0d003fccb5148d89a239038f57c305f911fb53b"
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -203,7 +203,6 @@ Devise.setup do |config|
   # change the failure app, you can configure them inside the config.warden block.
   #
   # config.warden do |manager|
-  #   manager.failure_app   = AnotherApp
   #   manager.intercept_401 = false
   #   manager.default_strategies(:scope => :user).unshift :some_external_strategy
   # end

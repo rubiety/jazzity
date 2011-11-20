@@ -32,6 +32,7 @@ gem "feedzirra"
 gem "twitter"
 
 # Authentication
+gem "devise"
 gem "omniauth"
 gem "omniauth-facebook"
 gem "omniauth-twitter"

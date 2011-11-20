@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111115234426) do
+ActiveRecord::Schema.define(:version => 20111120221451) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -178,9 +178,27 @@ ActiveRecord::Schema.define(:version => 20111115234426) do
     t.text     "biography"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email",                                 :default => "", :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",                         :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "authentication_token"
   end
 
+  add_index "musicians", ["authentication_token"], :name => "index_musicians_on_authentication_token", :unique => true
+  add_index "musicians", ["confirmation_token"], :name => "index_musicians_on_confirmation_token", :unique => true
+  add_index "musicians", ["email"], :name => "index_musicians_on_email"
   add_index "musicians", ["instrument_id"], :name => "index_musicians_on_instrument_id"
+  add_index "musicians", ["reset_password_token"], :name => "index_musicians_on_reset_password_token", :unique => true
   add_index "musicians", ["slug"], :name => "index_musicians_on_cached_slug", :unique => true
 
   create_table "progression_components", :force => true do |t|
