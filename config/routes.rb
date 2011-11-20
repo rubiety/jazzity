@@ -4,7 +4,9 @@ Jazzity::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  resources :searches
+  resources :searches do
+    get :autocomplete, :on => :collection
+  end
   
   resources :keys do
     resources :tunes

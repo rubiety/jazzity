@@ -1,7 +1,7 @@
 %section#search
   = form_tag searches_path do
     = label_tag "Explore Jazz: "
-    = text_field_tag :query
+    = text_field_tag :query, params[:query], "data-autocomplete" => "/searches/autocomplete"
     = submit_tag "Go"
 
 %section#activity

@@ -8,6 +8,7 @@
 //
 //= require models
 //= require views
+//= require autocomplete
 
 $(document).bind "ready", ->
 
