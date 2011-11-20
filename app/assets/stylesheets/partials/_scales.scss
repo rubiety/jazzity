@@ -32,7 +32,8 @@ body.scales, body.modes {
       float: left;
       margin: 10px 10px 0 0;
     }
-    ul.modes-list {
+
+    ul.modes {
       @include horizontal-list;
       margin: 10px 0 0 20px;
     }

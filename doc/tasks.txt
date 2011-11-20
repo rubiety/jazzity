@@ -1,7 +1,9 @@
 = Functional Beta
 
-[ ] Searchables
-[ ] Interval System (And Show Intervals for Chords/Scales)
+[ ] ChordScale Offset Specification (to show related modes correctly)
+[ ] Musician Profiles & Signup/Signin
+[ ] Musician Commenting on Objects
+
 [ ] Voicings Build-Out
 [ ] Progressions
 [ ] Progression Matching of Chord Sequences
