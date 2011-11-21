@@ -1,6 +1,7 @@
 class Musician < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, 
-                  :first_name, :last_name, :nick_name, :slug, :instrument, :biography
+                  :first_name, :last_name, :nick_name, :slug, :instrument, :biography,
+                  :location, :external_avatar_url, :website_url, :timezone_offset, :twitter_username
   
   extend FriendlyId
   include Searchable::Model
@@ -24,5 +25,9 @@ class Musician < ActiveRecord::Base
 
   def to_s
     name
+  end
+
+  def avatar_url
+    external_avatar_url  # TODO: Implement Internal Avatar
   end
 end

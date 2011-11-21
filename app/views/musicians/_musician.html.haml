@@ -1,4 +1,6 @@
 %article[musician]
+  = image_tag musician.avatar_url, :class => "avatar"
+
   %h3= link_to musician, musician
   - if musician.instrument
     %p

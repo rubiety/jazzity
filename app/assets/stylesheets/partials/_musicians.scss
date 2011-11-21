@@ -32,6 +32,12 @@ body.musicians {
     padding: 15px;
     margin-bottom: 15px;
 
+    img.avatar {
+      float: left;
+      max-width: 50px;
+      max-height: 50px;
+      margin-right: 10px;
+    }
     h3 { margin-bottom: 8px; }
     p {
       label { font-weight: bold; }
