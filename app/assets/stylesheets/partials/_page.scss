@@ -11,6 +11,7 @@ body {
 #header {
   @include full;
   margin-top: 10px;
+  position: relative;
   
   h1 { font-size: 3em; }
   h2 { font-size: 0.8em; }
@@ -32,6 +33,12 @@ body {
         &:hover { color: #000; text-decoration: none; }
       }
     }
+  }
+
+  aside {
+    position: absolute;
+    top: 10px;
+    right: 0;
   }
 }
 
@@ -56,6 +63,8 @@ body {
 
 #footer {
   @include full;
+  margin-top: 10px;
   padding: 10px;
   font-size: 0.7em;
+  border-top: 1px solid black;
 }

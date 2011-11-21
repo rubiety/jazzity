@@ -1,0 +1,12 @@
+body.sessions, body.registrations, body.passwords, body.confirmations {
+  #main {
+    @include full;
+  }
+
+  ul.devise-actions {
+    @include no-bullets;
+    margin: 10px 0 10px 120px;
+
+    li { padding: 4px 0 4px 0; }
+  }
+}

@@ -38,4 +38,8 @@ body.musicians {
     }
   }
 
+  article#musician {
+    @include full;
+  }
+
 }

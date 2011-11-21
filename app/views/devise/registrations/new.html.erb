@@ -1,12 +1,14 @@
-<h2>Sign up</h2>
+<h1>Sign Up for Jazzity</h1>
 
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
   <div class="inputs">
-    <%= f.input :email, :required => true, :autofocus => true %>
+    <%= f.input :first_name, :label => "First Name", :required => true, :autofocus => true %>
+    <%= f.input :last_name, :label => "Last Name", :required => true, :autofocus => true %>
+    <%= f.input :email, :required => true %>
     <%= f.input :password, :required => true %>
-    <%= f.input :password_confirmation, :required => true %>
+    <%= f.input :password_confirmation, :label => "Confirm", :required => true %>
   </div>
 
   <div class="actions">

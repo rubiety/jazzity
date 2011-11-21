@@ -10,3 +10,16 @@
     = navigation_link_to "Chords & Voicings", chords_path, [ChordsController, VoicingsController, ChordSequencesController, NoteSequencesController]
     = navigation_link_to "Progressions & Form", progressions_path, [ProgressionsController, ChordNoteSequencesController]
     = navigation_link_to "Jazz Concepts", concepts_path, ConceptsController
+
+%aside
+  - if musician_signed_in?
+    = link_to "Welcome, #{current_musician}", edit_musician_registration_path
+    &nbsp;&nbsp;&nbsp;
+    = link_to "My Profile", musician_path(current_musician)
+    &nbsp;&nbsp;&nbsp;
+    = link_to "Sign Out", destroy_musician_session_path, :method => :delete
+  - else
+    = link_to "Sign In", new_musician_session_path
+    &nbsp;&nbsp;&nbsp;
+    = link_to "Sign Up", new_musician_registration_path
+
