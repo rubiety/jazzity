@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111120221451) do
+ActiveRecord::Schema.define(:version => 20111121061853) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -166,6 +166,17 @@ ActiveRecord::Schema.define(:version => 20111120221451) do
   add_index "modes", ["scale_id"], :name => "index_modes_on_scale_id"
   add_index "modes", ["slug"], :name => "index_modes_on_cached_slug", :unique => true
 
+  create_table "musician_authentications", :force => true do |t|
+    t.integer  "musician_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "token"
+    t.string   "secret"
+    t.text     "user_information"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "musicians", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -178,12 +189,12 @@ ActiveRecord::Schema.define(:version => 20111120221451) do
     t.text     "biography"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email",                                 :default => "", :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
+    t.string   "email",                                                               :default => "", :null => false
+    t.string   "encrypted_password",     :limit => 128,                               :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                         :default => 0
+    t.integer  "sign_in_count",                                                       :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -192,6 +203,11 @@ ActiveRecord::Schema.define(:version => 20111120221451) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "authentication_token"
+    t.string   "twitter_username"
+    t.string   "location"
+    t.string   "external_avatar_url"
+    t.string   "website_url"
+    t.decimal  "time_zone_offset",                      :precision => 5, :scale => 2
   end
 
   add_index "musicians", ["authentication_token"], :name => "index_musicians_on_authentication_token", :unique => true

@@ -10,3 +10,14 @@ body.sessions, body.registrations, body.passwords, body.confirmations {
     li { padding: 4px 0 4px 0; }
   }
 }
+
+body.registrations {
+  ul.services {
+    @include no-bullets;
+    margin: 0 0 15px 0;
+
+    li {
+      margin: 10px 0 10px 0;
+    }
+  }
+}

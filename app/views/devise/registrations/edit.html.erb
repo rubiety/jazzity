@@ -17,6 +17,27 @@
   </div>
 <% end %>
 
+<h1>Services</h1>
+
+<ul class="services">
+  <li class="facebook">
+    <h3>Facebook</h3>
+    <% if current_musician.authenticated_with?(:facebook) %>
+      <%= link_to "Disconnect", musician_authentication_path(:facebook), :method => :delete %>
+    <% else %>
+      <%= link_to "Connect", musician_omniauth_authorize_path(:facebook) %>
+    <% end %>
+  </li>
+  <li class="twitter">
+    <h3>Twitter</h3>
+    <% if current_musician.authenticated_with?(:twitter) %>
+      <%= link_to "Disconnect", musician_authentication_path(:twitter), :method => :delete %>
+    <% else %>
+      <%= link_to "Connect", musician_omniauth_authorize_path(:twitter) %>
+    <% end %>
+  </li>
+</ul>
+
 <h3>Cancel My Account</h3>
 
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.

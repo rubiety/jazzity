@@ -198,6 +198,14 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
 
+  omniauth_settings = YAML::load_file(Rails.root.join("config/omniauth.yml"))
+  omniauth_settings = omniauth_settings[Rails.env.to_s] if omniauth_settings
+  
+  if omniauth_settings
+    config.omniauth :facebook, omniauth_settings["facebook"]["key"], omniauth_settings["facebook"]["secret"]
+    config.omniauth :twitter, omniauth_settings["twitter"]["key"], omniauth_settings["twitter"]["secret"]
+  end
+
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.

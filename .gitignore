@@ -2,6 +2,8 @@
 db/*.sqlite3
 log/*.log
 tmp/**/*
+tmp/*
 config/database.yml
+config/omniauth.yml
 public/assets
 .sass-cache
