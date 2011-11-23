@@ -1,8 +1,8 @@
 = Functional Beta
 
 [ ] ChordScale Offset Specification (to show related modes correctly)
-[ ] Musician Profiles & Signup/Signin
 [ ] Musician Commenting on Objects
+[ ] Musician Profiles & Signup/Signin
 [ ] CanCan for Access Control among Musicians
 [ ] Remove Key as a model - should just be a constant
 [ ] Rename "notes" text fields to something else - too ambiguous with key notes
@@ -10,28 +10,40 @@
 [ ] Voicings Build-Out
 [ ] Progressions
 [ ] Progression Matching of Chord Sequences
-[ ] Engine for Voice Leading Chords
+
+[ ] Practice Book: What Tunes/Concepts/Progressions am I learning?
+    Find out what other users are learning those too
+[ ] Albums/Recordings Implementation (iTunes Affiliates) and Relationships to:
+    Tune, Musician, Concept, Progression, Voicing
+[ ] Resource Implementation (Amazon/JazzBooks Affiliates) and Relationships to:
+    Concept, Progression, Voicing
 
 [ ] Full RSpec Test Suite
 [ ] Full Cucumber Integration Tests
 
 = Launch
 
-[ ] Jazzity Logo/Branding
-[ ] Newsletter Signup
+[ ] Jazzity Design/Logo/Branding
+[ ] Invite System for Beta Launch
 [ ] Suggestion/Feedback System
 [ ] Chord Substitution Possibilities
 [ ] Progressions Build-Out
 [ ] Famous Musicians Database Build-Out
 [ ] Tunes Database Build-Out
 [ ] Jazz Concepts Build-Out
+[ ] Facebook Invite Friends
+[ ] Twitter Invite Friends
+[ ] AddThis Buttons
 
 = Post-Launch Refinement
 
 [ ] JavaScript Tests for Backbone.js Models
+[ ] Engine for Voice Leading Chords?
+[ ] Google AddWords?
 
 = Jazzity Pro
 
 [ ] Access to JSON API
 [ ] Analysis of MIDI Files
 [ ] Musician Profiles & Musician Finder
+
