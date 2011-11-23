@@ -5,12 +5,12 @@
 [ ] Musician Commenting on Objects
 [ ] CanCan for Access Control among Musicians
 [ ] Remove Key as a model - should just be a constant
+[ ] Relating Tunes to Jazz Concepts, Progressions, Voicings, etc.
 
 [ ] Voicings Build-Out
 [ ] Progressions
 [ ] Progression Matching of Chord Sequences
 [ ] Engine for Voice Leading Chords
-[ ] Relating Tunes to Jazz Concepts, Progressions, Voicings, etc.
 
 [ ] Full RSpec Test Suite
 [ ] Full Cucumber Integration Tests
@@ -18,11 +18,11 @@
 = Launch
 
 [ ] Jazzity Logo/Branding
-[ ] Commenting / User Signup
 [ ] Newsletter Signup
-[ ] Suggestion Forms
+[ ] Suggestion/Feedback System
 [ ] Chord Substitution Possibilities
-[ ] Musicians Database Build-Out
+[ ] Progressions Build-Out
+[ ] Famous Musicians Database Build-Out
 [ ] Tunes Database Build-Out
 [ ] Jazz Concepts Build-Out
 
