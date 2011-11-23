@@ -1,0 +1,36 @@
+%div.comments{:data => {"commentable-type" => commentable.class.model_name.underscore, "commentable-id" => commentable.id}}
+  %h2 Comments:
+
+  %ul.comments-list
+    %li.comment
+      %cite Ben Hughes
+      %h4 My Test Subject Here
+      %p
+        Well this is my comment now.
+        Well this is my comment now.
+        Well this is my comment now.
+        Well this is my comment now.
+    %li.comment
+      %cite Ben Hughes
+      %h4 My Test Subject Here
+      %p
+        Well this is my comment now.
+        Well this is my comment now.
+        Well this is my comment now.
+        Well this is my comment now.
+    %li.comment
+      %cite Ben Hughes
+      %h4 My Test Subject Here
+      %p
+        Well this is my comment now.
+        Well this is my comment now.
+        Well this is my comment now.
+        Well this is my comment now.
+
+  = simple_form_for Comment.new, :remote => true, :html => {:id => "create-comment-form"} do |f|
+    %h4 Add a Comment:
+    = f.input :subject, :required => false, :hint => "Optional Subject"
+    = f.input :content
+    %div.buttons
+      = f.submit "Add Comment"
+

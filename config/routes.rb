@@ -45,6 +45,8 @@ Jazzity::Application.routes.draw do
   resources :note_sequences, :path => "notes", :only => [:show]
   resources :chord_sequences, :path => "chord-sequences", :only => [:show]
   resources :chord_note_sequences, :path => "chord-notes", :only => [:show]
+
+  resources :comments
   
   root :to => "dashboards#show"
   

@@ -1,5 +1,6 @@
 class Concept < ActiveRecord::Base
   extend FriendlyId
+  include Commentable
   include Searchable::Model
 
   friendly_id :name, :use => :slugged

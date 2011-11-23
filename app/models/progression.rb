@@ -1,5 +1,6 @@
 class Progression < ActiveRecord::Base
   extend FriendlyId
+  include Commentable
   include Searchable::Model
   
   has_many :searchables, :as => :model

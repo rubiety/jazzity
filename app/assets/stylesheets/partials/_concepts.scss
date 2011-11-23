@@ -9,4 +9,8 @@ body.concepts {
     h3 { margin-bottom: 8px; }
   }
 
+  article#concept {
+    @include full;
+  }
+
 }

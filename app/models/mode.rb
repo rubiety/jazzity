@@ -1,6 +1,7 @@
 class Mode < ActiveRecord::Base
   extend FriendlyId
   include KeyContext
+  include Commentable
   include Searchable::Model
 
   belongs_to :scale

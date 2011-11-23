@@ -38,4 +38,8 @@ body.tunes {
     }
   }
 
+  article#tune {
+    @include full;
+  }
+
 }

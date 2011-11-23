@@ -1,31 +1,31 @@
-%h1= @tune.title
+%article#tune
+  %h1= @tune.title
 
-- if @tune.vehicle
-  %p
-    %label Vehicle: 
-    = @tune.vehicle
-- if @tune.meter
-  %p
-    %label Meter: 
-    = @tune.meter
-- if @tune.concept
-  %p
-    %label Concept: 
-    = @tune.concept
-- if @tune.primary_key
-  %p
-    %label Key:
-    = @tune.primary_key
-    = @tune.tonality
-    = " (Also #{@tune.secondary_key})" if @tune.secondary_key
-- if @tune.form
-  %p
-    %label Form:
-    = @tune.form
-    = "#{@tune.form_length} Bars" if @tune.form_length
-    = @tune.form_lengths if @tune.form_lengths
+  - if @tune.vehicle
+    %p
+      %label Vehicle: 
+      = @tune.vehicle
+  - if @tune.meter
+    %p
+      %label Meter: 
+      = @tune.meter
+  - if @tune.concept
+    %p
+      %label Concept: 
+      = @tune.concept
+  - if @tune.primary_key
+    %p
+      %label Key:
+      = @tune.primary_key
+      = @tune.tonality
+      = " (Also #{@tune.secondary_key})" if @tune.secondary_key
+  - if @tune.form
+    %p
+      %label Form:
+      = @tune.form
+      = "#{@tune.form_length} Bars" if @tune.form_length
+      = @tune.form_lengths if @tune.form_lengths
 
-
-
+  = render "comments/index", :commentable => @tune
 
 

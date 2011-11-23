@@ -18,3 +18,4 @@ Jazzity.NoteSeqquence = Backbone.Model.extend url: -> "/notes/" + this.id
 Jazzity.ChordSequence = Backbone.Model.extend url: -> "/chord-sequences/" + this.id
 
 Jazzity.KeyCollection = Backbone.Collection.extend model: Jazzity.Key
+

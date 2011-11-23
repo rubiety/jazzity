@@ -70,6 +70,7 @@ body.scales, body.modes {
     }
 
     nav.related-chords {
+      @include clearfix;
       h3 { margin-bottom: 0.4em; }
     }
   }

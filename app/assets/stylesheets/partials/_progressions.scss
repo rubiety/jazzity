@@ -35,4 +35,8 @@ body.progressions {
     h3 { margin-bottom: 8px; }
   }
 
+  article#progression {
+    @include full;
+  }
+
 }

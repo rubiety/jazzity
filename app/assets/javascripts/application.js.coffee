@@ -6,9 +6,9 @@
 //= require backbone
 //= require vexflow
 //
-//= require models
-//= require views
-//
-//= require staff_rendering
+//= require global
+//= require staff
 //= require musicians
 //= require search
+//= require comments
+

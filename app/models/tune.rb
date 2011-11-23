@@ -1,6 +1,7 @@
 class Tune < ActiveRecord::Base
   extend FriendlyId
   include Searchable::Model
+  include Commentable
   
   has_many :searchables, :as => :model
   belongs_to :vehicle

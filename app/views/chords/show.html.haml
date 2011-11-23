@@ -42,3 +42,7 @@
     %h3 Voicings for #{@chord}:
     %ul.voicings-list
       = render @chord.voicings, :key => @key
+
+  = render "comments/index", :commentable => @chord
+
+

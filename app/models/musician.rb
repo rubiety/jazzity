@@ -13,6 +13,7 @@ class Musician < ActiveRecord::Base
   extend FriendlyId
   include Searchable::Model
   include Musician::Authentication
+  include Commentable
   
   has_many :searchables, :as => :model
   belongs_to :instrument

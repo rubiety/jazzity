@@ -3,6 +3,7 @@ class Voicing < ActiveRecord::Base
   
   include KeyContext
   include OctaveContext
+  include Commentable
 
   acts_as_tree
   friendly_id :name, :use => :slugged

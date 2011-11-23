@@ -103,3 +103,4 @@ Jazzity.ProgressionStaff = Jazzity.Staff.extend
     this.draw_stave "treble"
     this.draw_notes _(this.model.get("notes")).map (chord) ->
       { keys: chord }
+

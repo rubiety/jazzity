@@ -49,3 +49,5 @@
       - @musician.musician_tunes.each do |musician_tune|
         %li= musician_tune
 
+  - if @musician.famous?
+    = render "comments/index", :commentable => musician

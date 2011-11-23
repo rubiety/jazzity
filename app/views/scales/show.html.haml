@@ -34,3 +34,4 @@
       %ul.chords-list
         = render @mode.chords, :key => @mode.notes.first
 
+  = render "comments/index", :commentable => @mode

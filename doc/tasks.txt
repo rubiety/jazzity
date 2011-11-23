@@ -3,6 +3,8 @@
 [ ] ChordScale Offset Specification (to show related modes correctly)
 [ ] Musician Profiles & Signup/Signin
 [ ] Musician Commenting on Objects
+[ ] CanCan for Access Control among Musicians
+[ ] Remove Key as a model - should just be a constant
 
 [ ] Voicings Build-Out
 [ ] Progressions

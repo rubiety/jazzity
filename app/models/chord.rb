@@ -1,6 +1,7 @@
 class Chord < ActiveRecord::Base
   extend FriendlyId
   include KeyContext
+  include Commentable
   include Searchable::Model
   
   acts_as_tree

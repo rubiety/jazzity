@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111121151129) do
+ActiveRecord::Schema.define(:version => 20111123011559) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -99,6 +99,17 @@ ActiveRecord::Schema.define(:version => 20111121151129) do
   add_index "chords", ["chord_quality_id"], :name => "index_chords_on_chord_quality_id"
   add_index "chords", ["parent_id"], :name => "index_chords_on_parent_id"
   add_index "chords", ["slug"], :name => "index_chords_on_cached_slug", :unique => true
+
+  create_table "comments", :force => true do |t|
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.integer  "author_id"
+    t.string   "subject"
+    t.text     "content"
+    t.integer  "votes",            :default => 0, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "concepts", :force => true do |t|
     t.string   "name"

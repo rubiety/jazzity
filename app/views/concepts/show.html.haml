@@ -1,3 +1,6 @@
-%h1= @concept
+%article#concept
+  %h1= @concept
 
-%p= @concept.about
+  %p= @concept.about
+
+  = render "comments/index", :commentable => @concept
