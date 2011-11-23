@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111123011559) do
+ActiveRecord::Schema.define(:version => 20111123022851) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -319,6 +319,26 @@ ActiveRecord::Schema.define(:version => 20111123011559) do
   add_index "searchables", ["name"], :name => "index_searchables_on_name"
   add_index "searchables", ["parent_id"], :name => "index_searchables_on_parent_id"
 
+  create_table "tune_concepts", :force => true do |t|
+    t.integer  "tune_id"
+    t.integer  "concept_id"
+    t.string   "notes"
+    t.integer  "start_measure"
+    t.integer  "end_measure"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tune_progressions", :force => true do |t|
+    t.integer  "tune_id"
+    t.integer  "progression_id"
+    t.string   "notes"
+    t.integer  "start_measure"
+    t.integer  "end_measure"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "tunes", :force => true do |t|
     t.string   "name"
     t.string   "alternate_name"
@@ -339,6 +359,7 @@ ActiveRecord::Schema.define(:version => 20111123011559) do
     t.integer  "aebersold_playalong_number"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "based_on_progression_id"
   end
 
   add_index "tunes", ["aebersold_playalong_number"], :name => "index_tunes_on_aebersold_playalong_number"

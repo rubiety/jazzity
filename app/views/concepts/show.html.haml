@@ -1,6 +1,13 @@
 %article#concept
   %h1= @concept
-
   %p= @concept.about
 
+  - if @concept.tune_concepts.exists?
+    %section#concept-tunes
+      %h2 Tunes showcasing this concept:
+      %ul
+        - @concept.tune_concepts.each do |tune_concept|
+          %li= link_to tune_concept.tune, tune_concept.tune
+
   = render "comments/index", :commentable => @concept
+

@@ -8,3 +8,8 @@ Progression.create!(:name => "Rhythm Changes", :bars => 32, :full_tune => true, 
   :information => ""
 )
 
+Progression.create!(:name => "ii-V-I", :full_tune => false,  
+  :summary => "The most commonly-used progression in Jazz.",
+  :information => ""
+)
+

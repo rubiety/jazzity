@@ -5,6 +5,9 @@ describe Progression do
   it { should belong_to(:form) }
   it { should have_many(:components) }
   it { should have_many(:chords).through(:components) }
+  it { should have_many(:tunes_based_on) }
+  it { should have_many(:tune_progressions) }
+  it { should have_many(:tunes).through(:tune_progressions) }
 
   describe "scopes" do
     it "should scope full_tune"

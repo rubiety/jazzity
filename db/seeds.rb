@@ -13,6 +13,8 @@
   forms
   vehicles
   tunes
+  tune_progressions
+  tune_concepts
   instruments
   musicians
   progressions

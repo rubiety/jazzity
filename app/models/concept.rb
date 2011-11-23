@@ -3,6 +3,9 @@ class Concept < ActiveRecord::Base
   include Commentable
   include Searchable::Model
 
+  has_many :tune_concepts, :dependent => :destroy
+  has_many :tunes, :through => :tune_concepts
+
   friendly_id :name, :use => :slugged
 
   validates :name, :presence => true

@@ -10,8 +10,12 @@ Tune.create!(
   :form_lengths => "8-8-8-8",
   :starting_chord => Chord["Cmaj7"],
   :tempo => 132,
-  :aebersold_playalong_number => 43
-)
+  :aebersold_playalong_number => 43,
+  :based_on_progression => Progression["Blues"]
+).tap do |tune|
+  tune.tune_progressions.create(:progression => ::Progression["ii-V-I"])
+  tune.tune_concepts.create(:concept => ::Concept["Drop-2"], :start_measure => 8, :end_measure => 10)
+end
 
 Tune.create!(
   :name => "Autumn Leaves",

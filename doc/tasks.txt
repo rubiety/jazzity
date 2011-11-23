@@ -5,7 +5,7 @@
 [ ] Musician Commenting on Objects
 [ ] CanCan for Access Control among Musicians
 [ ] Remove Key as a model - should just be a constant
-[ ] Relating Tunes to Jazz Concepts, Progressions, Voicings, etc.
+[ ] Rename "notes" text fields to something else - too ambiguous with key notes
 
 [ ] Voicings Build-Out
 [ ] Progressions

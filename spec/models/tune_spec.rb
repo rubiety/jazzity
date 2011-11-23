@@ -10,6 +10,11 @@ describe Tune do
     it { should belong_to(:starting_chord) }
     it { should belong_to(:ending_chord) }
     it { should belong_to(:contrafact_of_tune) }
+    it { should belong_to(:based_on_progression) }
+    it { should have_many(:tune_progressions) }
+    it { should have_many(:progressions).through(:tune_progressions) }
+    it { should have_many(:tune_concepts) }
+    it { should have_many(:concepts).through(:tune_concepts) }
   end
 
   context "validations" do

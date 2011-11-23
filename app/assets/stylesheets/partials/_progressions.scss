@@ -37,6 +37,14 @@ body.progressions {
 
   article#progression {
     @include full;
+
+    #tunes-based-on {
+      margin: 10px 0 10px 0;
+      ul {
+        @include no-bullets;
+        margin: 0 0 10px 0;
+      }
+    }
   }
 
 }

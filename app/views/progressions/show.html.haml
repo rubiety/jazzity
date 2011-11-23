@@ -21,5 +21,12 @@
   %p
     = @progression.information
 
+  - if @progression.tunes_based_on.exists?
+    %section#tunes-based-on
+      %h2 Tunes Based on this Progression:
+      %ul
+        - @progression.tunes_based_on.each do |tune|
+          %li= link_to tune, tune
+
   
   = render "comments/index", :commentable => @progression
