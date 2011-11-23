@@ -1,4 +1,4 @@
-class Musician::AuthenticationsController < ApplicationController
+class Musicians::AuthenticationsController < ApplicationController
   def facebook
     create
   end

@@ -9,6 +9,7 @@ class MusiciansController < ApplicationController
   end
 
   def show
+    raise ActiveRecord::RecordNotFound unless @musician.has_profile? or @musician == current_musician
     respond_with @musician
   end
 

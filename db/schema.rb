@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111121061853) do
+ActiveRecord::Schema.define(:version => 20111121151129) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -177,6 +177,30 @@ ActiveRecord::Schema.define(:version => 20111121061853) do
     t.datetime "updated_at"
   end
 
+  create_table "musician_favorites", :force => true do |t|
+    t.integer  "musician_id"
+    t.integer  "favorite_musician_id"
+    t.string   "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "musician_friendships", :force => true do |t|
+    t.integer "musician_id"
+    t.integer "friend_musician_id"
+    t.string  "state",              :default => "invited"
+  end
+
+  create_table "musician_tunes", :force => true do |t|
+    t.integer  "musician_id"
+    t.integer  "tune_id"
+    t.boolean  "composed",    :default => false, :null => false
+    t.boolean  "learning",    :default => false, :null => false
+    t.boolean  "know",        :default => false, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "musicians", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -189,12 +213,12 @@ ActiveRecord::Schema.define(:version => 20111121061853) do
     t.text     "biography"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email",                                                               :default => "", :null => false
-    t.string   "encrypted_password",     :limit => 128,                               :default => "", :null => false
+    t.string   "email",                                                                :default => "",    :null => false
+    t.string   "encrypted_password",      :limit => 128,                               :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                                                       :default => 0
+    t.integer  "sign_in_count",                                                        :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -207,7 +231,15 @@ ActiveRecord::Schema.define(:version => 20111121061853) do
     t.string   "location"
     t.string   "external_avatar_url"
     t.string   "website_url"
-    t.decimal  "time_zone_offset",                      :precision => 5, :scale => 2
+    t.decimal  "time_zone_offset",                       :precision => 5, :scale => 2
+    t.boolean  "famous",                                                               :default => false, :null => false
+    t.boolean  "has_profile",                                                          :default => false, :null => false
+    t.string   "youtube_username"
+    t.integer  "secondary_instrument_id"
+    t.boolean  "plays_professionally",                                                 :default => false, :null => false
+    t.boolean  "studies_privately",                                                    :default => false, :null => false
+    t.string   "studies_privately_with"
+    t.string   "music_school"
   end
 
   add_index "musicians", ["authentication_token"], :name => "index_musicians_on_authentication_token", :unique => true

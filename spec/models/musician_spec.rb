@@ -3,6 +3,24 @@ require "spec_helper"
 describe Musician do
   it { should belong_to(:instrument) }
 
+  describe "associations" do
+    it { should have_many(:searchables) }
+    it { should belong_to(:instrument) }
+    it { should belong_to(:secondary_instrument) }
+    
+    it { should have_many(:musician_favorites) }
+    it { should have_many(:favorite_musicians).through(:musician_favorites) }
+    it { should have_many(:musician_friendships) }
+    it { should have_many(:musician_friends).through(:musician_friendships) }
+    it { should have_many(:musician_tunes) }
+    it { should have_many(:tunes).through(:musician_tunes) }
+  end
+
+  describe "scopes" do
+    it "should scope #with_profile"
+    it "should scope #without_profile"
+  end
+
   describe "validations" do
     it { should validate_presence_of(:first_name) }
     it { should validate_presence_of(:last_name) }
@@ -17,5 +35,10 @@ describe Musician do
       musician.should_receive(:name).and_return("Oscar Fry")
       musician.to_s.should == "Oscar Fry"
     end
+  end
+
+  describe "#clear_profile" do
+    it "should null out profile fields"
+    it "should set has_profile to false"
   end
 end

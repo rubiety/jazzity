@@ -1,4 +1,5 @@
 Musician.create!(
+  :famous => true,
   :first_name => "Miles",
   :last_name => "Davis",
   :born_on => "1926-05-26",
@@ -11,6 +12,7 @@ Musician.create!(
 )
 
 Musician.create!(
+  :famous => true,
   :first_name => "Oscar",
   :last_name => "Peterson",
   :born_on => "1925-08-05",

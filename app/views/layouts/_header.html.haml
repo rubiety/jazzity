@@ -13,7 +13,7 @@
 
 %aside
   - if musician_signed_in?
-    = image_tag current_musician.avatar_url, :class => "avatar"
+    = image_tag current_musician.avatar_url, :class => "avatar", :alt => "#{current_musician}'s Avatar" if current_musician.has_avatar?
     = link_to "Welcome, #{current_musician}", edit_musician_registration_path
     &nbsp;&nbsp;&nbsp;
     = link_to "My Profile", musician_path(current_musician)

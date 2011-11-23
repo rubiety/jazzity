@@ -1,18 +1,18 @@
 Jazzity::Application.routes.draw do
   
-  devise_for :musicians, :controllers => {
-    :omniauth_callbacks => "musician/authentications"
-  }
-
-  resources :musicians, :only => [:index, :show]
-  
-  namespace :musician do
-    resources :authentications, :only => [:destroy]
-  end
-
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
+  devise_for :musicians, :controllers => {
+    :omniauth_callbacks => "musicians/authentications"
+  }
+
+  namespace :musicians do
+    resource :profile, :only => [:show, :edit, :update, :destroy]
+    resources :authentications, :only => [:destroy]
+  end
+
+  resources :musicians, :only => [:index, :show]
 
   resources :searches, :only => [:create, :show] do
     get :autocomplete, :on => :collection

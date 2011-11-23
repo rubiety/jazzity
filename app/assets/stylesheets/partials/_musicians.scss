@@ -49,3 +49,39 @@ body.musicians {
   }
 
 }
+
+body.profiles {
+
+  header#profile-introduction {
+    @include full;
+  }
+
+  #profile-introduction {
+    @include full;
+  }
+
+  form#update-profile-form {
+    fieldset#profile-basic {
+      @include columns(6);
+      @include alpha;
+    }
+
+    fieldset#profile-details {
+      @include columns(6);
+      @include omega;
+    }
+
+    fieldset.buttons {
+      clear: both;
+      @include full;
+    }
+
+
+    &.disabled {
+      opacity: 0.6;
+    }
+  }
+
+
+
+}

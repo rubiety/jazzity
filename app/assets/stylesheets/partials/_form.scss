@@ -11,6 +11,7 @@ form {
   input[type=email],
   input[type=tel],
   input[type=password],
+  input[type=url]
   textarea {
     @include border-radius(6px);
     @include background-image(linear-gradient(#f6f6f6,#ffffff));

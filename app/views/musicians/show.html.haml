@@ -1,17 +1,51 @@
 %article#musician
-  %h1= @musician
+  %header
+    = image @musician.avatar_url, :class => "avatar", :alt => "#{@musician}'s Avatar" if @musician.has_avatar?
+    %h1= @musician
+    %p= @musician.biography
 
-  - if @musician.instrument
-    %p
-      %label Instrument:
-      = @musician.instrument
-  - if @musician.born_on
-    %p
-      %label Born:
-      = @musician.born_on
-  - if @musician.died_on
-    %p
-      %label Died:
-      = @musician.died_on
+  %section#musician-details
+    %dl
+      - if @musician.location?
+        %dd Location:
+        %dt= @musician.location
+      - if @musician.instrument
+        %dd Instrument:
+        %dt= @musician.instrument
+      - if @musician.secondary_instrument
+        %dd Other Instrument:
+        %dt= @musician.secondary_instrument
+      - if @musician.plays_professionally?
+        %dt Plays Professionally
+      - if @musician.studies_privately?
+        %dt Studies Privately
+        - if @musician.studies_privately_with?
+          %dt With #{@musician.studies_privately_with}
+      - if @musician.music_school?
+        %dd Studied At:
+        %dt= @musician.music_school
+      
+  %section#musician-social-media
+    %dl
+      - if @musician.twitter_username?
+        %dd Twitter:
+        %dt= link_to "@#{@musician.twitter_username}", "http://twiter.com/#{@musician.twitter_username}"
+      - if @musician.youtube_username?
+        %dd YouTube:
+        %dt= link_to @musician.youtube_username, "#"
 
-  %p= @musician.biography
+  %section#musician-favorites
+    %ul
+      - @musician.favorite_musicians.each do |favorite_musician|
+        %li
+          = image_tag favorite_musician.avatar_url if favorite_musician.avatar_url?
+          %h3= favorite_musician
+
+
+  %section#musician-activity
+
+  %section#musician-tunes
+    %ul
+      - @musician.musician_tunes.each do |musician_tune|
+        %li= musician_tune
+

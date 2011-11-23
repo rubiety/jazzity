@@ -1,0 +1,2 @@
+module Musicians::ProfilesHelper
+end

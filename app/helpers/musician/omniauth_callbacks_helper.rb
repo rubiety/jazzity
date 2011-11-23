@@ -1,2 +1,0 @@
-module Musician::OmniauthCallbacksHelper
-end
