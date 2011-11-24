@@ -10,6 +10,9 @@
 [ ] Voicings Build-Out
 [ ] Progressions
 [ ] Progression Matching of Chord Sequences
+[ ] Famous Musicians Database Build-Out
+[ ] Tunes Database Build-Out
+[ ] Jazz Concepts Build-Out
 
 [ ] Practice Book: What Tunes/Concepts/Progressions am I learning?
     Find out what other users are learning those too
@@ -27,10 +30,6 @@
 [ ] Invite System for Beta Launch
 [ ] Suggestion/Feedback System
 [ ] Chord Substitution Possibilities
-[ ] Progressions Build-Out
-[ ] Famous Musicians Database Build-Out
-[ ] Tunes Database Build-Out
-[ ] Jazz Concepts Build-Out
 [ ] Facebook Invite Friends
 [ ] Twitter Invite Friends
 [ ] AddThis Buttons

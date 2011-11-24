@@ -1,7 +1,21 @@
 !!! 5
 -# http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither
 -ie_html :lang => 'en', :class => 'no-js' do
-  = render :partial => 'layouts/head'
+  %head
+    %meta{ :charset => "utf-8" }/
+    %title Jazzity - The Jazz Community &amp; Knowledge Engine
+    
+    %meta{ :content => "Jazzity - The Jazz Community & Knowledge Engine", :name => "description" }/
+    %meta{ :content => "Ben Hughes", :name => "author" }/
+
+    -# Open Graph
+    %meta{ :property => "og:title", :content => "Jazzity - The Jazz Community & Knowledge Engine" }
+    %meta{ :property => "og:type", :content => "company" }
+    %meta{ :property => "og:site_name", :content => "Jazzity" }
+    %meta{ :property => "og:url", :content => "http://www.jazzity.com/" }
+    %meta{ :property => "og:image", :content => "" }
+    
+    = csrf_meta_tag
 
   %body
     = yield
