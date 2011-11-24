@@ -11,7 +11,10 @@ class Searchable < ActiveRecord::Base
   end
 
   def target
-    key ? model.in_key_of(key) : model
+    @target ||= key ? model.in_key_of(key) : model
+  end
+  def target=(value)
+    @target = value
   end
 
   # REFACTOR: We should keep track of classes that include Model and do this dynamically. Also don't define methods on the class.

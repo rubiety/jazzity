@@ -1,4 +1,4 @@
-body.chord_sequences {
+body.chord-sequences {
 
   article.chord-sequence {
     border: 1px solid #666;
@@ -10,6 +10,8 @@ body.chord_sequences {
   }
 
   article#chord-sequence {
+    @include full;
+
     header {
       p {
         label { font-weight: bold; }

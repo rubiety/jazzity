@@ -8,8 +8,10 @@
 [ ] Remove Key as a model - should just be a constant
 [ ] Rename "notes" text fields to something else - too ambiguous with key notes
 
+[ ] Rdio/Pandora/Spotify Integration!
+
 [ ] Voicings Build-Out
-[ ] Progressions
+[ ] Progressions Build-Out
 [ ] Progression Matching of Chord Sequences
 [ ] Famous Musicians Database Build-Out
 [ ] Tunes Database Build-Out
