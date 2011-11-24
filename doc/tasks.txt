@@ -4,6 +4,7 @@
 [ ] Musician Commenting on Objects (via Backbone.js)
 [ ] Musician Profiles & Signup/Signin
 [ ] CanCan for Access Control among Musicians
+[ ] Implement ModifierContext for Single-Stem between Treble & Bass Clefs
 [ ] Remove Key as a model - should just be a constant
 [ ] Rename "notes" text fields to something else - too ambiguous with key notes
 

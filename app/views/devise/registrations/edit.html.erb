@@ -23,7 +23,7 @@
   <li class="facebook">
     <h3>Facebook</h3>
     <% if current_musician.authenticated_with?(:facebook) %>
-      <%= link_to "Disconnect", musician_authentication_path(:facebook), :method => :delete %>
+      <%= link_to "Disconnect", musicians_authentication_path(:facebook), :method => :delete %>
     <% else %>
       <%= link_to "Connect", musician_omniauth_authorize_path(:facebook) %>
     <% end %>
@@ -31,7 +31,7 @@
   <li class="twitter">
     <h3>Twitter</h3>
     <% if current_musician.authenticated_with?(:twitter) %>
-      <%= link_to "Disconnect", musician_authentication_path(:twitter), :method => :delete %>
+      <%= link_to "Disconnect", musicians_authentication_path(:twitter), :method => :delete %>
     <% else %>
       <%= link_to "Connect", musician_omniauth_authorize_path(:twitter) %>
     <% end %>
