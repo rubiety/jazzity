@@ -40,6 +40,7 @@ end
 
 set :shared_paths, %w(
   config/database.yml
+  config/omniauth.yml
 )
 
 after "deploy:symlink", "deploy:shared"
