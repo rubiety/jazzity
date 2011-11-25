@@ -1,8 +1,6 @@
 = Functional Beta
 
-[ ] Musician Commenting on Objects (via Backbone.js)
 [ ] Musician Profiles & Signup/Signin
-[ ] CanCan for Access Control among Musicians
 [ ] Implement ModifierContext for Single-Stem between Treble & Bass Clefs
 [ ] Remove Key as a model - should just be a constant
 [ ] Rename "notes" text fields to something else - too ambiguous with key notes
@@ -15,6 +13,9 @@
 [ ] Famous Musicians Database Build-Out
 [ ] Tunes Database Build-Out
 [ ] Jazz Concepts Build-Out
+
+[ ] Comments Voting
+[ ] Comments Refinement (Editing/Deleting/Auto-Scroll, etc.), Threading
 
 [ ] Practice Book: What Tunes/Concepts/Progressions am I learning?
     Find out what other users are learning those too

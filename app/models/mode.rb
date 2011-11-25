@@ -35,7 +35,7 @@ class Mode < ActiveRecord::Base
 
   def title
     if key
-      "#{key} #{name}"
+      "#{mode_key} #{name}"
     else
       name
     end
@@ -43,6 +43,10 @@ class Mode < ActiveRecord::Base
 
   def main?
     mode == 1
+  end
+
+  def mode_key
+    Key[notes.first]
   end
 
   def tones

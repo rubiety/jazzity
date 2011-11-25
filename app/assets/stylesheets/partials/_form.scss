@@ -13,11 +13,8 @@ form {
   input[type=password],
   input[type=url]
   textarea {
-    @include border-radius(6px);
-    @include background-image(linear-gradient(#f6f6f6,#ffffff));
     color: #333;
     padding: 3px;
-    outline: none;
   }
 
   p.field_with_errors {
@@ -68,6 +65,7 @@ form {
 
   .hint {
     clear: left;
+    margin-top: 3px;
     margin-left: 170px;
     font-size: 12px;
     color: #555;

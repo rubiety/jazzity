@@ -1,5 +1,6 @@
 .comments {
   clear: left;
+  margin-top: 10px;
   padding: 15px;
   border: 3px solid #CCC;
   width: 80%;
@@ -15,8 +16,14 @@
 
     li {
       margin: 0 0 10px 0;
+      border-bottom: 1px solid #333;
+
       cite {
         font-size: 0.9em;
+        img {
+          max-width: 25px;
+          max-height: 25px;
+        }
       }
       p {
         font-size: 0.8em;
@@ -25,8 +32,10 @@
   }
 
   form#create-comment-form {
+    h4 { margin-bottom: 10px; }
     label { display: none; }
-    textarea { height: 100px; }
+    input[type=text] { width: 90%; }
+    textarea { height: 100px; width: 100%; }
     span.hint { margin-left: 0; }
     input[type=submit] { margin-left: 0; }
   }

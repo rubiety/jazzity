@@ -13,4 +13,11 @@ class Comment < ActiveRecord::Base
   def down_vote
     decrement!(:votes)
   end
+
+  def as_json(options = nil)
+    super.slice("id", "author_id", "content", "subject", "created_at", "votes").tap do |o|
+      o["author_name"] = author.try(:name)
+      o["author_avatar_url"] = author.avatar_url
+    end
+  end
 end

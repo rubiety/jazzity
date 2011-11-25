@@ -1,36 +1,19 @@
 %div.comments{:data => {"commentable-type" => commentable.class.model_name.underscore, "commentable-id" => commentable.id}}
-  %h2 Comments:
-
+  %h2 Discussions:
   %ul.comments-list
-    %li.comment
-      %cite Ben Hughes
-      %h4 My Test Subject Here
-      %p
-        Well this is my comment now.
-        Well this is my comment now.
-        Well this is my comment now.
-        Well this is my comment now.
-    %li.comment
-      %cite Ben Hughes
-      %h4 My Test Subject Here
-      %p
-        Well this is my comment now.
-        Well this is my comment now.
-        Well this is my comment now.
-        Well this is my comment now.
-    %li.comment
-      %cite Ben Hughes
-      %h4 My Test Subject Here
-      %p
-        Well this is my comment now.
-        Well this is my comment now.
-        Well this is my comment now.
-        Well this is my comment now.
 
-  = simple_form_for Comment.new, :remote => true, :html => {:id => "create-comment-form"} do |f|
-    %h4 Add a Comment:
+  = simple_form_for Comment.new, :remote => true, :html => {:id => "create-comment-form", "data-type" => "json"} do |f|
+    %h4 Start a Discussion:
     = f.input :subject, :required => false, :hint => "Optional Subject"
     = f.input :content
     %div.buttons
-      = f.submit "Add Comment"
+      = f.submit "Add Comment", :disabled_with => "Processing..."
 
+  %script{:type => "text/template", :id => "comment-template"}
+    %li.comment
+      %cite
+        :plain
+          <img src="<%= author_avatar_url %>" alt="<%= author_name %>'s Avatar'" />
+        <%= author_name %>
+      %h4 <%= subject %>
+      %p <%= content %>
