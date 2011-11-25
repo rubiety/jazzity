@@ -36,7 +36,8 @@
   %nav.related-modes
     %h3 Related Scales/Modes:
     %ul.modes-list
-      = render @chord.modes, :key => @key
+      - @chord.chord_scales.each do |chord_scale|
+        = render chord_scale.mode, :key => (@chord.key || Key.default).shifted(chord_scale.offset)
 
   %nav.related-voicings
     %h3 Voicings for #{@chord}:

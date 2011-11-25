@@ -32,6 +32,7 @@
     %nav.related-chords
       %h3 Related Chords:
       %ul.chords-list
-        = render @mode.chords, :key => @mode.notes.first
+        - @mode.chord_scales.each do |chord_scale|
+          = render chord_scale.chord, :key => (@scale.key || Key.default).shifted(-1 * chord_scale.offset)
 
   = render "comments/index", :commentable => @mode

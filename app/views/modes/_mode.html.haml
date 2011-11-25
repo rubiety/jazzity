@@ -1,3 +1,5 @@
+- mode = mode.in_key_of(key) if local_assigns[:key]
+
 %li[mode]
   %h3= link_to mode.title, [mode.scale, mode]
   %p= mode.scale.information

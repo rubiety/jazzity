@@ -33,6 +33,10 @@ class Key < ActiveRecord::Base
   def main?
     name == "C"
   end
+  
+  def shifted(offset)
+    self.class.primaries.find_by_index((index + offset) % 12)
+  end
 
   # Finds a key given a tonal index 0-11 and a letter index (to disambiguate enharmonic keys)
   def self.from_index(value, preferred_letter = nil)

@@ -1,6 +1,5 @@
 = Functional Beta
 
-[ ] ChordScale Offset Specification (to show related modes correctly)
 [ ] Musician Commenting on Objects (via Backbone.js)
 [ ] Musician Profiles & Signup/Signin
 [ ] CanCan for Access Control among Musicians
