@@ -1,5 +1,6 @@
 Jazzity.CommentsView = Backbone.View.extend
   events:
+    "click a.add-comment": "show_comment_form",
     "ajax:before form#create-comment-form": "create_comment_before"
     "ajax:success form#create-comment-form": "create_comment_success"
     "ajax:error from#create-comment-form": "create_comment_error"
@@ -20,6 +21,11 @@ Jazzity.CommentsView = Backbone.View.extend
     this
   
   render_overview: ->
+
+  show_comment_form: (e)->
+    $(this.el).find("form#create-comment-form").slideDown()
+    $(e.target).remove()
+    false
 
   add: (comment)->
     view = new Jazzity.CommentView model: comment

@@ -17,14 +17,15 @@
     li {
       margin: 0 0 10px 0;
       padding-bottom: 5px;
-      border-bottom: 1px solid #333;
 
+      img.avatar {
+        float: left;
+        max-width: 50px;
+        max-height: 50px;
+        margin-right: 10px;
+      }
       cite {
         font-size: 0.9em;
-        img {
-          max-width: 25px;
-          max-height: 25px;
-        }
       }
       p {
         font-size: 0.8em;
@@ -37,11 +38,20 @@
   }
 
   form#create-comment-form {
+    @include clearfix;
+    position: relative;
+
     h4 { margin-bottom: 10px; }
     label { display: none; }
     input[type=text] { width: 90%; }
-    textarea { height: 100px; width: 100%; }
+    textarea { height: 60px; width: 75%; }
     span.hint { margin-left: 0; }
+
+    .buttons { 
+      position: absolute;
+      bottom: 10px;
+      right: 0;
+    }
     input[type=submit] { margin-left: 0; }
   }
 

@@ -81,7 +81,7 @@ Jazzity.ChordStaff = Jazzity.Staff.extend
 
 Jazzity.VoicingStaff = Jazzity.Staff.extend
   render: ->
-    this.draw_canvas(height: 235)
+    this.draw_canvas(height: 200)
     this.draw_stave "treble", width: 170
     this.draw_stave "bass", width: 170
     this.draw_notes [

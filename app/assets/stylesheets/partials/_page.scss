@@ -57,6 +57,7 @@ body {
 }
 
 #main {
+  @include clearfix;
   margin-top: 10px;
 }
 

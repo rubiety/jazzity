@@ -1,10 +1,10 @@
 %div.comments{:data => {"commentable-type" => commentable.class.model_name.underscore, "commentable-id" => commentable.id}}
-  %h2 Discussions:
   %ul.comments-list
 
   - if musician_signed_in?
-    = simple_form_for Comment.new, :remote => true, :html => {:id => "create-comment-form", "data-type" => "json"} do |f|
-      %h4 Start a Discussion:
+    %p= link_to "Add a Comment", "#", :class => "add-comment"
+    = simple_form_for Comment.new, :remote => true, :html => {:id => "create-comment-form", "data-type" => "json", :style => "display: none"} do |f|
+      %h4 New Comment:
       = f.input :subject, :required => false, :hint => "Optional Subject"
       = f.input :content
       %div.buttons= f.submit "Add Comment", :disabled_with => "Processing..."
@@ -14,9 +14,9 @@
 
   %script{:type => "text/template", :id => "comment-template"}
     %li.comment
+      :plain
+        <img class="avatar" src="<%= author_avatar_url %>" alt="<%= author_name %>'s Avatar'" />
       %cite
-        :plain
-          <img src="<%= author_avatar_url %>" alt="<%= author_name %>'s Avatar'" />
         <%= author_name %>
       %h4 <%= subject %>
       %p <%= content %>
