@@ -14,7 +14,7 @@ class SearchesController < ApplicationController
         if @results.size == 0
           redirect_to root_path, :alert => "Sorry, but no results were found."
         elsif @results.size == 1
-          redirect_to @results.first.target
+          redirect_to path_to_searchable(@results.first)
         end
       end
     end
@@ -24,4 +24,17 @@ class SearchesController < ApplicationController
     params[:id] = params[:q]
     show
   end
+
+
+  protected
+
+  def path_to_searchable(searchable)
+    if searchable.target.is_a?(Mode)
+      [searchable.target.scale, searchable.target]
+    else
+      searchable.target
+    end
+  end
+
+  helper_method :path_to_searchable
 end

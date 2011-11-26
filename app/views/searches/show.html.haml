@@ -7,5 +7,5 @@
 
       %li.searchable
         = "#{model.class.name.titleize}: "
-        = link_to model.title, model
+        = link_to model.title, path_to_searchable(result)
 
