@@ -10,6 +10,8 @@
 [ ] Resource Implementation (Amazon/JazzBooks Affiliates) and Relationships to:
     Concept, Progression, Voicing
 
+[ ] Rework Susy Grids - We *can* do nesting!
+
 [ ] Voicings Build-Out
 [ ] Progressions Build-Out
 [ ] Progression Matching of Chord Sequences

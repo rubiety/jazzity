@@ -8,4 +8,7 @@ class MusicianTune < ActiveRecord::Base
 
   fires :new_musician_tune, :on => :create, :actor => :musician, :secondary_subject => :tune
 
+  def to_s
+    tune.to_s
+  end
 end

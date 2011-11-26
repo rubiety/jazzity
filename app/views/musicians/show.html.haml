@@ -2,54 +2,54 @@
   %header
     = image_tag @musician.avatar_url, :class => "avatar", :alt => "#{@musician}'s Avatar" if @musician.has_avatar?
     %h1= @musician
-    %p= @musician.biography
-
-  %section#musician-details
     %dl
       - if @musician.location?
-        %dd Location:
+        %dd From:
         %dt= @musician.location
       - if @musician.instrument
-        %dd Instrument:
-        %dt= @musician.instrument
-      - if @musician.secondary_instrument
-        %dd Other Instrument:
-        %dt= @musician.secondary_instrument
+        %dd Plays:
+        %dt= [@musician.instrument, @musician.secondary_instrument].compact.join(" and ")
+      - if @musician.music_school?
+        %dd Studied At:
+        %dt= @musician.music_school
       - if @musician.plays_professionally?
         %dt Plays Professionally
       - if @musician.studies_privately?
         %dt Studies Privately
         - if @musician.studies_privately_with?
           %dt With #{@musician.studies_privately_with}
-      - if @musician.music_school?
-        %dd Studied At:
-        %dt= @musician.music_school
-      
-  %section#musician-social-media
-    %dl
+    %ul.social-media
       - if @musician.twitter_username?
-        %dd.twitter Twitter:
-        %dt= link_to "@#{@musician.twitter_username}", "http://twiter.com/#{@musician.twitter_username}"
+        %li.twitter Twitter: #{link_to "@#{@musician.twitter_username}", "http://twiter.com/#{@musician.twitter_username}"}
       - if @musician.youtube_username?
-        %dd.youtube YouTube:
-        %dt= link_to @musician.youtube_username, "#"
-      - if @musician.facebook_url
-        %dd.facebook Facebook:
-        %dt= link_to "My Profile", @musician.facebook_url
+        %li.youtube YouTube: #{link_to @musician.youtube_username, "#"}
+      - if @musician.facebook_url?
+        %li.facebook Facebook: #{link_to "My Profile", @musician.facebook_url}
+    %p= @musician.biography
 
   %section#musician-favorites
-    %ul
+    %h2 Favorite Musicians:
+    %ul.favorite-musicians
       - @musician.favorite_musicians.each do |favorite_musician|
         %li
           = image_tag favorite_musician.avatar_url if favorite_musician.has_avatar?
-          %h3= favorite_musician
+          = link_to favorite_musician, favorite_musician
 
   %section#musician-activity
+    %h2 Recent Activity:
+    %div.activity
+      %ul.activity-list
+        - @musician.timeline_events.each do |timeline_event|
+          %li
+            = image_tag timeline_event.actor.avatar_url, :alt => "#{timeline_event.actor}'s Avatar", :class => "avatar" if timeline_event.actor.has_avatar?
+            %cite= timeline_event.actor
+            %h3= timeline_event_title(timeline_event)
 
   %section#musician-tunes
-    %ul
+    %h2 Tunes:
+    %ul.tunes-list
       - @musician.musician_tunes.each do |musician_tune|
         %li= musician_tune
 
   - if @musician.famous?
-    = render "comments/index", :commentable => musician
+    = render "comments/index", :commentable => @musician

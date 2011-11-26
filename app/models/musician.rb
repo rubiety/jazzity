@@ -1,7 +1,7 @@
 class Musician < ActiveRecord::Base
   PROFILE_FIELDS = [
     :instrument_id, :secondary_instrument_id, :biography,
-    :location, :external_avatar_url, :website_url, :time_zone_offset, :twitter_username, :youtube_username,
+    :location, :external_avatar_url, :website_url, :time_zone_offset, :facebook_url, :twitter_username, :youtube_username,
     :music_school, :plays_professionally, :studies_privately
   ]
 
