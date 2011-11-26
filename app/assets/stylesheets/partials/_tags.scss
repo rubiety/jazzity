@@ -8,6 +8,10 @@ h1 {
   font-size: 1.6em;
   margin-bottom: 8px;
 }
+h2 {
+  font-size: 1.2em;
+  margin-bottom: 8px;
+}
 
 strong, th {
   font-weight: bold;
@@ -15,4 +19,10 @@ strong, th {
 
 small {
   
+}
+
+a {
+  color: #000;
+  &:visited { color: #000; }
+  &:hover { color: #000; text-decoration: none; }
 }
