@@ -1,4 +1,4 @@
-body.sessions, body.registrations, body.passwords, body.confirmations {
+body.devise-sessions, body.devise-registrations, body.devise-passwords, body.devise-confirmations {
   #main {
     @include full;
   }

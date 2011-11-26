@@ -3,7 +3,7 @@
 -ie_html :lang => 'en', :class => 'no-js' do
   = render :partial => 'layouts/head'
 
-  %body{ :class => "#{controller.controller_name.dasherize}" }
+  %body{ :class => "#{controller.class.name.sub(/Controller$/, '').underscore.gsub('/', '_').dasherize}" }
     #container
       %header#header
         = render :partial => 'layouts/header'

@@ -28,7 +28,7 @@ nav.profile {
   }
 }
 
-body.authentications {
+body.musicians-authentications {
   #main {
     @include full;
   }
@@ -48,7 +48,7 @@ body.authentications {
   }
 }
 
-body.profiles {
+body.musicians-profiles {
 
   header#profile-introduction {
     @include full;
@@ -87,5 +87,17 @@ body.profiles {
   }
 
 
+
+}
+
+body.musicians-tunes {
+  #main {
+    @include full;
+  }
+
+  nav.profile {
+    margin-left: 0;
+    margin-right: 0;
+  }
 
 }
