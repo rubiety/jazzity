@@ -1,4 +1,14 @@
 body.dashboards {
+
+  section {
+    h2 {
+      margin-bottom: 10px;
+      font-size: 1.1em;
+    }
+    p {
+      margin-bottom: 0.5em;
+    }
+  }
   
   section#search {
     @include full;
@@ -24,28 +34,54 @@ body.dashboards {
       font-size: 0.8em;
       li { padding: 3px; }
     }
-    footer {
-      clear: both;
-      margin-left: 100px;
-      input[type=submit] {
-        font-size: 14px;
+  }
+
+  section#features-overview {
+    @include columns(4);
+    @include alpha;
+
+    article {
+      margin-bottom: 10px;
+
+      img {
+        float: left; 
+        margin-right: 5px; 
+        
+        &.right {
+          float: right;
+          margin-right: 0;
+          margin-left: 5px;
+        }
+      }
+      h2 {
+        margin-bottom: 5px;
+        font-size: 1.0em;
+      }
+      p { font-size: 0.9em; }
+
+      &.introduction {
+        margin-bottom: 15px;
+        p {
+          font-size: 1.1em;
+          line-height: 1.2em;
+        }
       }
     }
   }
 
-  section#about-site {
-    @include columns(4);
-    @include alpha;
-    h2 { margin-bottom: 5px; }
-  }
-
-  section#features-overview {
+  section#news {
     @include columns(5);
 
     article {
+      line-height: 1.2em;
+      position: relative;
       margin-bottom: 15px;
-      h2 {
-        margin-bottom: 5px;
+
+      cite {
+        font-size: 0.8em;
+        position: absolute;
+        top: 0;
+        right: 0;
       }
     }
   }
@@ -55,8 +91,6 @@ body.dashboards {
     @include omega;
     margin-top: 15px;
     margin-bottom: 15px;
-    
-    h2 { margin-bottom: 10px; }
   }
 
 }

@@ -1,8 +1,9 @@
 %section#search
   = form_tag searches_path do
-    = label_tag "Explore Jazz: "
+    = label_tag :query, "Explore Jazz: "
     = text_field_tag :query, params[:query], "data-autocomplete" => "/searches/autocomplete"
     = submit_tag "Go"
+    = link_to "What kinds of information can I search for?", "#"
 
 %section#activity
   %h2 Recent Activity:
@@ -36,34 +37,68 @@
     %li= link_to_search_example "A C E G in A Minor"
     %li= link_to_search_example "Dmin7, G7, Cmaj7"
     %li= link_to_search_example "D,F,A,C | F,G,B,D | C,E,G,B"
-  %footer
-    = button_to "What kinds of information can I search for?", "#"
-
-%section#about-site
-  %h2 What is Jazzity?
-  %p Phasellus ac libero a lorem auctor mattis.
-  %p
-    Suspendisse vestibulum dignissim quam. Integer vel augue. Phasellus nulla purus, interdum ac, venenatis non, varius rutrum, leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
 
 %section#features-overview
+  %h1 What is Jazzity?
+  %article.introduction
+    %p Jazzity is a community and knowledge engine for jazz musicians. Explore chord, scale, progression, and tune relationships, connect and learn with other musicians, and discuss jazz topics.
+
   %article
-    %h2 Explore Chord/Scale Relationships
+    %h2 Explore Chord/Scale/Voicing Relationships
+    = image_tag "home/chord_example.png"
     %p
-      Morbi non erat non ipsum pharetra tempus. Donec orci. Proin in ante. Pellentesque sit amet purus. Cras egestas diam sed ante. Etiam imperdiet urna sit amet risus. Donec ornare arcu id erat. Aliquam ultrices scelerisque sem. In elit nulla, molestie vel, ornare sit amet, interdum vel, mauris. Etiam dignissim imperdiet metus.
+      Jazzity extensively understands chords, scales, and voicings. Learn and explore these relationships, and see them plotted in staff notation.
   %article
     %h2 Analyze a Note Sequence
+    = image_tag "home/notes_collection_example.png", :class => "right"
     %p
-      Morbi non erat non ipsum pharetra tempus. Donec orci. Proin in ante. Pellentesque sit amet purus. Cras egestas diam sed ante. Etiam imperdiet urna sit amet risus. Donec ornare arcu id erat. Aliquam ultrices scelerisque sem. In elit nulla, molestie vel, ornare sit amet, interdum vel, mauris. Etiam dignissim imperdiet metus.
+      Search for a list of notes separated by commas, and Jazzity will analyze your input against it's knowledge of chords, scales, and progressions.
   %article
-    %h2 Explore Popular Jazz Tunes
+    %h2 Explore &amp; Track Jazz Tunes
     %p
-      Morbi non erat non ipsum pharetra tempus. Donec orci. Proin in ante. Pellentesque sit amet purus. Cras egestas diam sed ante. Etiam imperdiet urna sit amet risus. Donec ornare arcu id erat. Aliquam ultrices scelerisque sem. In elit nulla, molestie vel, ornare sit amet, interdum vel, mauris. Etiam dignissim imperdiet metus.
+      Jazzity's database of jazz standards connects you with the tunes you know and love. See which jazz concepts are used in your tune, explore progressions found therein, and find famous recordings and other resources to help you learn. You can also "like" tunes and specify which ones are part of your repetoire. 
   %article
     %h2 Discuss Jazz Concepts
     %p
-      Morbi non erat non ipsum pharetra tempus. Donec orci. Proin in ante. Pellentesque sit amet purus. Cras egestas diam sed ante. Etiam imperdiet urna sit amet risus. Donec ornare arcu id erat. Aliquam ultrices scelerisque sem. In elit nulla, molestie vel, ornare sit amet, interdum vel, mauris. Etiam dignissim imperdiet metus.
+      Any pieces of information on the site is open to discussion. Join the discussion and see what others have to say!
   %article
-    %h2 Upload MIDI Files for Analysis
+    %h2 Connect With Other Musicians
     %p
-      Coming soon, the ability to upload a MIDI file and have it analyzed or concepts in jazz theory.
+      Create a public profile to get yourself out there and connect with other local musicians. See what others are working on.
+  %article
+    %h2 So, how is this done?
+    %p
+      The core of Jazzity is a mathematical model of jazz theory, allowing us to fully analyze - in real time - your input, sort of like 
+      #{link_to "Wolfram Alpha", "http://www.wolframalpha.com/"}, but specific to Jazz!
+
+%section#news
+  %h1 Jazzity News
+
+  %article
+    %h2 Jazzity Launches!
+    %cite By Ben Hughes: Feburary 15, 2011
+    %p
+      After a long period in development and wrapping up the final touches, Jazzity is finally launched. Go explore jazz concepts, collaborate with other musicians, 
+      and explore your favorite tunes. We'd like to build this into the biggest community possible, so go invite your friends on Facebook and Twitter to join!
+
+  %article
+    %h2 Jazzity Beta Release
+    %cite By Ben Hughes: January 31st, 2011
+    %p
+      After a long period in development and wrapping up the final touches, Jazzity is finally launched. Go explore jazz concepts, collaborate with other musicians, 
+      and explore your favorite tunes. We'd like to build this into the biggest community possible, so go invite your friends on Facebook and Twitter to join!
+
+  %article
+    %h2 Jazzity Alpha Release
+    %cite By Ben Hughes: December 31st, 2011
+    %p
+      After a long period in development and wrapping up the final touches, Jazzity is finally launched. Go explore jazz concepts, collaborate with other musicians, 
+      and explore your favorite tunes. We'd like to build this into the biggest community possible, so go invite your friends on Facebook and Twitter to join!
+
+  %article
+    %h2 Jazzity In Development
+    %cite By Ben Hughes: Feburary 1, 2011
+    %p
+      After a long period in development and wrapping up the final touches, Jazzity is finally launched. Go explore jazz concepts, collaborate with other musicians, 
+      and explore your favorite tunes. We'd like to build this into the biggest community possible, so go invite your friends on Facebook and Twitter to join!
 
