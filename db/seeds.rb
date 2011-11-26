@@ -30,6 +30,7 @@
   scales
   voicing_tones
   voicings
+  searchables
 ).each do |table|
   ActiveRecord::Base.connection.execute "TRUNCATE TABLE `#{table}`"
 end

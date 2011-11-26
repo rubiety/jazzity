@@ -1,9 +1,10 @@
-%h1 Search Results for #{params[:id]}
+%section#search-results
+  %h1 Search Results for "#{params[:id]}":
 
-%ul#search-results
-  - @results.each do |result|
-    - model = [result].flatten.last
+  %ul.searchables-list
+    - @results.each do |result|
+      - model = result.target
 
-    %li
-      = "#{model.class.name.titleize}: "
-      = link_to model.title, result
+      %li.searchable
+        = "#{model.class.name.titleize}: "
+        = link_to model.title, model
