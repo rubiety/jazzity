@@ -9,5 +9,5 @@
         %li
           = image_tag timeline_event.actor.avatar_url, :alt => "#{timeline_event.actor}'s Avatar", :class => "avatar" if timeline_event.actor.has_avatar?
           %cite= timeline_event.actor
-          %h3= timeline_event_title(timeline_event)
+          %p= timeline_event_title(timeline_event)
 

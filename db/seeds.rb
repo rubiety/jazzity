@@ -31,6 +31,7 @@
   voicing_tones
   voicings
   searchables
+  timeline_events
 ).each do |table|
   ActiveRecord::Base.connection.execute "TRUNCATE TABLE `#{table}`"
 end
