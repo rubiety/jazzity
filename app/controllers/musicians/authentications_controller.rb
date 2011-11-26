@@ -1,4 +1,7 @@
 class Musicians::AuthenticationsController < ApplicationController
+  def index
+  end
+
   def facebook
     create
   end

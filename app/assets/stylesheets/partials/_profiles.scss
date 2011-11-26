@@ -1,0 +1,91 @@
+nav.profile {
+  @include full;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  font-size: 0.9em;
+  
+  ul {
+    @include horizontal-list;
+    background: #CCC;
+    padding: 5px;
+
+    li {
+      margin: 0 15px 0 0;
+      padding: 4px 8px !important;
+
+      &.current {
+        font-weight: bold;
+        background: #EEE;
+        @include border-radius(4px);
+      }
+    }
+
+    a {
+      color: #000;
+      &:visited { color: #000; }
+      &:hover { color: #000; text-decoration: none; }
+    }
+  }
+}
+
+body.authentications {
+  #main {
+    @include full;
+  }
+
+  nav.profile {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  ul.services {
+    @include no-bullets;
+    margin: 0 0 15px 0;
+
+    li {
+      margin: 10px 0 10px 0;
+    }
+  }
+}
+
+body.profiles {
+
+  header#profile-introduction {
+    @include full;
+  }
+
+  #profile-introduction {
+    @include full;
+  }
+
+  /* Edit Profile */
+  form#update-profile-form {
+    fieldset#profile-basic {
+      @include columns(6);
+      @include alpha;
+    }
+
+    fieldset#profile-details {
+      @include columns(6);
+      @include omega;
+    }
+
+    fieldset.buttons {
+      clear: both;
+      @include full;
+    }
+
+
+    &.disabled {
+      opacity: 0.6;
+    }
+  }
+
+  /* Edit Privacy */
+  form#update-profile-privacy-form {
+    @include full;
+  }
+
+
+
+}

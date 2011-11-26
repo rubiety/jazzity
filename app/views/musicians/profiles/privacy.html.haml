@@ -1,0 +1,9 @@
+= render "musicians/profiles/tabs"
+
+= simple_form_for :musician, :url => musicians_profile_path, :html => {:method => :put, :id => "update-profile-privacy-form", :class => ("disabled" unless @musician.has_profile?)} do |f|
+  %h1 Privacy Details
+
+  %fieldset#profile-privacy
+
+  %fieldset.buttons
+    = f.submit "Save Profile"

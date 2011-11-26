@@ -3,6 +3,11 @@ body.sessions, body.registrations, body.passwords, body.confirmations {
     @include full;
   }
 
+  nav.profile {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
   ul.devise-actions {
     @include no-bullets;
     margin: 10px 0 10px 120px;
@@ -11,13 +16,3 @@ body.sessions, body.registrations, body.passwords, body.confirmations {
   }
 }
 
-body.registrations {
-  ul.services {
-    @include no-bullets;
-    margin: 0 0 15px 0;
-
-    li {
-      margin: 10px 0 10px 0;
-    }
-  }
-}

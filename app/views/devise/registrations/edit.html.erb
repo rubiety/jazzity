@@ -1,3 +1,5 @@
+<%= render "musicians/profiles/tabs" %>
+
 <h1>Edit Account</h1>
 
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
@@ -18,25 +20,6 @@
 <% end %>
 
 <h1>Services</h1>
-
-<ul class="services">
-  <li class="facebook">
-    <h3>Facebook</h3>
-    <% if current_musician.authenticated_with?(:facebook) %>
-      <%= link_to "Disconnect", musicians_authentication_path(:facebook), :method => :delete %>
-    <% else %>
-      <%= link_to "Connect", musician_omniauth_authorize_path(:facebook), :class => "btn-auth btn-twitter large" %>
-    <% end %>
-  </li>
-  <li class="twitter">
-    <h3>Twitter</h3>
-    <% if current_musician.authenticated_with?(:twitter) %>
-      <%= link_to "Disconnect", musicians_authentication_path(:twitter), :method => :delete %>
-    <% else %>
-      <%= link_to "Connect", musician_omniauth_authorize_path(:twitter), :class => "btn-auth btn-twitter large" %>
-    <% end %>
-  </li>
-</ul>
 
 <h3>Cancel My Account</h3>
 

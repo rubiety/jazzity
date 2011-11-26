@@ -6,8 +6,11 @@ Jazzity::Application.routes.draw do
   devise_for :musicians, :controllers => { :omniauth_callbacks => "musicians/authentications" }
 
   namespace :musicians do
-    resource :profile, :only => [:show, :edit, :update, :destroy]
-    resources :authentications, :only => [:destroy]
+    resources :authentications, :only => [:index, :destroy]
+    resources :tunes
+    resource :profile, :only => [:show, :edit, :update, :destroy] do
+      get :privacy
+    end
   end
 
   resources :musicians, :only => [:index, :show]

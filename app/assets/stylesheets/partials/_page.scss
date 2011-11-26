@@ -26,9 +26,9 @@ body {
       @include horizontal-list;
       li { margin: 0 15px 0 0; }
       li.current { font-weight: bold; }
+
       a {
         color: #000;
-        text-size: 1.1em;
         &:visited { color: #000; }
         &:hover { color: #000; text-decoration: none; }
       }
