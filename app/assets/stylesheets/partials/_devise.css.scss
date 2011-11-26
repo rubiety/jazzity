@@ -1,4 +1,4 @@
-body.devise-sessions, body.devise-registrations, body.devise-passwords, body.devise-confirmations {
+body.devise-passwords, body.devise-confirmations {
   #main {
     @include full;
   }
@@ -8,11 +8,61 @@ body.devise-sessions, body.devise-registrations, body.devise-passwords, body.dev
     margin-right: 0;
   }
 
-  ul.devise-actions {
-    @include no-bullets;
-    margin: 10px 0 10px 120px;
+}
 
-    li { padding: 4px 0 4px 0; }
+body.devise-sessions, body.devise-registrations {
+  section { margin-bottom: 20px; }
+
+  form {
+    .actions {
+      a { margin-left: 20px; }
+    }
   }
 }
 
+body.devise-sessions {
+  section#sign-in-with-email {
+    @include columns(6);
+    @include alpha;
+  }
+
+  section#sign-in-with-services {
+    @include columns(6);
+    @include omega;
+    p { margin-bottom: 15px; }
+  }
+
+  section#sign-in-register {
+    @include full;
+    padding-top: 15px;
+  }
+}
+
+body.devise-registrations {
+  section#sign-up-email {
+    @include columns(6);
+    @include alpha;
+  }
+
+  section#sign-up-sign-in {
+    @include columns(6);
+    @include omega;
+    p { margin-bottom: 15px; }
+  }
+
+  section#sign-up-registered {
+    @include columns(6);
+    @include omega;
+  }
+
+  
+  section#edit-account {
+    @include columns(6);
+    @include alpha;
+  }
+
+  section#cancel-account {
+    @include columns(6);
+    @include omega;
+  }
+}

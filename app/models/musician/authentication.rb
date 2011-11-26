@@ -42,7 +42,8 @@ module Musician::Authentication
           :biography => data["bio"],
           :location => info["location"],
           :external_avatar_url => info["image"],
-          :website_url => data["link"],
+          :facebook_url => data["link"],
+          :website_url => nil,
           :time_zone_offset => data["timezone"]
         ).tap do |musician|
           musician.authentications.create!(:provider => "facebook", :uid => uid, :token => token, :user_information => data)

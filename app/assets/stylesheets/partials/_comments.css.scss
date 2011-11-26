@@ -31,6 +31,10 @@
     }
   }
 
+  p.login-required {
+    font-style: italic;
+  }
+
   form#create-comment-form {
     h4 { margin-bottom: 10px; }
     label { display: none; }

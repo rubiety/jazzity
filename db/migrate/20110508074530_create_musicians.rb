@@ -5,16 +5,25 @@ class CreateMusicians < ActiveRecord::Migration
       t.string :last_name
       t.string :nickname
       t.string :cached_slug
+      t.boolean :famous, :default => false, :null => false
+      t.boolean :has_profile, :default => false, :null => false
       t.date :born_on
       t.date :died_on
       t.integer :prominence
       t.integer :instrument_id
+      t.integer :secondary_instrument_id
       t.text :biography
-      t.string :twitter_username
       t.string :location
-      t.string :external_avatar_url
       t.string :website_url
+      t.string :facebook_url
+      t.string :twitter_username
+      t.string :youtube_username
+      t.string :external_avatar_url
       t.decimal :time_zone_offset, :precision => 5, :scale => 2
+      t.boolean :plays_professionally, :default => false, :null => false
+      t.boolean :studies_privately, :default => false, :null => false
+      t.string :studies_privately_with
+      t.string :music_school
       t.timestamps
       
       t.database_authenticatable :null => false
@@ -23,15 +32,6 @@ class CreateMusicians < ActiveRecord::Migration
       t.trackable
       t.confirmable
       t.token_authenticatable
-      
-      t.boolean :famous, :default => false, :null => false
-      t.boolean :has_profile, :default => false, :null => false
-      t.string :youtube_username
-      t.integer :secondary_instrument_id
-      t.boolean :plays_professionally, :default => false, :null => false
-      t.boolean :studies_privately, :default => false, :null => false
-      t.string :studies_privately_with
-      t.string :music_school
     end
 
     add_index :musicians, :instrument_id

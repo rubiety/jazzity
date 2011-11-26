@@ -2,12 +2,15 @@
   %h2 Discussions:
   %ul.comments-list
 
-  = simple_form_for Comment.new, :remote => true, :html => {:id => "create-comment-form", "data-type" => "json"} do |f|
-    %h4 Start a Discussion:
-    = f.input :subject, :required => false, :hint => "Optional Subject"
-    = f.input :content
-    %div.buttons
-      = f.submit "Add Comment", :disabled_with => "Processing..."
+  - if musician_signed_in?
+    = simple_form_for Comment.new, :remote => true, :html => {:id => "create-comment-form", "data-type" => "json"} do |f|
+      %h4 Start a Discussion:
+      = f.input :subject, :required => false, :hint => "Optional Subject"
+      = f.input :content
+      %div.buttons= f.submit "Add Comment", :disabled_with => "Processing..."
+  - else
+    %p.login-required 
+      Sorry, but you must be logged in to place comments. #{link_to "Log in", new_musician_session_path} or #{link_to "sign up", new_musician_registration_path}.
 
   %script{:type => "text/template", :id => "comment-template"}
     %li.comment

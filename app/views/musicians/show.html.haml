@@ -28,11 +28,14 @@
   %section#musician-social-media
     %dl
       - if @musician.twitter_username?
-        %dd Twitter:
+        %dd.twitter Twitter:
         %dt= link_to "@#{@musician.twitter_username}", "http://twiter.com/#{@musician.twitter_username}"
       - if @musician.youtube_username?
-        %dd YouTube:
+        %dd.youtube YouTube:
         %dt= link_to @musician.youtube_username, "#"
+      - if @musician.facebook_url
+        %dd.facebook Facebook:
+        %dt= link_to "My Profile", @musician.facebook_url
 
   %section#musician-favorites
     %ul
@@ -40,7 +43,6 @@
         %li
           = image_tag favorite_musician.avatar_url if favorite_musician.has_avatar?
           %h3= favorite_musician
-
 
   %section#musician-activity
 

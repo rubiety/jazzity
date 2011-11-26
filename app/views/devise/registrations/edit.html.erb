@@ -1,23 +1,28 @@
 <%= render "musicians/profiles/tabs" %>
 
-<h1>Edit Account</h1>
+<section id="edit-account">
+  <h1>Edit Account</h1>
 
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= f.error_notification %>
+  <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+    <%= f.error_notification %>
 
-  <div class="inputs">
-    <%= f.input :first_name, :label => "First Name", :required => true, :autofocus => true %>
-    <%= f.input :last_name, :label => "Last Name", :required => true, :autofocus => true %>
-    <%= f.input :email, :required => true %>
-    <%= f.input :password, :label => "New Password", :hint => "leave it blank if you don't want to change it", :required => false %>
-    <%= f.input :password_confirmation, :label => "Confirm", :required => false %>
-    <%= f.input :current_password, :label => "Current Password", :hint => "we need your current password to confirm your changes", :required => true %>
-  </div>
+    <div class="inputs">
+      <%= f.input :first_name, :label => "First Name", :required => true, :autofocus => true %>
+      <%= f.input :last_name, :label => "Last Name", :required => true, :autofocus => true %>
+      <%= f.input :email, :required => true %>
+      <%= f.input :password, :label => "New Password", :hint => "leave it blank if you don't want to change it", :required => false %>
+      <%= f.input :password_confirmation, :label => "Confirm", :required => false %>
+      <%= f.input :current_password, :label => "Current Password", :hint => "we need your current password to confirm your changes", :required => true %>
+    </div>
 
-  <div class="actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
+    <div class="actions">
+      <%= f.button :submit, "Update" %>
+    </div>
+  <% end %>
+</section>
 
-<h3>Cancel My Account</h3>
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.
+<section id="cancel-account">
+  <h1>Cancel My Account</h1>
+  <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.
+</section>
+

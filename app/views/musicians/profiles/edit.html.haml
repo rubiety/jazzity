@@ -4,7 +4,9 @@
   %h1 Your Profile
 
   %fieldset#profile-basic
+    = f.input :biography, :label => "Short Bio", :required => true, :placeholder => "A little bit about myself...", :input_html => {:rows => 3, :cols => 50}
     = f.input :website_url, :label => "Website URL", :required => false, :placeholder => "http://www.yourwebsite.com/"
+    = f.input :facebook_url, :label => "Facebook Profile", :required => false, :placeholder => "http://www.facebook.com/rubiety"
     = f.input :twitter_username, :label => "Twitter Handle", :required => false, :placeholder => "@jazzity"
     = f.input :youtube_username, :label => "YouTube Username", :required => false
     = f.input :location, :required => false
