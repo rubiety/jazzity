@@ -1,7 +1,14 @@
 = Functional Beta
 
-[ ] Musician Profiles & Signup/Signin. Timeline Integration.
+[ ] Musician Timelines
+[ ] Musician Tune Liking/Management
+[ ] Musician Profile Page
 [ ] Rdio/Pandora/Spotify Integration!
+
+[ ] Albums/Recordings Implementation (iTunes Affiliates) and Relationships to:
+    Tune, Musician, Concept, Progression, Voicing
+[ ] Resource Implementation (Amazon/JazzBooks Affiliates) and Relationships to:
+    Concept, Progression, Voicing
 
 [ ] Voicings Build-Out
 [ ] Progressions Build-Out
@@ -15,10 +22,6 @@
 
 [ ] Practice Book: What Tunes/Concepts/Progressions am I learning?
     Find out what other users are learning those too
-[ ] Albums/Recordings Implementation (iTunes Affiliates) and Relationships to:
-    Tune, Musician, Concept, Progression, Voicing
-[ ] Resource Implementation (Amazon/JazzBooks Affiliates) and Relationships to:
-    Concept, Progression, Voicing
 
 [ ] Implement ModifierContext for Single-Stem between Treble & Bass Clefs, Better Octave Decision Implementation
     This is going to require hacking up VexFlow. There are serious problems with Vex.Flow.ModifierContext.prototype.formatNotes
