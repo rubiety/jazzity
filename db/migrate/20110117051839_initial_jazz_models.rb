@@ -1,5 +1,5 @@
 class InitialJazzModels < ActiveRecord::Migration
-  def self.up
+  def change
     create_table :keys do |t|
       t.string :name
       t.string :long_name
@@ -90,7 +90,8 @@ class InitialJazzModels < ActiveRecord::Migration
     create_table :chord_scales do |t|
       t.references :chord
       t.references :mode
-      t.integer :strength
+      t.integer :offset, :default => 0, :null => false
+      t.integer :strength, :default => 1
       t.text :information
     end
 
@@ -120,19 +121,124 @@ class InitialJazzModels < ActiveRecord::Migration
     end
 
     add_index :voicing_tones, :voicing_id
-  end
+    
+    create_table :forms do |t|
+      t.string :name
+      t.string :cached_slug
+      t.timestamps
+    end
 
-  def self.down
-    drop_table :voicing_tones
-    drop_table :voicings
-    drop_table :chord_scales
-    drop_table :modes
-    drop_table :scale_tones
-    drop_table :scales
-    drop_table :chord_tones
-    drop_table :chord_symbols
-    drop_table :chords
-    drop_table :chord_qualities
-    drop_table :keys
+    add_index :forms, :cached_slug, :unique => true
+    
+    create_table :tunes do |t|
+      t.string :name
+      t.string :alternate_name
+      t.string :cached_slug
+      t.integer :based_on_progression_id
+      t.integer :vehicle_id
+      t.integer :meter_id
+      t.integer :primary_key_id
+      t.integer :secondary_key_id
+      t.string :tonality, :default => "Major"  # OR: Minor
+      t.string :concept, :default => "Instrumental"  # OR: Vocal
+      t.integer :form_id
+      t.integer :form_length
+      t.string :form_lengths
+      t.integer :starting_chord_id
+      t.integer :ending_chord_id
+      t.integer :contrafact_of_tune_id
+      t.integer :tempo
+      t.integer :aebersold_playalong_number
+      t.timestamps
+    end
+
+    add_index :tunes, :cached_slug, :unique => true
+    add_index :tunes, :vehicle_id
+    add_index :tunes, :meter_id
+    add_index :tunes, :primary_key_id
+    add_index :tunes, :secondary_key_id
+    add_index :tunes, :form_id
+    add_index :tunes, :aebersold_playalong_number
+    
+    create_table :tune_progressions do |t|
+      t.references :tune
+      t.references :progression
+      t.string :comment
+      t.integer :start_measure
+      t.integer :end_measure
+      t.timestamps
+    end
+    
+    add_index :tune_progressions, :tune_id
+    add_index :tune_progressions, :progression_id
+    
+    create_table :tune_concepts do |t|
+      t.references :tune
+      t.references :concept
+      t.string :comment
+      t.integer :start_measure
+      t.integer :end_measure
+      t.timestamps
+    end
+    
+    add_index :tune_concepts, :tune_id
+    add_index :tune_concepts, :concept_id
+    
+    create_table :vehicles do |t|
+      t.string :name
+      t.string :cached_slug
+      t.integer :parent_id
+      t.timestamps
+    end
+    
+    add_index :vehicles, :parent_id
+    add_index :vehicles, :cached_slug, :unique => true
+    
+    create_table :meters do |t|
+      t.string :name
+      t.string :cached_slug
+      t.integer :beats
+      t.integer :division
+      t.timestamps
+    end
+
+    add_index :meters, :cached_slug, :unique => true
+    
+    create_table :progressions do |t|
+      t.string :name
+      t.string :cached_slug
+      t.integer :bars
+      t.boolean :full_tune, :default => false
+      t.integer :meter_id
+      t.integer :form_id
+      t.string :summary
+      t.text :information
+      t.timestamps
+    end
+
+    add_index :progressions, :meter_id
+    add_index :progressions, :cached_slug, :unique => true
+    
+    create_table :progression_components do |t|
+      t.integer :progression_id
+      t.integer :position
+      t.integer :chord_id
+      t.integer :index
+      t.string :comment
+      t.timestamps
+    end
+
+    add_index :progression_components, :progression_id
+    add_index :progression_components, :position
+    add_index :progression_components, :chord_id
+    
+    create_table :concepts do |t|
+      t.string :name
+      t.string :cached_slug
+      t.text :about
+      t.timestamps
+    end
+
+    add_index :concepts, :cached_slug, :unique => true
   end
 end

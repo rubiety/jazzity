@@ -8,5 +8,8 @@ class CreateComments < ActiveRecord::Migration
       t.integer :votes, :default => 0, :null => false
       t.timestamps
     end
+    
+    add_index :comments, [:commentable_type, :commentable_id]
+    add_index :comments, :author_id
   end
 end

@@ -1,19 +1,13 @@
 class CreateSlugs < ActiveRecord::Migration
-  def self.up
-    create_table :slugs do |t|
-      t.string :name
-      t.integer :sluggable_id
-      t.integer :sequence, :null => false, :default => 1
-      t.string :sluggable_type, :limit => 40
-      t.string :scope
-      t.datetime :created_at
+  TABLES = [
+    :chord_qualities, :chords, :concepts, :forms, :instruments, :meters, :modes,
+    :musicians, :progressions, :scales, :tunes, :vehicles, :voicings
+  ]
+  
+  def change
+    TABLES.each do |table|
+      add_column table, :slug, :string
+      add_index table, :slug, :unique => true
     end
-
-    add_index :slugs, :sluggable_id
-    add_index :slugs, [:name, :sluggable_type, :sequence, :scope], :name => "index_slugs_on_n_s_s_and_s", :unique => true
-  end
-
-  def self.down
-    drop_table :slugs
   end
 end
