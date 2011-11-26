@@ -20,7 +20,7 @@
     &nbsp;&nbsp;&nbsp;
     = link_to "Sign Out", destroy_musician_session_path, :method => :delete
   - else
-    = link_to "Sign In with Facebook", musician_omniauth_authorize_path(:facebook)
+    = link_to "Sign In with Facebook", musician_omniauth_authorize_path(:facebook), :class => "btn-auth btn-facebook large"
     &nbsp;&nbsp;&nbsp;
     = link_to "Sign In", new_musician_session_path
     &nbsp;&nbsp;&nbsp;

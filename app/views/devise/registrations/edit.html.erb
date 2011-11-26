@@ -25,7 +25,7 @@
     <% if current_musician.authenticated_with?(:facebook) %>
       <%= link_to "Disconnect", musicians_authentication_path(:facebook), :method => :delete %>
     <% else %>
-      <%= link_to "Connect", musician_omniauth_authorize_path(:facebook) %>
+      <%= link_to "Connect", musician_omniauth_authorize_path(:facebook), :class => "btn-auth btn-twitter large" %>
     <% end %>
   </li>
   <li class="twitter">
@@ -33,7 +33,7 @@
     <% if current_musician.authenticated_with?(:twitter) %>
       <%= link_to "Disconnect", musicians_authentication_path(:twitter), :method => :delete %>
     <% else %>
-      <%= link_to "Connect", musician_omniauth_authorize_path(:twitter) %>
+      <%= link_to "Connect", musician_omniauth_authorize_path(:twitter), :class => "btn-auth btn-twitter large" %>
     <% end %>
   </li>
 </ul>
