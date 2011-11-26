@@ -1,7 +1,5 @@
 = Functional Beta
 
-[ ] Implement ModifierContext for Single-Stem between Treble & Bass Clefs, Better Octave Decision Implementation
-
 [ ] Musician Profiles & Signup/Signin. Timeline Integration.
 [ ] Rdio/Pandora/Spotify Integration!
 
@@ -21,6 +19,9 @@
     Tune, Musician, Concept, Progression, Voicing
 [ ] Resource Implementation (Amazon/JazzBooks Affiliates) and Relationships to:
     Concept, Progression, Voicing
+
+[ ] Implement ModifierContext for Single-Stem between Treble & Bass Clefs, Better Octave Decision Implementation
+    This is going to require hacking up VexFlow. There are serious problems with Vex.Flow.ModifierContext.prototype.formatNotes
 
 [ ] Full RSpec Test Suite
 [ ] Full Cucumber Integration Tests

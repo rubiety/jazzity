@@ -47,12 +47,9 @@ Jazzity.Staff = Backbone.View.extend
     treble_notes = _(treble_notes).reject (note)-> note.keys.length == 0
     bass_notes   = _(bass_notes).reject (note)-> note.keys.length == 0
 
-    treble_stave_notes = this.build_stave_notes(treble_notes)
-    bass_stave_notes = this.build_stave_notes(bass_notes)
-    
     mc = new Vex.Flow.ModifierContext()
-    treble_stave_notes[0].addToModifierContext(mc) if treble_stave_notes.length > 0
-    bass_stave_notes[0].addToModifierContext(mc) if bass_stave_notes.length > 0
+    treble_stave_notes = this.build_stave_notes(treble_notes, mc)
+    bass_stave_notes = this.build_stave_notes(bass_notes, mc)
 
     this.draw_notes_on_stave treble_stave_notes, "treble" if this.staves["treble"] and treble_notes.length > 0
     this.draw_notes_on_stave bass_stave_notes, "bass" if this.staves["bass"] and bass_notes.length > 0
@@ -60,16 +57,17 @@ Jazzity.Staff = Backbone.View.extend
   draw_notes_on_stave: (stave_notes, clef = "treble")->
     Vex.Flow.Formatter.FormatAndDraw this.context, this.staves[clef], stave_notes
 
-  build_stave_notes: (notes)->
+  build_stave_notes: (notes, mc)->
     _(notes).map (note)->
       note.duration ||= "h"
       
       stave_note = new Vex.Flow.StaveNote(note)
+      stave_note.addToModifierContext(mc) if mc
+
       _(note.keys).each (key, i)->
         note_portion = key.split("/")[0]
         accidental = note_portion[1..note_portion.length]
-        if accidental.length > 0
-          stave_note.addAccidental(i, new Vex.Flow.Accidental(accidental))
+        stave_note.addAccidental(i, new Vex.Flow.Accidental(accidental)) if accidental.length > 0
       stave_note
     
 
