@@ -5,6 +5,7 @@
 //= require underscore
 //= require backbone
 //= require vexflow
+//= require nested_form
 //
 //= require global
 //= require staff

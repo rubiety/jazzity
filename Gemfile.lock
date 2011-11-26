@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/ryanb/nested_form.git
+  revision: 57f32788f1952bcd633057b4b56b69b51df17610
+  specs:
+    nested_form (0.1.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -378,6 +384,7 @@ DEPENDENCIES
   meta_search
   minitest
   mysql2
+  nested_form!
   omniauth
   omniauth-facebook
   omniauth-github

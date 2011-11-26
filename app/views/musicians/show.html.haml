@@ -38,7 +38,7 @@
     %ul
       - @musician.favorite_musicians.each do |favorite_musician|
         %li
-          = image_tag favorite_musician.avatar_url if favorite_musician.avatar_url?
+          = image_tag favorite_musician.avatar_url if favorite_musician.has_avatar?
           %h3= favorite_musician
 
 

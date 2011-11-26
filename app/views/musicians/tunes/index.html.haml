@@ -1,4 +1,29 @@
 = render "musicians/profiles/tabs"
 
-%h1 My Tunes
+= simple_nested_form_for @musician, :url => musicians_profile_path, :html => {:method => :put, :id => "update-profile-form"} do |f|
+  %h1 My Tunes
 
+  = f.fields_for :musician_tunes do |mf|
+    %div.musician-tune
+      = mf.input :tune, :label => "Tune", :required => false, :collection => Tune.all do
+        = mf.collection_select :tune_id, Tune.all, :id, :name, :include_blank => true
+        &nbsp;&nbsp;&nbsp;
+
+        = mf.check_box :learning
+        Learning
+        &nbsp;&nbsp;&nbsp;
+
+        = mf.check_box :know
+        Know
+        &nbsp;&nbsp;&nbsp;
+
+        = mf.check_box :composed
+        Composed
+        &nbsp;&nbsp;&nbsp;
+
+        = mf.link_to_remove "Remove"
+
+  = f.link_to_add "Add Another Tune", :musician_tunes
+
+  %fieldset.buttons
+    = f.submit "Save Tunes"

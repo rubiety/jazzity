@@ -59,9 +59,13 @@ body.musicians-profiles {
       @include alpha;
     }
 
-    fieldset#profile-details {
+    fieldset#profile-favorite-musicians {
       @include columns(6);
       @include omega;
+
+      h2 { margin-bottom: 6px; }
+      label { display: none; }
+      a.remove_nested_fields { margin-left: 20px; }
     }
 
     fieldset.buttons {
@@ -80,8 +84,6 @@ body.musicians-profiles {
     @include full;
   }
 
-
-
 }
 
 body.musicians-tunes {
@@ -93,5 +95,9 @@ body.musicians-tunes {
     margin-left: 0;
     margin-right: 0;
   }
+
+  label { display: none; }
+  a.remove_nested_fields { margin-left: 20px; }
+  input[type=submit] { margin-left: 0; }
 
 }

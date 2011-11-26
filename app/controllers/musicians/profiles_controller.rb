@@ -8,6 +8,7 @@ class Musicians::ProfilesController < ApplicationController
   end
 
   def edit
+    @musician.musician_favorites.build
   end
 
   def privacy
@@ -19,7 +20,7 @@ class Musicians::ProfilesController < ApplicationController
 
     if @musician.save
       flash[:notice] = "Profile Updated"
-      redirect_to @musician
+      redirect_to :action => :edit
     else
       render :action => :edit
     end
