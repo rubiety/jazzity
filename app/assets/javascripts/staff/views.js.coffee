@@ -31,7 +31,7 @@ Jazzity.Staff = Backbone.View.extend
       new_note.duration ||= "h"
       new_note.keys = _(new_note.keys).select (key, i)->
         [note_portion, octave_portion] = key.split("/")
-        if parseInt(octave_portion) < 3 then false else true
+        if parseInt(octave_portion) < 0 then false else true
       new_note.clef = "treble"
       new_note
     
@@ -40,7 +40,7 @@ Jazzity.Staff = Backbone.View.extend
       new_note.duration ||= "h"
       new_note.keys = _(new_note.keys).select (key, i)->
         [note_portion, octave_portion] = key.split("/")
-        if parseInt(octave_portion) < 3 then true else false
+        if parseInt(octave_portion) < 0 then true else false
       new_note.clef = "bass"
       new_note
 
