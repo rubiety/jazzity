@@ -1,6 +1,5 @@
 = Functional Beta
 
-[ ] Remove Key as a model - should just be a constant
 [ ] Implement ModifierContext for Single-Stem between Treble & Bass Clefs, Better Octave Decision Implementation
 
 [ ] Musician Profiles & Signup/Signin. Timeline Integration.

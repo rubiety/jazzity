@@ -1,18 +1,5 @@
 class InitialJazzModels < ActiveRecord::Migration
   def change
-    create_table :keys do |t|
-      t.string :name
-      t.string :long_name
-      t.boolean :primary, :default => true
-      t.integer :index
-      t.integer :letter_index
-      t.integer :cycle_index
-    end
-
-    add_index :keys, :name, :unique => true
-    add_index :keys, :letter_index
-    add_index :keys, :cycle_index
-    
     create_table :chord_qualities do |t|
       t.string :name
       t.string :code
@@ -137,8 +124,8 @@ class InitialJazzModels < ActiveRecord::Migration
       t.integer :based_on_progression_id
       t.integer :vehicle_id
       t.integer :meter_id
-      t.integer :primary_key_id
-      t.integer :secondary_key_id
+      t.string :primary_key_name, :limit => 3
+      t.string :secondary_key_name, :limit => 3
       t.string :tonality, :default => "Major"  # OR: Minor
       t.string :concept, :default => "Instrumental"  # OR: Vocal
       t.integer :form_id
@@ -155,8 +142,8 @@ class InitialJazzModels < ActiveRecord::Migration
     add_index :tunes, :cached_slug, :unique => true
     add_index :tunes, :vehicle_id
     add_index :tunes, :meter_id
-    add_index :tunes, :primary_key_id
-    add_index :tunes, :secondary_key_id
+    add_index :tunes, :primary_key_name
+    add_index :tunes, :secondary_key_name
     add_index :tunes, :form_id
     add_index :tunes, :aebersold_playalong_number
     

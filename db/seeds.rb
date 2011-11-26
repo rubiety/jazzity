@@ -25,7 +25,6 @@
   chord_symbols
   chord_tones
   chords
-  keys
   modes
   scale_tones
   scales
@@ -36,7 +35,6 @@
 end
 
 %w(
-  keys
   meters
   forms
   vehicles

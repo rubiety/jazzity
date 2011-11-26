@@ -22,7 +22,7 @@ class Scale < ActiveRecord::Base
     searchables.create(:name => "#{name} Scale")
 
     Key.primaries.each do |key|
-      searchables.create(:name => "#{key.name} #{name} Scale", :key => key)
+      searchables.create(:name => "#{key.name} #{name} Scale", :key_name => key.name)
     end
   end
 

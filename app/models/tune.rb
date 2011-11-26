@@ -6,8 +6,6 @@ class Tune < ActiveRecord::Base
   has_many :searchables, :as => :model
   belongs_to :vehicle
   belongs_to :meter
-  belongs_to :primary_key, :class_name => "Key"
-  belongs_to :secondary_key, :class_name => "Key"
   belongs_to :form
   belongs_to :starting_chord, :class_name => "Chord"
   belongs_to :ending_chord, :class_name => "Chord"
@@ -35,6 +33,13 @@ class Tune < ActiveRecord::Base
 
   def to_s
     title
+  end
+
+  def primary_key
+    Key[primary_key_name]
+  end
+  def secondary_key
+    Key[secondary_key_name]
   end
 
   def self.resolve(name)

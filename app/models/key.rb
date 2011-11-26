@@ -1,6 +1,8 @@
-class Key < ActiveRecord::Base
-  extend FriendlyId
-  
+class Key
+  extend ActiveModel::Naming
+
+  attr_reader :name, :long_name, :index, :letter_index, :cycle_index, :primary
+
   Letters = {'C' => 0, 'D' => 1, 'E' => 2, 'F' => 3, 'G' => 4, 'A' => 5, 'B' => 6}
   Steps = {'H' => 1, 'W' => 2, 'm3' => 3, 'M3' => 4, '4' => 5, '#4' => 6, '5' => 7}
   Intervals = {
@@ -19,14 +21,93 @@ class Key < ActiveRecord::Base
     '8' => 12, 'octave' => 12 
   }
 
-  friendly_id :name
+  def initialize(attributes = {})
+    @primary = true
 
-  validates :name, :presence => true
-  validates :index, :presence => true
-  validates :letter_index, :presence => true
-  validates :cycle_index, :presence => true
+    attributes.each do |key, value|
+      instance_variable_set("@#{key}", value)
+    end
+  end
+
+  ALL = [
+    Key.new(:name => 'C', :long_name => 'C', :index => 0, :letter_index => 0, :cycle_index => 0),
+    Key.new(:name => 'B#', :long_name => 'B Sharp', :index => 0, :letter_index => 6, :cycle_index => 0, :primary => false),
+    Key.new(:name => 'Dbb', :long_name => 'D Double-Flat', :index => 0, :letter_index => 1, :cycle_index => 0, :primary => false),
+
+    Key.new(:name => 'F', :long_name => 'F', :index => 5, :letter_index => 3, :cycle_index => 1),
+    Key.new(:name => 'E#', :long_name => 'E Sharp', :index => 5, :letter_index => 2, :cycle_index => 1, :primary => false),
+    Key.new(:name => 'Gbb', :long_name => 'G Double-Flat', :index => 5, :letter_index => 4, :cycle_index => 1, :primary => false),
+
+    Key.new(:name => 'Bb', :long_name => 'B Flat', :index => 10, :letter_index => 6, :cycle_index => 2),
+    Key.new(:name => 'A#', :long_name => 'A Sharp', :index => 10, :letter_index => 5, :cycle_index => 2, :primary => false),
+    Key.new(:name => 'Cbb', :long_name => 'C Double-Flat', :index => 10, :letter_index => 0, :cycle_index => 2, :primary => false),
+
+    Key.new(:name => 'Eb', :long_name => 'E Flat', :index => 3, :letter_index => 2, :cycle_index => 3),
+    Key.new(:name => 'D#', :long_name => 'D Sharp', :index => 3, :letter_index => 1, :cycle_index => 3, :primary => false),
+    Key.new(:name => 'Fbb', :long_name => 'F Double Flat', :index => 3, :letter_index => 3, :cycle_index => 3, :primary => false),
+
+    Key.new(:name => 'Ab', :long_name => 'A Flat', :index => 8, :letter_index => 5, :cycle_index => 4),
+    Key.new(:name => 'G#', :long_name => 'G Sharp', :index => 8, :letter_index => 4, :cycle_index => 4, :primary => false),
+
+    Key.new(:name => 'Db', :long_name => 'D Flat', :index => 1, :letter_index => 1, :cycle_index => 5),
+    Key.new(:name => 'C#', :long_name => 'C Sharp', :index => 1, :letter_index => 0, :cycle_index => 5, :primary => false),
+    Key.new(:name => 'B##', :long_name => 'B Double-Sharp', :index => 1, :letter_index => 6, :cycle_index => 5, :primary => false),
+
+    Key.new(:name => 'Gb', :long_name => 'G Flat', :index => 6, :letter_index => 4, :cycle_index => 6),
+    Key.new(:name => 'F#', :long_name => 'F Sharp', :index => 6, :letter_index => 3, :cycle_index => 6, :primary => false),
+    Key.new(:name => 'E##', :long_name => 'E Double-Sharp', :index => 6, :letter_index => 2, :cycle_index => 6, :primary => false),
+
+    Key.new(:name => 'B', :long_name => 'B', :index => 11, :letter_index => 6, :cycle_index => 7),
+    Key.new(:name => 'Cb', :long_name => 'C Flat', :index => 11, :letter_index => 0, :cycle_index => 7, :primary => false),
+    Key.new(:name => 'A##', :long_name => 'A Double-Sharp', :index => 11, :letter_index => 5, :cycle_index => 7, :primary => false),
+
+    Key.new(:name => 'E', :long_name => 'E', :index => 4, :letter_index => 2, :cycle_index => 8),
+    Key.new(:name => 'Fb', :long_name => 'F Flat', :index => 4, :letter_index => 3, :cycle_index => 8, :primary => false),
+    Key.new(:name => 'D##', :long_name => 'D Double-Sharp', :index => 4, :letter_index => 1, :cycle_index => 8, :primary => false),
+
+    Key.new(:name => 'A', :long_name => 'A', :index => 9, :letter_index => 5, :cycle_index => 9),
+    Key.new(:name => 'Bbb', :long_name => 'B Double-Flat', :index => 9, :letter_index => 6, :cycle_index => 9, :primary => false),
+    Key.new(:name => 'G##', :long_name => 'G Double-Sharp', :index => 9, :letter_index => 4, :cycle_index => 9, :primary => false),
+
+    Key.new(:name => 'D', :long_name => 'D', :index => 2, :letter_index => 1, :cycle_index => 10),
+    Key.new(:name => 'C##', :long_name => 'C Double-Sharp', :index => 2, :letter_index => 0, :cycle_index => 10, :primary => false),
+    Key.new(:name => 'Ebb', :long_name => 'E Double-Flat', :index => 2, :letter_index => 2, :cycle_index => 10, :primary => false),
+
+    Key.new(:name => 'G', :long_name => 'G', :index => 7, :letter_index => 4, :cycle_index => 11),
+    Key.new(:name => 'F##', :long_name => 'F Double-Sharp', :index => 7, :letter_index => 3, :cycle_index => 11, :primary => false),
+    Key.new(:name => 'Abb', :long_name => 'A Double-Flat', :index => 7, :letter_index => 5, :cycle_index => 11, :primary => false)
+  ]
+
+  def self.all
+    ALL
+  end
+
+  def self.primaries
+    ALL.select(&:primary)
+  end
+
+  def self.from_index(value, preferred_letter = nil)
+    ALL.find {|k| k.index == value && (preferred_letter.nil? || k.letter_index == preferred_letter)}
+  end
+
+  def self.from_name(value)
+    ALL.find {|k| k.name == value}
+  end
+
+  def self.[](value)
+    from_name(value) || self.from_index(value)
+  end
+
+  def self.default
+    self['C']
+  end
+
 
   def to_s
+    name
+  end
+
+  def to_param
     name
   end
 
@@ -35,41 +116,22 @@ class Key < ActiveRecord::Base
   end
   
   def shifted(offset)
-    self.class.primaries.find_by_index((index + offset) % 12)
+    self.class.primaries.find {|k| ((index + offset) % 12) == k.index }
   end
 
-  # Finds a key given a tonal index 0-11 and a letter index (to disambiguate enharmonic keys)
-  def self.from_index(value, preferred_letter = nil)
-    all.find {|k| k.index == value && (preferred_letter.nil? || k.letter_index == preferred_letter)}
-  end
-
-  # Finds a key object given the name (such as Eb)
-  def self.from_name(value)
-    all.find {|k| k.name == value}
-  end
-
-  # Finds a key object based on the name:
-  # +Key['Eb']+
-  # 
-  def self.[](value)
-    from_name(value) || self.from_index(value)
-  end
-
-  # Returns an array of the 12 primary keys (definitions around the cycle of fourths)
-  def self.primaries
-    where(:primary => true)
-  end
-
-  def self.default
-    self['C']
-  end
-
-  # Tests whether the current key is enharmonic with +another_key+.
   def enharmonic_with?(another_key)
     self.index == another_key.index
   end
 
-  def to_json
-    attributes.except("id").merge("id" => name).to_json
+  def as_json(options = nil)
+    {
+      :id => name,
+      :name => name,
+      :long_name => long_name,
+      :index => index,
+      :letter_index => letter_index,
+      :cycle_index => cycle_index,
+      :primary => primary
+    }
   end
 end

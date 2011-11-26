@@ -17,6 +17,10 @@ class Searchable < ActiveRecord::Base
     @target = value
   end
 
+  def key
+    Key[key_name]
+  end
+
   # REFACTOR: We should keep track of classes that include Model and do this dynamically. Also don't define methods on the class.
   def self.regenerate_all
     delete_all

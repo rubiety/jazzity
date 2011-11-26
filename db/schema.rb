@@ -153,19 +153,6 @@ ActiveRecord::Schema.define(:version => 20111123011559) do
   add_index "instruments", ["cached_slug"], :name => "index_instruments_on_cached_slug", :unique => true
   add_index "instruments", ["slug"], :name => "index_instruments_on_slug", :unique => true
 
-  create_table "keys", :force => true do |t|
-    t.string  "name"
-    t.string  "long_name"
-    t.boolean "primary",      :default => true
-    t.integer "index"
-    t.integer "letter_index"
-    t.integer "cycle_index"
-  end
-
-  add_index "keys", ["cycle_index"], :name => "index_keys_on_cycle_index"
-  add_index "keys", ["letter_index"], :name => "index_keys_on_letter_index"
-  add_index "keys", ["name"], :name => "index_keys_on_name", :unique => true
-
   create_table "meters", :force => true do |t|
     t.string   "name"
     t.string   "cached_slug"
@@ -347,10 +334,11 @@ ActiveRecord::Schema.define(:version => 20111123011559) do
     t.string  "display_name"
     t.string  "model_type"
     t.integer "model_id"
-    t.integer "key_id"
-    t.integer "priority",     :default => 1, :null => false
+    t.string  "key_name",     :limit => 3
+    t.integer "priority",                  :default => 1, :null => false
   end
 
+  add_index "searchables", ["key_name"], :name => "index_searchables_on_key_name"
   add_index "searchables", ["model_type", "model_id"], :name => "index_searchables_on_model_type_and_model_id"
   add_index "searchables", ["name"], :name => "index_searchables_on_name"
   add_index "searchables", ["parent_id"], :name => "index_searchables_on_parent_id"
@@ -388,10 +376,10 @@ ActiveRecord::Schema.define(:version => 20111123011559) do
     t.integer  "based_on_progression_id"
     t.integer  "vehicle_id"
     t.integer  "meter_id"
-    t.integer  "primary_key_id"
-    t.integer  "secondary_key_id"
-    t.string   "tonality",                   :default => "Major"
-    t.string   "concept",                    :default => "Instrumental"
+    t.string   "primary_key_name",           :limit => 3
+    t.string   "secondary_key_name",         :limit => 3
+    t.string   "tonality",                                :default => "Major"
+    t.string   "concept",                                 :default => "Instrumental"
     t.integer  "form_id"
     t.integer  "form_length"
     t.string   "form_lengths"
@@ -409,8 +397,8 @@ ActiveRecord::Schema.define(:version => 20111123011559) do
   add_index "tunes", ["cached_slug"], :name => "index_tunes_on_cached_slug", :unique => true
   add_index "tunes", ["form_id"], :name => "index_tunes_on_form_id"
   add_index "tunes", ["meter_id"], :name => "index_tunes_on_meter_id"
-  add_index "tunes", ["primary_key_id"], :name => "index_tunes_on_primary_key_id"
-  add_index "tunes", ["secondary_key_id"], :name => "index_tunes_on_secondary_key_id"
+  add_index "tunes", ["primary_key_name"], :name => "index_tunes_on_primary_key_name"
+  add_index "tunes", ["secondary_key_name"], :name => "index_tunes_on_secondary_key_name"
   add_index "tunes", ["slug"], :name => "index_tunes_on_slug", :unique => true
   add_index "tunes", ["vehicle_id"], :name => "index_tunes_on_vehicle_id"
 

@@ -25,7 +25,7 @@ class ModesController < ApplicationController
 
   def find_key
     if params[:key_id]
-      @key = Key.find(params[:key_id])
+      @key = Key[params[:key_id]]
       @key = nil if @key.main?
     end
   end
