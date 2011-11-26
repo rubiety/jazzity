@@ -18,6 +18,12 @@ class Tune < ActiveRecord::Base
 
   friendly_id :name, :use => :slugged
 
+  scope :with_vehicle, lambda {|v| where(:vehicle_id => v.id) }
+  scope :with_form, lambda {|f| where(:form_id => f.id) }
+  scope :with_meter, lambda {|m| where(:meter_id => m.id) }
+  scope :with_based_on_progression, lambda {|p| where(:based_on_progression_id => p.id) }
+  scope :search, lambda {|q| where("name LIKE ?", "%#{q}%") }
+
   validates :name, :presence => true
   validates :tonality, :inclusion => ["Major", "Minor"]
   validates :concept, :inclusion => ["Instrumental", "Vocal"]

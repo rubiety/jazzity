@@ -1,9 +1,13 @@
 = Functional Beta
 
-[ ] Musician Timelines
 [ ] Musician Tune Liking/Management
-[ ] Musician Profile Page
+[ ] Musician Favorite Musician Liking/Management
+[ ] Musician Signup Wizard
+[ ] Musician Avatar Uploads & Cropping
 [ ] Rdio/Pandora/Spotify Integration!
+
+[ ] Featured Tunes Home Page & Filtering/Searching
+[ ] Featured Musicians Home Page & Filtering/Searching
 
 [ ] Albums/Recordings Implementation (iTunes Affiliates) and Relationships to:
     Tune, Musician, Concept, Progression, Voicing

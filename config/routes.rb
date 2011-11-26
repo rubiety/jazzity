@@ -34,7 +34,12 @@ Jazzity::Application.routes.draw do
     end
   end
   
-  resources :tunes, :only => [:index, :show]
+  resources :tunes, :only => [:index, :show] do
+    get "/vehicle/:vehicle_id", :action => :index, :on => :collection, :as => :by_vehicle
+    get "/form/:form_id", :action => :index, :on => :collection, :as => :by_form
+    get "/meter/:meter_id", :action => :index, :on => :collection, :as => :by_meter
+  end
+
   resources :chord_qualities, :only => [:index, :show]
   resources :chords, :only => [:index, :show]
   resources :scales, :only => [:index, :show] do

@@ -3,25 +3,25 @@
     %h2 By Form:
     %ul
       - Form.all.each do |form|
-        %li= link_to form, tunes_path(:form => form)
+        %li= link_to_unless_current form, by_form_tunes_path(:form_id => form)
 
   %article
     %h2 By Vehicle:
     %ul
       - Vehicle.all.each do |vehicle|
-        %li= link_to vehicle, tunes_path(:vehicle => vehicle)
+        %li= link_to_unless_current vehicle, by_vehicle_tunes_path(:vehicle_id => vehicle)
 
   %article
     %h2 By Meter:
     %ul
       - Meter.all.each do |meter|
-        %li= link_to meter, tunes_path(:meter => meter)
+        %li= link_to_unless_current meter, by_meter_tunes_path(:meter_id => meter)
 
 %section#search
-  = form_tag searches_path do
+  = form_tag tunes_path, :method => :get do
     = label_tag "Search Tunes: "
-    = text_field_tag :query
-    = submit_tag "Go"
+    = text_field_tag :query, params[:query]
+    = submit_tag "Go", :name => nil
 
 %section#tunes
   = paginate @tunes
