@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111125013833) do
+ActiveRecord::Schema.define(:version => 20111126003243) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -192,7 +192,7 @@ ActiveRecord::Schema.define(:version => 20111125013833) do
   create_table "musician_favorites", :force => true do |t|
     t.integer  "musician_id"
     t.integer  "favorite_musician_id"
-    t.string   "notes"
+    t.string   "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -266,7 +266,7 @@ ActiveRecord::Schema.define(:version => 20111125013833) do
     t.integer  "position"
     t.integer  "chord_id"
     t.integer  "index"
-    t.string   "notes"
+    t.string   "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -323,7 +323,7 @@ ActiveRecord::Schema.define(:version => 20111125013833) do
   create_table "tune_concepts", :force => true do |t|
     t.integer  "tune_id"
     t.integer  "concept_id"
-    t.string   "notes"
+    t.string   "comment"
     t.integer  "start_measure"
     t.integer  "end_measure"
     t.datetime "created_at"
@@ -333,7 +333,7 @@ ActiveRecord::Schema.define(:version => 20111125013833) do
   create_table "tune_progressions", :force => true do |t|
     t.integer  "tune_id"
     t.integer  "progression_id"
-    t.string   "notes"
+    t.string   "comment"
     t.integer  "start_measure"
     t.integer  "end_measure"
     t.datetime "created_at"

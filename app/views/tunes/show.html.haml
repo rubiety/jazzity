@@ -37,8 +37,8 @@
         - @tune.tune_progressions.each do |tune_progression|
           %li
             = link_to tune_progression.progression, tune_progression.progression
-            - if tune_progression.notes?
-              %p= tune_progression.notes
+            - if tune_progression.comment?
+              %p= tune_progression.comment
 
   - if @tune.tune_concepts.exists?
     %section#tune-concepts
@@ -47,8 +47,8 @@
         - @tune.tune_concepts.each do |tune_concept|
           %li
             = link_to tune_concept.concept, tune_concept.concept
-            - if tune_concept.notes?
-              %p= tune_concept.notes
+            - if tune_concept.comment?
+              %p= tune_concept.comment
 
 
   = render "comments/index", :commentable => @tune

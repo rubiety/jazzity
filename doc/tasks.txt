@@ -1,10 +1,9 @@
 = Functional Beta
 
-[ ] Musician Profiles & Signup/Signin
-[ ] Implement ModifierContext for Single-Stem between Treble & Bass Clefs
 [ ] Remove Key as a model - should just be a constant
-[ ] Rename "notes" text fields to something else - too ambiguous with key notes
+[ ] Implement ModifierContext for Single-Stem between Treble & Bass Clefs, Better Octave Decision Implementation
 
+[ ] Musician Profiles & Signup/Signin. Timeline Integration.
 [ ] Rdio/Pandora/Spotify Integration!
 
 [ ] Voicings Build-Out
