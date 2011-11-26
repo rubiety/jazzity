@@ -50,16 +50,10 @@ body.musicians-authentications {
 
 body.musicians-profiles {
 
-  header#profile-introduction {
-    @include full;
-  }
-
-  #profile-introduction {
-    @include full;
-  }
-
   /* Edit Profile */
   form#update-profile-form {
+    @include full;
+
     fieldset#profile-basic {
       @include columns(6);
       @include alpha;

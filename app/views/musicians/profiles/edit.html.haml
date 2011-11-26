@@ -1,37 +1,18 @@
 = render "musicians/profiles/tabs"
 
-%header#profile-introduction
-  - if flash[:first_time]
-    %h1 Thanks for joining!
-    %p Would you like to create a profile?
-    %p
-      = link_to "Yes, Create a Profile", "#", :id => "create-profile"
-      &nbsp;&nbsp;&nbsp;
-      = link_to "No, Back to Home", root_path
-  - else
-    %h1 Update Profile
-    - if @musician.has_profile?
-      %p Update your profile below. #{link_to "Remove Profile", musicians_profile_path, :method => :delete, :confirm => "Are you sure you want to deactivate your profile?"}
-    - else
-      %p You currently don't have a profile. #{link_to "Create One", "#", :id => "create-profile"}
+= simple_form_for :musician, :url => musicians_profile_path, :html => {:method => :put, :id => "update-profile-form"} do |f|
+  %h1 Your Profile
 
-= simple_form_for :musician, :url => musicians_profile_path, :html => {:method => :put, :id => "update-profile-form", :class => ("disabled" unless @musician.has_profile?)} do |f|
   %fieldset#profile-basic
-    = f.input :first_name, :label => "First Name", :required => true, :autofocus => true
-    = f.input :last_name, :label => "Last Name", :required => true, :autofocus => true
-    = f.input :email, :required => true, :hint => "This will not be shown to anyone"
-    = f.input :website_url, :label => "Website URL", :required => false
-    = f.input :twitter_username, :label => "Twitter Handle", :required => false
+    = f.input :website_url, :label => "Website URL", :required => false, :placeholder => "http://www.yourwebsite.com/"
+    = f.input :twitter_username, :label => "Twitter Handle", :required => false, :placeholder => "@jazzity"
     = f.input :youtube_username, :label => "YouTube Username", :required => false
-
-  %fieldset#profile-details
     = f.input :location, :required => false
-    =# f.input :instrument, :required => false
-    =# f.input :secondary_instrument, :label => "Other Instrument", :required => false
-    =# f.input :plays_professionally, :label => "Professional?", :required => false
-    =# f.input :studies_privately, :label => "Study Privately?", :required => false
-    =# f.input :studies_privately_with, :label => "With: ", :required => false
-    =# f.input :music_school, :label => "Music School", :required => false
+    = f.input :instrument, :required => false, :collection => Instrument.all
+    = f.input :secondary_instrument, :label => "Other Instrument", :required => false, :collection => Instrument.all
+    = f.input :music_school, :label => "Music School", :required => false
+    = f.input :plays_professionally, :label => "Professional?", :required => false, :as => :boolean
+    = f.input :studies_privately, :label => "Study Privately?", :required => false, :as => :boolean
       
   %fieldset#profile-favorites
     -# TODO: nested_form from Ryan Bates interface?

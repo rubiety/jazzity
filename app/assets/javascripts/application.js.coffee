@@ -8,7 +8,7 @@
 //
 //= require global
 //= require staff
-//= require musicians
+//= require profiles
 //= require search
 //= require comments
 
