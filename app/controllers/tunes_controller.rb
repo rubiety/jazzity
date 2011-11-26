@@ -4,7 +4,7 @@ class TunesController < ApplicationController
   respond_to :html, :json
 
   def index
-    @tunes = Tune.all
+    @tunes = Tune.page(params[:page])
     respond_with @tunes
   end
 

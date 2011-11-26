@@ -381,6 +381,7 @@ DEPENDENCIES
   haml-rails
   html5-boilerplate
   jquery-rails
+  kaminari
   launchy
   meta_search
   minitest
