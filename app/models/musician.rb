@@ -25,6 +25,7 @@ class Musician < ActiveRecord::Base
   has_many :musician_friends, :through => :musician_friendships, :source => :friend_musician
   has_many :musician_tunes, :dependent => :destroy
   has_many :tunes, :through => :musician_tunes
+  has_many :timeline_events, :as => :actor
 
   accepts_nested_attributes_for :musician_favorites, :allow_destroy => true, :reject_if => lambda {|m| m["favorite_musician_id"].blank? }
   accepts_nested_attributes_for :musician_friendships, :allow_destroy => true, :reject_if => :all_blank

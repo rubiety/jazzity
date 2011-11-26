@@ -27,6 +27,7 @@ gem "paperclip"
 gem "friendly_id", "4.0.0.beta14"
 gem "awesome_nested_set"
 gem "nested_form", :git => "https://github.com/ryanb/nested_form.git"  # Waiting on: simple_nested_form_for helper
+gem "timeline_fu"
 
 # API Integration
 gem "feedzirra"

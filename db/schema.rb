@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111123011559) do
+ActiveRecord::Schema.define(:version => 20111126173837) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -342,6 +342,18 @@ ActiveRecord::Schema.define(:version => 20111123011559) do
   add_index "searchables", ["model_type", "model_id"], :name => "index_searchables_on_model_type_and_model_id"
   add_index "searchables", ["name"], :name => "index_searchables_on_name"
   add_index "searchables", ["parent_id"], :name => "index_searchables_on_parent_id"
+
+  create_table "timeline_events", :force => true do |t|
+    t.string   "event_type"
+    t.string   "subject_type"
+    t.string   "actor_type"
+    t.string   "secondary_subject_type"
+    t.integer  "subject_id"
+    t.integer  "actor_id"
+    t.integer  "secondary_subject_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tune_concepts", :force => true do |t|
     t.integer  "tune_id"

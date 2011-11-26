@@ -6,4 +6,6 @@ class MusicianTune < ActiveRecord::Base
   scope :learning, where(:learning => true)
   scope :know, where(:know => true)
 
+  fires :new_musician_tune, :on => :create, :actor => :musician, :secondary_subject => :tune
+
 end

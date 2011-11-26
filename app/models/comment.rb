@@ -6,6 +6,8 @@ class Comment < ActiveRecord::Base
 
   validates :content, :presence => true
 
+  fires :new_comment, :on => :create, :actor => :author, :secondary_subject => :commentable
+
   def up_vote
     increment!(:votes)
   end

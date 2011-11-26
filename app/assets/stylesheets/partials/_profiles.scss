@@ -50,6 +50,11 @@ body.musicians-authentications {
 
 body.musicians-profiles {
 
+  /* Activity */
+  section#musician-activity {
+    @include full;
+  }
+
   /* Edit Profile */
   form#update-profile-form {
     @include full;

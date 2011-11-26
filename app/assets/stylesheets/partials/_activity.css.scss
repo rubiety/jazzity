@@ -1,0 +1,24 @@
+.activity {
+
+  ul.activity-list {
+    @include no-bullets;
+    margin: 0;
+
+    li {
+      @include clearfix;
+      margin-bottom: 10px;
+
+      img.avatar {
+        float: left;
+        margin-right: 10px;
+      }
+
+      cite {
+        font-style: normal;
+        font-size: 0.9em;
+        color: #333;
+      }
+    }
+  }
+
+}

@@ -14,6 +14,7 @@ describe Musician do
     it { should have_many(:musician_friends).through(:musician_friendships) }
     it { should have_many(:musician_tunes) }
     it { should have_many(:tunes).through(:musician_tunes) }
+    it { should have_many(:timeline_events) }
   end
 
   describe "scopes" do
