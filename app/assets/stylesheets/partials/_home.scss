@@ -37,8 +37,7 @@ body.dashboards {
   }
 
   section#features-overview {
-    @include columns(4);
-    @include alpha;
+    @include columns(5);
 
     article {
       margin-bottom: 10px;
@@ -70,7 +69,8 @@ body.dashboards {
   }
 
   section#news {
-    @include columns(5);
+    @include columns(4);
+    @include alpha;
 
     article {
       line-height: 1.2em;
