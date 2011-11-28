@@ -4,8 +4,6 @@ describe Tune do
   context "associations" do
     it { should belong_to(:vehicle) }
     it { should belong_to(:meter) }
-    it { should belong_to(:primary_key) }
-    it { should belong_to(:secondary_key) }
     it { should belong_to(:form) }
     it { should belong_to(:starting_chord) }
     it { should belong_to(:ending_chord) }
