@@ -6,4 +6,5 @@ tmp/*
 config/database.yml
 config/omniauth.yml
 public/assets
+public/system
 .sass-cache

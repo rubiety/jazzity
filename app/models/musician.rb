@@ -2,7 +2,7 @@ class Musician < ActiveRecord::Base
   PROFILE_FIELDS = [
     :instrument_id, :secondary_instrument_id, :biography,
     :location, :external_avatar_url, :website_url, :time_zone_offset, :facebook_url, :twitter_username, :youtube_username,
-    :music_school, :plays_professionally, :studies_privately
+    :music_school, :plays_professionally, :studies_privately, :avatar, :remote_avatar_url, :remove_avatar
   ]
 
   attr_accessible *(PROFILE_FIELDS + [
@@ -36,6 +36,7 @@ class Musician < ActiveRecord::Base
   scope :famous, where(:famous => true)
 
   friendly_id :name, :use => :slugged
+  mount_uploader :avatar, AvatarUploader
 
   validates :first_name, :presence => true
   validates :last_name, :presence => true
@@ -54,10 +55,6 @@ class Musician < ActiveRecord::Base
 
   def has_avatar?
     avatar_url.present?
-  end
-
-  def avatar_url
-    external_avatar_url  # TODO: Implement Internal Avatar
   end
 
   def clear_profile

@@ -41,7 +41,7 @@ module Musician::Authentication
           :encrypted_password => Devise.friendly_token[0,20],
           :biography => data["bio"],
           :location => info["location"],
-          :external_avatar_url => info["image"],
+          :remote_avatar_url => info["image"],
           :facebook_url => data["link"],
           :website_url => nil,
           :time_zone_offset => data["timezone"]
@@ -67,7 +67,7 @@ module Musician::Authentication
           :encrypted_password => Devise.friendly_token[0,20],
           :biography => data["description"],
           :location => data["location"],
-          :external_avatar_url => data["image"],
+          :remote_avatar_url => data["image"],
           :website_url => (data["urls"] || []).first,
           :twitter_username => data["nickname"]
         ).tap do |musician|

@@ -1,6 +1,5 @@
 = Functional Beta
 
-[ ] Musician Avatars
 [ ] Simplify Comments to No Subjects & Thread (Also: Edit & Delete Comments), Tabbify Comments
 [ ] Musician Tune Liking/Management
 [ ] Musician Favorite Musician Liking/Management

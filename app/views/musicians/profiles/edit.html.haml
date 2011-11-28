@@ -4,6 +4,14 @@
   %h1 Your Profile
 
   %fieldset#profile-basic
+    = f.input :avatar, :label => "Avatar" do
+      - if f.object.has_avatar?
+        = image_tag f.object.avatar_url(:thumb), :alt => "#{f.object}'s Avatar", :class => "avatar"
+        = f.check_box :remove_avatar
+        Remove Avatar
+      = f.file_field :avatar
+      = f.hidden_field :avatar_cache
+
     = f.input :biography, :label => "Short Bio", :required => true, :placeholder => "A little bit about myself...", :input_html => {:rows => 3, :cols => 50}
     = f.input :website_url, :label => "Website URL", :required => false, :placeholder => "http://www.yourwebsite.com/"
     = f.input :facebook_url, :label => "Facebook Profile", :required => false, :placeholder => "http://www.facebook.com/rubiety"

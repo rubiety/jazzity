@@ -1,4 +1,5 @@
 class Musicians::ProfilesController < ApplicationController
+  before_filter :authenticate_musician!
   before_filter :find_musician
 
   respond_to :html, :json

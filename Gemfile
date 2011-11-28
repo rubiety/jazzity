@@ -29,6 +29,8 @@ gem "awesome_nested_set"
 gem "nested_form", :git => "https://github.com/ryanb/nested_form.git"  # Waiting on: simple_nested_form_for helper
 gem "timeline_fu"
 gem "kaminari"
+gem "mini_magick"
+gem "carrierwave"
 
 # API Integration
 gem "feedzirra"

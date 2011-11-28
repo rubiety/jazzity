@@ -1,6 +1,6 @@
 %article#musician
   %header
-    = image_tag @musician.avatar_url, :class => "avatar", :alt => "#{@musician}'s Avatar" if @musician.has_avatar?
+    = image_tag @musician.avatar_url(:thumb), :class => "avatar", :alt => "#{@musician}'s Avatar" if @musician.has_avatar?
     %h1= @musician
     %dl
       - if @musician.location?

@@ -5,6 +5,7 @@ class CreateMusicians < ActiveRecord::Migration
       t.string :last_name
       t.string :nickname
       t.string :cached_slug
+      t.string :avatar
       t.boolean :famous, :default => false, :null => false
       t.boolean :has_profile, :default => false, :null => false
       t.date :born_on
