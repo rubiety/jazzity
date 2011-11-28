@@ -1,5 +1,6 @@
 = Functional Beta
 
+[ ] Simplify Comments to No Subjects & Thread
 [ ] Musician Tune Liking/Management
 [ ] Musician Favorite Musician Liking/Management
 [ ] Musician Signup Wizard
@@ -8,6 +9,8 @@
 
 [ ] Featured Tunes Home Page & Filtering/Searching
 [ ] Featured Musicians Home Page & Filtering/Searching
+
+[ ] Gollum Wiki for Objects?
 
 [ ] Albums/Recordings Implementation (iTunes Affiliates) and Relationships to:
     Tune, Musician, Concept, Progression, Voicing

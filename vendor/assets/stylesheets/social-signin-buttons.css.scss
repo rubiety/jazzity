@@ -37,8 +37,10 @@
 
 .btn-auth:hover,
 .btn-auth:focus,
+.btn-auth:active,
 .btn-auth:active {
     text-decoration: none;
+    color: #222;
 }
 
 .btn-auth:before {
@@ -91,6 +93,14 @@
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
     -webkit-box-shadow: inset 0 1px 0 #879ac0;
     box-shadow: inset 0 1px 0 #879ac0;
+}
+
+.btn-facebook:hover,
+.btn-facebook:focus,
+.btn-facebook:active,
+.btn-facebook:visited {
+    text-decoration: none;
+    color: #fff;
 }
 
 .btn-facebook:hover,
