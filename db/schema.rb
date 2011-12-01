@@ -109,9 +109,10 @@ ActiveRecord::Schema.define(:version => 20111126173837) do
     t.integer  "commentable_id"
     t.string   "commentable_type"
     t.integer  "author_id"
-    t.string   "subject"
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
     t.text     "content"
-    t.integer  "votes",            :default => 0, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

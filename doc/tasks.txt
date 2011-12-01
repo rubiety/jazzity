@@ -7,6 +7,8 @@
 [ ] Featured Tunes Home Page & Filtering/Searching
 [ ] Featured Musicians Home Page & Filtering/Searching
 
+[ ] Replace Staff Views with vexflow-json & jquery-vexflow
+
 [ ] Rdio/Pandora/Spotify Integration!
 
 [ ] Gollum Wiki for Objects?

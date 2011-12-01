@@ -41,6 +41,7 @@ Jazzity.CommentsView = Backbone.View.extend
 
   create_comment_success: (e, data, status, xhr)->
     this.comments.add(data)
+    this.$('form#create-comment-form').find("input[type=text], textarea").val("");
 
   create_comment_error: (e, xhr, status, error)->
     alert "An error has occurred attempting to save your comment."
@@ -50,6 +51,9 @@ Jazzity.CommentsView = Backbone.View.extend
 
 
 Jazzity.CommentView = Backbone.View.extend
+  tagName: "li"
+  className: "comment"
+
   events:
     "click a.edit" : "edit"
     "click a.remove" : "destroy"
