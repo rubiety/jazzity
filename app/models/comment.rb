@@ -1,6 +1,7 @@
 class Comment < ActiveRecord::Base
   belongs_to :commentable, :polymorphic => true
   belongs_to :author, :class_name => "Musician"
+  has_many :timeline_events, :as => :subject, :dependent => :destroy
 
   acts_as_nested_set if table_exists?
 

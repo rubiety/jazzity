@@ -1,6 +1,7 @@
 class MusicianTune < ActiveRecord::Base
   belongs_to :musician
   belongs_to :tune
+  has_many :timeline_events, :as => :subject, :dependent => :destroy
 
   scope :composed, where(:composed => true)
   scope :learning, where(:learning => true)
