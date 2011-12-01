@@ -22,6 +22,11 @@
       = f.input :content
       %div.buttons= f.submit "Submit", :disabled_with => "Processing..."
 
+  %script{:type => "text/template", :id => "edit-template"}
+    = simple_form_for Comment.new, :remote => true, :html => {:class => "edit-form", "data-type" => "json"} do |f|
+      = f.input :content
+      %div.buttons= f.submit "Update", :disabled_with => "Processing..."
+
   %script{:type => "text/template", :id => "comment-template"}
     :plain
       <img class="avatar" src="<%= author_avatar_url %>" alt="<%= author_name %>'s Avatar'" />

@@ -38,6 +38,7 @@
       }
       div.actions {
         margin-top: 0.5em;
+        margin-left: 60px;
         font-size: 0.8em;
         text-transform: uppercase;
         color: #666;
@@ -60,7 +61,7 @@
     font-style: italic;
   }
 
-  form.create-comment-form, form.reply-form {
+  form.create-comment-form, form.reply-form, form.edit-form {
     @include clearfix;
     position: relative;
 

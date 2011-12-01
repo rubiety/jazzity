@@ -43,8 +43,10 @@ Jazzity.CommentsView = Backbone.View.extend
     this
 
   create_comment: (e)->
-    this.collection.create content: $(e.target).find("textarea").val()
-    this.$('form.create-comment-form').find("input[type=text], textarea").val("");
+    this.collection.create { content: $(e.target).find("textarea").val() },
+      success: ->
+        this.$('form.create-comment-form').find("input[type=text], textarea").val("");
+        $(this.el).effect("highlight")
     false
 
 
@@ -57,6 +59,7 @@ Jazzity.CommentView = Backbone.View.extend
     "click a.edit" : "edit"
     "click a.remove" : "remove"
     "submit form.reply-form": "create_reply"
+    "submit form.edit-form": "update"
 
   initialize: ->
     this.comments_view = this.options["comments_view"]
@@ -99,11 +102,27 @@ Jazzity.CommentView = Backbone.View.extend
     false
 
   edit: ->
-    this
+    if (this.$("form.edit-form").length > 0)
+      this.$("form.edit-form").remove()
+      this.$("> div.content").html(this.model.get("content"))
+    else
+      this.$("> div.content").html("")
+      this.$("> div.content").append _.template($("#edit-template").html())
+      this.$("> div.content form.edit-form textarea").val(this.model.get("content"))
+    false
+
+  update: (e)->
+    this.model.save { content: $(e.target).find("textarea").val() },
+      succcess: ->
+        this.$("form.edit-form").remove()
+        this.$("> div.content").html(this.model.get("content"))
+        $(this.el).effect("highlight")
+    false
 
   destroy: ->
     $(this.el).remove()
 
   remove: ->
     this.model.destroy()
+    false
 

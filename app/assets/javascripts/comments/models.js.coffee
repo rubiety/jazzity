@@ -2,6 +2,12 @@ Jazzity.Comment = Backbone.Model.extend
   defaults:
     children_attributes: []
 
+  url: ->
+    base = this.collection.url()
+    return base if this.isNew()
+    [main, query] = base.split("?")
+    "#{main}/#{encodeURIComponent(this.id)}?#{query}"
+
   initialize: ->
     this.set_children()
     this.bind "change:children_attributes", this.set_children, this
