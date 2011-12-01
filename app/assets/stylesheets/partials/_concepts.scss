@@ -12,6 +12,13 @@ body.concepts {
   article#concept {
     @include full;
 
+    nav.tabs {
+      margin-left: 0;
+      margin-right: 0;
+      width: 80%;
+      clear: none;
+    }
+    
     #concept-tunes {
       margin: 10px 0 10px 0;
       ul {

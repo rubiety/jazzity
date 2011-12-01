@@ -43,6 +43,13 @@ body.scales, body.modes {
     @include columns(10);
     @include omega;
 
+    nav.tabs {
+      margin-left: 0;
+      margin-right: 0;
+      width: 80%;
+      clear: none;
+    }
+    
     header {
       p {
         label { font-weight: bold; }

@@ -1,0 +1,6 @@
+%article#concept
+  = render "concepts/header"
+  = render "concepts/tabs"
+
+  = render "comments/index", :commentable => @concept
+

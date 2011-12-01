@@ -28,11 +28,4 @@
 
     = render "scales/tabs"
 
-    %section#staff
-      .staff.scale-staff{"data-id" => @scale.id, "data-staff-notes" => @mode.octavized_notes.to_json, "data-staff-clef" => "treble"}
-
-    %nav.related-chords
-      %h3 Related Chords:
-      %ul.chords-list
-        - @mode.chord_scales.each do |chord_scale|
-          = render chord_scale.chord, :key => (@scale.key || Key.default).shifted(-1 * chord_scale.offset)
+    = render "comments/index", :commentable => @mode

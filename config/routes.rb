@@ -14,23 +14,39 @@ Jazzity::Application.routes.draw do
     end
   end
 
-  resources :musicians, :only => [:index, :show]
+  resources :musicians, :only => [:index, :show] do
+    get :comments, :on => :member
+  end
 
   resources :searches, :only => [:create, :show] do
     get :autocomplete, :on => :collection
   end
   
   resources :keys, :only => [:show] do
-    resources :tunes, :only => [:index, :show]
+    resources :tunes, :only => [:index, :show] do
+      get :comments, :on => :member
+    end
+
     resources :chord_qualities, :only => [:index, :show]
-    resources :chords, :only => [:index, :show]
-    resources :voicings, :only => [:index, :show]
-    resources :progressions, :only => [:index, :show]
+    resources :chords, :only => [:index, :show] do
+      get :comments, :on => :member
+    end
+
+    resources :voicings, :only => [:index, :show] do
+      get :comments, :on => :member
+    end
+
+    resources :progressions, :only => [:index, :show] do
+      get :comments, :on => :member
+    end
+
     resources :note_sequences, :path => "notes", :only => [:index, :show]
     resources :chord_sequences, :path => "chord-sequences", :only => [:show]
     resources :chord_note_sequences, :path => "chord-notes", :only => [:index, :show]
     resources :scales, :only => [:index, :show] do
-      resources :modes, :only => [:index, :show]
+      resources :modes, :only => [:index, :show] do
+        get :comments, :on => :member
+      end
     end
   end
   
@@ -38,17 +54,32 @@ Jazzity::Application.routes.draw do
     get "/vehicle/:vehicle_id", :action => :index, :on => :collection, :as => :by_vehicle
     get "/form/:form_id", :action => :index, :on => :collection, :as => :by_form
     get "/meter/:meter_id", :action => :index, :on => :collection, :as => :by_meter
+    get :comments, :on => :member
   end
 
   resources :chord_qualities, :only => [:index, :show]
-  resources :chords, :only => [:index, :show]
-  resources :scales, :only => [:index, :show] do
-    resources :modes, :only => [:index, :show]
+  resources :chords, :only => [:index, :show] do
+    get :comments, :on => :member
   end
 
-  resources :voicings, :only => [:index, :show]
-  resources :progressions, :only => [:index, :show]
-  resources :concepts, :only => [:index, :show]
+  resources :scales, :only => [:index, :show] do
+    resources :modes, :only => [:index, :show] do
+      get :comments, :on => :member
+    end
+  end
+
+  resources :voicings, :only => [:index, :show] do
+    get :comments, :on => :member
+  end
+
+  resources :progressions, :only => [:index, :show] do
+    get :comments, :on => :member
+  end
+
+  resources :concepts, :only => [:index, :show] do
+    get :comments, :on => :member
+  end
+  
   resources :note_sequences, :path => "notes", :only => [:show]
   resources :chord_sequences, :path => "chord-sequences", :only => [:show]
   resources :chord_note_sequences, :path => "chord-notes", :only => [:show]

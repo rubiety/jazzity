@@ -1,0 +1,27 @@
+%header
+  = image_tag @musician.avatar_url(:thumb), :class => "avatar", :alt => "#{@musician}'s Avatar" if @musician.has_avatar?
+  %h1= @musician
+  %dl
+    - if @musician.location?
+      %dd From:
+      %dt= @musician.location
+    - if @musician.instrument
+      %dd Plays:
+      %dt= [@musician.instrument, @musician.secondary_instrument].compact.join(" and ")
+    - if @musician.music_school?
+      %dd Studied At:
+      %dt= @musician.music_school
+    - if @musician.plays_professionally?
+      %dt Plays Professionally
+    - if @musician.studies_privately?
+      %dt Studies Privately
+      - if @musician.studies_privately_with?
+        %dt With #{@musician.studies_privately_with}
+  %ul.social-media
+    - if @musician.twitter_username?
+      %li.twitter Twitter: #{link_to "@#{@musician.twitter_username}", "http://twiter.com/#{@musician.twitter_username}"}
+    - if @musician.youtube_username?
+      %li.youtube YouTube: #{link_to @musician.youtube_username, "#"}
+    - if @musician.facebook_url?
+      %li.facebook Facebook: #{link_to "My Profile", @musician.facebook_url}
+  %p= @musician.biography

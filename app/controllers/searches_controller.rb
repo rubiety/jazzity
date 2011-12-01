@@ -25,16 +25,4 @@ class SearchesController < ApplicationController
     show
   end
 
-
-  protected
-
-  def path_to_searchable(searchable)
-    if searchable.target.is_a?(Mode)
-      [searchable.target.scale, searchable.target]
-    else
-      searchable.target
-    end
-  end
-
-  helper_method :path_to_searchable
 end

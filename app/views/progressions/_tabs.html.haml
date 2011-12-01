@@ -1,0 +1,4 @@
+%nav.tabs
+  %ul
+    = navigation_link_to "Information", {:action => :show}, ProgressionsController, :show
+    = navigation_link_to "Comments (#{@progression.comments.count})", {:action => :comments}, ProgressionsController, :comments

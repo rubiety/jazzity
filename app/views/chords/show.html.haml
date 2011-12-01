@@ -7,25 +7,8 @@
       - Key.primaries.each do |key|
         %li= link_to_unless @key == key, key, [key, @chord]
 
-  %header
-    %h1= @chord.title
-    %p= @chord.information
-    - if @chord.parent
-      %p
-        %label Parent Chord:
-        = link_to @chord.parent, [@key, @chord.parent]
-    %p
-      %label Quality:
-      = @chord.chord_quality
-    %p
-      %label Steps:
-      = @chord.step_names.join(", ")
-    %p
-      %label Intervals:
-      = @chord.interval_names.join(", ")
-    %p
-      %label Symbols:
-      = @chord.symbols_list
+  = render "chords/header"
+  = render "chords/tabs"
 
   %section#notes-sequence
     %h3= @chord.notes.join(", ")
@@ -43,7 +26,4 @@
     %h3 Voicings for #{@chord}:
     %ul.voicings-list
       = render @chord.voicings, :key => @key
-
-  = render "comments/index", :commentable => @chord
-
 

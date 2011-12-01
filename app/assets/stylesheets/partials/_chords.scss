@@ -43,6 +43,13 @@ body.chords, body.chord-qualities {
         }
       }
     }
+
+    nav.tabs {
+      margin-left: 0;
+      margin-right: 0;
+      width: 80%;
+      clear: none;
+    }
     
     nav.related-modes, nav.related-voicings {
       margin-top: 1em;

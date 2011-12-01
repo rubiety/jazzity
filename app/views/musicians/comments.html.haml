@@ -1,0 +1,6 @@
+%article#musician
+  = render "musicians/header"
+  = render "musicians/tabs"
+
+  - if @musician.famous?
+    = render "comments/index", :commentable => @musician

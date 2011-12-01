@@ -21,4 +21,23 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+
+
+  protected
+
+  def path_to_searchable(searchable)
+    path_to_model(searchable.target)
+  end
+
+  def path_to_model(model)
+    if model.is_a?(Mode)
+      [model.scale, model]
+    else
+      model
+    end
+  end
+
+  helper_method :path_to_searchable
+  helper_method :path_to_model
+  
 end
