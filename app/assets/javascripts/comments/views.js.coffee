@@ -75,8 +75,14 @@ Jazzity.CommentView = Backbone.View.extend
   render: ->
     $(this.el).attr("data-id", this.model.get("id"))
     $(this.el).html this.template(this.model.toJSON())
+    this.reset_actions()
     this.reset_children()
     this
+
+  reset_actions: ->
+    if Jazzity.signed_in()
+      this.$("div.actions").find("a.reply").show()
+      this.$("div.actions").find("a.edit, a.remove").show() if Jazzity.current_musician_id() == this.model.get("author_id")
 
   add_child: (comment)->
     view = new Jazzity.CommentView model: comment, parent_commentjview: this, comments_view: this.comments_view

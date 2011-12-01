@@ -11,7 +11,7 @@
     = navigation_link_to "Progressions & Form", progressions_path, [ProgressionsController, ChordNoteSequencesController]
     = navigation_link_to "Jazz Concepts", concepts_path, ConceptsController
 
-%aside
+%aside{"data-current-musician-id" => current_musician.try(:id)}
   - if musician_signed_in?
     = image_tag current_musician.avatar_url, :class => "avatar", :alt => "#{current_musician}'s Avatar" if current_musician.has_avatar?
     = link_to "Welcome, #{current_musician}", edit_musicians_profile_path

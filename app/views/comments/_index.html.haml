@@ -34,7 +34,7 @@
       <%= author_name %> on <%= created_at %>
     %div.content <%= content %>
     %div.actions
-      = link_to "Reply", "#", :class => "reply"
-      = link_to "Edit", "#", :class => "edit"
-      = link_to "Remove", "#", :class => "remove"
+      = link_to "Reply", "#", :class => "reply", :style => "display: none"
+      = link_to "Edit", "#", :class => "edit", :style => "display: none"
+      = link_to "Remove", "#", :class => "remove", :style => "display: none"
     %ul.comments-list
