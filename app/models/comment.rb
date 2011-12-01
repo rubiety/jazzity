@@ -14,6 +14,7 @@ class Comment < ActiveRecord::Base
     super.slice("id", "author_id", "parent_id", "lft", "rgt", "content", "created_at").tap do |o|
       o["author_name"] = author.try(:name)
       o["author_avatar_url"] = author.avatar_url
+      o["children_attributes"] = children.as_json(options)
     end
   end
 end

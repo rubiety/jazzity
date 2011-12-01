@@ -5,6 +5,6 @@
 $(document).bind "ready", ->
 
   $(".comments").each ->
-    view  = new Jazzity.CommentsView el: $(this)
-    view.render()
+    window.comments_view  = new Jazzity.CommentsView el: $(this)
+    window.comments_view.render()
 

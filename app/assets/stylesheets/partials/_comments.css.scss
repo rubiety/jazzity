@@ -16,8 +16,12 @@
 
     li {
       @include clearfix;
-      margin: 0 0 20px 0;
+      margin: 15px 0 0 0;
       padding-bottom: 5px;
+
+      &:first-child {
+        margin-top: 0;
+      }
 
       img.avatar {
         float: left;
@@ -37,6 +41,17 @@
         font-size: 0.8em;
         text-transform: uppercase;
         color: #666;
+        a { margin-right: 2em; }
+      }
+
+      form.reply-form {
+        margin-left: 60px;
+      }
+
+      ul.comments-list {
+        margin-top: 20px;
+        padding-left: 10px;
+        border-left: 2px solid #666;
       }
     }
   }
@@ -45,15 +60,13 @@
     font-style: italic;
   }
 
-  form#create-comment-form {
+  form.create-comment-form, form.reply-form {
     @include clearfix;
     position: relative;
 
     h4 { margin-bottom: 10px; }
     label { display: none; }
-    input[type=text] { width: 90%; }
     textarea { height: 60px; width: 75%; }
-    span.hint { margin-left: 0; }
 
     .buttons { 
       position: absolute;

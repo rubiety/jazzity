@@ -7,13 +7,20 @@
 
   - if musician_signed_in?
     %p= link_to "Add a Comment", "#", :class => "add-comment"
-    = simple_form_for Comment.new, :remote => true, :html => {:id => "create-comment-form", "data-type" => "json", :style => "display: none"} do |f|
-      %h4 New Comment:
-      = f.input :content
-      %div.buttons= f.submit "Submit", :disabled_with => "Processing..."
   - else
     %p.login-required 
       Sorry, but you must be logged in to place comments. #{link_to "Log in", new_musician_session_path} or #{link_to "sign up", new_musician_registration_path}.
+
+  = simple_form_for Comment.new, :remote => true, :html => {:class => "create-comment-form", "data-type" => "json", :style => "display: none"} do |f|
+    %h4 New Comment:
+    = f.input :content
+    %div.buttons= f.submit "Submit", :disabled_with => "Processing..."
+
+  %script{:type => "text/template", :id => "reply-template"}
+    = simple_form_for Comment.new, :remote => true, :html => {:class => "reply-form", "data-type" => "json"} do |f|
+      %h4 Reply:
+      = f.input :content
+      %div.buttons= f.submit "Submit", :disabled_with => "Processing..."
 
   %script{:type => "text/template", :id => "comment-template"}
     :plain
@@ -23,3 +30,6 @@
     %div.content <%= content %>
     %div.actions
       = link_to "Reply", "#", :class => "reply"
+      = link_to "Edit", "#", :class => "edit"
+      = link_to "Remove", "#", :class => "remove"
+    %ul.comments-list

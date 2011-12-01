@@ -1,16 +1,19 @@
 class CommentsController < ApplicationController
+  before_filter :authenticate_musician!, :except => [:index]
   before_filter :find_commentable
   before_filter :find_comment, :except => [:index, :new, :create]
+  before_filter :find_parent_comment, :only => [:create]
 
   respond_to :html, :json
 
   def index
-    @comments = @commentable.comments
+    @comments = @commentable.comments.roots
     respond_with @comments
   end
 
   def create
     @comment = @commentable.comments.build(params[:comment])
+    @comment.parent = @parent_comment
     @comment.author = current_musician
     @comment.save
 
@@ -52,5 +55,9 @@ class CommentsController < ApplicationController
 
   def find_comment
     @comment = @commentable.comments.find(params[:id])
+  end
+
+  def find_parent_comment
+    @parent_comment = @commentable.comments.find(params[:parent_id]) if params[:parent_id].present?
   end
 end

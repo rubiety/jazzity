@@ -1,56 +1,51 @@
 Jazzity.CommentsView = Backbone.View.extend
   events:
     "click a.add-comment": "show_comment_form",
-    "ajax:before form#create-comment-form": "create_comment_before"
-    "ajax:success form#create-comment-form": "create_comment_success"
-    "ajax:error from#create-comment-form": "create_comment_error"
-    "ajax:complete from#create-comment-form": "create_comment_complete"
+    "submit form.create-comment-form": "create_comment"
 
   initialize: ->
     this.commentable_type = this.el.attr("data-commentable-type")
     this.commentable_id = this.el.attr("data-commentable-id")
-    this.comments = new Jazzity.Comments {}, { commentable_type: this.commentable_type, commentable_id: this.commentable_id }
-    this.comments.bind "add", this.add, this
-    this.comments.bind "reset", this.reset, this
-    this.comments.bind "all", this.render_overview, this
+
+    this.collection ||= new Jazzity.Comments {}
+    this.collection.commentable_type = this.commentable_type
+    this.collection.commentable_id = this.commentable_id
+    this.collection.bind "add", this.add, this
+    this.collection.bind "reset", this.reset, this
+    this.collection.bind "all", this.render_overview, this
 
   render: ->
     this.$("#comments-spinner").show()
-    this.$("ul.comments-list").empty()
-    this.comments.fetch()
+    $(this.el).children("ul.comments-list").empty()
+    this.collection.fetch()
     this.render_overview()
     this
   
   render_overview: ->
+    this
 
   show_comment_form: (e)->
-    $(this.el).find("form#create-comment-form").slideDown()
+    this.$("form.create-comment-form").slideDown()
     $(e.target).remove()
     false
 
   add: (comment)->
-    view = new Jazzity.CommentView model: comment
-    $(view.render().el).appendTo(this.$("ul.comments-list")).effect("highlight")
+    view = new Jazzity.CommentView model: comment, comments_view: this
+    $(view.render().el).appendTo($(this.el).children("ul.comments-list")).effect("highlight")
 
   reset: ->
-    this.comments.each (comment)->
-      view = new Jazzity.CommentView model: comment
-      $(view.render().el).appendTo(this.$("ul.comments-list"))
+    self = this
+    this.collection.each (comment)->
+      view = new Jazzity.CommentView model: comment, comments_view: self
+      $(view.render().el).appendTo($(self.el).children("ul.comments-list"))
+
     this.$("#comments-spinner").hide()
     this
 
-  create_comment_before: (e)->
-    $(e.target).append "<input type='hidden' name='#{this.commentable_type}_id' value='#{this.commentable_id}' />"
-
-  create_comment_success: (e, data, status, xhr)->
-    this.comments.add(data)
-    this.$('form#create-comment-form').find("input[type=text], textarea").val("");
-
-  create_comment_error: (e, xhr, status, error)->
-    alert "An error has occurred attempting to save your comment."
-
-  create_comment_complete: (e)->
-    $(e.target).find("input[name='#{this.commentable_type}_id']").remove()
+  create_comment: (e)->
+    this.collection.create content: $(e.target).find("textarea").val()
+    this.$('form.create-comment-form').find("input[type=text], textarea").val("");
+    false
 
 
 Jazzity.CommentView = Backbone.View.extend
@@ -58,24 +53,57 @@ Jazzity.CommentView = Backbone.View.extend
   className: "comment"
 
   events:
+    "click a.reply" : "reply"
     "click a.edit" : "edit"
-    "click a.remove" : "destroy"
+    "click a.remove" : "remove"
+    "submit form.reply-form": "create_reply"
 
   initialize: ->
+    this.comments_view = this.options["comments_view"]
+    this.parent_comment_view = this.options["parent_comment_view"]
     this.template = _.template($('#comment-template').html())
+
     this.model.bind "change", this.render, this
-    this.model.bind "destroy", this.remove, this
+    this.model.bind "destroy", this.destroy, this
+    this.model.children.bind "add", this.add_child, this
+    this.model.children.bind "reset", this.reset_children, this
+    this.model.children.bind "all", this.comments_view.render_overview, this.comments_view
 
   render: ->
+    $(this.el).attr("data-id", this.model.get("id"))
     $(this.el).html this.template(this.model.toJSON())
+    this.reset_children()
     this
 
+  add_child: (comment)->
+    view = new Jazzity.CommentView model: comment, parent_commentjview: this, comments_view: this.comments_view
+    $(view.render().el).appendTo($(this.el).children("ul.comments-list")).effect("highlight")
+
+  reset_children: ->
+    self = this
+    this.model.children.each (comment)->
+      view = new Jazzity.CommentView model: comment, parent_comment_view: self, comments_view: self.comments_view
+      $(view.render().el).appendTo($(self.el).children("ul.comments-list"))
+    this
+
+  reply: (e)->
+    if (this.$("form.reply-form").length > 0)
+      this.$("form.reply-form").remove()
+    else
+      $(this.el).append _.template($("#reply-template").html())
+    false
+
+  create_reply: (e)->
+    this.model.children.create content: $(e.target).find("textarea").val()
+    this.$('form.reply-form').remove()
+    false
+
   edit: ->
+    this
 
   destroy: ->
-    this.model.destroy()
-
-  remove: ->
     $(this.el).remove()
 
+  remove: ->
+    this.model.destroy()
 
