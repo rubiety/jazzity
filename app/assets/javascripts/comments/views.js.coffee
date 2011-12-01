@@ -15,6 +15,7 @@ Jazzity.CommentsView = Backbone.View.extend
     this.comments.bind "all", this.render_overview, this
 
   render: ->
+    this.$("#comments-spinner").show()
     this.$("ul.comments-list").empty()
     this.comments.fetch()
     this.render_overview()
@@ -35,9 +36,11 @@ Jazzity.CommentsView = Backbone.View.extend
     this.comments.each (comment)->
       view = new Jazzity.CommentView model: comment
       $(view.render().el).appendTo(this.$("ul.comments-list"))
+    this.$("#comments-spinner").hide()
+    this
 
   create_comment_before: (e)->
-    $(e.target).append("<input type='hidden' name='#{this.commentable_type}_id' value='#{this.commentable_id}' />")
+    $(e.target).append "<input type='hidden' name='#{this.commentable_type}_id' value='#{this.commentable_id}' />"
 
   create_comment_success: (e, data, status, xhr)->
     this.comments.add(data)

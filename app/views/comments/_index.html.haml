@@ -1,4 +1,8 @@
 %div.comments{:data => {"commentable-type" => commentable.class.model_name.underscore, "commentable-id" => commentable.id}}
+  %span#comments-spinner{:style => "display: none"}
+    = image_tag "ajax_spinner.gif", :alt => "Loading Comments", :id => "comments-spinner"
+    Loading Comments
+
   %ul.comments-list
 
   - if musician_signed_in?
@@ -6,7 +10,7 @@
     = simple_form_for Comment.new, :remote => true, :html => {:id => "create-comment-form", "data-type" => "json", :style => "display: none"} do |f|
       %h4 New Comment:
       = f.input :content
-      %div.buttons= f.submit "Add Comment", :disabled_with => "Processing..."
+      %div.buttons= f.submit "Submit", :disabled_with => "Processing..."
   - else
     %p.login-required 
       Sorry, but you must be logged in to place comments. #{link_to "Log in", new_musician_session_path} or #{link_to "sign up", new_musician_registration_path}.
@@ -15,5 +19,7 @@
     :plain
       <img class="avatar" src="<%= author_avatar_url %>" alt="<%= author_name %>'s Avatar'" />
     %cite
-      <%= author_name %>
-    %p <%= content %>
+      <%= author_name %> on <%= created_at %>
+    %div.content <%= content %>
+    %div.actions
+      = link_to "Reply", "#", :class => "reply"
