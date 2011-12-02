@@ -1,0 +1,2 @@
+module Musicians::FavoriteMusiciansHelper
+end

@@ -7,7 +7,7 @@
     %ul.favorite-musicians
       - @musician.favorite_musicians.each do |favorite_musician|
         %li
-          = image_tag favorite_musician.avatar_url if favorite_musician.has_avatar?
+          = image_tag favorite_musician.avatar_url(:thumb), :alt => favorite_musician.name, :class => "avatar" if favorite_musician.has_avatar?
           = link_to favorite_musician, favorite_musician
 
   %section#musician-activity
@@ -19,5 +19,5 @@
     %h2 Tunes:
     %ul.tunes-list
       - @musician.musician_tunes.each do |musician_tune|
-        %li= musician_tune
+        %li= link_to musician_tune, musician_tune.tune
 

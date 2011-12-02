@@ -10,8 +10,8 @@ Jazzity.Staff = Backbone.View.extend
     this.staves = {}
 
   draw_canvas: (options = {})->
-    this.canvas_width = options["width"] || 170
-    this.canvas_height = options["height"] || 120
+    this.canvas_width = options["width"] || 135
+    this.canvas_height = options["height"] || 110
 
     this.canvas_element = $("<canvas width='#{this.canvas_width}' height='#{this.canvas_height}'></canvas>")
     this.canvas_element.appendTo(this.el)
@@ -73,8 +73,8 @@ Jazzity.Staff = Backbone.View.extend
 
 Jazzity.ChordStaff = Jazzity.Staff.extend
   render: ->
-    this.draw_canvas()
-    this.draw_stave "treble", width: 170
+    this.draw_canvas(width: 135)
+    this.draw_stave "treble"
     this.draw_notes [
       { keys: this.model.get("notes") }
     ]
@@ -82,22 +82,22 @@ Jazzity.ChordStaff = Jazzity.Staff.extend
 Jazzity.VoicingStaff = Jazzity.Staff.extend
   render: ->
     this.draw_canvas(height: 200)
-    this.draw_stave "treble", width: 170
-    this.draw_stave "bass", width: 170
+    this.draw_stave "treble", width: 120
+    this.draw_stave "bass", width: 120
     this.draw_notes [
       { keys: this.model.get("notes") }
     ]
 
 Jazzity.ScaleStaff = Jazzity.Staff.extend
   render: ->
-    this.draw_canvas(width: 600)
+    this.draw_canvas(width: 400)
     this.draw_stave "treble"
     this.draw_notes _(this.model.get("notes")).map (note) ->
       { keys: [note] }
 
 Jazzity.ProgressionStaff = Jazzity.Staff.extend
   render: ->
-    this.draw_canvas(width: 600)
+    this.draw_canvas(width: 400)
     this.draw_stave "treble"
     this.draw_notes _(this.model.get("notes")).map (chord) ->
       { keys: chord }

@@ -19,4 +19,13 @@ module LikesHelper
       :title => "I like this tune"
   end
 
+  def like_musician_link(musician)
+    link_to image_tag("thumbs_up.png"), musicians_favorite_musicians_path(:favorite_musician_id => musician.id), 
+      :method => :post, 
+      "data-type" => "json",
+      :remote => true, 
+      :class => "like #{'liked' if like?(musician)}", 
+      :title => "I like #{musician}"
+  end
+
 end

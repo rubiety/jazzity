@@ -13,9 +13,6 @@
   %section#notes-sequence
     %h3= @chord.notes.join(", ")
 
-  %section#staff
-    .staff.chord-staff{"data-id" => @chord.id, "data-staff-notes" => @chord.octavized_notes.to_json, "data-staff-clef" => "treble"}
-
   %nav.related-modes
     %h3 Related Scales/Modes:
     %ul.modes-list

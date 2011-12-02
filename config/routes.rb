@@ -8,6 +8,7 @@ Jazzity::Application.routes.draw do
   namespace :musicians do
     resources :authentications, :only => [:index, :destroy]
     resources :tunes
+    resources :favorite_musicians
     resource :profile, :only => [:show, :edit, :update, :destroy] do
       get :activity
       get :privacy

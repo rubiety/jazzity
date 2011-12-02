@@ -37,10 +37,18 @@ body.chords, body.chord-qualities {
     @include omega;
 
     header {
+      position: relative;
+
       p {
         label {
           font-weight: bold;
         }
+      }
+
+      .staff {
+        position: absolute;
+        top: -10px;
+        right: 400px;
       }
     }
 
@@ -71,7 +79,7 @@ ul.chords-list {
     @include border-radius(5px);
     margin: 0 10px 10px 0;
     padding: 10px;
-    width: 175px;
+    width: 155px;
 
     h3 { margin: 0; }
     

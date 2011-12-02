@@ -28,19 +28,39 @@ body.musicians {
   }
 
   article.musician {
-    border: 1px solid #666;
-    padding: 15px;
-    margin-bottom: 15px;
+    @include clearfix;
+    position: relative;
+    padding: 8px;
+    margin-bottom: 5;
+    min-height: 50px;
 
+    a.like {
+      float: left;
+      margin-right: 10px;
+    }
     img.avatar {
       float: left;
       max-width: 50px;
       max-height: 50px;
       margin-right: 10px;
     }
-    h3 { margin-bottom: 8px; }
-    p {
-      label { font-weight: bold; }
+    h3 {
+      float: left;
+      font-size: 1.0em;
+      font-weight: normal;
+    }
+    cite {
+      float: left;
+      font-size: 0.8em;
+      padding-left: 15px;
+    }
+
+    ul.attributes {
+      float: right;
+      @include horizontal-list;
+      li {
+        font-style: italic;
+      }
     }
   }
 
@@ -108,7 +128,18 @@ body.musicians {
     ul.favorite-musicians {
       @include no-bullets;
       margin: 0;
-      li { margin-bottom: 5px; }
+      li {
+        @include clearfix;
+        min-height: 50px;
+        margin-bottom: 5px;
+
+        img.avatar {
+          float: left;
+          margin-right: 10px;
+          max-height: 50px;
+          max-width: 50px;
+        }
+      }
     }
 
     ul.activity-list {

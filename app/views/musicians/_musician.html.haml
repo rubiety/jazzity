@@ -1,5 +1,12 @@
 %article[musician]
+  = like_musician_link(musician)
   = image_tag musician.avatar_url(:small), :class => "avatar", :alt => "#{musician}'s Avatar" if musician.has_avatar?
-
   %h3= link_to_if musician.has_profile?, musician, musician
-  %p= musician.biography
+
+  %ul.attributes
+    - if musician.instrument
+      %li= musician.instrument
+    - if musician.secondary_instrument
+      %li= musician.secondary_instrument
+    - if musician.location
+      %li= musician.location
