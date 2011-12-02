@@ -6,7 +6,7 @@
   = f.fields_for :musician_tunes do |mf|
     %div.musician-tune
       = mf.input :tune, :label => "Tune", :required => false, :collection => Tune.all do
-        = mf.collection_select :tune_id, Tune.all, :id, :name, :include_blank => true
+        = mf.object.tune
         &nbsp;&nbsp;&nbsp;
 
         = mf.check_box :learning

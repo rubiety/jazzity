@@ -1,29 +1,24 @@
 %article[tune]
+  = like_tune_link(tune)
   %h3= link_to tune.title, tune
-  - if tune.vehicle
-    %p
-      %label Vehicle: 
-      = tune.vehicle
-  - if tune.meter
-    %p
-      %label Meter: 
-      = tune.meter
-  - if tune.concept
-    %p
-      %label Concept: 
-      = tune.concept
-  - if tune.primary_key
-    %p
-      %label Key:
-      = tune.primary_key
-      = tune.tonality
-      = " (Also #{tune.secondary_key})" if tune.secondary_key
-  - if tune.form
-    %p
-      %label Form:
-      = tune.form
-      = "#{tune.form_length} Bars" if tune.form_length
-      = tune.form_lengths if tune.form_lengths
+  %cite by Ben Hughes
 
-
+  %ul.attributes
+    - if tune.concept
+      %li= tune.concept
+    - if tune.vehicle
+      %li= tune.vehicle
+    - if tune.meter
+      %li= tune.meter
+    - if tune.primary_key
+      %li
+        in 
+        = tune.primary_key
+        = tune.tonality
+        = " (Also #{tune.secondary_key})" if tune.secondary_key
+    - if tune.form
+      %li
+        = tune.form
+        = "#{tune.form_length} Bars" if tune.form_length
+        = tune.form_lengths if tune.form_lengths
 

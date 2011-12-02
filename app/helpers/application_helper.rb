@@ -1,5 +1,6 @@
 module ApplicationHelper
   include CommentsHelper
+  include LikesHelper
 
   def timeline_event_title(event)
     case event.event_type.to_sym

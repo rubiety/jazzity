@@ -1,5 +1,6 @@
  /*
  *= require jquery-ui
+ *= require jquery-qtip
  *= require social-signin-buttons
  *
  */
@@ -18,6 +19,7 @@
 @import "partials/pagination";
 @import "partials/messages";
 @import "partials/social_media";
+@import "partials/liking";
 
 @import "partials/key_selector";
 @import "partials/search_box";
