@@ -3,4 +3,4 @@
 %li[mode]
   %h3= link_to mode.title, [mode.scale, mode]
   %p= mode.scale.information
-  .staff.scale-staff{"data-id" => mode.id, "data-staff-notes" => mode.octavized_notes.to_json, "data-staff-clef" => "treble"}
+  .staff.scale-staff{"data-id" => mode.id, "data-staff" => mode.octavized_notes.map {|n| [n]}.to_json, "data-staff-clef" => "treble", "width" => 500}

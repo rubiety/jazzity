@@ -18,5 +18,5 @@
     %label Symbols:
     = @chord.symbols_list
 
-  .staff.chord-staff{"data-id" => @chord.id, "data-staff-notes" => @chord.octavized_notes.to_json, "data-staff-clef" => "treble"}
+  .staff.chord-staff{"data-id" => @chord.id, "data-staff" => @chord.octavized_notes.to_json, "data-staff-clef" => "treble", "width" => 150}
 

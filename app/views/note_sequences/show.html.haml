@@ -9,7 +9,7 @@
         %li= link_to_unless @key == key, key, [key, @note_sequence]
 
   %section#staff
-    .staff.chord-staff{"data-staff-notes" => @note_sequence.octavized_notes.to_json, "data-staff-clef" => "treble"}
+    .staff.chord-staff{"data-staff" => @note_sequence.octavized_notes.to_json, "data-staff-clef" => "treble"}
 
   %nav.related-chords
     %h3 Related Chords:

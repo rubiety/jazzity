@@ -6,6 +6,8 @@
 //= require underscore
 //= require backbone
 //= require vexflow
+//= require vexflow-json
+//= require jquery-vexflow
 //= require nested_form
 //
 //= require global

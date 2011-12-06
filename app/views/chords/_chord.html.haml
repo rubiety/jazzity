@@ -2,4 +2,4 @@
 
 %li[chord]
   %h3= link_to chord.title, chord
-  .staff.chord-staff{"data-id" => chord.id, "data-staff-notes" => chord.octavized_notes.to_json, "data-staff-clef" => "treble"}
+  .staff.chord-staff{"data-id" => chord.id, "data-staff" => chord.octavized_notes.to_json, "data-staff-clef" => "treble", "width" => 150}
