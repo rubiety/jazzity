@@ -48,6 +48,9 @@ class NoteSequence
   def notes
     keys.map(&:name)
   end
+  def staff_notes
+    octavized_notes.map {|n| [n]}
+  end
 
   # TODO: This is duplicated! Bad bad!
   def octavized_notes(octave = 4)

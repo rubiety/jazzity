@@ -53,6 +53,9 @@ class ChordSequence
   def octavized_notes
     chords.map(&:octavized_notes)
   end
+  def staff_notes
+    notes # octavized_notes
+  end
 
   class << self
     def resolve(value)

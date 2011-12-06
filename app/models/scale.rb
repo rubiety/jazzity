@@ -38,6 +38,10 @@ class Scale < ActiveRecord::Base
     end
   end
 
+  def staff_notes
+    octavized_notes.map {|n| [n]}
+  end
+
   def self.resolve(symbol)
     in_key = nil
   

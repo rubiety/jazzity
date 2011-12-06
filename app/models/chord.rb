@@ -59,6 +59,10 @@ class Chord < ActiveRecord::Base
     end
   end
 
+  def staff_notes
+    octavized_notes
+  end
+
   def symbols_list
     symbols.map {|s| key.to_s + s.name }.join(', ')
   end

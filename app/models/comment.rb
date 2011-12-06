@@ -25,7 +25,18 @@ class Comment < ActiveRecord::Base
   protected
 
   def process_staffs
-    self.content = content.gsub(/\{\{ (.*) \}\}/, %{<div class="staff" data-clef="treble" data-width="500" data-staff='\\1' />})
+    if md = /\{\{(.*)\}\}/.match(content)
+      matched = md[1].strip
+
+      staff = nil
+      if found = [NoteSequence, ChordSequence, ChordNoteSequence, Chord, Scale, Mode].map {|k| k[matched] }.compact.first
+        staff = found.staff_notes
+      else
+        staff = matched
+      end
+
+      self.content = content.gsub(/\{\{(.*)\}\}/, %{<div class="staff" data-clef="treble" data-width="500" data-staff='#{staff}' />}) if staff
+    end
   end
 end
 
