@@ -1,22 +1,14 @@
 %header
   %h1= @chord.title
+  %h2= @chord.symbols_list
   %p= @chord.information
   - if @chord.parent
     %p
       %label Parent Chord:
       = link_to @chord.parent, [@key, @chord.parent]
   %p
-    %label Quality:
-    = @chord.chord_quality
-  %p
-    %label Steps:
-    = @chord.step_names.join(", ")
-  %p
     %label Intervals:
     = @chord.interval_names.join(", ")
-  %p
-    %label Symbols:
-    = @chord.symbols_list
 
   .staff.chord-staff{"data-id" => @chord.id, "data-staff" => @chord.octavized_notes.to_json, "data-staff-clef" => "treble", "width" => 150}
 

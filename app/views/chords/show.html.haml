@@ -19,8 +19,9 @@
       - @chord.chord_scales.each do |chord_scale|
         = render chord_scale.mode, :key => (@chord.key || Key.default).shifted(chord_scale.offset)
 
-  %nav.related-voicings
-    %h3 Voicings for #{@chord}:
-    %ul.voicings-list
-      = render @chord.voicings, :key => @key
+  - if @chord.voicings.present?
+    %nav.related-voicings
+      %h3 Voicings for #{@chord}:
+      %ul.voicings-list
+        = render @chord.voicings, :key => @key
 

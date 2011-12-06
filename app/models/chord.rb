@@ -60,7 +60,7 @@ class Chord < ActiveRecord::Base
   end
 
   def symbols_list
-    symbols.map {|s| s.name }.join(', ')
+    symbols.map {|s| key.to_s + s.name }.join(', ')
   end
 
   # Resolves a chord symbol into a chord.
