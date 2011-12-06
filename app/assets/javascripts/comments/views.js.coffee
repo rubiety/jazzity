@@ -75,6 +75,7 @@ Jazzity.CommentView = Backbone.View.extend
   render: ->
     $(this.el).attr("data-id", this.model.get("id"))
     $(this.el).html this.template(this.model.toJSON())
+    $(this.el).find(".staff").vexflow()
     this.reset_actions()
     this.reset_children()
     this

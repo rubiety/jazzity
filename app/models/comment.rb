@@ -5,6 +5,8 @@ class Comment < ActiveRecord::Base
 
   acts_as_nested_set if table_exists?
 
+  before_save :process_staffs
+
   attr_accessible :content
 
   validates :content, :presence => true
@@ -17,6 +19,13 @@ class Comment < ActiveRecord::Base
       o["author_avatar_url"] = author.avatar_url
       o["children_attributes"] = children.as_json(options)
     end
+  end
+
+
+  protected
+
+  def process_staffs
+    self.content = content.gsub(/\{\{ (.*) \}\}/, %{<div class="staff" data-clef="treble" data-width="500" data-staff='\\1' />})
   end
 end
 
