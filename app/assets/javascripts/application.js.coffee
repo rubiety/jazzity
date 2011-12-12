@@ -4,6 +4,7 @@
 //= require jquery-qtip
 //= require json2
 //= require underscore
+//= require moment
 //= require backbone
 //= require vexflow
 //= require vexflow-json

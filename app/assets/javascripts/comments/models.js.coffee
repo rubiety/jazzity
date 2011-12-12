@@ -13,6 +13,9 @@ Jazzity.Comment = Backbone.Model.extend
     this.bind "change:children_attributes", this.set_children, this
     this.bind "change:id", this.set_children, this
 
+  created_at_in_words: ->
+    moment(this.get("created_at")).fromNow()
+
   set_children: ->
     this.children = new Jazzity.Comments (this.get("children_attributes") || {}), 
       commentable_type: this.collection.commentable_type
@@ -23,6 +26,7 @@ Jazzity.Comment = Backbone.Model.extend
 
   toJSON: ->
     json = this.attributes
+    json.created_at_in_words = this.created_at_in_words()
     json.children_attributes = this.children.toJSON()
     json
 

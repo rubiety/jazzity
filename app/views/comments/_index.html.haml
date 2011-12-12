@@ -31,7 +31,7 @@
     :plain
       <img class="avatar" src="<%= author_avatar_url %>" alt="<%= author_name %>'s Avatar'" />
     %cite
-      <%= author_name %> on <%= created_at %>
+      <%= author_name %> <%= created_at_in_words %>
     %div.content <%= content %>
     %div.actions
       = link_to "Reply", "#", :class => "reply", :style => "display: none"
