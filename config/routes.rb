@@ -44,7 +44,10 @@ Jazzity::Application.routes.draw do
     resources :note_sequences, :path => "notes", :only => [:index, :show]
     resources :chord_sequences, :path => "chord-sequences", :only => [:show]
     resources :chord_note_sequences, :path => "chord-notes", :only => [:index, :show]
+
     resources :scales, :only => [:index, :show] do
+      get :comments, :on => :member
+
       resources :modes, :only => [:index, :show] do
         get :comments, :on => :member
       end
@@ -64,6 +67,8 @@ Jazzity::Application.routes.draw do
   end
 
   resources :scales, :only => [:index, :show] do
+    get :comments, :on => :member
+
     resources :modes, :only => [:index, :show] do
       get :comments, :on => :member
     end

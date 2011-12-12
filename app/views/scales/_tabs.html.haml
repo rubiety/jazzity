@@ -1,4 +1,4 @@
 %nav.tabs
   %ul
-    = navigation_link_to "Information", {:action => :show}, ModesController, :show
-    = navigation_link_to "Comments (#{@mode.comments.count})", {:action => :comments}, ModesController, :comments
+    = navigation_link_to "Information", {:action => :show}, [ScalesController, ModesController], :show
+    = navigation_link_to "Comments (#{@mode.comments.count})", {:action => :comments}, [ScalesController, ModesController], :comments
