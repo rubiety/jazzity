@@ -37,20 +37,17 @@ body.dashboards {
   }
 
   section#features-overview {
-    @include columns(5);
+    @include columns(9);
+    @include alpha;
 
     article {
       margin-bottom: 10px;
+      clear: right;
 
       img {
-        float: left; 
-        margin-right: 5px; 
-        
-        &.right {
-          float: right;
-          margin-right: 0;
-          margin-left: 5px;
-        }
+        float: right;
+        margin-right: 0;
+        margin-left: 5px;
       }
       h2 {
         margin-bottom: 5px;
@@ -64,24 +61,6 @@ body.dashboards {
           font-size: 1.1em;
           line-height: 1.2em;
         }
-      }
-    }
-  }
-
-  section#news {
-    @include columns(4);
-    @include alpha;
-
-    article {
-      line-height: 1.2em;
-      position: relative;
-      margin-bottom: 15px;
-
-      cite {
-        font-size: 0.8em;
-        position: absolute;
-        top: 0;
-        right: 0;
       }
     }
   }
