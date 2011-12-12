@@ -371,7 +371,9 @@ ChordQuality.create!(:name => 'Dominant', :code => 'DOM').tap do |q|
     end
 
     c.children.create!(:chord_quality => q, :name => 'Altered').tap do |cc|
-      cc.symbols.create!(:name => 'alt', :primary => true)
+      cc.symbols.create!(:name => '7alt', :primary => true)
+      cc.symbols.create!(:name => '7altered')
+      cc.symbols.create!(:name => 'alt')
       cc.symbols.create!(:name => 'altered')
       cc.symbols.create!(:name => '7#9#5')
       cc.symbols.create!(:name => '7#5#9')
