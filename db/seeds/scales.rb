@@ -103,6 +103,8 @@ Scale.create!(:name => 'Harmonic Minor', :information => "The harmonic minor sca
     {:tone => 8, :letter_index => Tone::LetterInterval::SIXTH},
     {:tone => 11, :letter_index => Tone::LetterInterval::SEVENTH}
   ])
+
+  s.modes.create!(:mode => 1, :name => "Harmonic Minor")
 end
 
 Scale.create!(:name => 'Bebop', :information => "The bebop scale introduces a passing tone 7th to the major scale, resulting in an 8-note scale that fits well with typical even meters.").tap do |s|
