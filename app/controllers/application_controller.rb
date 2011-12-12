@@ -31,9 +31,9 @@ class ApplicationController < ActionController::Base
 
   def path_to_model(model)
     if model.is_a?(Mode)
-      [model.scale, model]
+      [model.key, model.scale, model].compact
     else
-      model
+      [model.key, model].compact
     end
   end
 
