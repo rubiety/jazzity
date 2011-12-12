@@ -1,6 +1,6 @@
-//= require comments/models
-//= require comments/views
-//= require comments/routers
+//= require comments/comment
+//= require comments/comments_view
+//= require comments/comment_view
 
 $(document).bind "ready", ->
 
