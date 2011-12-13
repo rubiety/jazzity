@@ -59,6 +59,10 @@ class Chord < ActiveRecord::Base
     end
   end
 
+  def specify_tones=(values)
+    tones.specify(values)
+  end
+
   def staff_notes
     octavized_notes
   end
