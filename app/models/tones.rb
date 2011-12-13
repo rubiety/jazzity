@@ -88,4 +88,19 @@ module Tones
     intervals.map {|step| Key::Intervals.invert[step] }
   end
 
+
+  def specify(tones, letter_indexes = [])
+    destroy_all
+    
+    (letter_indexes.size - tones.size).upto(tones.size) do |i|
+      letter_indexes << (letter_indexes.last ? letter_indexes.last + 1 : 0)
+    end
+
+    tones.each_with_index do |tone, i|
+      tone = Key::Intervals[tone] if tone.is_a?(String)
+
+      raise ArgumentError, "Could not find interval '#{tone}' within '#{tones.join(', ')}'" if tone.nil?
+      create!(:tone => tone, :letter_index => letter_indexes[i])
+    end
+  end
 end
