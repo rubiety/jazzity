@@ -89,18 +89,14 @@ module Tones
   end
 
 
-  def specify(tones, letter_indexes = [])
+  def specify(values)
     destroy_all
-    
-    (letter_indexes.size - tones.size).upto(tones.size) do |i|
-      letter_indexes << (letter_indexes.last ? letter_indexes.last + 1 : 0)
-    end
+    values.each_with_index do |value, i|
+      tone = Key::Intervals[value]
+      letter_index = Key::IntervalLetterIndexes[value]
+      raise ArgumentError, "Could not find interval '#{value}' within '#{values.join(', ')}'" if tone.nil? or letter_index.nil?
 
-    tones.each_with_index do |tone, i|
-      tone = Key::Intervals[tone] if tone.is_a?(String)
-
-      raise ArgumentError, "Could not find interval '#{tone}' within '#{tones.join(', ')}'" if tone.nil?
-      create!(:tone => tone, :letter_index => letter_indexes[i])
+      create!(:tone => tone, :letter_index => letter_index)
     end
   end
 end
