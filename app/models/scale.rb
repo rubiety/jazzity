@@ -42,6 +42,10 @@ class Scale < ActiveRecord::Base
     octavized_notes.map {|n| [n]}
   end
 
+  def specify_tones=(values)
+    tones.specify(values)
+  end
+
   def self.resolve(symbol)
     in_key = nil
   
