@@ -2,10 +2,18 @@
   = render "progressions/header"
   = render "progressions/tabs"
 
+  %nav#key-selector
+    %h2 Key:
+    %ul
+      - Key.primaries.each do |key|
+        %li= link_to_unless @key == key, key, [key, @progression]
+
   %p
     = @progression.summary
   %p
     = @progression.information
+
+  .staff.progression-staff{"data-staff" => @progression.octavized_notes.to_json, "data-staff-clef" => "treble", "height" => 160}
 
   - if @progression.tunes_based_on.exists?
     %section#tunes-based-on

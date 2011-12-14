@@ -3,23 +3,18 @@ class InitialJazzModels < ActiveRecord::Migration
     create_table :chord_qualities do |t|
       t.string :name
       t.string :code
-      t.string :cached_slug
     end
 
-    add_index :chord_qualities, :cached_slug, :unique => true
-    
     create_table :chords do |t|
       t.references :chord_quality
       t.integer :parent_id
       t.string :name
-      t.string :cached_slug
       t.text :synonyms
       t.text :information
     end
 
     add_index :chords, :chord_quality_id
     add_index :chords, :parent_id
-    add_index :chords, :cached_slug, :unique => true
     
     create_table :chord_symbols do |t|
       t.references :chord
@@ -46,13 +41,10 @@ class InitialJazzModels < ActiveRecord::Migration
     
     create_table :scales do |t|
       t.string :name
-      t.string :cached_slug
       t.string :information
       t.integer :symmetry_index
     end
 
-    add_index :scales, :cached_slug, :unique => true
-    
     create_table :scale_tones do |t|
       t.references :scale
       t.integer :position
@@ -64,7 +56,6 @@ class InitialJazzModels < ActiveRecord::Migration
       t.references :scale
       t.integer :mode
       t.string :name
-      t.string :cached_slug
       t.text :synonyms
       t.integer :dissonance
       t.text :information
@@ -72,7 +63,6 @@ class InitialJazzModels < ActiveRecord::Migration
 
     add_index :modes, :scale_id
     add_index :modes, :mode
-    add_index :modes, :cached_slug, :unique => true
     
     create_table :chord_scales do |t|
       t.references :chord
@@ -89,13 +79,11 @@ class InitialJazzModels < ActiveRecord::Migration
       t.references :chord
       t.integer :parent_id
       t.string :name
-      t.string :cached_slug
       t.integer :octave_offset, :default => 0
       t.text :information
     end
 
     add_index :voicings, :chord_id
-    add_index :voicings, :cached_slug, :unique => true
     
     create_table :voicing_tones do |t|
       t.references :voicing
@@ -111,16 +99,12 @@ class InitialJazzModels < ActiveRecord::Migration
     
     create_table :forms do |t|
       t.string :name
-      t.string :cached_slug
       t.timestamps
     end
 
-    add_index :forms, :cached_slug, :unique => true
-    
     create_table :tunes do |t|
       t.string :name
       t.string :alternate_name
-      t.string :cached_slug
       t.integer :based_on_progression_id
       t.integer :vehicle_id
       t.integer :meter_id
@@ -139,7 +123,6 @@ class InitialJazzModels < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :tunes, :cached_slug, :unique => true
     add_index :tunes, :vehicle_id
     add_index :tunes, :meter_id
     add_index :tunes, :primary_key_name
@@ -173,27 +156,21 @@ class InitialJazzModels < ActiveRecord::Migration
     
     create_table :vehicles do |t|
       t.string :name
-      t.string :cached_slug
       t.integer :parent_id
       t.timestamps
     end
     
     add_index :vehicles, :parent_id
-    add_index :vehicles, :cached_slug, :unique => true
     
     create_table :meters do |t|
       t.string :name
-      t.string :cached_slug
       t.integer :beats
       t.integer :division
       t.timestamps
     end
 
-    add_index :meters, :cached_slug, :unique => true
-    
     create_table :progressions do |t|
       t.string :name
-      t.string :cached_slug
       t.integer :bars
       t.boolean :full_tune, :default => false
       t.integer :meter_id
@@ -204,7 +181,6 @@ class InitialJazzModels < ActiveRecord::Migration
     end
 
     add_index :progressions, :meter_id
-    add_index :progressions, :cached_slug, :unique => true
     
     create_table :progression_components do |t|
       t.integer :progression_id
@@ -221,11 +197,8 @@ class InitialJazzModels < ActiveRecord::Migration
     
     create_table :concepts do |t|
       t.string :name
-      t.string :cached_slug
       t.text :about
       t.timestamps
     end
-
-    add_index :concepts, :cached_slug, :unique => true
   end
 end

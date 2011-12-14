@@ -1,13 +1,14 @@
 class Progression < ActiveRecord::Base
   extend FriendlyId
+  
+  include KeyContext
   include Commentable
   include Searchable::Model
   
   has_many :searchables, :as => :model
   belongs_to :meter
   belongs_to :form
-  has_many :components, :class_name => "ProgressionComponent"
-  has_many :chords, :through => :components
+  has_many :components, :class_name => "ProgressionComponent", :order => "progression_components.position"
   has_many :tunes_based_on, :class_name => "Tune", :foreign_key => "based_on_progression_id"
   has_many :tune_progressions, :dependent => :destroy
   has_many :tunes, :through => :tune_progressions
@@ -27,6 +28,29 @@ class Progression < ActiveRecord::Base
     name
   end
 
+  def title
+    if key
+      "#{name} Progression in #{key}"
+    else
+      "#{name} Progression"
+    end
+  end
+
+  def chords
+    components.map do |component|
+      component.chord.in_key_of((key || Key.default).shifted(component.index)) if component.chord
+    end.compact
+  end
+
+  def notes
+    chords.map(&:notes)
+  end
+  def octavized_notes
+    chords.map(&:octavized_notes)
+  end
+  def staff_notes
+    notes # octavized_notes
+  end
   def beats
     bars * meter.beats
   end

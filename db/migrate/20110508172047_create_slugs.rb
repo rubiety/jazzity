@@ -7,7 +7,7 @@ class CreateSlugs < ActiveRecord::Migration
   def change
     TABLES.each do |table|
       add_column table, :slug, :string
-      add_index table, :slug, :unique => true
+      add_index table, :slug
     end
   end
 end
