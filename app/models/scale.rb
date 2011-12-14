@@ -6,6 +6,7 @@ class Scale < ActiveRecord::Base
   
   has_many :modes, :dependent => :destroy
   has_many :tones, :class_name => 'ScaleTone', :extend => Tones, :dependent => :destroy
+  has_many :comments, :through => :modes
 
   friendly_id :name, :use => :slugged
 

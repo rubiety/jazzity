@@ -23,6 +23,7 @@ body.scales, body.modes {
 
   article.scale {
     @include clearfix;
+    position: relative;
     border-bottom: 3px solid #CCC;
     padding: 15px 0;
     margin-bottom: 15px;
@@ -34,6 +35,18 @@ body.scales, body.modes {
       margin: 10px 10px 0 0;
     }
 
+    span.comments-count {
+      position: absolute;
+      display: inline-block;
+      bottom: 5px;
+      right: 5px;
+      font-size: 0.9em;
+      text-align: right;
+      width: 30px;
+      height: 16px;
+      background: image-url("iconic/chat_alt_fill_16x16.png") left no-repeat;
+    }
+    
     ul.modes {
       @include horizontal-list;
       margin: 10px 0 0 20px;
@@ -99,12 +112,25 @@ ul.modes-list {
   li.mode {
     @include clearfix;
     @include border-radius(5px);
+    position: relative;
     border: 1px solid #CCC;
     margin: 0 10px 10px 0;
     padding: 10px;
     width: auto;
 
     h3 { margin: 0; }
+    
+    span.comments-count {
+      position: absolute;
+      display: inline-block;
+      bottom: 5px;
+      right: 5px;
+      font-size: 0.9em;
+      text-align: right;
+      width: 30px;
+      height: 16px;
+      background: image-url("iconic/chat_alt_fill_16x16.png") left no-repeat;
+    }
     
     div.vex-tabdiv { padding-left: 0; }
 

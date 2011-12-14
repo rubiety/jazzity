@@ -1,17 +1,12 @@
 = render "chords/index"
 
 %article#chord
-  %nav#key-selector
-    %h2 Key:
-    %ul
-      - Key.primaries.each do |key|
-        %li= link_to_unless @key == key, key, [key, @chord]
-
+  = render "chords/key_selector"
   = render "chords/header"
   = render "chords/tabs"
 
   %article#voicing
-    %h1= @voicing
+    %h1= @voicing.title
     .staff.voicing-staff{"data-id" => @voicing.id, "data-clef" => "treble,bass", "data-staff" => @voicing.octavized_notes(3).to_json, "width" => 150, "height" => 160}
 
     = render "comments/index", :commentable => @voicing

@@ -1,0 +1,6 @@
+%nav#key-selector
+  %h2 Key:
+  %ul
+    - Key.primaries.each do |key|
+      %li= link_to_unless @key == key, key, controller.is_a?(VoicingsController) ? [key, @chord, @voicing || :voicings] : [key, @chord]
+
