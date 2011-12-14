@@ -21,7 +21,7 @@
 
   - if @chord.voicings.present?
     %nav.related-voicings
-      %h3 Voicings for #{@chord}:
+      %h3 Popular Voicings for #{@chord} (#{link_to "See All #{@chord.voicings.count}", [@chord, :voicings]}):
       %ul.voicings-list
         = render @chord.voicings, :key => @key
 

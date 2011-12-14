@@ -1,7 +1,15 @@
 body.voicings {
 
   article#voicing {
-    @include full;
+    .voicing-staff {
+      float: left;
+      margin-right: 10px;
+    }
+
+    .comments {
+      clear: none;
+      margin-left: 200px;
+    }
   }
 
 }

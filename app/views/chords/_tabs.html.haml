@@ -1,4 +1,5 @@
 %nav.tabs
   %ul
-    = navigation_link_to "Information", {:action => :show}, ChordsController, :show
-    = navigation_link_to "Comments (#{@chord.comments.count})", {:action => :comments}, ChordsController, :comments
+    = navigation_link_to "Information", @chord, ChordsController, :show
+    = navigation_link_to "Voicings (#{@chord.voicings.count})", [@chord, :voicings], VoicingsController
+    = navigation_link_to "Comments (#{@chord.comments.count})", [:comments, @chord], ChordsController, :comments

@@ -1,12 +1,13 @@
 class VoicingsController < ApplicationController
   before_filter :find_key
   before_filter :find_chord
+  before_filter :find_chord_qualities
   before_filter :find_voicing, :except => [:index, :new, :create]
 
   respond_to :html, :json
 
   def index
-    @voicings = Voicing.all
+    @voicings = @chord.voicings
     respond_with @voicings
   end
 
@@ -22,6 +23,10 @@ class VoicingsController < ApplicationController
       @key = Key[params[:key_id]]
       @key = nil if @key.main?
     end
+  end
+
+  def find_chord_qualities
+    @chord_qualities = ChordQuality.includes(:chords)
   end
 
   def find_chord
