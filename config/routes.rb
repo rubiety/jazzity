@@ -31,10 +31,10 @@ Jazzity::Application.routes.draw do
     resources :chord_qualities, :only => [:index, :show]
     resources :chords, :only => [:index, :show] do
       get :comments, :on => :member
-    end
 
-    resources :voicings, :only => [:index, :show] do
-      get :comments, :on => :member
+      resources :voicings, :only => [:index, :show] do
+        get :comments, :on => :member
+      end
     end
 
     resources :progressions, :only => [:index, :show] do
@@ -64,6 +64,10 @@ Jazzity::Application.routes.draw do
   resources :chord_qualities, :only => [:index, :show]
   resources :chords, :only => [:index, :show] do
     get :comments, :on => :member
+
+    resources :voicings, :only => [:index, :show] do
+      get :comments, :on => :member
+    end
   end
 
   resources :scales, :only => [:index, :show] do
@@ -72,10 +76,6 @@ Jazzity::Application.routes.draw do
     resources :modes, :only => [:index, :show] do
       get :comments, :on => :member
     end
-  end
-
-  resources :voicings, :only => [:index, :show] do
-    get :comments, :on => :member
   end
 
   resources :progressions, :only => [:index, :show] do

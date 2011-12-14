@@ -81,10 +81,19 @@ ul.chords-list {
     padding: 4px;
     width: 155px;
 
-    h3 { margin: 0; padding: 4px; }
+    h3 {
+      margin: 0; 
+      padding: 4px;
+    }
     
-    div.vex-tabdiv {
-      padding-left: 0;
+    div.vex-tabdiv { padding-left: 0; }
+
+    a {
+      text-decoration: none;
+    }
+
+    &:hover {
+      border: 1px solid #333;
     }
   }
 }

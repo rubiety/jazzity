@@ -10,7 +10,6 @@ describe ChordTone do
   end
   
   describe "validations" do
-    it { should validate_presence_of(:chord) }
     it { should validate_presence_of(:tone) }
     it { should validate_numericality_of(:tone) }
     it { should validate_presence_of(:letter_index) }

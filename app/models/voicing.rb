@@ -6,7 +6,7 @@ class Voicing < ActiveRecord::Base
   include Commentable
 
   acts_as_tree
-  friendly_id :name, :use => :slugged
+  friendly_id :name, :use => :scoped, :scope => :chord
 
   belongs_to :chord
   has_many :tones, :class_name => 'VoicingTone', :extend => Tones
@@ -44,3 +44,4 @@ class Voicing < ActiveRecord::Base
     super({:methods => [:notes]}.merge(options))
   end
 end
+

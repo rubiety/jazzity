@@ -1,6 +1,7 @@
 - mode = mode.in_key_of(key) if local_assigns[:key]
 
 %li[mode]
-  %h3= link_to mode.title, [mode.scale, mode]
-  %p= mode.scale.information
-  .staff.scale-staff{"data-id" => mode.id, "data-staff" => mode.octavized_notes.map {|n| [n]}.to_json, "data-staff-clef" => "treble", "width" => 500}
+  = link_to [mode.scale, mode] do
+    .staff.scale-staff{"data-id" => mode.id, "data-staff" => mode.octavized_notes.map {|n| [n]}.to_json, "data-staff-clef" => "treble", "width" => 380}
+    %h3= mode.title
+    %p= mode.scale.information
