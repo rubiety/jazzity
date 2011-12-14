@@ -1,5 +1,5 @@
 - voicing = voicing.in_key_of(key) if local_assigns[:key]
 
 %li[voicing]
-  %h3= link_to voicing.title, voicing
-  .staff.voicing-staff{"data-id" => voicing.id, "data-staff" => voicing.octavized_notes(3).to_json, "width" => 150, "height" => 300}
+  %h3= link_to voicing.name, voicing
+  .staff.voicing-staff{"data-id" => voicing.id, "data-clef" => "treble,bass", "data-staff" => voicing.octavized_notes(3).to_json, "width" => 150, "height" => 180}
