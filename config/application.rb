@@ -48,7 +48,7 @@ module Jazzity
     config.filter_parameters += [:password]
 
     # Enable IdentityMap for Active Record, to disable set to false or remove the line below.
-    config.active_record.identity_map = true
+    config.active_record.identity_map = false  # We can't enable this due to KeyContext and other mechanisms of changing state on individual objects which might have the same "identity"
 
     # Enable the asset pipeline
     config.assets.enabled = true
