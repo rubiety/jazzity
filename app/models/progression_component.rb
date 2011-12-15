@@ -8,11 +8,7 @@ class ProgressionComponent < ActiveRecord::Base
   end
   
   def all_chords
-    if included_progression
-      included_progression.all_chords
-    else
-      [chord]
-    end
+    all_chords_in_key(Key.default)
   end
 
   def all_chords_in_key(key)

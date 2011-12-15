@@ -14,7 +14,7 @@ end
 
 Progression.create!(:name => "Minor ii-V", :full_tune => false,  :summary => "The most commonly-used progression in Jazz.", :information => "").tap do |p|
   p.components.create([
-    {:position => 1, :index => 2, :chord => Chord["dim"]},
+    {:position => 1, :index => 2, :chord => Chord["dim7"]},
     {:position => 2, :index => 7, :chord => Chord["alt"]}
   ])
 end

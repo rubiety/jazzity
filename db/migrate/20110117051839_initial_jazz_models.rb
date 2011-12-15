@@ -78,6 +78,7 @@ class InitialJazzModels < ActiveRecord::Migration
     create_table :voicings do |t|
       t.references :chord
       t.integer :parent_id
+      t.boolean :rootless, :default => false
       t.string :name
       t.integer :octave_offset, :default => 0
       t.text :information

@@ -427,6 +427,7 @@ ActiveRecord::Schema.define(:version => 20111126173837) do
   create_table "voicings", :force => true do |t|
     t.integer "chord_id"
     t.integer "parent_id"
+    t.boolean "rootless",      :default => false
     t.string  "name"
     t.integer "octave_offset", :default => 0
     t.text    "information"

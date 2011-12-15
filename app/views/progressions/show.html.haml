@@ -13,7 +13,7 @@
   %p
     = @progression.information
 
-  .staff.progression-staff{"data-staff" => @progression.octavized_notes.to_json, "data-staff-clef" => "treble", "height" => 160}
+  .staff.progression-staff{"data-staff" => @progression.staff_notes.to_json, "data-clef" => "treble,bass", "height" => 160}
 
   - if @progression.tunes_based_on.exists?
     %section#tunes-based-on
