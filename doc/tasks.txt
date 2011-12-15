@@ -1,5 +1,9 @@
 = Functional Beta
 
+[ ] Voice Leading (Voicing Groups?) & Choose Voice Leading for Progressions, etc.
+[ ] Progression Build-Out
+[ ] Add mode to disable double flats/sharps
+
 [ ] Musician Tune Liking/Management
 [ ] Musician Favorite Musician Liking/Management
 [ ] Musician Signup Wizard

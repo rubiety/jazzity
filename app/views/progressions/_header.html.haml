@@ -1,5 +1,5 @@
 %header
-  %h1= @progression.title
+  %h1= "#{@progression.title}: #{@progression.chords.map(&:short_name).join(', ')}"
 
   - if @progression.meter
     %p
