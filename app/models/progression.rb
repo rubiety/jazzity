@@ -5,15 +5,17 @@ class Progression < ActiveRecord::Base
   include Commentable
   include Searchable::Model
   
+  friendly_id :name, :use => :slugged
+
   has_many :searchables, :as => :model
   belongs_to :meter
   belongs_to :form
+  belongs_to :variant_of, :class_name => "Progression"
+  has_many :variants, :class_name => "Progression", :foreign_key => "variant_of_id"
   has_many :components, :class_name => "ProgressionComponent", :order => "progression_components.position"
   has_many :tunes_based_on, :class_name => "Tune", :foreign_key => "based_on_progression_id"
   has_many :tune_progressions, :dependent => :destroy
   has_many :tunes, :through => :tune_progressions
-
-  friendly_id :name, :use => :slugged
 
   scope :full_tune, where(:full_tune => true)
   scope :partial, where(:full_tune => false)
@@ -38,8 +40,8 @@ class Progression < ActiveRecord::Base
 
   def chords
     components.map do |component|
-      component.chord.in_key_of((key || Key.default).shifted(component.index)) if component.chord
-    end.compact
+      component.all_chords_in_key(key)
+    end.flatten.compact
   end
 
   def notes

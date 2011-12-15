@@ -272,6 +272,7 @@ ActiveRecord::Schema.define(:version => 20111126173837) do
   create_table "progression_components", :force => true do |t|
     t.integer  "progression_id"
     t.integer  "position"
+    t.integer  "included_progression_id"
     t.integer  "chord_id"
     t.integer  "index"
     t.string   "comment"
@@ -285,8 +286,9 @@ ActiveRecord::Schema.define(:version => 20111126173837) do
 
   create_table "progressions", :force => true do |t|
     t.string   "name"
+    t.integer  "variant_of_id"
     t.integer  "bars"
-    t.boolean  "full_tune",   :default => false
+    t.boolean  "full_tune",     :default => false
     t.integer  "meter_id"
     t.integer  "form_id"
     t.string   "summary"
