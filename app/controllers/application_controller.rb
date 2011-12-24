@@ -32,6 +32,8 @@ class ApplicationController < ActionController::Base
   def path_to_model(model)
     if model.is_a?(Mode)
       [(model.respond_to?(:key) ? model.key : nil), model.scale, model].compact
+    elsif model.is_a?(Voicing)
+      [(model.respond_to?(:key) ? model.key : nil), model.chord, model].compact
     else
       [(model.respond_to?(:key) ? model.key : nil), model].compact
     end
