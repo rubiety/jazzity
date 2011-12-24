@@ -44,18 +44,18 @@
 # )
 # 
 
-require "csv"
-
-file = File.join(File.dirname(__FILE__), "aebersold_tunes.csv")
-
-CSV.parse(File.read(file), :headers => true).each do |row|
-  Tune.create!(
-    :name => row["name"].gsub(/\*\*$/, ""),
-    :vehicle => Vehicle.find_or_create_by_name(row["vehicle_name"]),
-    :primary_key_name => row["key"].to_s.gsub(/\-$/, ""),
-    :tonality => (row["key"].to_s =~ /\-$/ ? "Minor" : "Major"),
-    :tempo => row["tempo"],
-    :aebersold_playalong_number => row["aebersold_playalong_number"]
-  )
-end
-
+# require "csv"
+# 
+# file = File.join(File.dirname(__FILE__), "aebersold_tunes.csv")
+# 
+# CSV.parse(File.read(file), :headers => true).each do |row|
+#   Tune.create!(
+#     :name => row["name"].gsub(/\*\*$/, ""),
+#     :vehicle => Vehicle.find_or_create_by_name(row["vehicle_name"]),
+#     :primary_key_name => row["key"].to_s.gsub(/\-$/, ""),
+#     :tonality => (row["key"].to_s =~ /\-$/ ? "Minor" : "Major"),
+#     :tempo => row["tempo"],
+#     :aebersold_playalong_number => row["aebersold_playalong_number"]
+#   )
+# end
+# 
