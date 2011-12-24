@@ -4,7 +4,6 @@ describe Progression do
   it { should belong_to(:meter) }
   it { should belong_to(:form) }
   it { should have_many(:components) }
-  it { should have_many(:chords).through(:components) }
   it { should have_many(:tunes_based_on) }
   it { should have_many(:tune_progressions) }
   it { should have_many(:tunes).through(:tune_progressions) }

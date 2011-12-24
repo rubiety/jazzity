@@ -23,6 +23,8 @@ ChordQuality.create!(:name => 'Major', :code => 'MAJ').tap do |q|
     c.voicings.create!(:name => "Shell II", :specify_tones => "u 3 7 2", :octave_offset => -1)
     c.voicings.create!(:name => "Type I", :specify_tones => "3 5 7 9", :rootless => true)
     c.voicings.create!(:name => "Type II", :specify_tones => "7 9 3 5", :rootless => true)
+    c.voicings.create!(:name => "Quartal 1", :specify_tones => "7 3 6 9 5", :rootless => true)
+    c.voicings.create!(:name => "Quartal II", :specify_tones => "3 6 9 5 u", :rootless => true)
 
     c.children.create!(:chord_quality => q, :name => 'Major 7 #11', :specify_tones => "u 3 #4 5 7").tap do |cc|
       cc.symbols.create!(:name => 'maj7#11', :primary => true)
@@ -57,6 +59,7 @@ ChordQuality.create!(:name => 'Major', :code => 'MAJ').tap do |q|
     c.voicings.create!(:name => "Shell II", :specify_tones => "u 3 6 2", :octave_offset => -1)
     c.voicings.create!(:name => "Type I", :specify_tones => "3 5 6 9", :rootless => true)
     c.voicings.create!(:name => "Type II", :specify_tones => "6 9 3 5", :rootless => true)
+    c.voicings.create!(:name => "Quartal II", :specify_tones => "3 6 9 5 u", :rootless => true)
 
     c.chord_scales << ChordScale.new(:mode => Scale['Pentatonic'].modes[0], :offset => 0)
     c.chord_scales << ChordScale.new(:mode => Scale['Major'].modes[0], :strength => 2, :offset => 0)
@@ -91,6 +94,7 @@ ChordQuality.create!(:name => 'Minor', :code => 'MIN').tap do |q|
     c.voicings.create!(:name => "Shell II", :specify_tones => "u m3 m7 2", :octave_offset => -1)
     c.voicings.create!(:name => "Type I", :specify_tones => "m3 5 m7 9", :rootless => true)
     c.voicings.create!(:name => "Type II", :specify_tones => "m7 9 m3 5", :rootless => true)
+    c.voicings.create!(:name => "Quartal 1", :specify_tones => "m7 m3 6 9 5", :rootless => true)
 
     c.chord_scales << ChordScale.new(:mode => Scale['Major'].modes[1], :offset => -2)
     c.chord_scales << ChordScale.new(:mode => Scale['Major'].modes[5], :strength => 2, :offset => 3)
@@ -145,6 +149,7 @@ ChordQuality.create!(:name => 'Minor', :code => 'MIN').tap do |q|
     c.voicings.create!(:name => "Shell II", :specify_tones => "u m3 7 2", :octave_offset => -1)
     c.voicings.create!(:name => "Type I", :specify_tones => "m3 5 7 9", :rootless => true)
     c.voicings.create!(:name => "Type II", :specify_tones => "7 9 m3 5", :rootless => true)
+    c.voicings.create!(:name => "Quartal 1", :specify_tones => "7 b3 6 9 5", :rootless => true)
 
     c.chord_scales << ChordScale.new(:mode => Scale['Melodic Minor'].modes[0], :offset => 0)
   end
@@ -162,6 +167,7 @@ ChordQuality.create!(:name => 'Dominant', :code => 'DOM').tap do |q|
     c.voicings.create!(:name => "Shell II", :specify_tones => "u 3 b7 2", :octave_offset => -1)
     c.voicings.create!(:name => "Type I", :specify_tones => "3 5 m7 9", :rootless => true)
     c.voicings.create!(:name => "Type II", :specify_tones => "m7 9 3 5", :rootless => true)
+    c.voicings.create!(:name => "Quartal 1", :specify_tones => "b7 3 6 9 5", :rootless => true)
 
     c.chord_scales << ChordScale.new(:mode => Scale['Major'].modes[4], :offset => 5)
 
@@ -184,6 +190,7 @@ ChordQuality.create!(:name => 'Dominant', :code => 'DOM').tap do |q|
       cc.voicings.create!(:name => "Shell II", :specify_tones => "u 6 2 5", :octave_offset => -1)
       cc.voicings.create!(:name => "Type I", :specify_tones => "3 6 m7 9", :rootless => true)
       cc.voicings.create!(:name => "Type II", :specify_tones => "m7 9 3 6", :rootless => true)
+      cc.voicings.create!(:name => "Quartal 1", :specify_tones => "b7 3 6 9 5", :rootless => true)
 
       cc.chord_scales << ChordScale.new(:mode => Scale['Major'].modes[4], :offset => 5)
       cc.chord_scales << ChordScale.new(:mode => Scale['Major'].modes[0], :offset => 0)
