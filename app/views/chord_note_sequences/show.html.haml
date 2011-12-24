@@ -7,7 +7,7 @@
     %h2 Key:
     %ul
       - Key.primaries.each do |key|
-        %li= link_to_unless @key == key, key, [key, @chord_sequence]
+        %li{:class => ("current" if @key == key)}= link_to_unless @key == key, key, [key, @chord_sequence]
 
   %section#staff
     .staff.progression-staff{"data-staff" => @chord_note_sequence.octavized_notes.to_json, "data-staff-clef" => "treble"}

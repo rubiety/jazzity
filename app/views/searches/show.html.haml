@@ -3,9 +3,7 @@
 
   %ul.searchables-list
     - @results.each do |result|
-      - model = result.target
+      - model = result.respond_to?(:target) ? result.target : result
 
       %li.searchable
-        = "#{model.class.name.titleize}: "
-        = link_to model.title, path_to_searchable(result)
-
+        = render "searches/searchables/#{model.class.name.underscore}", :model => model, :result => result

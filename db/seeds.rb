@@ -52,3 +52,4 @@ end
 ).each {|f| require Rails.root.join("db/seeds/#{f}.rb") }
 
 Searchable.regenerate_all
+

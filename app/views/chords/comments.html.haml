@@ -5,7 +5,7 @@
     %h2 Key:
     %ul
       - Key.primaries.each do |key|
-        %li= link_to_unless @key == key, key, [key, @chord]
+        %li{:class => ("current" if @key == key)}= link_to_unless @key == key, key, [key, @chord]
 
   = render "chords/header"
   = render "chords/tabs"

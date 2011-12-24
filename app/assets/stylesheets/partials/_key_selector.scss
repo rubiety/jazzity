@@ -9,6 +9,12 @@
   ul {
     list-style-type: none;
     margin: 0;
-    li { padding: 5px; }
+
+    li {
+      padding: 5px;
+      &.current {
+        background: #FFF;
+      }
+    }
   }
 }

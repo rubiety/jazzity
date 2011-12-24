@@ -25,7 +25,7 @@ class Mode < ActiveRecord::Base
     searchables.create(:name => "#{name} Scale")
 
     Key.primaries.each do |key|
-      searchables.create(:name => "#{key.name} #{name} Scale", :key_name => key.name)
+      searchables.create(:name => "#{dup.in_key_of(key).mode_key} #{name} Scale", :key_name => key.name)
     end
   end
 

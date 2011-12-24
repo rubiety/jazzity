@@ -43,8 +43,6 @@ class Chord < ActiveRecord::Base
         searchables.create(:name => chord.notes.join(", "), :display_name => "#{chord.notes.join(', ')} (#{title})", :key_name => key.name, :priority => 2)
       end
     end
-  
-    modes.each(&:generate_searchables)
   end
 
   def to_s
