@@ -1,5 +1,5 @@
 class VoicingTone < Tone
-  belongs_to :voicing
+  belongs_to :voicing, :counter_cache => true
 
   acts_as_list :scope => :voicing
 

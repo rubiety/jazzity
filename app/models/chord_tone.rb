@@ -1,5 +1,5 @@
 class ChordTone < Tone
-  belongs_to :chord
+  belongs_to :chord, :counter_cache => true
 
   acts_as_list :scope => :chord
 

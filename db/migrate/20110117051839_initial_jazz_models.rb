@@ -11,6 +11,7 @@ class InitialJazzModels < ActiveRecord::Migration
       t.string :name
       t.text :synonyms
       t.text :information
+      t.integer :chord_tones_count, :default => 0
     end
 
     add_index :chords, :chord_quality_id
@@ -43,6 +44,7 @@ class InitialJazzModels < ActiveRecord::Migration
       t.string :name
       t.string :information
       t.integer :symmetry_index
+      t.integer :scale_tones_count, :default => 0
     end
 
     create_table :scale_tones do |t|
@@ -82,6 +84,7 @@ class InitialJazzModels < ActiveRecord::Migration
       t.string :name
       t.integer :octave_offset, :default => 0
       t.text :information
+      t.integer :voicing_tones_count, :default => 0
     end
 
     add_index :voicings, :chord_id
@@ -98,6 +101,17 @@ class InitialJazzModels < ActiveRecord::Migration
 
     add_index :voicing_tones, :voicing_id
     
+    create_table :voice_leadings do |t|
+      t.integer :from_voicing_id
+      t.integer :to_voicing_id
+      t.integer :offset
+      t.integer :changed_tones, :default => 0
+      t.timestamps
+    end
+
+    add_index :voice_leadings, :from_voicing_id
+    add_index :voice_leadings, :to_voicing_id
+
     create_table :forms do |t|
       t.string :name
       t.timestamps

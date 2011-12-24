@@ -1,5 +1,5 @@
 class ScaleTone < Tone
-  belongs_to :scale
+  belongs_to :scale, :counter_cache => true
 
   acts_as_list :scope => :scale
 
