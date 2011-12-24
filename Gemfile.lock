@@ -48,6 +48,9 @@ GEM
     acts_as_list (0.1.4)
     acts_as_tree (0.1.1)
     addressable (2.2.6)
+    amazon-ecs (2.2.3)
+      nokogiri (~> 1.4)
+      ruby-hmac (~> 0.3)
     ansi (1.4.1)
     archive-tar-minitar (0.5.2)
     arel (2.2.1)
@@ -305,6 +308,7 @@ GEM
       columnize (>= 0.3.1)
       linecache19 (>= 0.5.11)
       ruby-debug-base19 (>= 0.11.19)
+    ruby-hmac (0.4.0)
     ruby_core_source (0.1.5)
       archive-tar-minitar (>= 0.5.2)
     rubyzip (0.9.5)
@@ -367,6 +371,7 @@ DEPENDENCIES
   activeadmin
   acts_as_list
   acts_as_tree
+  amazon-ecs
   awesome_nested_set
   capistrano
   capybara

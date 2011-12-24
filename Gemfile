@@ -37,6 +37,7 @@ gem "RedCloth"
 gem "feedzirra"
 gem "twitter"
 gem "itunes"
+gem "amazon-ecs"
 
 # Authentication
 gem "devise"

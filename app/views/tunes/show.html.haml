@@ -32,5 +32,6 @@
         %ul
           - @tune.recordings.each do |recording|
             %li
+              = image_tag recording.artwork_url30
               = link_to "#{recording.artist_name} - #{recording.track_name}", recording.track_view_url
 
