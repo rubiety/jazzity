@@ -113,14 +113,19 @@ body.tunes {
       @include alpha;
     }
 
-    #tune-progressions, #tune-concepts {
+    #tune-relateables {
       @include columns(3);
       @include omega;
+    }
 
+    #tune-progressions, #tune-concepts, #tune-recordings {
       margin: 10px 0 10px 0;
       ul {
         @include no-bullets;
         margin: 0 0 10px 0;
+        li {
+          padding: 3px;
+        }
       }
     }
   }

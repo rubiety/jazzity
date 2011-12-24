@@ -5,24 +5,32 @@
   %section#tune-description
     = @tune.description
 
-  - if @tune.tune_progressions.exists?
-    %section#tune-progressions
-      %h2 Progressions Used in this Tune:
-      %ul
-        - @tune.tune_progressions.each do |tune_progression|
-          %li
-            = link_to tune_progression.progression, tune_progression.progression
-            - if tune_progression.comment?
-              %p= tune_progression.comment
+  %section#tune-relateables
+    - if @tune.tune_progressions.exists?
+      %section#tune-progressions
+        %h2 Progressions Used in this Tune:
+        %ul
+          - @tune.tune_progressions.each do |tune_progression|
+            %li
+              = link_to tune_progression.progression, tune_progression.progression
+              - if tune_progression.comment?
+                %p= tune_progression.comment
 
-  - if @tune.tune_concepts.exists?
-    %section#tune-concepts
-      %h2 Concepts Used in this Tune:
-      %ul
-        - @tune.tune_concepts.each do |tune_concept|
-          %li
-            = link_to tune_concept.concept, tune_concept.concept
-            - if tune_concept.comment?
-              %p= tune_concept.comment
+    - if @tune.tune_concepts.exists?
+      %section#tune-concepts
+        %h2 Concepts Used in this Tune:
+        %ul
+          - @tune.tune_concepts.each do |tune_concept|
+            %li
+              = link_to tune_concept.concept, tune_concept.concept
+              - if tune_concept.comment?
+                %p= tune_concept.comment
 
+    - if @tune.recordings.present?
+      %section#tune-recordings
+        %h2 Recordings on iTunes:
+        %ul
+          - @tune.recordings.each do |recording|
+            %li
+              = link_to "#{recording.artist_name} - #{recording.track_name}", recording.track_view_url
 

@@ -48,6 +48,13 @@ class Tune < ActiveRecord::Base
     Key[secondary_key_name]
   end
 
+  def recordings
+    @recordings ||= begin
+      require "itunes"
+      ITunes.music(name, :limit => 10).results
+    end
+  end
+
   def self.resolve(name)
     find_by_name(name)
   end

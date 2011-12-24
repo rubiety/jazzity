@@ -35,6 +35,7 @@ gem "carrierwave"
 # API Integration
 gem "feedzirra"
 gem "twitter"
+gem "itunes"
 
 # Authentication
 gem "devise"
