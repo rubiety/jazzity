@@ -97,62 +97,6 @@ Spare ribs flank jowl corned beef ham short ribs t-bone rump tenderloin, biltong
   tune.tune_concepts.create(:concept => Concept["Drop-2"], :start_measure => 8, :end_measure => 10)
 end
 
-Tune.create!(
-  :name             => "Have You Met Miss Jones",
-  :vehicle          => Vehicle["Standard"],
-  :meter            => Meter["4/4"],
-  :primary_key_name => "F",
-  :tonality         => "Major",
-  :concept          => "Instrumental",
-  :form             => Form["A-A-B-A"],
-  :form_length      => 32,
-  :form_lengths     => "8-8-8-8",
-  :starting_chord   => Chord["Fmaj7"],
-  :tempo            => 100,
-)
-
-Tune.create!(
-  :name             => "Blue Bossa",
-  :vehicle          => Vehicle["Bossa"],
-  :meter            => Meter["4/4"],
-  :primary_key_name => "F",
-  :tonality         => "Major",
-  :concept          => "Instrumental",
-  :form             => Form["A-A-B-A"],
-  :form_length      => 32,
-  :form_lengths     => "8-8-8-8",
-  :starting_chord   => Chord["Fmaj7"],
-  :tempo            => 100
-)
-
-Tune.create!(
-  :name             => "Blue Bossa",
-  :vehicle          => Vehicle["Bossa"],
-  :meter            => Meter["4/4"],
-  :primary_key_name => "D",
-  :tonality         => "Minor",
-  :concept          => "Instrumental",
-  :form             => Form["A-A-B-A"],
-  :form_length      => 32,
-  :form_lengths     => "8-8-8-8",
-  :starting_chord   => Chord["Cmin7"],
-  :tempo            => 100
-)
-
-Tune.create!(
-  :name             => "Up Jumped Spring",
-  :vehicle          => Vehicle["Bossa"],
-  :meter            => Meter["3/4"],
-  :primary_key_name => "Bb",
-  :tonality         => "Major",
-  :concept          => "Instrumental",
-  :form             => Form["A-A-B-A"],
-  :form_length      => 32,
-  :form_lengths     => "8-8-8-8",
-  :starting_chord   => Chord["Bbmaj7"],
-  :tempo            => 100
-)
-
 # # From "Learn Tunes" Book:
 # Tune.create!(
 #   :name             => "10/17/21",
