@@ -1,16 +1,3 @@
-%nav#filters
-  %article
-    %h2 By Form:
-    %ul
-      - Form.all.each do |form|
-        %li= link_to form, tunes_path(:form => form)
-
-  %article
-    %h2 By Meter:
-    %ul
-      - Meter.all.each do |meter|
-        %li= link_to meter, tunes_path(:meter => meter)
-
 %section#search
   = form_tag searches_path do
     = label_tag "Search Progressions: "
@@ -18,4 +5,8 @@
     = submit_tag "Go"
 
 %section#progressions
-  = render @progressions
+  - @progression_families.each_with_index do |family, i|
+    %article.progression-family{:style => ("clear: left" if i % 3 == 0)}
+      %h2= family
+      %ul.progressions-list
+        = render family.progressions

@@ -1,3 +1,4 @@
-%article[progression]
-  %h3= link_to progression, progression
-  %p= progression.summary
+%li[progression]
+  = link_to progression do
+    %h3= progression
+    %p= progression.summary

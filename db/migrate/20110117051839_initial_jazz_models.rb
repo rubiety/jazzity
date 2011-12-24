@@ -184,7 +184,13 @@ class InitialJazzModels < ActiveRecord::Migration
       t.timestamps
     end
 
+    create_table :progression_families do |t|
+      t.string :name
+      t.timestamps
+    end
+
     create_table :progressions do |t|
+      t.integer :progression_family_id
       t.string :name
       t.integer :variant_of_id
       t.integer :bars
@@ -197,6 +203,7 @@ class InitialJazzModels < ActiveRecord::Migration
     end
 
     add_index :progressions, :meter_id
+    add_index :progressions, :progression_family_id
     
     create_table :progression_components do |t|
       t.integer :progression_id

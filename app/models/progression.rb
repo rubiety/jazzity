@@ -8,6 +8,7 @@ class Progression < ActiveRecord::Base
   friendly_id :name, :use => :slugged
 
   has_many :searchables, :as => :model
+  belongs_to :progression_family
   belongs_to :meter
   belongs_to :form
   belongs_to :variant_of, :class_name => "Progression"

@@ -5,8 +5,11 @@ class ProgressionsController < ApplicationController
   respond_to :html, :json
 
   def index
-    @progressions = Progression.all
-    respond_with @progressions
+    @progression_families = ProgressionFamily.all
+
+    respond_with @progression_families do |format|
+      format.json { render :json => @progression_families.to_json(:include => [:progressions]) }
+    end
   end
 
   def show

@@ -285,11 +285,18 @@ ActiveRecord::Schema.define(:version => 20111126173837) do
   add_index "progression_components", ["position"], :name => "index_progression_components_on_position"
   add_index "progression_components", ["progression_id"], :name => "index_progression_components_on_progression_id"
 
+  create_table "progression_families", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "progressions", :force => true do |t|
+    t.integer  "progression_family_id"
     t.string   "name"
     t.integer  "variant_of_id"
     t.integer  "bars"
-    t.boolean  "full_tune",     :default => false
+    t.boolean  "full_tune",             :default => false
     t.integer  "meter_id"
     t.integer  "form_id"
     t.string   "summary"
@@ -300,6 +307,7 @@ ActiveRecord::Schema.define(:version => 20111126173837) do
   end
 
   add_index "progressions", ["meter_id"], :name => "index_progressions_on_meter_id"
+  add_index "progressions", ["progression_family_id"], :name => "index_progressions_on_progression_family_id"
   add_index "progressions", ["slug"], :name => "index_progressions_on_slug"
 
   create_table "scale_tones", :force => true do |t|
