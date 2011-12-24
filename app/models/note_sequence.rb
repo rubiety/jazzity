@@ -13,7 +13,7 @@ class NoteSequence
     @keys = []
     @invalid_keys = []
   
-    value = value.split(/,| /).map(&:strip) if value.instance_of?(String)
+    value = value.split(/ /).map(&:strip) if value.instance_of?(String)
     value.each do |key_name|
       key_object = Key[key_name]
     
@@ -30,11 +30,11 @@ class NoteSequence
   end
 
   def name
-    keys.join(", ")
+    keys.join(" ")
   end
 
   def to_param
-    keys.join(",")
+    keys.join(" ")
   end
 
   def title

@@ -13,7 +13,7 @@ class ChordNoteSequence
     @note_sequences = []
     @invalid_note_sequences = []
   
-    value = value.split(/\||;/).map(&:strip).reject(&:blank?) if value.instance_of?(String)
+    value = value.split(/,/).map(&:strip).reject(&:blank?) if value.instance_of?(String)
     value.each do |key_group|
       note_sequence = NoteSequence[key_group]
       
@@ -31,11 +31,11 @@ class ChordNoteSequence
   end
 
   def name
-    note_sequences.map(&:to_s).join(" | ")
+    note_sequences.map(&:to_s).join(", ")
   end
 
   def to_param
-    note_sequences.map(&:to_param).join("|")
+    note_sequences.map(&:to_param).join(",")
   end
 
   def title
