@@ -22,8 +22,8 @@ class Progression < ActiveRecord::Base
 
   validates :name, :presence => true
 
-  delegate :chord_voicings, :to => :chord_sequence
-  delegate :chord_voicing_notes, :to => :chord_sequence
+  delegate :chord_voicings, :to => :chord_sequence, :allow_nil => true
+  delegate :chord_voicing_notes, :to => :chord_sequence, :allow_nil => true
 
   define_searchables do
     searchables.create(:name => name)
@@ -48,7 +48,7 @@ class Progression < ActiveRecord::Base
   end
 
   def chord_sequence
-    ChordSequence[chords]
+    ChordSequence.new(chords)
   end
 
   def notes

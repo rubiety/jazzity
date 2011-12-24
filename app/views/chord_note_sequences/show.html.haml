@@ -12,8 +12,9 @@
   %section#staff
     .staff.progression-staff{"data-staff" => @chord_note_sequence.octavized_notes.to_json, "data-staff-clef" => "treble"}
 
-  %nav.related-progressions
-    %h3 Related Progressions:
-    %ul.progressions-list
-      = render @chord_note_sequence.progressions
+  -# TODO:
+    %nav.related-progressions
+      %h3 Related Progressions:
+      %ul.progressions-list
+        = render @chord_note_sequence.progressions
 
