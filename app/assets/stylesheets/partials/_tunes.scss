@@ -111,6 +111,10 @@ body.tunes {
     #tune-description {
       @include columns(9);
       @include alpha;
+      
+      p {
+        margin-bottom: 0.8em;
+      }
     }
 
     #tune-relateables {

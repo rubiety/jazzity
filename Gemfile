@@ -31,6 +31,7 @@ gem "timeline_fu"
 gem "kaminari"
 gem "mini_magick"
 gem "carrierwave"
+gem "RedCloth"
 
 # API Integration
 gem "feedzirra"
