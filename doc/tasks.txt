@@ -1,8 +1,9 @@
 = Functional Beta
 
-[ ] Voice Leading (Voicing Groups?) & Choose Voice Leading for Progressions, etc.
-[ ] Progression Build-Out & Expansion of VexFlow-JSON for better support, etc.
+[ ] Voice Leading (Voicing Families?) & Choose Voice Leading for Progressions, etc.
+[ ] Progression Build-Out (Progression Families), & Expansion of VexFlow-JSON for better support, etc.
 [ ] Add mode to disable double flats/sharps
+[ ] Better Octave Choosing... (octavized_notes implementation)
 [ ] Serialization of deeply-normalized data for performance?
 [ ] Jazz Discussion section
 

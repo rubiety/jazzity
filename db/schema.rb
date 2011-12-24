@@ -418,7 +418,7 @@ ActiveRecord::Schema.define(:version => 20111126173837) do
     t.integer  "from_voicing_id"
     t.integer  "to_voicing_id"
     t.integer  "offset"
-    t.integer  "changed_tones",   :default => 0
+    t.integer  "changed_tones",   :default => 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end

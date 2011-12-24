@@ -16,13 +16,13 @@ class ChordSequence
   
     value = value.split(/,| /).map(&:strip).reject(&:blank?) if value.instance_of?(String)
     value.each do |chord_name|
-      chord_object = Chord[chord_name]
+      chord_object = chord_name.is_a?(Chord) ? chord_name : Chord[chord_name]
     
       if chord_object.nil?
         @invalid_chords << chord_name
       else
         @chords << chord_object
-        @chord_names << chord_name
+        @chord_names << chord_name.to_s
       end
     end
   end
@@ -48,16 +48,20 @@ class ChordSequence
   end
 
   # TODO: Needs more refinement. For now just alternating Type I and Type II voicings, if they exist!
-  def chord_voicings
-    i = -1
-    chords.map do |chord|
-      i += 1
-      if voicing = chord.voicings.find_by_name(i % 2 == 0 ? "Type I" : "Type II")
-        voicing.in_key_of(chord.key)
-      else
-        voicing.first
-      end
-    end
+  # def chord_voicings
+  #   i = -1
+  #   chords.map do |chord|
+  #     i += 1
+  #     if voicing = chord.voicings.find_by_name(i % 2 == 0 ? "Type I" : "Type II")
+  #       voicing.in_key_of(chord.key)
+  #     else
+  #       voicing.first
+  #     end
+  #   end
+  # end
+  
+  def chord_voicings(options = {})
+    VoiceLeading.voicings_for_chords(chords, options)
   end
 
   def chord_voicing_notes(force_root = false)

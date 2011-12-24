@@ -22,6 +22,9 @@ class Progression < ActiveRecord::Base
 
   validates :name, :presence => true
 
+  delegate :chord_voicings, :to => :chord_sequence
+  delegate :chord_voicing_notes, :to => :chord_sequence
+
   define_searchables do
     searchables.create(:name => name)
   end
@@ -44,23 +47,8 @@ class Progression < ActiveRecord::Base
     end.flatten.compact
   end
 
-  # TODO: Needs more refinement. For now just alternating Type I and Type II voicings, if they exist!
-  def chord_voicings
-    i = -1
-    chords.map do |chord|
-      i += 1
-      if voicing = chord.voicings.find_by_name(i % 2 == 0 ? "Type I" : "Type II")
-        voicing.in_key_of(chord.key)
-      else
-        voicing.first
-      end
-    end
-  end
-
-  def chord_voicing_notes(force_root = false)
-    chord_voicings.map do |voicing|
-      force_root && voicing.rootless ? ["#{voicing.key}/3"] + voicing.octavized_notes : voicing.octavized_notes
-    end
+  def chord_sequence
+    ChordSequence[chords]
   end
 
   def notes

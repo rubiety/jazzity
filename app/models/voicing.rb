@@ -10,8 +10,8 @@ class Voicing < ActiveRecord::Base
 
   belongs_to :chord
   has_many :tones, :class_name => 'VoicingTone', :extend => Tones
-  has_many :voice_leadings_to, :class_name => "VoiceLeading", :foreign_key => "voicing_to_id"
-  has_many :voice_leadings_from, :class_name => "VoiceLeading", :foreign_key => "voicing_from_id"
+  has_many :voice_leadings_to, :class_name => "VoiceLeading", :foreign_key => "to_voicing_id"
+  has_many :voice_leadings_from, :class_name => "VoiceLeading", :foreign_key => "from_voicing_id"
 
   delegate :notes, :to => :tones
   delegate :octavized_notes, :to => :tones
@@ -28,6 +28,10 @@ class Voicing < ActiveRecord::Base
     else
       "#{name} Voicing"
     end
+  end
+
+  def chord_in_key
+    chord.in_key_of(key)
   end
 
   def specify_tones=(values)

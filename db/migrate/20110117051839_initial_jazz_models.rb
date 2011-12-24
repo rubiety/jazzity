@@ -105,7 +105,7 @@ class InitialJazzModels < ActiveRecord::Migration
       t.integer :from_voicing_id
       t.integer :to_voicing_id
       t.integer :offset
-      t.integer :changed_tones, :default => 0
+      t.integer :changed_tones, :default => 1
       t.timestamps
     end
 

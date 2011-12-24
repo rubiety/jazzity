@@ -46,6 +46,7 @@ end
   scales
   chords
   voicings
+  voice_leadings
   progressions
   tunes
 ).each {|f| require Rails.root.join("db/seeds/#{f}.rb") }

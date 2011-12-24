@@ -15,6 +15,16 @@
 
   .staff.progression-staff{"data-staff" => @progression.staff_notes.to_json, "data-clef" => "treble,bass", "height" => 160}
 
+  %section#voice-leading
+    %h2 Voice Leading:
+    %ul
+      - @progression.chord_voicings.each_with_index do |voicing, i|
+        %li
+          = voicing.chord_in_key.short_name
+          = "("
+          = select_tag("voicing_ids[#{i}]", options_from_collection_for_select(voicing.chord.voicings, :id, :name, voicing.id))
+          = ")"
+
   - if @progression.tunes_based_on.exists?
     %section#tunes-based-on
       %h2 Tunes Based on this Progression:
