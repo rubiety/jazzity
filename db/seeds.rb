@@ -17,6 +17,7 @@
   tune_concepts
   instruments
   musicians
+  progression_families
   progressions
   progression_components
   concepts
