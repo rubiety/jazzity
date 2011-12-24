@@ -46,69 +46,120 @@ class Key
     end
   end
 
-  ALL = [
-    Key.new(:name => 'C', :long_name => 'C', :index => 0, :letter_index => 0, :cycle_index => 0),
-    Key.new(:name => 'B#', :long_name => 'B Sharp', :index => 0, :letter_index => 6, :cycle_index => 0, :primary => false),
-    Key.new(:name => 'Dbb', :long_name => 'D Double-Flat', :index => 0, :letter_index => 1, :cycle_index => 0, :primary => false),
-
-    Key.new(:name => 'F', :long_name => 'F', :index => 5, :letter_index => 3, :cycle_index => 1),
-    Key.new(:name => 'E#', :long_name => 'E Sharp', :index => 5, :letter_index => 2, :cycle_index => 1, :primary => false),
-    Key.new(:name => 'Gbb', :long_name => 'G Double-Flat', :index => 5, :letter_index => 4, :cycle_index => 1, :primary => false),
-
-    Key.new(:name => 'Bb', :long_name => 'B Flat', :index => 10, :letter_index => 6, :cycle_index => 2),
-    Key.new(:name => 'A#', :long_name => 'A Sharp', :index => 10, :letter_index => 5, :cycle_index => 2, :primary => false),
-    Key.new(:name => 'Cbb', :long_name => 'C Double-Flat', :index => 10, :letter_index => 0, :cycle_index => 2, :primary => false),
-
-    Key.new(:name => 'Eb', :long_name => 'E Flat', :index => 3, :letter_index => 2, :cycle_index => 3),
-    Key.new(:name => 'D#', :long_name => 'D Sharp', :index => 3, :letter_index => 1, :cycle_index => 3, :primary => false),
-    Key.new(:name => 'Fbb', :long_name => 'F Double Flat', :index => 3, :letter_index => 3, :cycle_index => 3, :primary => false),
-
-    Key.new(:name => 'Ab', :long_name => 'A Flat', :index => 8, :letter_index => 5, :cycle_index => 4),
-    Key.new(:name => 'G#', :long_name => 'G Sharp', :index => 8, :letter_index => 4, :cycle_index => 4, :primary => false),
-
-    Key.new(:name => 'Db', :long_name => 'D Flat', :index => 1, :letter_index => 1, :cycle_index => 5),
-    Key.new(:name => 'C#', :long_name => 'C Sharp', :index => 1, :letter_index => 0, :cycle_index => 5, :primary => false),
-    Key.new(:name => 'B##', :long_name => 'B Double-Sharp', :index => 1, :letter_index => 6, :cycle_index => 5, :primary => false),
-
-    Key.new(:name => 'Gb', :long_name => 'G Flat', :index => 6, :letter_index => 4, :cycle_index => 6),
-    Key.new(:name => 'F#', :long_name => 'F Sharp', :index => 6, :letter_index => 3, :cycle_index => 6, :primary => false),
-    Key.new(:name => 'E##', :long_name => 'E Double-Sharp', :index => 6, :letter_index => 2, :cycle_index => 6, :primary => false),
-
-    Key.new(:name => 'B', :long_name => 'B', :index => 11, :letter_index => 6, :cycle_index => 7),
-    Key.new(:name => 'Cb', :long_name => 'C Flat', :index => 11, :letter_index => 0, :cycle_index => 7, :primary => false),
-    Key.new(:name => 'A##', :long_name => 'A Double-Sharp', :index => 11, :letter_index => 5, :cycle_index => 7, :primary => false),
-
-    Key.new(:name => 'E', :long_name => 'E', :index => 4, :letter_index => 2, :cycle_index => 8),
-    Key.new(:name => 'Fb', :long_name => 'F Flat', :index => 4, :letter_index => 3, :cycle_index => 8, :primary => false),
-    Key.new(:name => 'D##', :long_name => 'D Double-Sharp', :index => 4, :letter_index => 1, :cycle_index => 8, :primary => false),
-
-    Key.new(:name => 'A', :long_name => 'A', :index => 9, :letter_index => 5, :cycle_index => 9),
-    Key.new(:name => 'Bbb', :long_name => 'B Double-Flat', :index => 9, :letter_index => 6, :cycle_index => 9, :primary => false),
-    Key.new(:name => 'G##', :long_name => 'G Double-Sharp', :index => 9, :letter_index => 4, :cycle_index => 9, :primary => false),
-
-    Key.new(:name => 'D', :long_name => 'D', :index => 2, :letter_index => 1, :cycle_index => 10),
-    Key.new(:name => 'C##', :long_name => 'C Double-Sharp', :index => 2, :letter_index => 0, :cycle_index => 10, :primary => false),
-    Key.new(:name => 'Ebb', :long_name => 'E Double-Flat', :index => 2, :letter_index => 2, :cycle_index => 10, :primary => false),
-
-    Key.new(:name => 'G', :long_name => 'G', :index => 7, :letter_index => 4, :cycle_index => 11),
-    Key.new(:name => 'F##', :long_name => 'F Double-Sharp', :index => 7, :letter_index => 3, :cycle_index => 11, :primary => false),
-    Key.new(:name => 'Abb', :long_name => 'A Double-Flat', :index => 7, :letter_index => 5, :cycle_index => 11, :primary => false)
-  ]
-
   def self.all
-    ALL
+    [
+      Key.new(:name => 'C', :long_name => 'C', :index => 0, :letter_index => 0, :cycle_index => 0),
+      Key.new(:name => 'B#', :long_name => 'B Sharp', :index => 0, :letter_index => 6, :cycle_index => 0, :primary => false),
+      Key.new(:name => 'Dbb', :long_name => 'D Double-Flat', :index => 0, :letter_index => 1, :cycle_index => 0, :primary => false),
+
+      Key.new(:name => 'F', :long_name => 'F', :index => 5, :letter_index => 3, :cycle_index => 1),
+      Key.new(:name => 'E#', :long_name => 'E Sharp', :index => 5, :letter_index => 2, :cycle_index => 1, :primary => false),
+      Key.new(:name => 'Gbb', :long_name => 'G Double-Flat', :index => 5, :letter_index => 4, :cycle_index => 1, :primary => false),
+
+      Key.new(:name => 'Bb', :long_name => 'B Flat', :index => 10, :letter_index => 6, :cycle_index => 2),
+      Key.new(:name => 'A#', :long_name => 'A Sharp', :index => 10, :letter_index => 5, :cycle_index => 2, :primary => false),
+      Key.new(:name => 'Cbb', :long_name => 'C Double-Flat', :index => 10, :letter_index => 0, :cycle_index => 2, :primary => false),
+
+      Key.new(:name => 'Eb', :long_name => 'E Flat', :index => 3, :letter_index => 2, :cycle_index => 3),
+      Key.new(:name => 'D#', :long_name => 'D Sharp', :index => 3, :letter_index => 1, :cycle_index => 3, :primary => false),
+      Key.new(:name => 'Fbb', :long_name => 'F Double Flat', :index => 3, :letter_index => 3, :cycle_index => 3, :primary => false),
+
+      Key.new(:name => 'Ab', :long_name => 'A Flat', :index => 8, :letter_index => 5, :cycle_index => 4),
+      Key.new(:name => 'G#', :long_name => 'G Sharp', :index => 8, :letter_index => 4, :cycle_index => 4, :primary => false),
+
+      Key.new(:name => 'Db', :long_name => 'D Flat', :index => 1, :letter_index => 1, :cycle_index => 5),
+      Key.new(:name => 'C#', :long_name => 'C Sharp', :index => 1, :letter_index => 0, :cycle_index => 5, :primary => false),
+      Key.new(:name => 'B##', :long_name => 'B Double-Sharp', :index => 1, :letter_index => 6, :cycle_index => 5, :primary => false),
+
+      Key.new(:name => 'Gb', :long_name => 'G Flat', :index => 6, :letter_index => 4, :cycle_index => 6),
+      Key.new(:name => 'F#', :long_name => 'F Sharp', :index => 6, :letter_index => 3, :cycle_index => 6, :primary => false),
+      Key.new(:name => 'E##', :long_name => 'E Double-Sharp', :index => 6, :letter_index => 2, :cycle_index => 6, :primary => false),
+
+      Key.new(:name => 'B', :long_name => 'B', :index => 11, :letter_index => 6, :cycle_index => 7),
+      Key.new(:name => 'Cb', :long_name => 'C Flat', :index => 11, :letter_index => 0, :cycle_index => 7, :primary => false),
+      Key.new(:name => 'A##', :long_name => 'A Double-Sharp', :index => 11, :letter_index => 5, :cycle_index => 7, :primary => false),
+
+      Key.new(:name => 'E', :long_name => 'E', :index => 4, :letter_index => 2, :cycle_index => 8),
+      Key.new(:name => 'Fb', :long_name => 'F Flat', :index => 4, :letter_index => 3, :cycle_index => 8, :primary => false),
+      Key.new(:name => 'D##', :long_name => 'D Double-Sharp', :index => 4, :letter_index => 1, :cycle_index => 8, :primary => false),
+
+      Key.new(:name => 'A', :long_name => 'A', :index => 9, :letter_index => 5, :cycle_index => 9),
+      Key.new(:name => 'Bbb', :long_name => 'B Double-Flat', :index => 9, :letter_index => 6, :cycle_index => 9, :primary => false),
+      Key.new(:name => 'G##', :long_name => 'G Double-Sharp', :index => 9, :letter_index => 4, :cycle_index => 9, :primary => false),
+
+      Key.new(:name => 'D', :long_name => 'D', :index => 2, :letter_index => 1, :cycle_index => 10),
+      Key.new(:name => 'C##', :long_name => 'C Double-Sharp', :index => 2, :letter_index => 0, :cycle_index => 10, :primary => false),
+      Key.new(:name => 'Ebb', :long_name => 'E Double-Flat', :index => 2, :letter_index => 2, :cycle_index => 10, :primary => false),
+
+      Key.new(:name => 'G', :long_name => 'G', :index => 7, :letter_index => 4, :cycle_index => 11),
+      Key.new(:name => 'F##', :long_name => 'F Double-Sharp', :index => 7, :letter_index => 3, :cycle_index => 11, :primary => false),
+      Key.new(:name => 'Abb', :long_name => 'A Double-Flat', :index => 7, :letter_index => 5, :cycle_index => 11, :primary => false)
+    ]
   end
 
+  def self.all_without_doubles
+    [
+      Key.new(:name => 'C', :long_name => 'C', :index => 0, :letter_index => 0, :cycle_index => 0),
+      Key.new(:name => 'B#', :long_name => 'B Sharp', :index => 0, :letter_index => 6, :cycle_index => 0, :primary => false),
+      Key.new(:name => 'C', :long_name => 'C', :index => 0, :letter_index => 1, :cycle_index => 0, :primary => false),
+
+      Key.new(:name => 'F', :long_name => 'F', :index => 5, :letter_index => 3, :cycle_index => 1),
+      Key.new(:name => 'E#', :long_name => 'E Sharp', :index => 5, :letter_index => 2, :cycle_index => 1, :primary => false),
+      Key.new(:name => 'F', :long_name => 'F', :index => 5, :letter_index => 4, :cycle_index => 1, :primary => false),
+
+      Key.new(:name => 'Bb', :long_name => 'B Flat', :index => 10, :letter_index => 6, :cycle_index => 2),
+      Key.new(:name => 'A#', :long_name => 'A Sharp', :index => 10, :letter_index => 5, :cycle_index => 2, :primary => false),
+      Key.new(:name => 'Bb', :long_name => 'B Flat', :index => 10, :letter_index => 0, :cycle_index => 2, :primary => false),
+
+      Key.new(:name => 'Eb', :long_name => 'E Flat', :index => 3, :letter_index => 2, :cycle_index => 3),
+      Key.new(:name => 'D#', :long_name => 'D Sharp', :index => 3, :letter_index => 1, :cycle_index => 3, :primary => false),
+      Key.new(:name => 'Eb', :long_name => 'E Flat', :index => 3, :letter_index => 3, :cycle_index => 3, :primary => false),
+
+      Key.new(:name => 'Ab', :long_name => 'A Flat', :index => 8, :letter_index => 5, :cycle_index => 4),
+      Key.new(:name => 'G#', :long_name => 'G Sharp', :index => 8, :letter_index => 4, :cycle_index => 4, :primary => false),
+
+      Key.new(:name => 'Db', :long_name => 'D Flat', :index => 1, :letter_index => 1, :cycle_index => 5),
+      Key.new(:name => 'C#', :long_name => 'C Sharp', :index => 1, :letter_index => 0, :cycle_index => 5, :primary => false),
+      Key.new(:name => 'C#', :long_name => 'C Sharp', :index => 1, :letter_index => 6, :cycle_index => 5, :primary => false),
+
+      Key.new(:name => 'Gb', :long_name => 'G Flat', :index => 6, :letter_index => 4, :cycle_index => 6),
+      Key.new(:name => 'F#', :long_name => 'F Sharp', :index => 6, :letter_index => 3, :cycle_index => 6, :primary => false),
+      Key.new(:name => 'F#', :long_name => 'F Sharp', :index => 6, :letter_index => 2, :cycle_index => 6, :primary => false),
+
+      Key.new(:name => 'B', :long_name => 'B', :index => 11, :letter_index => 6, :cycle_index => 7),
+      Key.new(:name => 'Cb', :long_name => 'C Flat', :index => 11, :letter_index => 0, :cycle_index => 7, :primary => false),
+      Key.new(:name => 'B', :long_name => 'B', :index => 11, :letter_index => 5, :cycle_index => 7, :primary => false),
+
+      Key.new(:name => 'E', :long_name => 'E', :index => 4, :letter_index => 2, :cycle_index => 8),
+      Key.new(:name => 'Fb', :long_name => 'F Flat', :index => 4, :letter_index => 3, :cycle_index => 8, :primary => false),
+      Key.new(:name => 'E', :long_name => 'E', :index => 4, :letter_index => 1, :cycle_index => 8, :primary => false),
+
+      Key.new(:name => 'A', :long_name => 'A', :index => 9, :letter_index => 5, :cycle_index => 9),
+      Key.new(:name => 'A', :long_name => 'A', :index => 9, :letter_index => 6, :cycle_index => 9, :primary => false),
+      Key.new(:name => 'A', :long_name => 'A', :index => 9, :letter_index => 4, :cycle_index => 9, :primary => false),
+
+      Key.new(:name => 'D', :long_name => 'D', :index => 2, :letter_index => 1, :cycle_index => 10),
+      Key.new(:name => 'D', :long_name => 'D', :index => 2, :letter_index => 0, :cycle_index => 10, :primary => false),
+      Key.new(:name => 'D', :long_name => 'D', :index => 2, :letter_index => 2, :cycle_index => 10, :primary => false),
+
+      Key.new(:name => 'G', :long_name => 'G', :index => 7, :letter_index => 4, :cycle_index => 11),
+      Key.new(:name => 'G', :long_name => 'G', :index => 7, :letter_index => 3, :cycle_index => 11, :primary => false),
+      Key.new(:name => 'G', :long_name => 'G', :index => 7, :letter_index => 5, :cycle_index => 11, :primary => false)
+    ]
+  end
+
+
+
   def self.primaries
-    ALL.select(&:primary)
+    all_without_doubles.select(&:primary)
   end
 
   def self.from_index(value, preferred_letter = nil)
-    ALL.find {|k| k.index == value && (preferred_letter.nil? || k.letter_index == preferred_letter)}
+    all_without_doubles.find {|k| k.index == value && (preferred_letter.nil? || k.letter_index == preferred_letter)}
   end
 
   def self.from_name(value)
-    ALL.find {|k| k.name == value}
+    all_without_doubles.find {|k| k.name == value}
   end
 
   def self.[](value)
