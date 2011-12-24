@@ -16,6 +16,8 @@ class Chord < ActiveRecord::Base
   has_many :modes, :through => :chord_scales
   has_many :tones, :class_name => 'ChordTone', :extend => Tones
   has_many :voicings
+  has_many :voice_leadings_to, :through => :voicings
+  has_many :voice_leadings_from, :through => :voicings
 
   delegate :notes, :to => :tones
   delegate :octavized_notes, :to => :tones

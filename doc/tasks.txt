@@ -1,8 +1,10 @@
 = Functional Beta
 
 [ ] Voice Leading (Voicing Groups?) & Choose Voice Leading for Progressions, etc.
-[ ] Progression Build-Out
+[ ] Progression Build-Out & Expansion of VexFlow-JSON for better support, etc.
 [ ] Add mode to disable double flats/sharps
+[ ] Serialization of deeply-normalized data for performance?
+[ ] Jazz Discussion section
 
 [ ] Musician Tune Liking/Management
 [ ] Musician Favorite Musician Liking/Management
@@ -10,13 +12,9 @@
 [ ] Featured Tunes Home Page & Filtering/Searching
 [ ] Featured Musicians Home Page & Filtering/Searching
 
-[ ] Replace Staff Views with vexflow-json & jquery-vexflow
-
 [ ] Rdio/Pandora/Spotify Integration!
 
 [ ] Gollum Wiki for Objects?
-[ ] vexflow-json Abstraction Library
-[ ] Auto-Detect Comments/Wiki with Staff JSON and render inline with vexflow-json
 
 [ ] Albums/Recordings Implementation (iTunes Affiliates) and Relationships to:
     Tune, Musician, Concept, Progression, Voicing
