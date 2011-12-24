@@ -108,8 +108,15 @@ body.tunes {
       @include full;
     }
 
+    #tune-description {
+      @include columns(9);
+      @include alpha;
+    }
 
     #tune-progressions, #tune-concepts {
+      @include columns(3);
+      @include omega;
+
       margin: 10px 0 10px 0;
       ul {
         @include no-bullets;

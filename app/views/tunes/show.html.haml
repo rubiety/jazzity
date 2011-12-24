@@ -2,6 +2,9 @@
   = render "tunes/header"
   = render "tunes/tabs"
 
+  %section#tune-description
+    = @tune.description
+
   - if @tune.tune_progressions.exists?
     %section#tune-progressions
       %h2 Progressions Used in this Tune:

@@ -26,13 +26,22 @@ Tune.create!(
   :primary_key_name => "G",
   :tonality         => "Minor",
   :concept          => "Instrumental",
-  :form             => Form["A-A-B-A"],
+  :form             => Form["A-A-B-C"],
   :form_length      => 32,
   :form_lengths     => "8-8-8-8",
   :starting_chord   => Chord["Cmaj7"],
   :tempo            => 100,
-  :aebersold_playalong_number => 54
-)
+  :aebersold_playalong_number => 54,
+  :description      => <<-END
+    Spare ribs flank jowl corned beef ham short ribs t-bone rump tenderloin, biltong ground round beef ribs. Rump salami meatball, pastrami shankle ham hock beef ribs ribeye. Rump tri-tip shoulder ball tip, chicken pastrami salami capicola pork loin fatback pig. Biltong frankfurter spare ribs salami. Short loin brisket andouille chuck. Filet mignon short loin turducken jowl chuck, ball tip drumstick pig hamburger rump meatloaf. Flank corned beef frankfurter hamburger brisket short loin.
+
+    Spare ribs flank jowl corned beef ham short ribs t-bone rump tenderloin, biltong ground round beef ribs. Rump salami meatball, pastrami shankle ham hock beef ribs ribeye. Rump tri-tip shoulder ball tip, chicken pastrami salami capicola pork loin fatback pig. Biltong frankfurter spare ribs salami. Short loin brisket andouille chuck. Filet mignon short loin turducken jowl chuck, ball tip drumstick pig hamburger rump meatloaf. Flank corned beef frankfurter hamburger brisket short loin.
+  END
+).tap do |tune|
+  tune.tune_progressions.create(:progression => Progression["Major ii-V-I"])
+  tune.tune_progressions.create(:progression => Progression["Major iii-iv-ii-V"])
+  tune.tune_concepts.create(:concept => Concept["Drop-2"], :start_measure => 8, :end_measure => 10)
+end
 
 Tune.create!(
   :name             => "There Will Never Be Another You",
@@ -45,8 +54,17 @@ Tune.create!(
   :form_length      => 32,
   :form_lengths     => "8-8-8-8",
   :starting_chord   => Chord["Ebmaj7"],
-  :tempo            => 100
-)
+  :tempo            => 100,
+  :description      => <<-END
+    Spare ribs flank jowl corned beef ham short ribs t-bone rump tenderloin, biltong ground round beef ribs. Rump salami meatball, pastrami shankle ham hock beef ribs ribeye. Rump tri-tip shoulder ball tip, chicken pastrami salami capicola pork loin fatback pig. Biltong frankfurter spare ribs salami. Short loin brisket andouille chuck. Filet mignon short loin turducken jowl chuck, ball tip drumstick pig hamburger rump meatloaf. Flank corned beef frankfurter hamburger brisket short loin.
+
+    Spare ribs flank jowl corned beef ham short ribs t-bone rump tenderloin, biltong ground round beef ribs. Rump salami meatball, pastrami shankle ham hock beef ribs ribeye. Rump tri-tip shoulder ball tip, chicken pastrami salami capicola pork loin fatback pig. Biltong frankfurter spare ribs salami. Short loin brisket andouille chuck. Filet mignon short loin turducken jowl chuck, ball tip drumstick pig hamburger rump meatloaf. Flank corned beef frankfurter hamburger brisket short loin.
+  END
+).tap do |tune|
+  tune.tune_progressions.create(:progression => Progression["Major ii-V-I"])
+  tune.tune_progressions.create(:progression => Progression["Major iii-iv-ii-V"])
+  tune.tune_concepts.create(:concept => Concept["Drop-2"], :start_measure => 8, :end_measure => 10)
+end
 
 Tune.create!(
   :name             => "Alone Together",
@@ -59,8 +77,16 @@ Tune.create!(
   :form_length      => 32,
   :form_lengths     => "8-8-8-8",
   :starting_chord   => Chord["Dmin7"],
-  :tempo            => 100
-)
+  :tempo            => 100,
+  :description      => <<-END
+    Spare ribs flank jowl corned beef ham short ribs t-bone rump tenderloin, biltong ground round beef ribs. Rump salami meatball, pastrami shankle ham hock beef ribs ribeye. Rump tri-tip shoulder ball tip, chicken pastrami salami capicola pork loin fatback pig. Biltong frankfurter spare ribs salami. Short loin brisket andouille chuck. Filet mignon short loin turducken jowl chuck, ball tip drumstick pig hamburger rump meatloaf. Flank corned beef frankfurter hamburger brisket short loin.
+
+    Spare ribs flank jowl corned beef ham short ribs t-bone rump tenderloin, biltong ground round beef ribs. Rump salami meatball, pastrami shankle ham hock beef ribs ribeye. Rump tri-tip shoulder ball tip, chicken pastrami salami capicola pork loin fatback pig. Biltong frankfurter spare ribs salami. Short loin brisket andouille chuck. Filet mignon short loin turducken jowl chuck, ball tip drumstick pig hamburger rump meatloaf. Flank corned beef frankfurter hamburger brisket short loin.
+  END
+).tap do |tune|
+  tune.tune_progressions.create(:progression => Progression["Major ii-V-I"])
+  tune.tune_concepts.create(:concept => Concept["Drop-2"], :start_measure => 8, :end_measure => 10)
+end
 
 Tune.create!(
   :name             => "Have You Met Miss Jones",
@@ -73,7 +99,7 @@ Tune.create!(
   :form_length      => 32,
   :form_lengths     => "8-8-8-8",
   :starting_chord   => Chord["Fmaj7"],
-  :tempo            => 100
+  :tempo            => 100,
 )
 
 Tune.create!(

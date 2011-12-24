@@ -398,6 +398,7 @@ ActiveRecord::Schema.define(:version => 20111126173837) do
     t.integer  "contrafact_of_tune_id"
     t.integer  "tempo"
     t.integer  "aebersold_playalong_number"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"

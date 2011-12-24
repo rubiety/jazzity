@@ -135,6 +135,7 @@ class InitialJazzModels < ActiveRecord::Migration
       t.integer :contrafact_of_tune_id
       t.integer :tempo
       t.integer :aebersold_playalong_number
+      t.text :description
       t.timestamps
     end
 
