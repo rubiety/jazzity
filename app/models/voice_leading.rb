@@ -12,7 +12,9 @@ class VoiceLeading < ActiveRecord::Base
   end
 
   def self.define(offset, from_voicing, to_voicing, changed_tones = nil)
-    create!(:offset => offset, :from_voicing => from_voicing, :to_voicing => to_voicing, :changed_tones => changed_tones || 1)
+    if from_voicing and to_voicing
+      create!(:offset => offset, :from_voicing => from_voicing, :to_voicing => to_voicing, :changed_tones => changed_tones || 1)
+    end
   end
 
   # Determines a good set of voicings using voice leading rules for the given set of chords
