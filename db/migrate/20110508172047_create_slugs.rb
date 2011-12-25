@@ -1,7 +1,7 @@
 class CreateSlugs < ActiveRecord::Migration
   TABLES = [
     :chord_qualities, :chords, :concepts, :forms, :instruments, :meters, :modes,
-    :musicians, :progressions, :scales, :tunes, :vehicles, :voicings
+    :musicians, :progression_families, :progressions, :scales, :tunes, :vehicles, :voicings, :voicing_families
   ]
   
   def change

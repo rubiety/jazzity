@@ -5,6 +5,16 @@ class VoiceLeading < ActiveRecord::Base
   scope :from_chord, lambda {|c| joins("INNER JOIN voicings AS from_voicings ON from_voicings.id = voice_leadings.from_voicing_id").where(:from_voicings => {:chord_id => c.id}) }
   scope :to_chord,   lambda {|c| joins("INNER JOIN voicings AS to_voicings ON to_voicings.id = voice_leadings.to_voicing_id").where(:to_voicings => {:chord_id => c.id}) }
 
+  def self.define_all(leadings)
+    leadings.each do |leading|
+      define(leading[0], leading[1], leading[2], leading[3])
+    end
+  end
+
+  def self.define(offset, from_voicing, to_voicing, changed_tones = nil)
+    create!(:offset => offset, :from_voicing => from_voicing, :to_voicing => to_voicing, :changed_tones => changed_tones || 1)
+  end
+
   # Determines a good set of voicings using voice leading rules for the given set of chords
   # TODO: This needs major refinement - tree traversal algorithms are necessary here.
   # TODO: Currently the randomizes the voice leadings it chooses, probably not ideal.

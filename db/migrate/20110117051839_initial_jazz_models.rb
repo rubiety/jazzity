@@ -12,6 +12,7 @@ class InitialJazzModels < ActiveRecord::Migration
       t.text :synonyms
       t.text :information
       t.integer :chord_tones_count, :default => 0
+      t.timestamps
     end
 
     add_index :chords, :chord_quality_id
@@ -23,6 +24,7 @@ class InitialJazzModels < ActiveRecord::Migration
       t.boolean :case_sensitive, :default => false
       t.integer :strength
       t.boolean :primary, :default => false
+      t.timestamps
     end
 
     add_index :chord_symbols, :chord_id
@@ -45,6 +47,7 @@ class InitialJazzModels < ActiveRecord::Migration
       t.string :information
       t.integer :symmetry_index
       t.integer :scale_tones_count, :default => 0
+      t.timestamps
     end
 
     create_table :scale_tones do |t|
@@ -61,6 +64,7 @@ class InitialJazzModels < ActiveRecord::Migration
       t.text :synonyms
       t.integer :dissonance
       t.text :information
+      t.timestamps
     end
 
     add_index :modes, :scale_id
@@ -72,12 +76,21 @@ class InitialJazzModels < ActiveRecord::Migration
       t.integer :offset, :default => 0, :null => false
       t.integer :strength, :default => 1
       t.text :information
+      t.timestamps
     end
 
     add_index :chord_scales, :chord_id
     add_index :chord_scales, :mode_id
+
+    create_table :voicing_families do |t|
+      t.string :name
+      t.integer :voicing_tones_count, :default => 0
+      t.boolean :rootless, :default => false
+      t.timestamps
+    end
     
     create_table :voicings do |t|
+      t.references :voicing_family
       t.references :chord
       t.integer :parent_id
       t.boolean :rootless, :default => false
@@ -85,8 +98,12 @@ class InitialJazzModels < ActiveRecord::Migration
       t.integer :octave_offset, :default => 0
       t.text :information
       t.integer :voicing_tones_count, :default => 0
+      t.integer :upper_structure_chord_id
+      t.integer :upper_structure_chord_offset, :default => 0
+      t.timestamps
     end
 
+    add_index :voicings, :voicing_family_id
     add_index :voicings, :chord_id
     
     create_table :voicing_tones do |t|

@@ -55,22 +55,26 @@ ActiveRecord::Schema.define(:version => 20111126173837) do
   add_index "chord_qualities", ["slug"], :name => "index_chord_qualities_on_slug"
 
   create_table "chord_scales", :force => true do |t|
-    t.integer "chord_id"
-    t.integer "mode_id"
-    t.integer "offset",      :default => 0, :null => false
-    t.integer "strength",    :default => 1
-    t.text    "information"
+    t.integer  "chord_id"
+    t.integer  "mode_id"
+    t.integer  "offset",      :default => 0, :null => false
+    t.integer  "strength",    :default => 1
+    t.text     "information"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "chord_scales", ["chord_id"], :name => "index_chord_scales_on_chord_id"
   add_index "chord_scales", ["mode_id"], :name => "index_chord_scales_on_mode_id"
 
   create_table "chord_symbols", :force => true do |t|
-    t.integer "chord_id"
-    t.string  "name"
-    t.boolean "case_sensitive", :default => false
-    t.integer "strength"
-    t.boolean "primary",        :default => false
+    t.integer  "chord_id"
+    t.string   "name"
+    t.boolean  "case_sensitive", :default => false
+    t.integer  "strength"
+    t.boolean  "primary",        :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "chord_symbols", ["chord_id"], :name => "index_chord_symbols_on_chord_id"
@@ -89,13 +93,15 @@ ActiveRecord::Schema.define(:version => 20111126173837) do
   add_index "chord_tones", ["chord_id"], :name => "index_chord_tones_on_chord_id"
 
   create_table "chords", :force => true do |t|
-    t.integer "chord_quality_id"
-    t.integer "parent_id"
-    t.string  "name"
-    t.text    "synonyms"
-    t.text    "information"
-    t.integer "chord_tones_count", :default => 0
-    t.string  "slug"
+    t.integer  "chord_quality_id"
+    t.integer  "parent_id"
+    t.string   "name"
+    t.text     "synonyms"
+    t.text     "information"
+    t.integer  "chord_tones_count", :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "slug"
   end
 
   add_index "chords", ["chord_quality_id"], :name => "index_chords_on_chord_quality_id"
@@ -159,13 +165,15 @@ ActiveRecord::Schema.define(:version => 20111126173837) do
   add_index "meters", ["slug"], :name => "index_meters_on_slug"
 
   create_table "modes", :force => true do |t|
-    t.integer "scale_id"
-    t.integer "mode"
-    t.string  "name"
-    t.text    "synonyms"
-    t.integer "dissonance"
-    t.text    "information"
-    t.string  "slug"
+    t.integer  "scale_id"
+    t.integer  "mode"
+    t.string   "name"
+    t.text     "synonyms"
+    t.integer  "dissonance"
+    t.text     "information"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "slug"
   end
 
   add_index "modes", ["mode"], :name => "index_modes_on_mode"
@@ -289,7 +297,10 @@ ActiveRecord::Schema.define(:version => 20111126173837) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
+
+  add_index "progression_families", ["slug"], :name => "index_progression_families_on_slug"
 
   create_table "progressions", :force => true do |t|
     t.integer  "progression_family_id"
@@ -318,11 +329,13 @@ ActiveRecord::Schema.define(:version => 20111126173837) do
   end
 
   create_table "scales", :force => true do |t|
-    t.string  "name"
-    t.string  "information"
-    t.integer "symmetry_index"
-    t.integer "scale_tones_count", :default => 0
-    t.string  "slug"
+    t.string   "name"
+    t.string   "information"
+    t.integer  "symmetry_index"
+    t.integer  "scale_tones_count", :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "slug"
   end
 
   add_index "scales", ["slug"], :name => "index_scales_on_slug"
@@ -435,6 +448,17 @@ ActiveRecord::Schema.define(:version => 20111126173837) do
   add_index "voice_leadings", ["from_voicing_id"], :name => "index_voice_leadings_on_from_voicing_id"
   add_index "voice_leadings", ["to_voicing_id"], :name => "index_voice_leadings_on_to_voicing_id"
 
+  create_table "voicing_families", :force => true do |t|
+    t.string   "name"
+    t.integer  "voicing_tones_count", :default => 0
+    t.boolean  "rootless",            :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "slug"
+  end
+
+  add_index "voicing_families", ["slug"], :name => "index_voicing_families_on_slug"
+
   create_table "voicing_tones", :force => true do |t|
     t.integer "voicing_id"
     t.integer "position"
@@ -448,17 +472,23 @@ ActiveRecord::Schema.define(:version => 20111126173837) do
   add_index "voicing_tones", ["voicing_id"], :name => "index_voicing_tones_on_voicing_id"
 
   create_table "voicings", :force => true do |t|
-    t.integer "chord_id"
-    t.integer "parent_id"
-    t.boolean "rootless",            :default => false
-    t.string  "name"
-    t.integer "octave_offset",       :default => 0
-    t.text    "information"
-    t.integer "voicing_tones_count", :default => 0
-    t.string  "slug"
+    t.integer  "voicing_family_id"
+    t.integer  "chord_id"
+    t.integer  "parent_id"
+    t.boolean  "rootless",                     :default => false
+    t.string   "name"
+    t.integer  "octave_offset",                :default => 0
+    t.text     "information"
+    t.integer  "voicing_tones_count",          :default => 0
+    t.integer  "upper_structure_chord_id"
+    t.integer  "upper_structure_chord_offset", :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "slug"
   end
 
   add_index "voicings", ["chord_id"], :name => "index_voicings_on_chord_id"
   add_index "voicings", ["slug"], :name => "index_voicings_on_slug"
+  add_index "voicings", ["voicing_family_id"], :name => "index_voicings_on_voicing_family_id"
 
 end

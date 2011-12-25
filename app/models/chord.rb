@@ -25,8 +25,6 @@ class Chord < ActiveRecord::Base
   delegate :step_names, :to => :tones
   delegate :interval_names, :to => :tones
 
-  after_create :create_initial_voicing
-
   validates :name, :presence => true
   validates :chord_quality, :presence => true
 
@@ -115,14 +113,5 @@ class Chord < ActiveRecord::Base
 
   def to_json(options = {})
     super({:methods => [:notes]}.merge(options))
-  end
-
-
-  protected
-
-  def create_initial_voicing
-    if @specify_tones
-      voicings.create(:name => "Main", :specify_tones => @specify_tones)
-    end
   end
 end

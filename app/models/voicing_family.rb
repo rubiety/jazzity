@@ -1,7 +1,7 @@
-class ProgressionFamily < ActiveRecord::Base
+class VoicingFamily < ActiveRecord::Base
   extend FriendlyId
 
-  has_many :progressions
+  has_many :voicings
 
   friendly_id :name, :use => :slugged
 
