@@ -18,36 +18,68 @@ class VoiceLeading < ActiveRecord::Base
   end
 
   # Determines a good set of voicings using voice leading rules for the given set of chords
-  # TODO: This needs major refinement - tree traversal algorithms are necessary here.
-  # TODO: Currently the randomizes the voice leadings it chooses, probably not ideal.
   #
-  def self.voicings_for_chords(chords, options = {})
+  # def self.voicings_for_chords(chords, options = {})
+  #   [].tap do |voicings|
+  #     last_chord = chords.first
+
+  #     chords.each_with_index do |chord, i|
+  #       next if i == 0
+  #       
+  #       offset = (chord.key.index - last_chord.key.index) % 12
+
+  #       if last_voicing = voicings.last
+  #         if leading = last_voicing.voice_leadings_from.where(:offset => offset).to_chord(chord).sample
+  #           voicings << leading.to_voicing.in_key_of(chord.key)
+  #         else
+  #           voicings << chord.voicings.first.in_key_of(chord.key)
+  #         end
+  #       else
+  #         if leading = VoiceLeading.where(:offset => offset).from_chord(last_chord).to_chord(chord).sample
+  #           voicings << leading.from_voicing.in_key_of(last_chord.key)
+  #           voicings << leading.to_voicing.in_key_of(chord.key)
+  #         else
+  #           voicings << last_chord.voicings.first.in_key_of(last_chord.key)
+  #           voicings << chord.voicings.first.in_key_of(chord.key)
+  #         end
+  #       end
+
+  #       last_chord = chord
+  #     end
+  #   end
+  # end
+  
+  # Determines a good set of voicings using voice leading rules for the given set of chords.
+  # Currently if it can't find one, it will choose a random voicing! (Dangerous?)
+  #
+  def self.voicings_for_chords(chords, voicing_ids = {})
+    voicing_ids.stringify_keys!
+
     [].tap do |voicings|
-      last_chord = chords.first
-
       chords.each_with_index do |chord, i|
-        next if i == 0
-        
-        offset = (chord.key.index - last_chord.key.index) % 12
+        choice = voicing_ids[i.to_s]
+        previous_voicing = voicings.last
 
-        if last_voicing = voicings.last
-          if leading = last_voicing.voice_leadings_from.where(:offset => offset).to_chord(chord).sample
-            voicings << leading.to_voicing.in_key_of(chord.key)
-          else
-            voicings << chord.voicings.first.in_key_of(chord.key)
-          end
-        else
-          if leading = VoiceLeading.where(:offset => offset).from_chord(last_chord).to_chord(chord).sample
-            voicings << leading.from_voicing.in_key_of(last_chord.key)
-            voicings << leading.to_voicing.in_key_of(chord.key)
-          else
-            voicings << last_chord.voicings.first.in_key_of(last_chord.key)
-            voicings << chord.voicings.first.in_key_of(chord.key)
-          end
+        if choice == "<" or choice.nil?
+          voicings << (voicing_for_chord_after(chord, previous_voicing) || chord.voicings.sample.in_key_of(chord.key))
+        elsif choice.to_i > 0
+          voicings << chord.voicings.find(choice).in_key_of(chord.key)
         end
-
-        last_chord = chord
       end
     end
   end
+
+  def self.voicing_for_chord_after(chord, previous_voicing)
+    if leading = for_chord_after(chord, previous_voicing).try(:sample)
+      leading.to_voicing.in_key_of(chord.key)
+    end
+  end
+
+  def self.for_chord_after(chord, previous_voicing)
+    if chord && previous_voicing
+      offset = (chord.key.index - previous_voicing.key.index) % 12
+      previous_voicing.voice_leadings_from.where(:offset => offset).to_chord(chord)
+    end
+  end
+
 end

@@ -1,4 +1,4 @@
-VoicingFamily.create!(:name => "Traids", :voicing_tones_count => 3, :rootless => false).tap do |family|
+VoicingFamily.create!(:name => "Triads", :voicing_tones_count => 3, :rootless => false).tap do |family|
   Chord.find_by_name("Major Triad").tap do |c|
     c.voicings.create!(:voicing_family => family, :name => "Root Inversion", :specify_tones => "u 3 5")
     c.voicings.create!(:voicing_family => family, :name => "1st Inversion", :specify_tones => "3 5 u")
@@ -23,6 +23,7 @@ VoicingFamily.create!(:name => "Traids", :voicing_tones_count => 3, :rootless =>
   ["Major Triad", "Minor Triad", "Diminished Triad"].map {|n| Chord.find_by_name(n) }.combination(2).each do |pair|
     ["Root Inversion", "1st Inversion", "2nd inversion", "Doubled Root"].each do |voicing_name|
       VoiceLeading.define 0, pair[0].voicings.find_by_name(voicing_name), pair[1].voicings.find_by_name(voicing_name)
+      VoiceLeading.define 0, pair[1].voicings.find_by_name(voicing_name), pair[0].voicings.find_by_name(voicing_name)
     end
   end
 
@@ -85,10 +86,13 @@ VoicingFamily.create!(:name => "4-Note Rooted", :voicing_tones_count => 4, :root
   ["Major 7", "Major 6", "Minor 7", "Minor 6", "Minor b6", "Major-Minor", "Dominant 7", "Dominant b5", "Half Diminished"].map {|n| Chord.find_by_name(n) }.combination(2).each do |pair|
     ["Rooted I", "Rooted II"].each do |voicing_name|
       VoiceLeading.define 0, pair[0].voicings.find_by_name(voicing_name), pair[1].voicings.find_by_name(voicing_name)
+      VoiceLeading.define 0, pair[1].voicings.find_by_name(voicing_name), pair[0].voicings.find_by_name(voicing_name)
     end
 
     VoiceLeading.define 5, pair[0].voicings.find_by_name("Rooted I"), pair[1].voicings.find_by_name("Rooted II")
+    VoiceLeading.define 5, pair[1].voicings.find_by_name("Rooted I"), pair[0].voicings.find_by_name("Rooted II")
     VoiceLeading.define 5, pair[0].voicings.find_by_name("Rooted II"), pair[1].voicings.find_by_name("Rooted I")
+    VoiceLeading.define 5, pair[1].voicings.find_by_name("Rooted II"), pair[0].voicings.find_by_name("Rooted I")
   end
 end
 
@@ -132,10 +136,13 @@ VoicingFamily.create!(:name => "Guide Tones", :voicing_tones_count => 2, :rootle
   ["Major 7", "Major 6", "Minor 7", "Minor 6", "Minor b6", "Major-Minor", "Dominant 7"].map {|n| Chord.find_by_name(n) }.combination(2).each do |pair|
     ["Guide Tones I", "Guide Tones II"].each do |voicing_name|
       VoiceLeading.define 0, pair[0].voicings.find_by_name(voicing_name), pair[1].voicings.find_by_name(voicing_name)
+      VoiceLeading.define 0, pair[1].voicings.find_by_name(voicing_name), pair[0].voicings.find_by_name(voicing_name)
     end
 
     VoiceLeading.define 5, pair[0].voicings.find_by_name("Guide Tones I"), pair[1].voicings.find_by_name("Guide Tones II")
+    VoiceLeading.define 5, pair[1].voicings.find_by_name("Guide Tones I"), pair[0].voicings.find_by_name("Guide Tones II")
     VoiceLeading.define 5, pair[0].voicings.find_by_name("Guide Tones II"), pair[1].voicings.find_by_name("Guide Tones I")
+    VoiceLeading.define 5, pair[1].voicings.find_by_name("Guide Tones II"), pair[0].voicings.find_by_name("Guide Tones I")
   end
 end
 
@@ -179,10 +186,13 @@ VoicingFamily.create!(:name => "Rooted Guide Tones", :voicing_tones_count => 3, 
   ["Major 7", "Major 6", "Minor 7", "Minor 6", "Minor b6", "Major-Minor", "Dominant 7"].map {|n| Chord.find_by_name(n) }.combination(2).each do |pair|
     ["Rooted Guide Tones I", "Rooted Guide Tones II"].each do |voicing_name|
       VoiceLeading.define 0, pair[0].voicings.find_by_name(voicing_name), pair[1].voicings.find_by_name(voicing_name)
+      VoiceLeading.define 0, pair[1].voicings.find_by_name(voicing_name), pair[0].voicings.find_by_name(voicing_name)
     end
 
     VoiceLeading.define 5, pair[0].voicings.find_by_name("Rooted Guide Tones I"), pair[1].voicings.find_by_name("Rooted Guide Tones II")
+    VoiceLeading.define 5, pair[1].voicings.find_by_name("Rooted Guide Tones I"), pair[0].voicings.find_by_name("Rooted Guide Tones II")
     VoiceLeading.define 5, pair[0].voicings.find_by_name("Rooted Guide Tones II"), pair[1].voicings.find_by_name("Rooted Guide Tones I")
+    VoiceLeading.define 5, pair[1].voicings.find_by_name("Rooted Guide Tones II"), pair[0].voicings.find_by_name("Rooted Guide Tones I")
   end
 end
 
@@ -259,10 +269,13 @@ VoicingFamily.create!(:name => "Rootless 3-Note Shells", :voicing_tones_count =>
   end.combination(2).each do |pair|
     ["Shell I", "Shell II"].each do |voicing_name|
       VoiceLeading.define 0, pair[0].voicings.find_by_name(voicing_name), pair[1].voicings.find_by_name(voicing_name)
+      VoiceLeading.define 0, pair[1].voicings.find_by_name(voicing_name), pair[0].voicings.find_by_name(voicing_name)
     end
 
     VoiceLeading.define 5, pair[0].voicings.find_by_name("Shell I"), pair[1].voicings.find_by_name("Shell II")
+    VoiceLeading.define 5, pair[1].voicings.find_by_name("Shell I"), pair[0].voicings.find_by_name("Shell II")
     VoiceLeading.define 5, pair[0].voicings.find_by_name("Shell II"), pair[1].voicings.find_by_name("Shell I")
+    VoiceLeading.define 5, pair[1].voicings.find_by_name("Shell II"), pair[0].voicings.find_by_name("Shell I")
   end
 end
 
@@ -344,10 +357,13 @@ VoicingFamily.create!(:name => "4-Note Rootless (Type I/II)", :voicing_tones_cou
   end.combination(2).each do |pair|
     ["Type I", "Type II"].each do |voicing_name|
       VoiceLeading.define 0, pair[0].voicings.find_by_name(voicing_name), pair[1].voicings.find_by_name(voicing_name)
+      VoiceLeading.define 0, pair[1].voicings.find_by_name(voicing_name), pair[0].voicings.find_by_name(voicing_name)
     end
 
     VoiceLeading.define 5, pair[0].voicings.find_by_name("Type I"), pair[1].voicings.find_by_name("Type II")
+    VoiceLeading.define 5, pair[1].voicings.find_by_name("Type I"), pair[0].voicings.find_by_name("Type II")
     VoiceLeading.define 5, pair[0].voicings.find_by_name("Type II"), pair[1].voicings.find_by_name("Type I")
+    VoiceLeading.define 5, pair[1].voicings.find_by_name("Type II"), pair[0].voicings.find_by_name("Type I")
   end
 end
 

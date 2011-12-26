@@ -22,4 +22,8 @@ module ApplicationHelper
   def link_to_search_example(name)
     link_to name, search_path(u(name))
   end
+
+  def voice_leading_options_for_select(chord, position)
+    options_for_select([[(position == 0 ? "Random Voicing" : "<= Voice Lead"), ">", ">= Voice Lead", "<"]], params[:v][position.to_s]) + options_from_collection_for_select(chord.voicings, :id, :name, params[:v][position.to_s])
+  end
 end

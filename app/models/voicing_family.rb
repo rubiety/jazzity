@@ -5,6 +5,8 @@ class VoicingFamily < ActiveRecord::Base
 
   friendly_id :name, :use => :slugged
 
+  scope :at_least_tones, lambda {|n| where("voicing_tones_count > ?", n) }
+
   def to_s
     name
   end

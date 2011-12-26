@@ -6,6 +6,7 @@ class ChordSequencesController < ApplicationController
   end
 
   def show
+    params[:v] ||= {}
   end
 
   protected
@@ -20,5 +21,6 @@ class ChordSequencesController < ApplicationController
   def find_chord_sequence
     @chord_sequence = ChordSequence[params[:id]]
     @chord_sequence = @chord_sequence.in_key_of(@key) if @key
+    @staff_notes = @chord_sequence.staff_notes(params[:v] || {})
   end
 end

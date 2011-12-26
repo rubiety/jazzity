@@ -47,26 +47,13 @@ class ChordSequence
     end
   end
 
-  # TODO: Needs more refinement. For now just alternating Type I and Type II voicings, if they exist!
-  # def chord_voicings
-  #   i = -1
-  #   chords.map do |chord|
-  #     i += 1
-  #     if voicing = chord.voicings.find_by_name(i % 2 == 0 ? "Type I" : "Type II")
-  #       voicing.in_key_of(chord.key)
-  #     else
-  #       voicing.first
-  #     end
-  #   end
-  # end
-  
-  def chord_voicings(options = {})
-    VoiceLeading.voicings_for_chords(chords, options)
+  def chord_voicings(voicing_ids = {})
+    VoiceLeading.voicings_for_chords(chords, voicing_ids)
   end
 
-  def chord_voicing_notes(force_root = false)
-    chord_voicings.map do |voicing|
-      force_root && voicing.rootless ? ["#{voicing.key}/3"] + voicing.octavized_notes : voicing.octavized_notes
+  def chord_voicing_notes(voicing_ids = {})
+    chord_voicings(voicing_ids).map do |voicing|
+      voicing.octavized_notes(3)
     end
   end
 
@@ -76,8 +63,8 @@ class ChordSequence
   def octavized_notes
     chords.map(&:octavized_notes)
   end
-  def staff_notes
-    chord_voicing_notes
+  def staff_notes(voicing_ids = {})
+    chord_voicing_notes(voicing_ids)
   end
 
   class << self

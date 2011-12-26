@@ -1,5 +1,7 @@
 %header
-  %h1= "#{@progression.title}: #{@progression.chords.map(&:short_name).join(', ')}"
+  %h1
+    = "#{@progression.title}: "
+    = raw @progression.chords.map {|c| link_to(c.short_name, [c.key, c].compact) }.join(", ")
 
   - if @progression.meter
     %p

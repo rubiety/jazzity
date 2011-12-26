@@ -23,12 +23,11 @@ class Progression < ActiveRecord::Base
 
   validates :name, :presence => true
 
-  delegate :chord_voicings, :to => :chord_sequence, :allow_nil => true
-  delegate :chord_voicing_notes, :to => :chord_sequence, :allow_nil => true
-
   define_searchables do
     searchables.create(:name => name)
   end
+
+  attr_accessor :chord_voicing_options
 
   def to_s
     name
@@ -48,8 +47,14 @@ class Progression < ActiveRecord::Base
     end.flatten.compact
   end
 
-  def chord_sequence
-    ChordSequence.new(chords)
+  def chord_voicings(voicing_ids = {})
+    VoiceLeading.voicings_for_chords(chords, voicing_ids)
+  end
+
+  def chord_voicing_notes(voicing_ids = {})
+    chord_voicings(voicing_ids).map do |voicing|
+      voicing.octavized_notes(3)
+    end
   end
 
   def notes
@@ -58,8 +63,8 @@ class Progression < ActiveRecord::Base
   def octavized_notes
     chords.map(&:octavized_notes)
   end
-  def staff_notes
-    chord_voicing_notes
+  def staff_notes(voicing_ids = {})
+    chord_voicing_notes(voicing_ids)
   end
   def beats
     bars * meter.beats
