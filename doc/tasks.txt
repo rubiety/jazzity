@@ -1,44 +1,29 @@
 = Functional Beta
 
-[ ] Voice Leading (Voicing Families?) & Choose Voice Leading for Progressions, etc.
-[ ] Progression Build-Out (Progression Families), & Expansion of VexFlow-JSON for better support, etc.
-[ ] Better Octave Choosing... (octavized_notes implementation)
-[ ] Serialization of deeply-normalized data for performance?
-[ ] Jazz Discussion section
+[ ] Progression Position/Bar Support (For Blues/Rhythm, Mainly)
+[ ] Better Octave Choosing... (octavized_notes implementation), "Include Roots" Checkbox for Voicings/Progressions
+[ ] Matching Chord Sequences to Progressions
+[ ] Jazz Discussion Section (Subject for Top-Level Comments?), Comments Refinement
+[ ] Simplify Tunes - Just Like Tunes (no "I'm Learning, I Composed It, Etc.")
+[ ] Expand Musician Profiles for: Do you have any recordings?
+[ ] Rework Susy Grids - We *can* do nesting!
 
-[ ] Musician Tune Liking/Management
-[ ] Musician Favorite Musician Liking/Management
-[ ] Musician Signup Wizard
+[ ] Rdio/Pandora/Spotify Integration!
+[ ] Albums/Recordings Implementation (iTunes Affiliates) and Relationships to: Tune, Musician, Concept, Progression, Voicing
+[ ] Resource Implementation (Amazon/JazzBooks Affiliates) and Relationships to: Concept, Progression, Voicing
+
+[ ] Musician & Tune Liking/Management
+[ ] Musician Signup Wizard (Create Profile)
 [ ] Featured Tunes Home Page & Filtering/Searching
 [ ] Featured Musicians Home Page & Filtering/Searching
 
-[ ] Rdio/Pandora/Spotify Integration!
-
-[ ] Gollum Wiki for Objects?
-
-[ ] Albums/Recordings Implementation (iTunes Affiliates) and Relationships to:
-    Tune, Musician, Concept, Progression, Voicing
-[ ] Resource Implementation (Amazon/JazzBooks Affiliates) and Relationships to:
-    Concept, Progression, Voicing
-
-[ ] Rework Susy Grids - We *can* do nesting!
-
 [ ] Voicings Build-Out
 [ ] Progressions Build-Out
-[ ] Progression Matching of Chord Sequences
 [ ] Famous Musicians Database Build-Out
 [ ] Tunes Database Build-Out
 [ ] Jazz Concepts Build-Out
 
-[ ] Comments Voting
-[ ] Comments Refinement (Editing/Deleting/Auto-Scroll, etc.), Threading
-
-[ ] Practice Book: What Tunes/Concepts/Progressions am I learning?
-    Find out what other users are learning those too
-
-[ ] Implement ModifierContext for Single-Stem between Treble & Bass Clefs, Better Octave Decision Implementation
-    This is going to require hacking up VexFlow. There are serious problems with Vex.Flow.ModifierContext.prototype.formatNotes
-
+[ ] Serialization of deeply-normalized data for performance?
 [ ] Full RSpec Test Suite
 [ ] Full Cucumber Integration Tests
 
@@ -46,17 +31,17 @@
 
 [ ] Jazzity Design/Logo/Branding
 [ ] Invite System for Beta Launch
-[ ] Suggestion/Feedback System
+[ ] Suggestion/Feedback System: Get Satisfaction?
 [ ] Chord Substitution Possibilities
 [ ] Facebook Invite Friends
 [ ] Twitter Invite Friends
 [ ] AddThis Buttons
+[ ] Video Tutorial
 
 = Post-Launch Refinement
 
 [ ] JavaScript Tests for Backbone.js Models
-[ ] Engine for Voice Leading Chords?
-[ ] Google AddWords?
+[ ] Google AdWords?
 
 = Jazzity Pro
 
