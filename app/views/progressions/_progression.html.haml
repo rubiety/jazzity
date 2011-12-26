@@ -1,4 +1,6 @@
 %li[progression]
-  = link_to progression do
-    %h3= progression
+  = link_to [progression.key, progression].compact do
+    %h3= progression.title
+    - unless progression.full_tune?
+      %h4= raw progression.chords.map(&:short_name).join(", ")
     %p= progression.summary

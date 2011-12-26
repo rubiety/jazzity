@@ -61,6 +61,14 @@ ul.progressions-list {
       margin: 0; 
       padding: 4px;
     }
+    h4 {
+      padding: 4px;
+      font-size: 0.9em;
+      color: #666;
+      a, a:hover {
+        color: #666;
+      }
+    }
 
     span.comments-count {
       position: absolute;
