@@ -24,16 +24,5 @@
     = f.input :plays_professionally, :label => "Professional?", :required => false, :as => :boolean
     = f.input :studies_privately, :label => "Study Privately?", :required => false, :as => :boolean
       
-  %fieldset#profile-favorite-musicians
-    %h2 Favorite Musicians:
-
-    = f.fields_for :musician_favorites do |mf|
-      %div.musician-favorite
-        = mf.input :favorite_musician, :label => "Favorite Musician", :required => false, :collection => Musician.all do
-          = mf.collection_select :favorite_musician_id, Musician.all, :id, :name, :include_blank => true
-          = mf.link_to_remove "Remove"
-
-    = f.link_to_add "Add Another Musician", :musician_favorites
-
   %fieldset.buttons
     = f.submit "Save Profile"

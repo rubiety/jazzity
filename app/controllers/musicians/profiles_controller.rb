@@ -13,7 +13,9 @@ class Musicians::ProfilesController < ApplicationController
   end
 
   def edit
-    @musician.musician_favorites.build
+  end
+
+  def discussions
   end
 
   def privacy

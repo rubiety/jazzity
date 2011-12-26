@@ -18,18 +18,11 @@ class Musician < ActiveRecord::Base
   
   belongs_to :instrument
   belongs_to :secondary_instrument, :class_name => "Instrument"
-
-  has_many :musician_favorites, :dependent => :destroy
-  has_many :favorite_musicians, :through => :musician_favorites, :source => :favorite_musician
-  has_many :musician_friendships, :dependent => :destroy
-  has_many :musician_friends, :through => :musician_friendships, :source => :friend_musician
-  has_many :musician_tunes, :dependent => :destroy
-  has_many :tunes, :through => :musician_tunes
   has_many :timeline_events, :as => :actor
 
-  accepts_nested_attributes_for :musician_favorites, :allow_destroy => true, :reject_if => lambda {|m| m["favorite_musician_id"].blank? }
-  accepts_nested_attributes_for :musician_friendships, :allow_destroy => true, :reject_if => :all_blank
-  accepts_nested_attributes_for :musician_tunes, :allow_destroy => true, :reject_if => lambda {|m| m["tune_id"].blank? }
+  has_many :likes, :class_name => "MusicianLike", :dependent => :destroy
+  has_many :liked_musicians, :through => :likes, :source => :likeable, :source_type => "Musician"
+  has_many :liked_tunes, :through => :likes, :source => :likeable, :source_type => "Tune"
 
   scope :with_profile, where(:has_profile => true)
   scope :without_profile, where(:has_profile => false)

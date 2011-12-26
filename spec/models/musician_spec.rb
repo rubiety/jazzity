@@ -7,14 +7,11 @@ describe Musician do
     it { should have_many(:searchables) }
     it { should belong_to(:instrument) }
     it { should belong_to(:secondary_instrument) }
-    
-    it { should have_many(:musician_favorites) }
-    it { should have_many(:favorite_musicians).through(:musician_favorites) }
-    it { should have_many(:musician_friendships) }
-    it { should have_many(:musician_friends).through(:musician_friendships) }
-    it { should have_many(:musician_tunes) }
-    it { should have_many(:tunes).through(:musician_tunes) }
     it { should have_many(:timeline_events) }
+    
+    it { should have_many(:likes) }
+    it { should have_many(:liked_musicians).through(:likes) }
+    it { should have_many(:liked_tunes).through(:likes) }
   end
 
   describe "scopes" do

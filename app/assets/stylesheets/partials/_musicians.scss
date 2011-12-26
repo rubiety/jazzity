@@ -111,46 +111,37 @@ body.musicians {
       }
     }
 
-    section#musician-favorites {
-      @include columns(4);
-      @include alpha;
-    }
-
-    section#musician-tunes {
-      @include columns(3);
-    }
-
     section#musician-activity {
-      @include columns(4);
+      @include columns(8);
       @include alpha;
     }
 
-    ul.favorite-musicians {
-      @include no-bullets;
-      margin: 0;
-      li {
-        @include clearfix;
-        min-height: 50px;
-        margin-bottom: 5px;
+    section#musician-likes {
+      @include columns(4);
+      @include omega;
 
-        img.avatar {
-          float: left;
-          margin-right: 10px;
-          max-height: 50px;
-          max-width: 50px;
+      article {
+        margin-bottom: 20px;
+      }
+
+      ul {
+        @include no-bullets;
+        margin: 0;
+
+        li {
+          @include clearfix;
+          margin-bottom: 5px;
+
+          img.avatar {
+            float: left;
+            margin-right: 10px;
+            max-height: 50px;
+            max-width: 50px;
+          }
         }
       }
     }
 
-    ul.activity-list {
-    
-    }
-
-    ul.tunes-list {
-      @include no-bullets;
-      margin: 0;
-      li { margin-bottom: 5px; }
-    }
 
     div.comments {
       @include full;

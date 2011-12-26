@@ -3,8 +3,7 @@
     = navigation_link_to "Activity", activity_musicians_profile_path, Musicians::ProfilesController, :activity
     = navigation_link_to "Account & Password", edit_musician_registration_path, Devise::RegistrationsController
     = navigation_link_to "Profile", edit_musicians_profile_path, Musicians::ProfilesController, :edit
-    = navigation_link_to "My Tunes", musicians_tunes_path, Musicians::TunesController
-    = navigation_link_to "My Discussions", "#"
+    = navigation_link_to "Favorites", musicians_likes_path, Musicians::LikesController
+    = navigation_link_to "My Discussions", discussions_musicians_profile_path, Musicians::ProfilesController, :discussions
     = navigation_link_to "Privacy Settings", privacy_musicians_profile_path, Musicians::ProfilesController, :privacy
-    = navigation_link_to "Practice Plan", "#"
-    = navigation_link_to "Services", musicians_authentications_path, Musicians::AuthenticationsController
+    = navigation_link_to "Connected Accounts", musicians_authentications_path, Musicians::AuthenticationsController

@@ -193,38 +193,27 @@ ActiveRecord::Schema.define(:version => 20111126173837) do
 
   add_index "musician_authentications", ["musician_id"], :name => "index_musician_authentications_on_musician_id"
 
-  create_table "musician_favorites", :force => true do |t|
+  create_table "musician_likes", :force => true do |t|
     t.integer  "musician_id"
-    t.integer  "favorite_musician_id"
-    t.string   "notes"
+    t.integer  "likeable_id"
+    t.string   "likeable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "musician_favorites", ["favorite_musician_id"], :name => "index_musician_favorites_on_favorite_musician_id"
-  add_index "musician_favorites", ["musician_id"], :name => "index_musician_favorites_on_musician_id"
+  add_index "musician_likes", ["likeable_id", "likeable_type"], :name => "index_musician_likes_on_likeable_id_and_likeable_type"
+  add_index "musician_likes", ["musician_id"], :name => "index_musician_likes_on_musician_id"
 
-  create_table "musician_friendships", :force => true do |t|
-    t.integer "musician_id"
-    t.integer "friend_musician_id"
-    t.string  "state",              :default => "invited"
-  end
-
-  add_index "musician_friendships", ["friend_musician_id"], :name => "index_musician_friendships_on_friend_musician_id"
-  add_index "musician_friendships", ["musician_id"], :name => "index_musician_friendships_on_musician_id"
-
-  create_table "musician_tunes", :force => true do |t|
+  create_table "musician_samples", :force => true do |t|
     t.integer  "musician_id"
-    t.integer  "tune_id"
-    t.boolean  "composed",    :default => false, :null => false
-    t.boolean  "learning",    :default => false, :null => false
-    t.boolean  "know",        :default => false, :null => false
+    t.string   "title"
+    t.string   "url"
+    t.string   "media_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "musician_tunes", ["musician_id"], :name => "index_musician_tunes_on_musician_id"
-  add_index "musician_tunes", ["tune_id"], :name => "index_musician_tunes_on_tune_id"
+  add_index "musician_samples", ["musician_id"], :name => "index_musician_samples_on_musician_id"
 
   create_table "musicians", :force => true do |t|
     t.string   "first_name"

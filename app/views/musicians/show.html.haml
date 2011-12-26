@@ -2,22 +2,23 @@
   = render "musicians/header"
   = render "musicians/tabs"
 
-  %section#musician-favorites
-    %h2 Favorite Musicians:
-    %ul.favorite-musicians
-      - @musician.favorite_musicians.each do |favorite_musician|
-        %li
-          = image_tag favorite_musician.avatar_url(:thumb), :alt => favorite_musician.name, :class => "avatar" if favorite_musician.has_avatar?
-          = link_to favorite_musician, favorite_musician
-
   %section#musician-activity
     %h2 Recent Activity:
     %div.activity
       = render "timeline_events/index", :timeline_events => @musician.timeline_events
 
-  %section#musician-tunes
-    %h2 Tunes:
-    %ul.tunes-list
-      - @musician.musician_tunes.each do |musician_tune|
-        %li= link_to musician_tune, musician_tune.tune
+  %section#musician-likes
+    %article
+      %h2 Favorite Musicians:
+      %ul.liked-musicians
+        - @musician.liked_musicians.each do |musician|
+          %li
+            = image_tag musician.avatar_url(:thumb), :alt => musician.name, :class => "avatar" if musician.has_avatar?
+            = link_to musician, musician
+
+    %article
+      %h2 Favorite Tunes:
+      %ul.liked-tunes
+        - @musician.liked_tunes.each do |tune|
+          %li= link_to tune, tune
 

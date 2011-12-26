@@ -1,31 +1,16 @@
 module LikesHelper
   def like?(object)
     return false unless current_musician
-
-    case object
-    when Tune
-      current_musician.tune_ids.include?(object.id)
-    when Musician
-      current_musician.favorite_musician_ids.include?(object.id)
-    end
+    current_musician.likes.where(:likeable_id => object.id, :likeable_type => object.class.name).exists?
   end
 
-  def like_tune_link(tune)
-    link_to image_tag("thumbs_up.png"), musicians_tunes_path(:tune_id => tune.id), 
-      :method => :post, 
+  def like_link(object)
+    link_to image_tag("thumbs_up.png"), musicians_likes_path(:likeable_id => object.id, :likeable_type => object.class.name),
+      :method => :post,
       "data-type" => "json",
-      :remote => true, 
-      :class => "like #{'liked' if like?(tune)}", 
-      :title => "I like this tune"
-  end
-
-  def like_musician_link(musician)
-    link_to image_tag("thumbs_up.png"), musicians_favorite_musicians_path(:favorite_musician_id => musician.id), 
-      :method => :post, 
-      "data-type" => "json",
-      :remote => true, 
-      :class => "like #{'liked' if like?(musician)}", 
-      :title => "I like #{musician}"
+      :remote => true,
+      :class => "like #{'liked' if like?(object)}",
+      :title => "I like this"
   end
 
 end

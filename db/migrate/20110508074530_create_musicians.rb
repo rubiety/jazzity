@@ -54,36 +54,24 @@ class CreateMusicians < ActiveRecord::Migration
     
     add_index :musician_authentications, :musician_id
     
-    create_table :musician_favorites do |t|
+    create_table :musician_likes do |t|
       t.references :musician
-      t.integer :favorite_musician_id
-      t.string :notes
+      t.references :likeable, :polymorphic => true
       t.timestamps
     end
-    
-    add_index :musician_favorites, :musician_id
-    add_index :musician_favorites, :favorite_musician_id
 
-    create_table :musician_friendships do |t|
-      t.references :musician
-      t.integer :friend_musician_id
-      t.string :state, :default => "invited"
-    end
-    
-    add_index :musician_friendships, :musician_id
-    add_index :musician_friendships, :friend_musician_id
+    add_index :musician_likes, :musician_id
+    add_index :musician_likes, [:likeable_id, :likeable_type]
 
-    create_table :musician_tunes do |t|
+    create_table :musician_samples do |t|
       t.references :musician
-      t.references :tune
-      t.boolean :composed, :default => false, :null => false
-      t.boolean :learning, :default => false, :null => false
-      t.boolean :know, :default => false, :null => false
+      t.string :title
+      t.string :url
+      t.string :media_type
       t.timestamps
     end
-    
-    add_index :musician_tunes, :musician_id
-    add_index :musician_tunes, :tune_id
+
+    add_index :musician_samples, :musician_id
     
     create_table :instruments do |t|
       t.string :name

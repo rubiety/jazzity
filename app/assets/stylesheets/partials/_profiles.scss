@@ -68,15 +68,6 @@ body.musicians-profiles {
       }
     }
 
-    fieldset#profile-favorite-musicians {
-      @include columns(6);
-      @include omega;
-
-      h2 { margin-bottom: 6px; }
-      label { display: none; }
-      a.remove_nested_fields { margin-left: 20px; }
-    }
-
     fieldset.buttons {
       clear: both;
       @include full;
@@ -95,18 +86,27 @@ body.musicians-profiles {
 
 }
 
-body.musicians-tunes {
-  #main {
-    @include full;
+body.musicians-likes {
+  
+  section {
+    ul {
+      @include no-bullets;
+      margin: 0;
+
+      li {
+        padding: 4px;
+      }
+    }
   }
 
-  nav.profile {
-    margin-left: 0;
-    margin-right: 0;
+  section#liked-musicians {
+    @include columns(6);
+    @include alpha;
   }
 
-  label { display: none; }
-  a.remove_nested_fields { margin-left: 20px; }
-  input[type=submit] { margin-left: 0; }
+  section#liked-tunes {
+    @include columns(6);
+    @include omega;
+  }
 
 }

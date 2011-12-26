@@ -2,9 +2,7 @@
 
 [ ] Progression Position/Bar Support (For Blues/Rhythm, Mainly)
 [ ] Better Octave Choosing... (octavized_notes implementation), "Include Roots" Checkbox for Voicings/Progressions
-[ ] Matching Chord Sequences to Progressions
 [ ] Jazz Discussion Section (Subject for Top-Level Comments?), Comments Refinement
-[ ] Simplify Tunes - Just Like Tunes (no "I'm Learning, I Composed It, Etc.")
 [ ] Expand Musician Profiles for: Do you have any recordings?
 [ ] Rework Susy Grids - We *can* do nesting!
 
