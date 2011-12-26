@@ -15,9 +15,7 @@
 %aside{"data-current-musician-id" => current_musician.try(:id)}
   - if musician_signed_in?
     = image_tag current_musician.avatar_url, :class => "avatar", :alt => "#{current_musician}'s Avatar" if current_musician.has_avatar?
-    = link_to "Welcome, #{current_musician}", edit_musicians_profile_path
-    &nbsp;&nbsp;&nbsp;
-    = link_to "My Profile", musician_path(current_musician)
+    = link_to "Welcome, #{current_musician}", musician_path(current_musician)
     &nbsp;&nbsp;&nbsp;
     = link_to "Sign Out", destroy_musician_session_path, :method => :delete
   - else

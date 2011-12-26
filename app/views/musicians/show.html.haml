@@ -1,6 +1,8 @@
+= render "musicians/profiles/tabs" if @musician == current_musician
+
 %article#musician
   = render "musicians/header"
-  = render "musicians/tabs"
+  = render "musicians/tabs" if @musician.famous?
 
   %section#musician-activity
     %h2 Recent Activity:
