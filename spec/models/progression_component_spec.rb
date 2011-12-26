@@ -1,5 +1,8 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe ProgressionComponent do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "associations" do
+    it { should belong_to(:progression) }
+    it { should belong_to(:chord) }
+  end
 end

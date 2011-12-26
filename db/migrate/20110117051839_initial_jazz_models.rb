@@ -226,7 +226,6 @@ class InitialJazzModels < ActiveRecord::Migration
     create_table :progression_components do |t|
       t.integer :progression_id
       t.integer :position
-      t.integer :included_progression_id
       t.integer :chord_id
       t.integer :index
       t.string :comment

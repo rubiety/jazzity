@@ -8,8 +8,9 @@ ProgressionFamily.create!(:name => "Basic Progressions").tap do |family|
 
   family.progressions.create!(:name => "Major ii-V-I", :full_tune => false,  :summary => "The most commonly-used progression in Jazz.", :information => "").tap do |p|
     p.components.create([
-      {:position => 1, :index => 0, :included_progression => Progression["Major ii-V"]},
-      {:position => 2, :index => 0, :chord => Chord["maj7"]}
+      {:position => 1, :index => 2, :chord => Chord["min7"]},
+      {:position => 2, :index => 7, :chord => Chord["7"]},
+      {:position => 3, :index => 0, :chord => Chord["maj7"]}
     ])
   end
 
@@ -22,7 +23,8 @@ ProgressionFamily.create!(:name => "Basic Progressions").tap do |family|
 
   family.progressions.create!(:name => "Minor ii-V-I", :full_tune => false,  :summary => "The most commonly-used progression in Jazz.", :information => "").tap do |p|
     p.components.create([
-      {:position => 1, :index => 0, :included_progression => Progression["Minor ii-V"]},
+      {:position => 1, :index => 2, :chord => Chord["dim7"]},
+      {:position => 3, :index => 7, :chord => Chord["alt"]},
       {:position => 2, :index => 0, :chord => Chord["min7"]}
     ])
   end

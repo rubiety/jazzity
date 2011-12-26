@@ -41,6 +41,15 @@ class Progression < ActiveRecord::Base
     end
   end
 
+  def component_index_offsets
+    last_i = nil
+    components.map(&:index).inject([]) do |offsets, i|
+      offsets << (i - last_i) % 12 if last_i
+      last_i = i
+      offsets
+    end
+  end
+
   def chords
     components.map do |component|
       component.all_chords_in_key(key)

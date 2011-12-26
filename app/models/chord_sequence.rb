@@ -47,6 +47,15 @@ class ChordSequence
     end
   end
 
+  def chord_key_offsets
+    last_i = nil
+    chords.map(&:key).map(&:index).inject([]) do |offsets, i|
+      offsets << (i - last_i) % 12 if last_i
+      last_i = i
+      offsets
+    end
+  end
+
   def chord_voicings(voicing_ids = {})
     VoiceLeading.voicings_for_chords(chords, voicing_ids)
   end
@@ -82,28 +91,17 @@ class ChordSequence
 
   delegate :each, :to => :chords
 
-  # TODO:
+  # This is not very efficient; everything is loaded into memory... Not sure how to do this in SQL without caching:
+  # TODO: Needs key_context - determine which key this progression is in!
+  #
   def progressions
-    Progression.all
+    Progression.all.select do |progression|
+      i = 0
+      chords.all? do |chord| 
+        component = progression.components[i]; i += 1
+        component.try(:chord) == chord
+      end and chord_key_offsets == progression.component_index_offsets
+    end
   end
-
-  # Progressions associated with this collection of notes
-  # def progressions
-  #   if key
-  #     chords_in_key(key)
-  #   else
-  #     Key.primaries.map do |in_key|
-  #       chords_in_key(in_key)
-  #     end.flatten
-  #   end.extend(Chords)
-  # end
-
-  # private
-
-  # def chords_in_key(in_key)
-  #   Chord.all.select do |c|
-  #     c.tones.map(&:tone).to_set == keys.map {|k| (k.index - (in_key ? in_key.index : 0)) % 12 }.to_set
-  #   end.map {|c| c.key = in_key; c}
-  # end
 
 end

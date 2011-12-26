@@ -281,7 +281,6 @@ ActiveRecord::Schema.define(:version => 20111126173837) do
   create_table "progression_components", :force => true do |t|
     t.integer  "progression_id"
     t.integer  "position"
-    t.integer  "included_progression_id"
     t.integer  "chord_id"
     t.integer  "index"
     t.string   "comment"
