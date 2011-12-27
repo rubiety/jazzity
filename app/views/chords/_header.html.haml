@@ -1,6 +1,10 @@
 %header
   %h1= @chord.title
-  %h2= @chord.symbols_list
+  %h2
+    = @chord.main_symbol_name
+    - if @chord.other_symbol_names.present?
+      %span (Also: #{@chord.other_symbol_names.join(', ')})
+
   %p= @chord.information
   - if @chord.parent
     %p

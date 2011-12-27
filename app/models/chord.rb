@@ -68,8 +68,14 @@ class Chord < ActiveRecord::Base
     octavized_notes
   end
 
-  def symbols_list
-    symbols.map {|s| key.to_s + s.name }.join(', ')
+  def symbol_names
+    symbols.map {|s| key.to_s + s.name }
+  end
+  def main_symbol_name
+    symbol_names.first
+  end
+  def other_symbol_names
+    symbol_names[1..-1] || []
   end
 
   # Resolves a chord symbol into a chord.

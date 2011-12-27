@@ -3,7 +3,7 @@
 [ ] Progression Position/Bar Support (For Blues/Rhythm, Mainly)
 [ ] Better Octave Choosing... (octavized_notes implementation), "Include Roots" Checkbox for Voicings/Progressions
 [ ] Jazz Discussion Section (Subject for Top-Level Comments?), Comments Refinement
-[ ] Expand Musician Profiles for: Do you have any recordings?
+[ ] Expand Musician Profiles for: Do you have any recordings? Are you open for lessons?
 [ ] Rework Susy Grids - We *can* do nesting!
 
 [ ] Rdio/Pandora/Spotify Integration!
@@ -14,6 +14,7 @@
 [ ] Musician Signup Wizard (Create Profile)
 [ ] Featured Tunes Home Page & Filtering/Searching
 [ ] Featured Musicians Home Page & Filtering/Searching
+[ ] Musicians Contacting Each Other?
 
 [ ] Voicings Build-Out
 [ ] Progressions Build-Out

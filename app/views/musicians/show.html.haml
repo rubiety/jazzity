@@ -7,20 +7,24 @@
   %section#musician-activity
     %h2 Recent Activity:
     %div.activity
-      = render "timeline_events/index", :timeline_events => @musician.timeline_events
+      = render "timeline_events/index", :timeline_events => @timeline_events
+      - if @timeline_events.empty?
+        %p.no-results No activity yet!
 
   %section#musician-likes
-    %article
-      %h2 Favorite Musicians:
-      %ul.liked-musicians
-        - @musician.liked_musicians.each do |musician|
-          %li
-            = image_tag musician.avatar_url(:thumb), :alt => musician.name, :class => "avatar" if musician.has_avatar?
-            = link_to musician, musician
+    - if @musician.liked_musicians.present?
+      %article
+        %h2 Favorite Musicians:
+        %ul.liked-musicians
+          - @musician.liked_musicians.each do |musician|
+            %li
+              = image_tag musician.avatar_url(:thumb), :alt => musician.name, :class => "avatar" if musician.has_avatar?
+              = link_to musician, musician
 
-    %article
-      %h2 Favorite Tunes:
-      %ul.liked-tunes
-        - @musician.liked_tunes.each do |tune|
-          %li= link_to tune, tune
+    - if @musician.liked_tunes.present?
+      %article
+        %h2 Favorite Tunes:
+        %ul.liked-tunes
+          - @musician.liked_tunes.each do |tune|
+            %li= link_to tune, tune
 

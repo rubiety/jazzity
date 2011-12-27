@@ -9,6 +9,8 @@
   %h2 Recent Activity:
   %div.activity
     = render "timeline_events/index", :timeline_events => @timeline_events
+    - if @timeline_events.empty?
+      %p.no-results No activity yet!
 
 %section#search-examples
   %h2 Examples: 

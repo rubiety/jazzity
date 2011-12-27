@@ -6,8 +6,8 @@ module ApplicationHelper
     case event.event_type.to_sym
     when :new_comment
       "Posted a new comment on #{link_to event.secondary_subject, path_to_model(event.secondary_subject)}: '#{truncate(event.subject.content, :length => 40)}'".html_safe
-    when :new_musician_tune
-      "Likes the tune '#{link_to event.secondary_subject, event.secondary_subject}'".html_safe
+    when :new_musician_like
+      "Likes '#{link_to event.secondary_subject, event.secondary_subject}'".html_safe
     end
   end
 

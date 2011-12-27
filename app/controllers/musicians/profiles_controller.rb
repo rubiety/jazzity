@@ -8,10 +8,6 @@ class Musicians::ProfilesController < ApplicationController
     redirect_to :action => :edit
   end
 
-  def activity
-    @timeline_events = @musician.timeline_events
-  end
-
   def edit
   end
 

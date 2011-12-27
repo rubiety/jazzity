@@ -39,6 +39,12 @@ body.chords, body.chord-qualities, body.voicings {
     header {
       position: relative;
 
+      h2 {
+        span {
+          color: #666;
+        }
+      }
+
       p {
         label {
           font-weight: bold;
