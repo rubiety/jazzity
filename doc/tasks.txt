@@ -2,6 +2,7 @@
 
 [ ] Jazz Discussion Section (Subject for Top-Level Comments?), Comments Refinement
 [ ] Expand Musician Profiles for: Do you have any recordings? Are you open for lessons?
+[ ] Musicians & Tunes Show Expansion (Textile?) - Need Good Examples
 [ ] Rework Susy Grids - We *can* do nesting!
 [ ] Progression Position/Bar Support (For Blues/Rhythm, Mainly)
 [ ] Better Octave Choosing... (octavized_notes implementation), "Include Roots" Checkbox for Voicings/Progressions
