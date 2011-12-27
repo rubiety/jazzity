@@ -1,10 +1,10 @@
 = Functional Beta
 
-[ ] Progression Position/Bar Support (For Blues/Rhythm, Mainly)
-[ ] Better Octave Choosing... (octavized_notes implementation), "Include Roots" Checkbox for Voicings/Progressions
 [ ] Jazz Discussion Section (Subject for Top-Level Comments?), Comments Refinement
 [ ] Expand Musician Profiles for: Do you have any recordings? Are you open for lessons?
 [ ] Rework Susy Grids - We *can* do nesting!
+[ ] Progression Position/Bar Support (For Blues/Rhythm, Mainly)
+[ ] Better Octave Choosing... (octavized_notes implementation), "Include Roots" Checkbox for Voicings/Progressions
 
 [ ] Rdio/Pandora/Spotify Integration!
 [ ] Albums/Recordings Implementation (iTunes Affiliates) and Relationships to: Tune, Musician, Concept, Progression, Voicing
@@ -15,6 +15,7 @@
 [ ] Featured Tunes Home Page & Filtering/Searching
 [ ] Featured Musicians Home Page & Filtering/Searching
 [ ] Musicians Contacting Each Other?
+[ ] Way to accept contributions wiki-style?
 
 [ ] Voicings Build-Out
 [ ] Progressions Build-Out
@@ -36,6 +37,7 @@
 [ ] Twitter Invite Friends
 [ ] AddThis Buttons
 [ ] Video Tutorial
+[ ] Mobile Styles
 
 = Post-Launch Refinement
 

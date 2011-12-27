@@ -4,6 +4,8 @@ class MusiciansController < ApplicationController
   respond_to :html, :json
 
   def index
+    @musicians = Musician.order(:prominence)
+    respond_with @musicians
   end
 
   def show
