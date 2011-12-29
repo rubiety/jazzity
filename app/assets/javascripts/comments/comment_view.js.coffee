@@ -22,6 +22,7 @@ Jazzity.CommentView = Backbone.View.extend
 
   render: ->
     $(this.el).attr("data-id", this.model.get("id"))
+    $(this.el).addClass("root") unless this.model.get("parent_id")
     $(this.el).html this.template(this.model.toJSON())
     $(this.el).find(".staff").vexflow()
     this.reset_actions()
@@ -49,6 +50,7 @@ Jazzity.CommentView = Backbone.View.extend
       this.$("form.reply-form").remove()
     else
       $(this.el).append _.template($("#reply-template").html())
+      $(this.el).find("textarea").autoResize()
     false
 
   create_reply: (e)->

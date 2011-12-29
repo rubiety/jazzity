@@ -6,6 +6,7 @@ class CreateComments < ActiveRecord::Migration
       t.integer :parent_id
       t.integer :lft
       t.integer :rgt
+      t.string :subject
       t.text :content
       t.timestamps
     end

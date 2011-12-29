@@ -2,6 +2,8 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require jquery-qtip
+//= require jquery-autoresize
+//= require jquery-scrollto
 //= require json2
 //= require underscore
 //= require moment

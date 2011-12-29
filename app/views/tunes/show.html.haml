@@ -3,7 +3,7 @@
   = render "tunes/tabs"
 
   %section#tune-description
-    = raw RedCloth.new(StaffNotation.parse(@tune.description)).to_html
+    = raw text_to_html(@tune.description)
 
   %section#tune-relateables
     - if @tune.tune_progressions.exists?

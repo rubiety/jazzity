@@ -39,7 +39,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # Applies Textile and StaffNotation parsers to produce HTML
+  def text_to_html(text)
+    RedCloth.new(StaffNotation.parse(text)).to_html
+  end
+
   helper_method :path_to_searchable
   helper_method :path_to_model
+  helper_method :text_to_html
   
 end

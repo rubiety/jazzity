@@ -3,7 +3,7 @@
   margin-top: 10px;
   padding: 15px;
   border: 3px solid #CCC;
-  width: 650px;
+  width: 70%;
 
   h2 {
     font-size: 1.3em;
@@ -28,20 +28,34 @@
         max-height: 50px;
         margin-right: 10px;
       }
-      cite {
-        font-size: 0.9em;
+      h2 {
+        font-size: 1.1em;
+        font-weight: bold;
+        margin-bottom: 6px;
       }
-      div.content {
-        margin-top: 0.5em;
-        margin-left: 60px;
+      cite {
+        color: #666;
+        font-weight: bold;
+        font-style: normal;
+        float: right;
       }
       div.actions {
-        margin-top: 0.5em;
+        margin-top: 0.8em;
         margin-left: 60px;
         font-size: 0.8em;
         text-transform: uppercase;
         color: #666;
         a { margin-right: 2em; }
+      }
+
+      div.content {
+        margin-top: 0.5em;
+        margin-left: 60px;
+        font-size: 0.9em;
+
+        p {
+          margin-bottom: 0.5em;
+        }
       }
 
       form.reply-form {
@@ -54,7 +68,21 @@
         padding-left: 10px;
         border-left: 2px solid #666;
       }
+
+
+      /* We show root-level comments quite a bit different from regular replies */
+      &.root {
+        margin-top: 20px;
+
+        &:first-child {
+          margin-top: 0;
+        }
+      }
     }
+  }
+
+  p.actions {
+    margin-bottom: 15px;
   }
 
   p.login-required {
@@ -73,8 +101,25 @@
       position: absolute;
       bottom: 10px;
       right: 0;
+
+      a.cancel-add-comment, a.cancel-reply {
+        margin-right: 20px;
+      }
     }
+
     input[type=submit] { margin-left: 0; }
+  }
+
+  form.create-comment-form {
+    border-bottom: 3px solid #CCC;
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+
+  form.reply-form {
+    border-top: 3px solid #CCC;
+    padding-top: 10px;
   }
 
 }

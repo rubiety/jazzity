@@ -115,6 +115,7 @@ ActiveRecord::Schema.define(:version => 20111126173837) do
     t.integer  "parent_id"
     t.integer  "lft"
     t.integer  "rgt"
+    t.string   "subject"
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"

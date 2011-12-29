@@ -11,13 +11,20 @@ class CommentsController < ApplicationController
     respond_with @comments
   end
 
+  def show
+  end
+
   def create
     @comment = @commentable.comments.build(params[:comment])
     @comment.parent = @parent_comment
     @comment.author = current_musician
-    @comment.save
+    
+    if @comment.save
+      @comment.move_to_left_of(@commentable.comments.first) if @parent_comment.nil? && @commentable.comments.first != @comment
+    end
 
     respond_with @comment do |format|
+      format.json { render :action => :show }
       format.html do
         flash[:notice] = "Comment Created"
       end
@@ -29,6 +36,7 @@ class CommentsController < ApplicationController
     @comment.save
 
     respond_with @comment do |format|
+      format.json { render :action => :show }
       format.html do
         flash[:notice] = "Comment Updated"
       end

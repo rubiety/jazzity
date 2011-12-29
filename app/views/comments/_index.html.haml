@@ -1,40 +1,58 @@
 %div.comments{:data => {"commentable-type" => commentable.class.model_name.underscore, "commentable-id" => commentable.id}}
-  %span#comments-spinner{:style => "display: none"}
-    = image_tag "ajax_spinner.gif", :alt => "Loading Comments", :id => "comments-spinner"
-    Loading Comments
-
-  %ul.comments-list
-
+  -# TOP LINKS
   - if musician_signed_in?
-    %p= link_to "Add a Comment", "#", :class => "add-comment"
+    %p.actions= link_to "Start a Discussion", "#", :class => "add-comment"
   - else
     %p.login-required 
       Sorry, but you must be logged in to place comments. #{link_to "Log in", new_musician_session_path} or #{link_to "sign up", new_musician_registration_path}.
 
+  -# NEW COMMENT TEMPLATE
   = simple_form_for Comment.new, :remote => true, :html => {:class => "create-comment-form", "data-type" => "json", :style => "display: none"} do |f|
-    %h4 New Comment:
-    = f.input :content
-    %div.buttons= f.submit "Submit", :disabled_with => "Processing..."
+    %h4 New Discussion:
+    = f.input :subject, :placeholder => "Your topic..."
+    = f.input :content, :placeholder => "Your comments..."
+    %div.buttons
+      = link_to "cancel", "#", :class => "cancel-add-comment"
+      = f.submit "Create", :disabled_with => "Processing..."
 
-  %script{:type => "text/template", :id => "reply-template"}
-    = simple_form_for Comment.new, :remote => true, :html => {:class => "reply-form", "data-type" => "json"} do |f|
-      %h4 Reply:
-      = f.input :content
-      %div.buttons= f.submit "Submit", :disabled_with => "Processing..."
+  %span.comments-spinner{:style => "display: none"}
+    = image_tag "ajax_spinner.gif", :alt => "Loading Comments", :id => "comments-spinner"
+    Loading Discussions
+  %span.no-comments{:style => "display: none"}
+    No discussions exist yet. Create one!
 
-  %script{:type => "text/template", :id => "edit-template"}
-    = simple_form_for Comment.new, :remote => true, :html => {:class => "edit-form", "data-type" => "json"} do |f|
-      = f.input :content
-      %div.buttons= f.submit "Update", :disabled_with => "Processing..."
+  -# COMMENTS LIST (Populated by Backbone - Need to render inline for future SEO eventually)
+  %ul.comments-list
 
+
+  -# SHOW TEMPLATE
   %script{:type => "text/template", :id => "comment-template"}
     :plain
       <img class="avatar" src="<%= author_avatar_url %>" alt="<%= author_name %>'s Avatar'" />
     %cite
-      <%= author_name %> <%= created_at_in_words %>
-    %div.content <%= content %>
+      <%= author_name %>, <%= created_at_in_words %>
+    <% if (subject) { %>
+    %h2 <%= subject %>
+    <% } %>
+    %div.content <%= html_content %>
     %div.actions
       = link_to "Reply", "#", :class => "reply", :style => "display: none"
       = link_to "Edit", "#", :class => "edit", :style => "display: none"
       = link_to "Remove", "#", :class => "remove", :style => "display: none"
     %ul.comments-list
+
+  -# NEW REPLY TEMPLATE
+  %script{:type => "text/template", :id => "reply-template"}
+    = simple_form_for Comment.new, :remote => true, :html => {:class => "reply-form", "data-type" => "json"} do |f|
+      %h4 Reply:
+      = f.input :content, :placeholder => "Your reply..."
+      %div.buttons
+        = link_to "cancel", "#", :class => "cancel-reply"
+        = f.submit "Create", :disabled_with => "Processing..."
+
+  -# EDIT REPLY TEMPLATE
+  %script{:type => "text/template", :id => "edit-template"}
+    = simple_form_for Comment.new, :remote => true, :html => {:class => "edit-form", "data-type" => "json"} do |f|
+      = f.input :content
+      %div.buttons= f.submit "Update", :disabled_with => "Processing..."
+

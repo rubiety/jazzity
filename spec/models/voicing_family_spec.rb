@@ -1,4 +1,4 @@
-require "spec_helkper"
+require "spec_helper"
 
 describe VoicingFamily do
   describe "associations" do
