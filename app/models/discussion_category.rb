@@ -2,7 +2,7 @@ class DiscussionCategory < ActiveRecord::Base
   extend FriendlyId
   include Commentable
 
-  scope :with_discussable_type, lambda {|t| where(:discussable_type => t) }
+  scope :with_discussable_type, lambda {|t| where("discussable_type = ? OR discussable_type_2 = ?", t, t) }
 
   friendly_id :name, :use => :slugged
 
@@ -10,12 +10,12 @@ class DiscussionCategory < ActiveRecord::Base
     name
   end
 
+  def discussable_types
+    [discussable_type, discussable_type_2].reject(&:blank?)
+  end
+
   def discussions
-    if discussable_type
-      Comment.roots.where(:commentable_type => discussable_type).order("created_at desc")
-    else
-      comments.roots.order("created_at desc")
-    end
+    Comment.roots.order("created_at desc").where("commentable_type IN (?) OR (commentable_type = 'DiscussionCategory' AND commentable_id = ?)", discussable_types, id)
   end
 
   def recent_discussion

@@ -140,6 +140,7 @@ ActiveRecord::Schema.define(:version => 20111231164938) do
     t.string   "slug"
     t.string   "description"
     t.string   "discussable_type"
+    t.string   "discussable_type_2"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

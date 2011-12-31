@@ -12,6 +12,6 @@
         %cite= "#{discussion.author}, #{time_ago_in_words discussion.created_at}"
         %h2
           = raw "#{link_to discussion.commentable, path_to_model(discussion.commentable)}: " if discussion.commentable
-          = link_to discussion.subject, discussion_category_discussion_path(discussion.discussion_category, discussion)
-        %div.content= raw discussion.html_content
+          = link_to discussion.subject, discussion_category_discussion_path(@discussion_category || discussion.discussion_category, discussion)
+        %div.content= truncate discussion.content, :length => 200, :omission => " ...(continued)"
         %span.comments-count= discussion.children.count

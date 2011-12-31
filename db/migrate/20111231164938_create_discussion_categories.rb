@@ -6,6 +6,7 @@ class CreateDiscussionCategories < ActiveRecord::Migration
       t.string :slug
       t.string :description
       t.string :discussable_type
+      t.string :discussable_type_2
       t.timestamps
     end
 
