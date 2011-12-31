@@ -4,6 +4,8 @@
   %header
     %h1= @discussion_category || "All Discussions"
     %p= @discussion_category.try(:description) || "All discussions throughout Jazzity."
+    %p.actions
+      = link_to "Create a Discussion", new_discussion_category_discussion_path(@discussion_category) if @discussion_category
   
   %ul.discussions
     - @discussions.each do |discussion|
@@ -11,7 +13,7 @@
         = image_tag discussion.author.avatar_url, :alt => "#{discussion.author}'s Avatar'", :class => "avatar"
         %cite= "#{discussion.author}, #{time_ago_in_words discussion.created_at}"
         %h2
-          = raw "#{link_to discussion.commentable, path_to_model(discussion.commentable)}: " if discussion.commentable
+          = raw "#{link_to discussion.commentable, path_to_model(discussion.commentable)}: " if discussion.commentable and !discussion.commentable.is_a?(DiscussionCategory)
           = link_to discussion.subject, discussion_category_discussion_path(@discussion_category || discussion.discussion_category, discussion)
         %div.content= truncate discussion.content, :length => 200, :omission => " ...(continued)"
         %span.comments-count= discussion.children.count

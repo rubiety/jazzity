@@ -1,0 +1,15 @@
+= render "discussion_categories/index"
+
+%article#discussion
+  %header
+    %h1= @discussion_category
+    %p= @discussion_category.description
+  
+  %h2 Create a Discussion:
+
+  = simple_form_for Comment.new, :url => discussion_category_discussions_path(@discussion_category), :html => {:class => "create-discussion-form"} do |f|
+    = f.input :subject, :placeholder => "Your topic..."
+    = f.input :content, :placeholder => "Your comments..."
+    %div.buttons
+      = f.submit "Create Discussion", :disabled_with => "Processing..."
+

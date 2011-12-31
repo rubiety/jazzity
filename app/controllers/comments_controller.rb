@@ -54,7 +54,7 @@ class CommentsController < ApplicationController
 
   # TODO: Base this dynamically off of model inclusions for Commentable
   def find_commentable
-    [Chord, Concept, Mode, Musician, Progression, Tune, Voicing].each do |model|
+    [Chord, Concept, Mode, Musician, Progression, Tune, Voicing, DiscussionCategory].each do |model|
       if model_id = params[model.name.underscore + "_id"]
         @commentable = model.find(model_id)
         return

@@ -26,29 +26,30 @@ body.discussion-categories, body.discussions {
     }
   }
 
-  article#discussion {
+  article#discussion, section#discussions {
     @include columns(9);
 
     header {
       margin-bottom: 10px;
       padding-bottom: 10px;
       border-bottom: 3px solid #CCC;
+
+      p.actions {
+        margin-top: 10px;
+      }
     }
+  }
+
+  article#discussion {
   
     .comments {
+      width: 95%;
       p.actions { display: none; }
     }
 
   }
 
   section#discussions {
-    @include columns(9);
-
-    header {
-      margin-bottom: 10px;
-      padding-bottom: 10px;
-      border-bottom: 3px solid #CCC;
-    }
 
     ul.discussions {
       @include no-bullets;
@@ -104,4 +105,24 @@ body.discussion-categories, body.discussions {
       }
     }
   }
+
+  form.create-discussion-form {
+  
+    @include clearfix;
+    position: relative;
+
+    h4 { margin-bottom: 10px; }
+    label { display: none; }
+    textarea { height: 150px; width: 75%; }
+
+    .buttons { 
+      a.cancel-add-comment, a.cancel-reply {
+        margin-right: 20px;
+      }
+    }
+
+    input[type=submit] { margin-left: 0; }
+  
+  }
+
 }

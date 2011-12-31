@@ -9,7 +9,7 @@ class DiscussionCategoriesController < ApplicationController
   end
 
   def show
-    @discussions = @discussion_category.try(:discussions) || Comment.roots
+    @discussions = (@discussion_category.try(:discussions) || Comment.roots).reorder("created_at desc")
     render :action => :show
   end
 
