@@ -9,7 +9,6 @@ Jazzity::Application.routes.draw do
     resources :authentications, :only => [:index, :destroy]
     resource :profile, :only => [:show, :edit, :update, :destroy] do
       get :discussions
-      get :privacy
     end
   end
 
