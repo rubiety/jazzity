@@ -1,6 +1,5 @@
 = Functional Beta
 
-[ ] Remove Liking System
 [ ] Jazz Discussion Section (Subject for Top-Level Comments?), Comments Refinement
 [ ] Musicians/Tunes/Concepts Show Expansion (Textile?) - Need Good Examples
 [ ] Rework Susy Grids - We *can* do nesting!
