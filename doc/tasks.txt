@@ -1,8 +1,6 @@
 = Functional Beta
 
-[ ] Jazz Discussion Section (Subject for Top-Level Comments?), Comments Refinement
 [ ] Musicians/Tunes/Concepts Show Expansion (Textile?) - Need Good Examples
-[ ] Rdio/Pandora/Spotify Integration!
 [ ] Albums/Recordings Implementation (iTunes Affiliates) and Relationships to: Tune, Musician, Concept, Progression, Voicing
 [ ] Resource Implementation (Amazon/JazzBooks Affiliates) and Relationships to: Concept, Progression, Voicing
 [ ] Rework Susy Grids - We *can* do nesting!
@@ -14,6 +12,7 @@
 [ ] Featured Musicians Home Page & Filtering/Searching
 [ ] Musicians Contacting Each Other?
 [ ] Contributions for Tunes & Musicians (Wiki-Style)
+[ ] Rdio/Pandora/Spotify Integration!
 
 [ ] Voicings Build-Out
 [ ] Progressions Build-Out
