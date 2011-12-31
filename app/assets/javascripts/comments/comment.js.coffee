@@ -32,9 +32,10 @@ Jazzity.Comment = Backbone.Model.extend
 
 Jazzity.Comments = Backbone.Collection.extend
   model: Jazzity.Comment
-  url: -> "/comments?#{this.commentable_type}_id=#{this.commentable_id}&parent_id=#{this.parent_id || ''}"
+  url: -> "/comments?#{this.commentable_type}_id=#{this.commentable_id}&parent_id=#{this.parent_id || ''}&single_comment_id=#{this.single_comment_id || ''}"
   initialize: (models, options = {})->
     this.commentable_type = options.commentable_type
     this.commentable_id = options.commentable_id
     this.parent_id = options.parent_id
+    this.single_comment_id = options.single_comment_id
     

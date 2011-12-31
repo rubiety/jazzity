@@ -7,10 +7,12 @@ Jazzity.CommentsView = Backbone.View.extend
   initialize: ->
     this.commentable_type = this.el.attr("data-commentable-type")
     this.commentable_id = this.el.attr("data-commentable-id")
+    this.comment_id = this.el.attr("data-comment-id")
 
     this.collection ||= new Jazzity.Comments {}
     this.collection.commentable_type = this.commentable_type
     this.collection.commentable_id = this.commentable_id
+    this.collection.single_comment_id = this.comment_id
     this.collection.bind "add", this.add, this
     this.collection.bind "reset", this.reset, this
     this.collection.bind "all", this.render_overview, this

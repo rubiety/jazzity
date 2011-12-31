@@ -1,4 +1,4 @@
-body.discussion-categories {
+body.discussion-categories, body.discussions {
   nav#discussion-categories {
     @include columns(3);
     @include alpha;
@@ -26,6 +26,21 @@ body.discussion-categories {
     }
   }
 
+  article#discussion {
+    @include columns(9);
+
+    header {
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid #CCC;
+    }
+  
+    .comments {
+      p.actions { display: none; }
+    }
+
+  }
+
   section#discussions {
     @include columns(9);
 
@@ -35,13 +50,14 @@ body.discussion-categories {
       border-bottom: 3px solid #CCC;
     }
 
-    ul {
+    ul.discussions {
       @include no-bullets;
       margin: 0 0 20px 0;
     
       li {
         @include clearfix;
         margin: 10px 0 0 0;
+        position: relative;
 
         &:first-child { margin-top: 0; }
 
@@ -71,6 +87,18 @@ body.discussion-categories {
           p {
             margin-bottom: 0.5em;
           }
+        }
+
+        span.comments-count {
+          position: absolute;
+          display: inline-block;
+          bottom: 5px;
+          right: 5px;
+          font-size: 0.9em;
+          text-align: right;
+          width: 30px;
+          height: 16px;
+          background: image-url("iconic/chat_alt_fill_16x16.png") left no-repeat;
         }
 
       }

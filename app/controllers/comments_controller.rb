@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
 
   def index
     @comments = @commentable.comments.roots
+    @comments = @comments.where(:id => params[:single_comment_id]) if params[:single_comment_id].present?
     respond_with @comments
   end
 

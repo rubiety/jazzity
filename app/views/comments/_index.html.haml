@@ -1,4 +1,4 @@
-%div.comments{:data => {"commentable-type" => commentable.class.model_name.underscore, "commentable-id" => commentable.id}}
+%div.comments{:data => {"commentable-type" => commentable.class.model_name.underscore, "commentable-id" => commentable.id, "comment-id" => local_assigns[:comment].try(:id)}}
   -# TOP LINKS
   - if musician_signed_in?
     %p.actions= link_to "Start a Discussion", "#", :class => "add-comment"

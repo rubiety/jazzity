@@ -11,6 +11,22 @@ class Comment < ActiveRecord::Base
 
   fires :new_comment, :on => :create, :actor => :author, :secondary_subject => :commentable
 
+  def to_param
+    if subject
+      "#{id}-#{subject.parameterize}"
+    else
+      super
+    end
+  end
+
+  def discussion_category
+    if commentable.is_a?(DiscussionCategory)
+      commentable
+    else
+      DiscussionCategory.with_discussable_type(commentable_type).first
+    end
+  end
+
   # This is copied from ApplicationController. I am a very, very bad person for this.
   def html_content
     RedCloth.new(StaffNotation.parse(content)).to_html

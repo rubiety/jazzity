@@ -4,7 +4,7 @@
 %nav
   %ul
     = navigation_link_to "Home", root_path, DashboardsController
-    = navigation_link_to "Discussion", discussion_categories_path, [DiscussionCategoriesController]
+    = navigation_link_to "Discussion", discussion_categories_path, [DiscussionCategoriesController, DiscussionsController]
     = navigation_link_to "Tunes", tunes_path, TunesController
     = navigation_link_to "Musicians", musicians_path, MusiciansController
     = navigation_link_to "Scales & Modes", scales_path, [ScalesController, ModesController]

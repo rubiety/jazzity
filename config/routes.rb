@@ -88,7 +88,10 @@ Jazzity::Application.routes.draw do
   resources :chord_note_sequences, :path => "chord-notes", :only => [:show]
 
   resources :comments
-  resources :discussion_categories, :path => "discussion"
+  resources :discussions
+  resources :discussion_categories, :path => "discussion" do
+    resources :discussions, :path => "d"
+  end
   
   root :to => "dashboards#show"
   

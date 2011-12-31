@@ -2,6 +2,8 @@ class DiscussionCategory < ActiveRecord::Base
   extend FriendlyId
   include Commentable
 
+  scope :with_discussable_type, lambda {|t| where(:discussable_type => t) }
+
   friendly_id :name, :use => :slugged
 
   def to_s
