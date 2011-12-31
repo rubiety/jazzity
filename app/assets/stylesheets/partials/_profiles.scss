@@ -86,27 +86,3 @@ body.musicians-profiles {
 
 }
 
-body.musicians-likes {
-  
-  section {
-    ul {
-      @include no-bullets;
-      margin: 0;
-
-      li {
-        padding: 4px;
-      }
-    }
-  }
-
-  section#liked-musicians {
-    @include columns(6);
-    @include alpha;
-  }
-
-  section#liked-tunes {
-    @include columns(6);
-    @include omega;
-  }
-
-}

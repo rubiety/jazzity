@@ -1,8 +1,8 @@
 = Functional Beta
 
+[ ] Remove Liking System
 [ ] Jazz Discussion Section (Subject for Top-Level Comments?), Comments Refinement
-[ ] Expand Musician Profiles for: Do you have any recordings? Are you open for lessons?
-[ ] Musicians & Tunes Show Expansion (Textile?) - Need Good Examples
+[ ] Musicians/Tunes/Concepts Show Expansion (Textile?) - Need Good Examples
 [ ] Rework Susy Grids - We *can* do nesting!
 [ ] Progression Position/Bar Support (For Blues/Rhythm, Mainly)
 [ ] Better Octave Choosing... (octavized_notes implementation), "Include Roots" Checkbox for Voicings/Progressions
@@ -11,12 +11,11 @@
 [ ] Albums/Recordings Implementation (iTunes Affiliates) and Relationships to: Tune, Musician, Concept, Progression, Voicing
 [ ] Resource Implementation (Amazon/JazzBooks Affiliates) and Relationships to: Concept, Progression, Voicing
 
-[ ] Musician & Tune Liking/Management
-[ ] Musician Signup Wizard (Create Profile)
+[ ] Musician Signup Process (Invite Friends, Profile)
 [ ] Featured Tunes Home Page & Filtering/Searching
 [ ] Featured Musicians Home Page & Filtering/Searching
 [ ] Musicians Contacting Each Other?
-[ ] Way to accept contributions wiki-style?
+[ ] Contributions for Tunes & Musicians (Wiki-Style)
 
 [ ] Voicings Build-Out
 [ ] Progressions Build-Out

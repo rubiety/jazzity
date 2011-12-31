@@ -20,10 +20,6 @@ class Musician < ActiveRecord::Base
   belongs_to :secondary_instrument, :class_name => "Instrument"
   has_many :timeline_events, :as => :actor
 
-  has_many :likes, :class_name => "MusicianLike", :dependent => :destroy
-  has_many :liked_musicians, :through => :likes, :source => :likeable, :source_type => "Musician"
-  has_many :liked_tunes, :through => :likes, :source => :likeable, :source_type => "Tune"
-
   scope :with_profile, where(:has_profile => true)
   scope :without_profile, where(:has_profile => false)
   scope :famous, where(:famous => true)

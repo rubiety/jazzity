@@ -54,25 +54,6 @@ class CreateMusicians < ActiveRecord::Migration
     
     add_index :musician_authentications, :musician_id
     
-    create_table :musician_likes do |t|
-      t.references :musician
-      t.references :likeable, :polymorphic => true
-      t.timestamps
-    end
-
-    add_index :musician_likes, :musician_id
-    add_index :musician_likes, [:likeable_id, :likeable_type]
-
-    create_table :musician_samples do |t|
-      t.references :musician
-      t.string :title
-      t.string :url
-      t.string :media_type
-      t.timestamps
-    end
-
-    add_index :musician_samples, :musician_id
-    
     create_table :instruments do |t|
       t.string :name
       t.string :cached_slug

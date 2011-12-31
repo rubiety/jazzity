@@ -116,33 +116,6 @@ body.musicians {
       @include alpha;
     }
 
-    section#musician-likes {
-      @include columns(4);
-      @include omega;
-
-      article {
-        margin-bottom: 20px;
-      }
-
-      ul {
-        @include no-bullets;
-        margin: 0;
-
-        li {
-          @include clearfix;
-          margin-bottom: 5px;
-
-          img.avatar {
-            float: left;
-            margin-right: 10px;
-            max-height: 50px;
-            max-width: 50px;
-          }
-        }
-      }
-    }
-
-
     div.comments {
       @include full;
       margin-top: 20px;
