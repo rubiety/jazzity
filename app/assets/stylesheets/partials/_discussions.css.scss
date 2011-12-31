@@ -1,0 +1,79 @@
+body.discussion-categories {
+  nav#discussion-categories {
+    @include columns(3);
+    @include alpha;
+    background: #CCC;
+
+    ul {
+      @include no-bullets;
+      margin: 0;
+      padding: 10px;
+
+      li {
+        margin: 5px 0;
+        padding: 8px;
+
+        h2 {
+          font-weight: normal;
+          font-size: 1.1em;
+          margin: 0;
+        }
+
+        &.current {
+          background: #FFF;
+        }
+      }
+    }
+  }
+
+  section#discussions {
+    @include columns(9);
+
+    header {
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid #CCC;
+    }
+
+    ul {
+      @include no-bullets;
+      margin: 0 0 20px 0;
+    
+      li {
+        @include clearfix;
+        margin: 10px 0 0 0;
+
+        &:first-child { margin-top: 0; }
+
+        img.avatar {
+          float: left;
+          max-width: 50px;
+          max-height: 50px;
+          margin-right: 10px;
+        }
+        h2 {
+          font-size: 1.1em;
+          font-weight: bold;
+          margin-bottom: 6px;
+        }
+        cite {
+          color: #666;
+          font-weight: bold;
+          font-style: normal;
+          float: right;
+        }
+
+        div.content {
+          margin-top: 0.5em;
+          margin-left: 60px;
+          font-size: 0.9em;
+
+          p {
+            margin-bottom: 0.5em;
+          }
+        }
+
+      }
+    }
+  }
+}

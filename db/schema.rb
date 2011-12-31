@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111126173837) do
+ActiveRecord::Schema.define(:version => 20111231164938) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -134,6 +134,18 @@ ActiveRecord::Schema.define(:version => 20111126173837) do
 
   add_index "concepts", ["slug"], :name => "index_concepts_on_slug"
 
+  create_table "discussion_categories", :force => true do |t|
+    t.integer  "position"
+    t.string   "name"
+    t.string   "slug"
+    t.string   "description"
+    t.string   "discussable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "discussion_categories", ["slug"], :name => "index_discussion_categories_on_slug", :unique => true
+
   create_table "forms", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -193,28 +205,6 @@ ActiveRecord::Schema.define(:version => 20111126173837) do
   end
 
   add_index "musician_authentications", ["musician_id"], :name => "index_musician_authentications_on_musician_id"
-
-  create_table "musician_likes", :force => true do |t|
-    t.integer  "musician_id"
-    t.integer  "likeable_id"
-    t.string   "likeable_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "musician_likes", ["likeable_id", "likeable_type"], :name => "index_musician_likes_on_likeable_id_and_likeable_type"
-  add_index "musician_likes", ["musician_id"], :name => "index_musician_likes_on_musician_id"
-
-  create_table "musician_samples", :force => true do |t|
-    t.integer  "musician_id"
-    t.string   "title"
-    t.string   "url"
-    t.string   "media_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "musician_samples", ["musician_id"], :name => "index_musician_samples_on_musician_id"
 
   create_table "musicians", :force => true do |t|
     t.string   "first_name"

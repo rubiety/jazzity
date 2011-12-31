@@ -1,0 +1,16 @@
+= render "index"
+
+%section#discussions
+  %header
+    %h1= @discussion_category || "All Discussions"
+    %p= @discussion_category.try(:description) || "All discussions throughout Jazzity."
+  
+  %ul
+    - @discussions.each do |discussion|
+      %li.discussion
+        = image_tag discussion.author.avatar_url, :alt => "#{discussion.author}'s Avatar'", :class => "avatar"
+        %cite= "#{discussion.author}, #{time_ago_in_words discussion.created_at}"
+        %h2
+          = raw "#{link_to discussion.commentable, path_to_model(discussion.commentable)}: " if discussion.commentable
+          = discussion.subject
+        %div.content= raw discussion.html_content
