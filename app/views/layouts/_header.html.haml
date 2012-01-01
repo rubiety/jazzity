@@ -7,10 +7,10 @@
     = navigation_link_to "Discussion", discussion_categories_path, [DiscussionCategoriesController, DiscussionsController]
     = navigation_link_to "Tunes", tunes_path, TunesController
     = navigation_link_to "Musicians", musicians_path, MusiciansController
-    = navigation_link_to "Scales & Modes", scales_path, [ScalesController, ModesController]
-    = navigation_link_to "Chords & Voicings", chords_path, [ChordsController, VoicingsController, ChordSequencesController, NoteSequencesController]
-    = navigation_link_to "Progressions & Form", progressions_path, [ProgressionsController, ChordNoteSequencesController]
-    = navigation_link_to "Jazz Concepts", concepts_path, ConceptsController
+    = navigation_link_to "Scales", scales_path, [ScalesController, ModesController]
+    = navigation_link_to "Chords/Voicings", chords_path, [ChordsController, VoicingsController, ChordSequencesController, NoteSequencesController]
+    = navigation_link_to "Progressions/Form", progressions_path, [ProgressionsController, ChordNoteSequencesController]
+    = navigation_link_to "Concepts", concepts_path, ConceptsController
 
 %aside{"data-current-musician-id" => current_musician.try(:id)}
   - if musician_signed_in?
