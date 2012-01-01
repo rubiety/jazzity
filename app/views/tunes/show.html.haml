@@ -5,6 +5,18 @@
   %section#tune-description
     = raw text_to_html(@tune.description)
 
+  %section#tune-resources
+    - if @tune.resources.amazon_books.exists?
+      %section#tune-books
+        %h2 Resources:
+        = render "resources/index", :resources => @tune.resources.amazon_books.random.limit(3)
+
+    - if @tune.resources.itunes_tracks.exists?
+      %section#tune-recordings
+        %h2 Popular Recordings:
+        = render "resources/index", :resources => @tune.resources.itunes_tracks.random.limit(10)
+
+
   %section#tune-relateables
     - if @tune.tune_progressions.exists?
       %section#tune-progressions
@@ -25,13 +37,4 @@
               = link_to tune_concept.concept, tune_concept.concept
               - if tune_concept.comment?
                 %p= tune_concept.comment
-
-    - if @tune.recordings.present?
-      %section#tune-recordings
-        %h2 Recordings on iTunes:
-        %ul
-          - @tune.recordings.each do |recording|
-            %li
-              = image_tag recording.artwork_url30
-              = link_to "#{recording.artist_name} - #{recording.track_name}", recording.track_view_url
 

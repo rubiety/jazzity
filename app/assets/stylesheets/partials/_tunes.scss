@@ -118,11 +118,16 @@ body.tunes {
     }
 
     #tune-relateables {
+      @include columns(9);
+      @include alpha;
+    }
+
+    #tune-resources {
       @include columns(3);
       @include omega;
     }
 
-    #tune-progressions, #tune-concepts, #tune-recordings {
+    #tune-progressions, #tune-concepts, #tune-recordings, #tune-books {
       margin: 10px 0 10px 0;
       ul {
         @include no-bullets;
