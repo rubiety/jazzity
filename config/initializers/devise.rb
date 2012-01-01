@@ -202,8 +202,10 @@ Devise.setup do |config|
   omniauth_settings = omniauth_settings[Rails.env.to_s] if omniauth_settings
   
   if omniauth_settings
-    config.omniauth :facebook, omniauth_settings["facebook"]["key"], omniauth_settings["facebook"]["secret"]
+    Jazzity::Application.config.omni_auth = omniauth_settings
+
     config.omniauth :twitter, omniauth_settings["twitter"]["key"], omniauth_settings["twitter"]["secret"]
+    config.omniauth :facebook, omniauth_settings["facebook"]["key"], omniauth_settings["facebook"]["secret"], :iframe => true
   end
 
   # ==> Warden configuration

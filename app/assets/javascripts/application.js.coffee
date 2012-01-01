@@ -19,6 +19,7 @@
 //= require profiles
 //= require search
 //= require comments
+//= require facebook
 //
 //= require tunes
 //= require musicians

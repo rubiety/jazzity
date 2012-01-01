@@ -17,6 +17,9 @@
     = image_tag current_musician.avatar_url, :class => "avatar", :alt => "#{current_musician}'s Avatar" if current_musician.has_avatar?
     = link_to "Welcome, #{current_musician}", musician_path(current_musician)
     &nbsp;&nbsp;&nbsp;
+    - if current_musician.authenticated_with?(:facebook)
+      = link_to "Invite Facebook Friends", "#", :class => "invite-facebook-friends"
+      &nbsp;&nbsp;&nbsp;
     = link_to "Sign Out", destroy_musician_session_path, :method => :delete
   - else
     = link_to "Sign In with Facebook", musician_omniauth_authorize_path(:facebook), :class => "btn-auth btn-facebook"
