@@ -35,6 +35,8 @@
   searchables
   timeline_events
   discussion_categories
+  resources
+  resource_applications
 ).each do |table|
   ActiveRecord::Base.connection.execute "TRUNCATE TABLE `#{table}`"
 end
@@ -53,6 +55,7 @@ end
   progressions
   tunes
   discussion_categories
+  resources
 ).each {|f| require Rails.root.join("db/seeds/#{f}.rb") }
 
 Searchable.regenerate_all

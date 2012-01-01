@@ -1,9 +1,10 @@
 class Progression < ActiveRecord::Base
   extend FriendlyId
   
+  include Searchable::Model
   include KeyContext
   include Commentable
-  include Searchable::Model
+  include Resourceable
   
   friendly_id :name, :use => :slugged
 

@@ -4,6 +4,7 @@ class Voicing < ActiveRecord::Base
   include KeyContext
   include OctaveContext
   include Commentable
+  include Resourceable
 
   acts_as_tree
   friendly_id :name, :use => :scoped, :scope => :chord

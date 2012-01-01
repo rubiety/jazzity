@@ -15,6 +15,7 @@ class Musician < ActiveRecord::Base
   include Searchable::Model
   include Musician::Authentication
   include Commentable
+  include Resourceable
   
   belongs_to :instrument
   belongs_to :secondary_instrument, :class_name => "Instrument"
