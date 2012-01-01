@@ -153,6 +153,7 @@ class InitialJazzModels < ActiveRecord::Migration
       t.integer :tempo
       t.integer :aebersold_playalong_number
       t.text :description
+      t.boolean :seeding, :default => false
       t.timestamps
     end
 
@@ -217,6 +218,7 @@ class InitialJazzModels < ActiveRecord::Migration
       t.integer :form_id
       t.string :summary
       t.text :information
+      t.boolean :seeding, :default => false
       t.timestamps
     end
 
@@ -239,6 +241,7 @@ class InitialJazzModels < ActiveRecord::Migration
     create_table :concepts do |t|
       t.string :name
       t.text :about
+      t.boolean :seeding, :default => false
       t.timestamps
     end
   end

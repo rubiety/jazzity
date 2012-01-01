@@ -25,6 +25,7 @@ class CreateMusicians < ActiveRecord::Migration
       t.boolean :studies_privately, :default => false, :null => false
       t.string :studies_privately_with
       t.string :music_school
+      t.boolean :seeding, :default => false
       t.timestamps
       
       t.database_authenticatable :null => false

@@ -10,6 +10,8 @@ class MusiciansController < ApplicationController
 
   def show
     raise ActiveRecord::RecordNotFound unless @musician.has_profile? or @musician.famous? or @musician == current_musician
+
+    flash.now[:warning] = "We're still seeding content for this page. Want to contribute?" if @musician.seeding?
     @timeline_events = @musician.timeline_events
 
     respond_with @musician

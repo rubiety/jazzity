@@ -15,6 +15,7 @@ class TunesController < ApplicationController
   end
 
   def show
+    flash.now[:warning] = "We're still seeding content for this page. Want to contribute?" if @tune.seeding?
     respond_with @tune
   end
 

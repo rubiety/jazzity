@@ -127,6 +127,7 @@ ActiveRecord::Schema.define(:version => 20111231205552) do
   create_table "concepts", :force => true do |t|
     t.string   "name"
     t.text     "about"
+    t.boolean  "seeding",    :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
@@ -292,6 +293,7 @@ ActiveRecord::Schema.define(:version => 20111231205552) do
     t.integer  "form_id"
     t.string   "summary"
     t.text     "information"
+    t.boolean  "seeding",               :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
@@ -426,6 +428,7 @@ ActiveRecord::Schema.define(:version => 20111231205552) do
     t.integer  "tempo"
     t.integer  "aebersold_playalong_number"
     t.text     "description"
+    t.boolean  "seeding",                                 :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
