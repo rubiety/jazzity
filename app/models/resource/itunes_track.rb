@@ -1,10 +1,10 @@
 require "itunes"
 
 class Resource::ItunesTrack < Resource
-  ITUNES_COMMISSION = 0.05
+  COMMISSION = 0.05
 
   def expected_payout
-    (price || 0) * ITUNES_COMMISSION
+    (price || 0) * COMMISSION
   end
 
   def self.search_provider(query, options = {})
@@ -17,6 +17,7 @@ class Resource::ItunesTrack < Resource
   
   def self.from_provider(hash)
     find_or_initialize_by_identifier(hash.track_id).tap do |track|
+      track.provider_response = track
       track.attributes = {
         :subtype => hash.wrapper_type,
         :identifier => hash.track_id,
@@ -33,9 +34,5 @@ class Resource::ItunesTrack < Resource
         :description => hash.description
       }
     end
-  end
-
-  def self.from_provider!(hash)
-    from_itunes(hash).save!
   end
 end

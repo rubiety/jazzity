@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111231164938) do
+ActiveRecord::Schema.define(:version => 20111231205552) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -300,6 +300,40 @@ ActiveRecord::Schema.define(:version => 20111231164938) do
   add_index "progressions", ["meter_id"], :name => "index_progressions_on_meter_id"
   add_index "progressions", ["progression_family_id"], :name => "index_progressions_on_progression_family_id"
   add_index "progressions", ["slug"], :name => "index_progressions_on_slug"
+
+  create_table "resource_applications", :force => true do |t|
+    t.integer "resource_id"
+    t.integer "resourceable_id"
+    t.string  "resourceable_type"
+    t.string  "comment"
+    t.integer "hits"
+    t.decimal "expected_payout",   :precision => 9, :scale => 2
+  end
+
+  add_index "resource_applications", ["resource_id"], :name => "index_resource_applications_on_resource_id"
+  add_index "resource_applications", ["resourceable_type", "resourceable_id"], :name => "resource_applications_resourceable"
+
+  create_table "resources", :force => true do |t|
+    t.string   "type"
+    t.string   "subtype"
+    t.string   "identifier"
+    t.string   "name"
+    t.string   "collection_identifier"
+    t.string   "collection_name"
+    t.integer  "collection_track_number"
+    t.string   "author_identifier"
+    t.string   "author_name"
+    t.decimal  "price",                   :precision => 9, :scale => 2
+    t.string   "image_url"
+    t.string   "view_url"
+    t.string   "audio_preview_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "description"
+    t.integer  "volume"
+  end
+
+  add_index "resources", ["identifier"], :name => "index_resources_on_identifier"
 
   create_table "scale_tones", :force => true do |t|
     t.integer "scale_id"

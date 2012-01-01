@@ -37,7 +37,7 @@ gem "RedCloth"
 gem "feedzirra"
 gem "twitter"
 gem "itunes"
-gem "amazon-ecs"
+gem "amazon-ecs", :require => "amazon/ecs"
 
 # Authentication
 gem "devise"

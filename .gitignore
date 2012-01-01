@@ -5,6 +5,7 @@ tmp/**/*
 tmp/*
 config/database.yml
 config/omniauth.yml
+config/amazon.yml
 public/assets
 public/system
 .sass-cache
