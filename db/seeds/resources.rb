@@ -13,3 +13,15 @@ Tune.all.each do |tune|
   end
 end
 
+Musician.all.each do |musician|
+  Resource::ItunesTrack.search_provider(musician.name).each do |track|
+    track.save!
+    musician.resources << track
+  end
+
+  Resource::AmazonBook.search_provider(musician.name).each do |book|
+    book.save!
+    musician.resources << book
+  end
+end
+

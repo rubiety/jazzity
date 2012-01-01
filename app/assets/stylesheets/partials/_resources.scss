@@ -1,9 +1,9 @@
 ul.resources {
   @include no-bullets;
-  margin: 0;
+  margin: 0 0 10px 0;
 
   li {
-    padding: 0;
+    padding: 3px;
   }
 
   .resource {

@@ -69,8 +69,9 @@ body.musicians {
 
     header {
       @include full;
-      background: #CCC;
+      @include clearfix;
       @include border-radius(6px);
+      background: #CCC;
       padding: 10px;
       position: relative;
       margin-bottom: 15px;
@@ -111,9 +112,24 @@ body.musicians {
       }
     }
 
-    section#musician-activity {
-      @include columns(8);
+    #musician-description {
+      @include columns(9);
       @include alpha;
+    }
+
+    #musician-relateables {
+      @include columns(9);
+      @include alpha;
+    }
+
+    #musician-resources {
+      @include columns(3);
+      @include omega;
+    }
+
+    #musician-activity {
+      @include columns(3);
+      @include omega;
     }
 
     div.comments {

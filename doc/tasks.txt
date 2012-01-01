@@ -1,8 +1,6 @@
 = Functional Beta
 
 [ ] Musicians/Tunes/Concepts Show Expansion (Textile?) - Need Good Examples
-[ ] Albums/Recordings Implementation (iTunes Affiliates) and Relationships to: Tune, Musician, Concept, Progression, Voicing
-[ ] Resource Implementation (Amazon/JazzBooks Affiliates) and Relationships to: Concept, Progression, Voicing
 [ ] Rework Susy Grids - We *can* do nesting!
 [ ] Progression Position/Bar Support (For Blues/Rhythm, Mainly)
 [ ] Better Octave Choosing... (octavized_notes implementation), "Include Roots" Checkbox for Voicings/Progressions
