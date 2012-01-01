@@ -35,8 +35,16 @@ Tune.create!(
   :description      => <<-END
 Spare ribs flank jowl corned beef ham short ribs t-bone rump tenderloin, biltong ground round beef ribs. Rump salami meatball, pastrami shankle ham hock beef ribs ribeye. Rump tri-tip shoulder ball tip, chicken pastrami salami capicola pork loin fatback pig. Biltong frankfurter spare ribs salami. Short loin brisket andouille chuck. Filet mignon short loin turducken jowl chuck, ball tip drumstick pig hamburger rump meatloaf. Flank corned beef frankfurter hamburger brisket short loin.
 
+h2. Styles
+
+* Bebop
+* Bossa-Nova
+* Ballad
+
 You can also try this chord here:
 {{ Cmaj7#11 }}
+
+h2. Other Information
 
 Spare ribs flank jowl corned beef ham short ribs t-bone rump tenderloin, biltong ground round beef ribs. Rump salami meatball, pastrami shankle ham hock beef ribs ribeye. Rump tri-tip shoulder ball tip, chicken pastrami salami capicola pork loin fatback pig. Biltong frankfurter spare ribs salami. Short loin brisket andouille chuck. Filet mignon short loin turducken jowl chuck, ball tip drumstick pig hamburger rump meatloaf. Flank corned beef frankfurter hamburger brisket short loin.
   END
@@ -61,8 +69,16 @@ Tune.create!(
   :description      => <<-END
 Spare ribs flank jowl corned beef ham short ribs t-bone rump tenderloin, biltong ground round beef ribs. Rump salami meatball, pastrami shankle ham hock beef ribs ribeye. Rump tri-tip shoulder ball tip, chicken pastrami salami capicola pork loin fatback pig. Biltong frankfurter spare ribs salami. Short loin brisket andouille chuck. Filet mignon short loin turducken jowl chuck, ball tip drumstick pig hamburger rump meatloaf. Flank corned beef frankfurter hamburger brisket short loin.
 
-Maybe try this scale here:
-{{ C Dorian }}
+h2. Styles
+
+* Bebop
+* Bossa-Nova
+* Ballad
+
+You can also try this chord here:
+{{ Cmaj7#11, Dmin7, G7 }}
+
+h2. Other Information
 
 Spare ribs flank jowl corned beef ham short ribs t-bone rump tenderloin, biltong ground round beef ribs. Rump salami meatball, pastrami shankle ham hock beef ribs ribeye. Rump tri-tip shoulder ball tip, chicken pastrami salami capicola pork loin fatback pig. Biltong frankfurter spare ribs salami. Short loin brisket andouille chuck. Filet mignon short loin turducken jowl chuck, ball tip drumstick pig hamburger rump meatloaf. Flank corned beef frankfurter hamburger brisket short loin.
   END
@@ -87,8 +103,16 @@ Tune.create!(
   :description      => <<-END
 Spare ribs flank jowl corned beef ham short ribs t-bone rump tenderloin, biltong ground round beef ribs. Rump salami meatball, pastrami shankle ham hock beef ribs ribeye. Rump tri-tip shoulder ball tip, chicken pastrami salami capicola pork loin fatback pig. Biltong frankfurter spare ribs salami. Short loin brisket andouille chuck. Filet mignon short loin turducken jowl chuck, ball tip drumstick pig hamburger rump meatloaf. Flank corned beef frankfurter hamburger brisket short loin.
 
-Maybe try this scale here:
-{{ C Dorian }}
+h2. Styles
+
+* Bebop
+* Bossa-Nova
+* Ballad
+
+You can also try this chord here:
+{{ Cmaj7#11 }}
+
+h2. Other Information
 
 Spare ribs flank jowl corned beef ham short ribs t-bone rump tenderloin, biltong ground round beef ribs. Rump salami meatball, pastrami shankle ham hock beef ribs ribeye. Rump tri-tip shoulder ball tip, chicken pastrami salami capicola pork loin fatback pig. Biltong frankfurter spare ribs salami. Short loin brisket andouille chuck. Filet mignon short loin turducken jowl chuck, ball tip drumstick pig hamburger rump meatloaf. Flank corned beef frankfurter hamburger brisket short loin.
   END

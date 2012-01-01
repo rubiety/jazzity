@@ -5,7 +5,7 @@
   = render "musicians/tabs" if @musician.famous?
 
   %section#musician-description
-    = @musician.biography
+    = raw text_to_html(@musician.biography)
 
   %section#musician-resources
     - if @musician.resources.amazon_books.exists?

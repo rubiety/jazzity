@@ -115,6 +115,9 @@ body.musicians {
     #musician-description {
       @include columns(9);
       @include alpha;
+      
+      p { margin-bottom: 0.8em; }
+      ul { margin-left: 1em; margin-bottom: 0.8em; }
     }
 
     #musician-relateables {
