@@ -120,6 +120,15 @@ body.musicians {
       ul { margin-left: 1em; margin-bottom: 0.8em; }
     }
 
+    #musician-comments {
+      @include columns(9);
+      @include alpha;
+
+      .comments {
+        width: 90%;
+      }
+    }
+
     #musician-relateables {
       @include columns(9);
       @include alpha;
@@ -133,11 +142,6 @@ body.musicians {
     #musician-activity {
       @include columns(3);
       @include omega;
-    }
-
-    div.comments {
-      @include full;
-      margin-top: 20px;
     }
   }
 

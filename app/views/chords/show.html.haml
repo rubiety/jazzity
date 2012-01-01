@@ -3,7 +3,6 @@
 %article#chord
   = render "chords/key_selector"
   = render "chords/header"
-  = render "chords/tabs"
 
   %section#notes-sequence
     %h3= @chord.notes.join(", ")
@@ -20,3 +19,6 @@
       %ul.voicings-list
         = render @chord.voicings, :key => @key
 
+  %section#chord-comments
+    %h2 Discussion:
+    = render "comments/index", :commentable => @chord

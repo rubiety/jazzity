@@ -95,6 +95,13 @@ body.scales, body.modes {
       h2 { font-size: 1.4em; }
     }
 
+    #scale-comments {
+      margin-top: 1em;
+      .comments {
+        width: 90%;
+      }
+    }
+
     nav.related-chords {
       @include clearfix;
       h3 { margin-bottom: 0.4em; }

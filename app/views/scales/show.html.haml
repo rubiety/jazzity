@@ -28,8 +28,6 @@
       %label Intervals:
       = @mode.interval_names.join(", ")
 
-    = render "scales/tabs"
-
     %section#staff
       .staff.scale-staff{"data-id" => @scale.id, "data-staff" => @mode.octavized_notes.map {|n| [n]}.to_json, "data-staff-clef" => "treble", "width" => 500}
 
@@ -38,3 +36,7 @@
       %ul.chords-list
         - @mode.chord_scales.each do |chord_scale|
           = render chord_scale.chord, :key => (@scale.key || Key.default).shifted(-1 * chord_scale.offset)
+
+    %section#scale-comments
+      %h2 Discussion:
+      = render "comments/index", :commentable => @mode

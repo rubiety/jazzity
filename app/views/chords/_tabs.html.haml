@@ -1,5 +1,0 @@
-%nav.tabs
-  %ul
-    = navigation_link_to "Information", @chord, ChordsController, :show
-    = navigation_link_to "Voicings (#{@chord.voicings.count})", [@key, @chord, :voicings].compact, VoicingsController
-    = navigation_link_to "Comments (#{@chord.comments.count})", [:comments, @key, @chord].compact, ChordsController, :comments

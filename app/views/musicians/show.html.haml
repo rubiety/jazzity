@@ -2,7 +2,6 @@
 
 %article#musician
   = render "musicians/header"
-  = render "musicians/tabs" if @musician.famous?
 
   %section#musician-description
     = raw text_to_html(@musician.biography)
@@ -18,6 +17,11 @@
         %h2 Popular Recordings:
         = render "resources/index", :resources => @musician.resources.itunes_tracks.random.limit(10)
 
+  - if @musician.famous?
+    %section#musician-comments
+      %h2 Discussion:
+      = render "comments/index", :commentable => @musician
+
   -# TODO:
     %section#musician-activity
       %h2 Recent Discussion:
@@ -25,3 +29,4 @@
         = render "timeline_events/index", :timeline_events => @timeline_events
         - if @timeline_events.empty?
           %p.no-results No activity yet!
+
