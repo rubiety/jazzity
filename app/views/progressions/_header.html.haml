@@ -1,4 +1,6 @@
 %header
+  = render "shared/social_sharing"
+
   %h1
     = "#{@progression.title}: "
     = raw @progression.chords.map {|c| link_to(c.short_name, [c.key, c].compact) }.join(", ")

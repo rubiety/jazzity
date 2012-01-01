@@ -30,7 +30,6 @@
 [ ] Chord Substitution Possibilities
 [ ] Facebook Invite Friends
 [ ] Twitter Invite Friends
-[ ] AddThis Buttons
 [ ] Video Tutorial
 [ ] Mobile Styles
 

@@ -1,4 +1,7 @@
 %header
+  - if @musician.famous?
+    = render "shared/social_sharing"
+
   = image_tag @musician.avatar_url(:thumb), :class => "avatar", :alt => "#{@musician}'s Avatar" if @musician.has_avatar?
   %h1= @musician
   %dl
@@ -24,3 +27,4 @@
       %li.youtube YouTube: #{link_to @musician.youtube_username, "#"}
     - if @musician.facebook_url?
       %li.facebook Facebook: #{link_to "My Profile", @musician.facebook_url}
+
