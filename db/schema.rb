@@ -233,6 +233,7 @@ ActiveRecord::Schema.define(:version => 20111231205552) do
     t.boolean  "studies_privately",                                                    :default => false, :null => false
     t.string   "studies_privately_with"
     t.string   "music_school"
+    t.boolean  "seeding",                                                              :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email",                                                                :default => "",    :null => false

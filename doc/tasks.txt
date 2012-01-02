@@ -1,13 +1,12 @@
 = Functional Beta
 
-[ ] Rework Susy Grids - We *can* do nesting!
-[ ] Progression Position/Bar Support (For Blues/Rhythm, Mainly) - Requires Vast Expansion of vexflow-json
-[ ] Better Octave Choosing... (octavized_notes implementation), "Include Roots" Checkbox for Voicings/Progressions
-
 [ ] Featured Tunes Home Page & Filtering/Searching
 [ ] Featured Musicians Home Page & Filtering/Searching
-[ ] Musicians Contacting Each Other?
 [ ] Contributions for Tunes & Musicians (Wiki-Style)
+
+[ ] Rework Susy Grids - We *can* do nesting! CSS Refactoring.
+[ ] Progression Position/Bar Support (For Blues/Rhythm, Mainly) - Requires Expansion of vexflow-json
+[ ] Better Octave Choosing... (octavized_notes implementation), "Include Roots" Checkbox for Voicings/Progressions
 
 [ ] Webkit PNG Generation of Object Staffs (for use in OpenGraph images)
 [ ] ActiveAdmin Configuration & Expansion
@@ -16,6 +15,7 @@
 [ ] Famous Musicians Database Build-Out
 [ ] Tunes Database Build-Out
 [ ] Jazz Concepts Build-Out
+[ ] Musicians Contacting Each Other?
 
 [ ] Serialization of deeply-normalized data for performance?
 [ ] Full RSpec Test Suite
