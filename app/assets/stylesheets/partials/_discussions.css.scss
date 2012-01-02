@@ -1,12 +1,12 @@
 body.discussions {
 
   nav#discussion-categories {
-    @include columns(3, 12);
+    @include columns(2, 12);
     @include alpha(12);
     background: #CCC;
 
     ul {
-      padding: 10px;
+      padding: 4px;
 
       li {
         margin: 5px 0;
@@ -24,7 +24,7 @@ body.discussions {
   }
 
   article#discussion, section#discussions {
-    @include columns(9, 12);
+    @include columns(10, 12);
     @include omega(12);
   }
 

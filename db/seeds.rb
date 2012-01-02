@@ -20,6 +20,7 @@
   progression_families
   progressions
   progression_components
+  concept_families
   concepts
   chord_qualities
   chord_scales
