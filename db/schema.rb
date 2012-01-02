@@ -124,15 +124,27 @@ ActiveRecord::Schema.define(:version => 20111231205552) do
   add_index "comments", ["author_id"], :name => "index_comments_on_author_id"
   add_index "comments", ["commentable_type", "commentable_id"], :name => "index_comments_on_commentable_type_and_commentable_id"
 
-  create_table "concepts", :force => true do |t|
+  create_table "concept_families", :force => true do |t|
     t.string   "name"
-    t.text     "about"
-    t.boolean  "seeding",    :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
   end
 
+  add_index "concept_families", ["slug"], :name => "index_concept_families_on_slug"
+
+  create_table "concepts", :force => true do |t|
+    t.integer  "concept_family_id"
+    t.string   "name"
+    t.string   "summary"
+    t.text     "content"
+    t.boolean  "seeding",           :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "slug"
+  end
+
+  add_index "concepts", ["concept_family_id"], :name => "index_concepts_on_concept_family_id"
   add_index "concepts", ["slug"], :name => "index_concepts_on_slug"
 
   create_table "discussion_categories", :force => true do |t|

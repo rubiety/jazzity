@@ -1,4 +1,5 @@
 Musician.create!(
+  :seeding => true,
   :first_name => "Miles",
   :last_name => "Davis",
   :born_on => "1926-05-26",
@@ -28,6 +29,7 @@ Spare ribs flank jowl corned beef ham short ribs t-bone rump tenderloin, biltong
 end
 
 Musician.create!(
+  :seeding => true,
   :first_name => "Oscar",
   :last_name => "Peterson",
   :born_on => "1925-08-05",

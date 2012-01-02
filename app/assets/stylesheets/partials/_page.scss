@@ -20,14 +20,22 @@ body {
   h2 { font-size: 0.8em; }
 
   nav {
-    padding: 5px;
+    padding: 4px;
     border-top: 1px solid #000;
     border-bottom: 1px solid #000;
     
     ul {
-      @include horizontal-list;
-      li { margin: 0 15px 0 0; }
-      li.current { font-weight: bold; }
+      @include inline-block-list;
+      li {
+        margin: 0 15px 0 0;
+        padding: 5px;
+
+        &.current {
+          @include border-radius(4px);
+          background: #DDD;
+          font-weight: bold;
+        }
+      }
     }
   }
 

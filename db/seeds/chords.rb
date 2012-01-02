@@ -22,7 +22,7 @@ ChordQuality.create!(:name => 'Major', :code => 'MAJ').tap do |q|
       cc.chord_scales << ChordScale.new(:mode => Scale['Major'].modes[3], :offset => -5)
     end
 
-    c.children.create!(:chord_quality => q, :name => 'Lydian Augmented', :specify_tones => "u 3 #4 #5 7").tap do |cc|
+    c.children.create!(:chord_quality => q, :name => 'Major 7 #4#5', :specify_tones => "u 3 #4 #5 7").tap do |cc|
       cc.symbols.create!(:name => 'maj7#4#5', :primary => true)
       cc.symbols.create!(:name => 'lydaug')
       cc.symbols.create!(:name => 'maj7#11#5')

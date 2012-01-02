@@ -2,6 +2,7 @@ require "spec_helper"
 
 describe Concept do
   context "associations" do
+    it { should belong_to(:progression_family) }
     it { should have_many(:searchables) }
     it { should have_many(:tune_concepts) }
     it { should have_many(:tunes).through(:tune_concepts) }

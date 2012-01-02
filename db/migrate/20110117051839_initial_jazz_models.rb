@@ -238,11 +238,20 @@ class InitialJazzModels < ActiveRecord::Migration
     add_index :progression_components, :position
     add_index :progression_components, :chord_id
     
-    create_table :concepts do |t|
+    create_table :concept_families do |t|
       t.string :name
-      t.text :about
+      t.timestamps
+    end
+
+    create_table :concepts do |t|
+      t.references :concept_family
+      t.string :name
+      t.string :summary
+      t.text :content
       t.boolean :seeding, :default => false
       t.timestamps
     end
+
+    add_index :concepts, :concept_family_id
   end
 end

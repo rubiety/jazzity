@@ -1,2 +1,12 @@
-%ul.concepts-list
-  = render @concepts
+%section#search
+  = form_tag searches_path do
+    = label_tag :query, "Search Concepts: "
+    = text_field_tag :query
+    = submit_tag "Go"
+
+%section#concepts
+  - @concept_families.each_with_index do |family, i|
+    %article.concept-family{:style => ("clear: left" if i % 3 == 0)}
+      %h2= family
+      %ul.concepts-list
+        = render family.concepts

@@ -20,6 +20,9 @@ body.chords {
   article.chord-quality {
     border-bottom: 3px solid #CCC;
     padding: 10px 0;
+
+    &:first-child { margin-top: 0; }
+    &:last-child { margin-bottom: 0; }
   }
 
   article#chord {

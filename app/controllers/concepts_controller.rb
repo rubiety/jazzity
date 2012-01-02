@@ -4,12 +4,15 @@ class ConceptsController < ApplicationController
   respond_to :html, :json
 
   def index
-    @concepts = Concept.all
-    respond_with @concepts
+    @concept_families = ConceptFamily.all
+
+    respond_with @concept_families do |format|
+      format.json { render :json => @concept_families.to_json(:include => [:progressions]) }
+    end
   end
 
   def show
-    flash.now[:warning] = "We're still seeding content for this page. Want to contribute?" if @concept.seeding?
+    flash.now[:warning] = "We're still seeding content for this page. Want to <a href='#'>contribute some content</a>?" if @concept.seeding?
     respond_with @concept
   end
 

@@ -1,5 +1,7 @@
 #flash {
-  margin: 12px 0;
+  @include full;
+  margin-top: 10px;
+  margin-bottom: 10px;
   color: #EEE;
 
   div {
@@ -9,6 +11,12 @@
     &.notice { background: #1D5FA3 url(/images/flash/notice.png) 16px 12px no-repeat; }
     &.warning { background: #1D5FA3 url(/images/flash/warning.png) 16px 12px no-repeat; }
     &.alert { background: #EC160E url(/images/flash/alert.png) 16px 12px no-repeat; }
+
+    a {
+      color: #FFF;
+      &:hover { color: #FFF; }
+      &:visited { color: #FFF; }
+    }
   }
 
 }

@@ -2,6 +2,9 @@
   = render "concepts/header"
   = render "concepts/tabs"
 
+  %section#concept-description
+    = raw text_to_html(@concept.content)
+
   - if @concept.tune_concepts.exists?
     %section#concept-tunes
       %h2 Tunes showcasing this concept:

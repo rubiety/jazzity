@@ -4,6 +4,7 @@ class Concept < ActiveRecord::Base
   include Commentable
   include Resourceable
 
+  belongs_to :concept_family
   has_many :tune_concepts, :dependent => :destroy
   has_many :tunes, :through => :tune_concepts
 
@@ -16,6 +17,10 @@ class Concept < ActiveRecord::Base
   end
 
   def to_s
+    name
+  end
+
+  def title
     name
   end
 

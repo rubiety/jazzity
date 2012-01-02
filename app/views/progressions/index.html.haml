@@ -1,6 +1,6 @@
 %section#search
   = form_tag searches_path do
-    = label_tag "Search Progressions: "
+    = label_tag :query, "Search Progressions: "
     = text_field_tag :query
     = submit_tag "Go"
 

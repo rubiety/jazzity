@@ -1,3 +1,4 @@
 %li.concept
-  %h3= link_to concept, concept
-  %p= concept.about
+  = link_to concept do
+    %h3= concept.title
+    %p= concept.summary
