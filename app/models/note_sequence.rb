@@ -94,6 +94,11 @@ class NoteSequence
     end.extend(Chords)
   end
 
+  # Scales associated with this collection of notes (just done through chords)
+  def modes
+    chords.map(&:modes).flatten
+  end
+
   private
 
   def chords_in_key(in_key)

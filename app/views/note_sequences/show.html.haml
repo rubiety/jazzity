@@ -1,6 +1,8 @@
 %article#note-sequence
   %header
-    %h1= @note_sequence.title
+    %h1
+      Note Sequence:
+      = @note_sequence.title
 
   %nav#key-selector
     %h2 Key:
@@ -15,4 +17,9 @@
     %h3 Related Chords:
     %ul.chords-list
       = render @note_sequence.chords
+
+  %nav.related-modes
+    %h3 Related Scales:
+    %ul.modes-list
+      = render @note_sequence.modes
 

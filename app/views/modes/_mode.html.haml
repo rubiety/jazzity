@@ -6,4 +6,4 @@
     %h3= mode.title
     - if mode.comments.exists?
       %span.comments-count= mode.comments.count
-    %p= mode.scale.information
+    %p= truncate mode.information, :length => 80

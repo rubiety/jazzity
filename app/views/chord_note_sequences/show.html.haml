@@ -1,6 +1,8 @@
 %article#chord-note-sequence
   %header
-    %h1= @chord_note_sequence.title
+    %h1
+      Chord Note Sequence:
+      = @chord_note_sequence.title
     %h3= raw @chord_note_sequence.chords.map {|g| g.map {|c| link_to(c.short_name, [c.key, c].compact) }.join(" or ")}.join(", &nbsp;&nbsp;")
 
   %nav#key-selector
