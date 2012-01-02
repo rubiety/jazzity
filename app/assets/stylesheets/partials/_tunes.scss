@@ -1,34 +1,15 @@
 body.tunes {
 
-  nav#filters {
-    @include columns(2, 12);
-    @include alpha(12);
-    background: #CCC;
-
-    article {
-      padding: 10px;
-      ul {
-        li { padding-bottom: 4px; }
-      }
-    }
-  }
-  
-  section#search {
-    @include columns(10, 12);
-    @include omega(12);
-    margin-bottom: 15px;
-  }
-
   section#tunes {
-    @include columns(10, 12);
-    @include omega(12);
+    @include columns(9, 12);
+    @include alpha(12);
   }
 
   article.tune {
     @include clearfix;
     position: relative;
-    padding: 8px;
-    margin-bottom: 5px;
+    padding: 4px;
+    margin: 0;
 
     h3 {
       float: left;
@@ -44,11 +25,21 @@ body.tunes {
     ul.attributes {
       float: right;
       @include horizontal-list;
-      li { font-style: italic; }
+      li {
+        font-style: italic;
+        font-size: 0.9em;
+      }
     }
   }
 
+  #tune-resources {
+    @include columns(3, 12);
+    @include omega(12);
+  }
+
   article#tune {
+    @include columns(9, 12);
+    @include alpha(12);
     @include clearfix;
 
     header {
@@ -69,21 +60,12 @@ body.tunes {
     }
 
     #tune-description {
-      @include columns(9, 12);
-      @include alpha(12);
-      
       p { margin-bottom: 0.8em; }
       ul { margin-left: 1em; margin-bottom: 0.8em; }
     }
 
     #tune-relateables {
-      @include columns(9, 12);
-      @include alpha(12);
-    }
 
-    #tune-resources {
-      @include columns(3, 12);
-      @include omega(12);
     }
   }
 

@@ -4,18 +4,6 @@
   %section#tune-description
     = raw text_to_html(@tune.description)
 
-  #tune-resources
-    - if @tune.resources.amazon_books.exists?
-      %section#tune-books
-        %h2 Resources:
-        = render "resources/index", :resources => @tune.resources.amazon_books.random.limit(3)
-
-    - if @tune.resources.itunes_tracks.exists?
-      %section#tune-recordings
-        %h2 Popular Recordings:
-        = render "resources/index", :resources => @tune.resources.itunes_tracks.random.limit(10)
-
-
   #tune-relateables
     - if @tune.tune_progressions.exists?
       %section#tune-progressions
@@ -40,3 +28,16 @@
   %section#tune-comments
     %h2 Discussion:
     = render "comments/index", :commentable => @tune
+
+#tune-resources
+  - if @tune.resources.amazon_books.exists?
+    %section#tune-books
+      %h2 Resources:
+      = render "resources/index", :resources => @tune.resources.amazon_books.random.limit(3)
+
+  - if @tune.resources.itunes_tracks.exists?
+    %section#tune-recordings
+      %h2 Popular Recordings:
+      = render "resources/index", :resources => @tune.resources.itunes_tracks.random.limit(10)
+
+

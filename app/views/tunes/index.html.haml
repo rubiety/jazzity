@@ -1,22 +1,3 @@
-%nav#filters
-  %article
-    %h2 By Form:
-    %ul
-      - Form.all.each do |form|
-        %li= link_to_unless_current form, by_form_tunes_path(:form_id => form)
-
-  %article
-    %h2 By Vehicle:
-    %ul
-      - Vehicle.all.each do |vehicle|
-        %li= link_to_unless_current vehicle, by_vehicle_tunes_path(:vehicle_id => vehicle)
-
-  %article
-    %h2 By Meter:
-    %ul
-      - Meter.all.each do |meter|
-        %li= link_to_unless_current meter, by_meter_tunes_path(:meter_id => meter)
-
 %section#search
   = form_tag tunes_path, :method => :get do
     = label_tag "Search Tunes: "
@@ -27,3 +8,7 @@
   = paginate @tunes
   = render @tunes
   = paginate @tunes
+
+#tune-resources
+  %section#tune-books
+    = render "resources/index", :resources => Resource.amazon_books.random.limit(5)

@@ -61,12 +61,12 @@ class VoiceLeading < ActiveRecord::Base
         previous_voicing = voicings.last
 
         if choice == "<" or choice.nil?
-          voicings << (voicing_for_chord_after(chord, previous_voicing) || chord.voicings.sample.in_key_of(chord.key))
+          voicings << (voicing_for_chord_after(chord, previous_voicing) || chord.voicings.sample.try(:in_key_of, chord.key))
         elsif choice.to_i > 0
           voicings << chord.voicings.find(choice).in_key_of(chord.key)
         end
       end
-    end
+    end.compact
   end
 
   def self.voicing_for_chord_after(chord, previous_voicing)
