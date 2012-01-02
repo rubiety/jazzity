@@ -41,6 +41,10 @@ class Mode < ActiveRecord::Base
     end
   end
 
+  def information
+    super || scale.information
+  end
+
   def main?
     mode == 1
   end

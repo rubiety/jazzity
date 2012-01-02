@@ -1,10 +1,8 @@
-= render "chords/index"
-
 %article#chord
-  = render "chords/key_selector"
   = render "chords/header"
 
   %article#voicing
+    = render "chords/key_selector"
     %h1= @voicing.title
     .staff.voicing-staff{"data-id" => @voicing.id, "data-clef" => "treble,bass", "data-staff" => @voicing.octavized_notes(3).to_json, "width" => 150, "height" => 160}
 

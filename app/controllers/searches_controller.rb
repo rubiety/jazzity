@@ -6,6 +6,8 @@ class SearchesController < ApplicationController
   end
 
   def show
+    params[:query] = params[:id]
+
     @search = Search.new(params[:id])
     @results = @search.all
 

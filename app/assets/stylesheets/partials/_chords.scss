@@ -1,19 +1,12 @@
 body.chords {
 
-  nav#chords-index {
-    @include columns(2, 12);
-    @include alpha(12);
-    background: #CCC;
-
-    article { padding: 10px; }
-  }
-
   section#chords {
-    @include columns(10, 12);
-    @include omega(12);
-
     ul.chords-list {
       margin-bottom: 0;
+
+      .staff {
+        margin-top: -20px;
+      }
     }
   }
   
@@ -26,13 +19,10 @@ body.chords {
   }
 
   article#chord {
-    @include columns(10, 12);
-    @include omega(12);
-
     header {
       position: relative;
 
-      h2 {
+      h1 {
         span {
           color: #666;
         }
@@ -41,13 +31,22 @@ body.chords {
       .staff {
         position: absolute;
         top: -20px;
-        right: 300px;
+        right: 20px;
       }
     }
     
     nav.related-modes, nav.related-voicings {
       margin-top: 1em;
       h3 { margin-bottom: 0.4em; }
+    }
+
+    nav.related-modes {
+      ul.modes-list {
+        li.mode {
+          float: left;
+          width: 45%;
+        }
+      }
     }
   }
 
@@ -73,7 +72,7 @@ ul.chords-list {
 
     a { text-decoration: none; }
 
-    &:hover { border: 1px solid #333; }
+    &:hover { border: 1px solid #333 }
   }
 }
 

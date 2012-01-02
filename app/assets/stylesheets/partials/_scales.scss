@@ -1,16 +1,7 @@
 body.scales {
 
-  nav#scales-index {
-    @include columns(2, 12);
-    @include alpha(12);
-    background: #CCC;
-
-    article { padding: 10px; }
-  }
-
   section#scales {
-    @include columns(10, 12);
-    @include omega(12);
+
   }
 
   article.scale {
@@ -39,9 +30,6 @@ body.scales {
   }
 
   article#scale {
-    @include columns(10, 12);
-    @include omega(12);
-
     #modes-list {
       @include border-radius(6px);
       margin-top: 10px;

@@ -1,2 +1,11 @@
 .staff.chord-staff{"data-id" => model.id, "data-staff" => model.octavized_notes.to_json, "data-staff-clef" => "treble", "width" => 150}
-%h3= link_to "#{model.title} Chord", path_to_searchable(result)
+%h2= "#{model.title} Chord"
+%p
+  = model.notes.join(", ")
+%p
+  = model.main_symbol_name
+  - if model.other_symbol_names.present?
+    %span (Also: #{model.other_symbol_names.join(', ')})
+%p
+  %label Intervals:
+  = model.interval_names.join(", ")

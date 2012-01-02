@@ -40,6 +40,10 @@ class Musician < ActiveRecord::Base
     "#{first_name} #{last_name}".strip
   end
 
+  def title
+    name
+  end
+
   def to_s
     name
   end

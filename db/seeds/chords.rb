@@ -99,7 +99,6 @@ ChordQuality.create!(:name => 'Minor', :code => 'MIN').tap do |q|
     c.symbols.create!(:name => 'majmin')
     c.symbols.create!(:name => 'm#7', :case_sensitive => true)
     c.symbols.create!(:name => 'minor#7')
-    c.symbols.create!(:name => 'major-minor')
 
     c.chord_scales << ChordScale.new(:mode => Scale['Melodic Minor'].modes[0], :offset => 0)
   end

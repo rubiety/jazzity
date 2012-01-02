@@ -1,8 +1,0 @@
-%nav#scales-index
-  - @scales.each do |scale|
-    %article
-      %h2= scale
-      %ul
-        - scale.modes.each do |mode|
-          %li= link_to_unless_current mode, [scale, mode]
-

@@ -1,8 +1,0 @@
-%nav#chords-index
-  - @chord_qualities.each do |chord_quality|
-    %article
-      %h2= chord_quality
-      %ul
-        - chord_quality.chords.each do |chord|
-          %li= link_to_unless_current chord, chord
-

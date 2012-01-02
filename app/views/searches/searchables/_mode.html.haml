@@ -1,2 +1,3 @@
 .staff.scale-staff{"data-id" => model.id, "data-staff" => model.octavized_notes.map {|n| [n]}.to_json, "data-staff-clef" => "treble", "width" => 380}
-%h3= link_to "#{result} (Mode of #{model.scale.title})", path_to_searchable(result)
+%h2= "#{result} (Mode of #{model.scale.title})"
+%p= model.information

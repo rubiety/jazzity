@@ -1,11 +1,6 @@
-= render "index"
-
 %article#chord
-  = render "chords/key_selector"
   = render "chords/header"
-
-  %section#notes-sequence
-    %h3= @chord.notes.join(", ")
+  = render "chords/key_selector"
 
   %nav.related-modes
     %h3 Related Scales/Modes:

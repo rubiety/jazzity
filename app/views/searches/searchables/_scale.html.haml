@@ -1,2 +1,3 @@
 .staff.scale-staff{"data-id" => model.id, "data-staff" => model.staff_notes.to_json, "data-staff-clef" => "treble", "width" => 420, "height" => 100}
-%h3= link_to model.title, path_to_searchable(result)
+%h2= model.title
+%p= model.information

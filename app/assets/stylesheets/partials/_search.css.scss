@@ -1,22 +1,28 @@
 body.searches {
   
   section#search-results {
-    @include full;
-
     ul.searchables-list {
       @include no-bullets;
       margin: 0;
 
       li {
+        @include border-radius(5px);
         @include clearfix;
-        margin: 5px 0;
-        padding: 5px 0;
-        border-top: 1px solid #333;
+        position: relative;
+        border: 1px solid #CCC;
+        margin: 0 10px 10px 0;
+        padding: 8px;
+        cursor: hand;
+
+        a { text-decoration: none; }
+
+        &:hover { border: 1px solid #333; }
 
         .staff {
           float: right;
           margin-top: -20px;
         }
+
       }
     }
   }
