@@ -17,14 +17,12 @@ body.voicings {
 /* Potentially Used Elsewhere */
 ul.voicings-list {
   @include clearfix;
-  list-style-type: none;
-  margin: 0;
 
   li.voicing {
+    @include border-radius(5px);
     position: relative;
     float: left;
     border: 1px solid #CCC;
-    @include border-radius(5px);
     margin: 0 10px 10px 0;
     padding: 4px;
     width: 184px;
@@ -34,27 +32,9 @@ ul.voicings-list {
       padding: 4px;
     }
     
-    span.comments-count {
-      position: absolute;
-      display: inline-block;
-      bottom: 5px;
-      right: 5px;
-      font-size: 0.9em;
-      text-align: right;
-      width: 30px;
-      height: 16px;
-      background: image-url("iconic/chat_alt_fill_16x16.png") left no-repeat;
-    }
-    
-    div.vex-tabdiv { padding-left: 0; }
+    a { text-decoration: none; }
 
-    a {
-      text-decoration: none;
-    }
-
-    &:hover {
-      border: 1px solid #333;
-    }
+    &:hover { border: 1px solid #333; }
   }
 }
 

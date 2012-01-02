@@ -5,12 +5,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 1.6em;
+  font-size: 1.8em;
   margin-bottom: 8px;
 }
 h2 {
-  font-size: 1.2em;
+  font-size: 1.3em;
   margin-bottom: 8px;
+}
+h3 {
+  font-size: 1.1em;
+  margin-bottom: 5px;
 }
 
 strong, th {
@@ -21,8 +25,90 @@ small {
   
 }
 
+label { font-weight: bold; }
+
 a {
   color: #000;
   &:visited { color: #000; }
   &:hover { color: #000; text-decoration: none; }
 }
+
+p {
+  font-size: 0.9em;
+  margin-bottom: 0.5em;
+}
+
+section {
+  margin: 10px 0;
+}
+
+nav {
+  margin: 10px 0;
+}
+
+article {
+  margin: 10px 0;
+}
+
+header {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #CCC;
+
+  p.actions { margin-top: 10px; }
+}
+
+ul {
+  @include no-bullets;
+  margin: 0 0 10px 0;
+  li {
+    padding: 3px;
+  }
+}
+
+
+dl {
+  dd { display: inline; }
+  dt { display: inline; margin-right: 20px; color: #666; }
+}
+
+img.avatar {
+  float: left;
+  max-width: 50px;
+  max-height: 50px;
+  margin-right: 10px;
+}
+
+cite {
+  color: #666;
+  font-weight: bold;
+  font-style: normal;
+  float: right;
+}
+
+span.comments-count {
+  position: absolute;
+  display: inline-block;
+  bottom: 5px;
+  right: 5px;
+  font-size: 0.9em;
+  text-align: right;
+  width: 30px;
+  height: 16px;
+  background: image-url("iconic/chat_alt_fill_16x16.png") left no-repeat;
+}
+
+ul.social-media {
+  @include horizontal-list;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+nav.tabs {
+  margin-left: 0;
+  margin-right: 0;
+  width: auto;
+  clear: none;
+}
+

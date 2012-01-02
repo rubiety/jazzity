@@ -1,4 +1,6 @@
 form {
+  @include clearfix;
+
   p.input {
     margin-bottom: 10px;
   }

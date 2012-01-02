@@ -1,43 +1,31 @@
-body.discussion-categories, body.discussions {
+body.discussions {
+
   nav#discussion-categories {
-    @include columns(3);
-    @include alpha;
+    @include columns(3, 12);
+    @include alpha(12);
     background: #CCC;
 
     ul {
-      @include no-bullets;
-      margin: 0;
       padding: 10px;
 
       li {
         margin: 5px 0;
         padding: 8px;
 
+        &.current { background: #FFF; }
+
         h2 {
           font-weight: normal;
           font-size: 1.1em;
           margin: 0;
-        }
-
-        &.current {
-          background: #FFF;
         }
       }
     }
   }
 
   article#discussion, section#discussions {
-    @include columns(9);
-
-    header {
-      margin-bottom: 10px;
-      padding-bottom: 10px;
-      border-bottom: 3px solid #CCC;
-
-      p.actions {
-        margin-top: 10px;
-      }
-    }
+    @include columns(9, 12);
+    @include omega(12);
   }
 
   article#discussion {
@@ -52,7 +40,6 @@ body.discussion-categories, body.discussions {
   section#discussions {
 
     ul.discussions {
-      @include no-bullets;
       margin: 0 0 20px 0;
     
       li {
@@ -62,67 +49,20 @@ body.discussion-categories, body.discussions {
 
         &:first-child { margin-top: 0; }
 
-        img.avatar {
-          float: left;
-          max-width: 50px;
-          max-height: 50px;
-          margin-right: 10px;
-        }
-        h2 {
-          font-size: 1.1em;
-          font-weight: bold;
-          margin-bottom: 6px;
-        }
-        cite {
-          color: #666;
-          font-weight: bold;
-          font-style: normal;
-          float: right;
-        }
+        h2 { @extend h3; }
 
-        div.content {
+        p {
           margin-top: 0.5em;
           margin-left: 60px;
-          font-size: 0.9em;
-
-          p {
-            margin-bottom: 0.5em;
-          }
         }
-
-        span.comments-count {
-          position: absolute;
-          display: inline-block;
-          bottom: 5px;
-          right: 5px;
-          font-size: 0.9em;
-          text-align: right;
-          width: 30px;
-          height: 16px;
-          background: image-url("iconic/chat_alt_fill_16x16.png") left no-repeat;
-        }
-
       }
     }
   }
 
   form.create-discussion-form {
-  
-    @include clearfix;
-    position: relative;
-
-    h4 { margin-bottom: 10px; }
     label { display: none; }
     textarea { height: 150px; width: 75%; }
-
-    .buttons { 
-      a.cancel-add-comment, a.cancel-reply {
-        margin-right: 20px;
-      }
-    }
-
     input[type=submit] { margin-left: 0; }
-  
   }
 
 }

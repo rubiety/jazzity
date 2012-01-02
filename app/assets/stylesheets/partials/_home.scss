@@ -1,61 +1,39 @@
 body.dashboards {
 
-  section {
-    h2 {
-      margin-bottom: 10px;
-      font-size: 1.1em;
-    }
-    p {
-      margin-bottom: 0.5em;
-    }
-  }
-  
-  section#search {
-    @include full;
-  }
-
   section#search-examples {
-    @include columns(9);
-    @include alpha;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    @include columns(9, 12);
+    @include alpha(12);
     border-bottom: 5px solid #CCC;
-    padding-bottom: 10px;
+    padding-bottom: 0.8em;
 
     h2 {
       float: left;
-      width: 100px;
+      width: 20%;
     }
     ul {
       width: 20%;
       float: left;
-      list-style-type: none;
-      margin-left: 0;
-      font-size: 0.8em;
-      li { padding: 3px; }
+
+      li {
+        font-size: 0.8em;
+        padding: 3px;
+      }
     }
   }
 
   section#features-overview {
-    @include columns(9);
-    @include alpha;
-
-    h1 { font-size: 1.8em; }
+    @include columns(9, 12);
+    @include alpha(12);
 
     article {
+      @include clearfix;
       margin-bottom: 15px;
-      clear: right;
 
       img {
         float: right;
         margin-right: 0;
         margin-left: 5px;
       }
-      h2 {
-        margin-bottom: 5px;
-        font-size: 1.0em;
-      }
-      p { font-size: 0.9em; }
 
       &.introduction {
         margin-bottom: 20px;
@@ -68,10 +46,8 @@ body.dashboards {
   }
 
   section#activity {
-    @include columns(3);
-    @include omega;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    @include columns(3, 12);
+    @include omega(12);
   }
 
 }

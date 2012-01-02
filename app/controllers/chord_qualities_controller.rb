@@ -1,4 +1,5 @@
 class ChordQualitiesController < ApplicationController
+  before_filter :set_body_class
   before_filter :find_chord_quality, :except => [:index, :new, :create]
 
   respond_to :html, :json
@@ -14,6 +15,10 @@ class ChordQualitiesController < ApplicationController
 
 
   protected
+
+  def set_body_class
+    @body_class = "chords"
+  end
 
   def find_chord_quality
     @chord_quality = ChordQuality[params[:id]]

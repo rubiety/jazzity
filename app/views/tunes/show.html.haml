@@ -4,7 +4,7 @@
   %section#tune-description
     = raw text_to_html(@tune.description)
 
-  %section#tune-resources
+  #tune-resources
     - if @tune.resources.amazon_books.exists?
       %section#tune-books
         %h2 Resources:
@@ -16,7 +16,7 @@
         = render "resources/index", :resources => @tune.resources.itunes_tracks.random.limit(10)
 
 
-  %section#tune-relateables
+  #tune-relateables
     - if @tune.tune_progressions.exists?
       %section#tune-progressions
         %h2 Progressions Used in this Tune:

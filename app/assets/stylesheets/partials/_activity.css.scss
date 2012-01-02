@@ -8,13 +8,9 @@
       @include clearfix;
       margin-bottom: 10px;
 
-      img.avatar {
-        float: left;
-        margin-right: 10px;
-      }
-
       cite {
         font-style: normal;
+        float: none;
       }
 
       p {

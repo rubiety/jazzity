@@ -1,14 +1,5 @@
 body.progressions {
 
-  section#search {
-    @include full;
-    margin-bottom: 15px;
-  }
-
-  section#progressions {
-    @include full;
-  }
-
   article.progression-family {
     border-top: 3px solid #CCC;
     padding: 10px 0;
@@ -24,21 +15,8 @@ body.progressions {
   }
 
   article#progression {
-    @include full;
-
-    nav.tabs {
-      margin-left: 0;
-      margin-right: 0;
-      width: auto;
-      clear: none;
-    }
-    
     #tunes-based-on {
-      margin: 10px 0 10px 0;
-      ul {
-        @include no-bullets;
-        margin: 0 0 10px 0;
-      }
+      margin: 10px 0;
     }
   }
 
@@ -47,15 +25,12 @@ body.progressions {
 /* Potentially Used Elsewhere */
 ul.progressions-list {
   @include clearfix;
-  list-style-type: none;
-  margin: 0;
 
   li.progression {
+    @include border-radius(5px);
     position: relative;
     border: 1px solid #CCC;
-    @include border-radius(5px);
     margin: 0 10px 10px 0;
-    padding: 4px;
 
     h3 {
       margin: 0; 
@@ -65,32 +40,12 @@ ul.progressions-list {
       padding: 4px;
       font-size: 0.9em;
       color: #666;
-      a, a:hover {
-        color: #666;
-      }
+      a, a:hover { color: #666; }
     }
 
-    span.comments-count {
-      position: absolute;
-      display: inline-block;
-      bottom: 5px;
-      right: 5px;
-      font-size: 0.9em;
-      text-align: right;
-      width: 30px;
-      height: 16px;
-      background: image-url("iconic/chat_alt_fill_16x16.png") left no-repeat;
-    }
-    
-    div.vex-tabdiv { padding-left: 0; }
+    a { text-decoration: none; }
 
-    a {
-      text-decoration: none;
-    }
-
-    &:hover {
-      border: 1px solid #333;
-    }
+    &:hover { border: 1px solid #333; }
   }
 }
 

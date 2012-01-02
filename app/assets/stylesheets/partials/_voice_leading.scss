@@ -7,9 +7,11 @@
   ul {
     @include horizontal-list;
     margin: 0;
+
     li {
       padding: 5px;
       margin-right: 10px;
     }
   }
 }
+

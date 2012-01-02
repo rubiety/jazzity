@@ -1,40 +1,30 @@
-body.chords, body.chord-qualities, body.voicings {
+body.chords {
 
   nav#chords-index {
-    @include columns(2);
-    @include alpha;
+    @include columns(2, 12);
+    @include alpha(12);
     background: #CCC;
 
-    article {
-      padding: 10px;
-      h2 { margin-bottom: 6px; }
-      ul {
-        margin-left: 0;
-        @include no-bullets;
-        li { padding-bottom: 4px; }
-      }
-    }
+    article { padding: 10px; }
   }
 
   section#chords {
-    @include columns(10);
-    @include omega;
+    @include columns(10, 12);
+    @include omega(12);
+
+    ul.chords-list {
+      margin-bottom: 0;
+    }
   }
   
-  article.chord_quality {
+  article.chord-quality {
     border-bottom: 3px solid #CCC;
     padding: 10px 0;
-    margin-bottom: 10px;
-
-    h2 {
-      margin-bottom: 8px;
-      font-size: 1.2em;
-    }
   }
 
   article#chord {
-    @include columns(10);
-    @include omega;
+    @include columns(10, 12);
+    @include omega(12);
 
     header {
       position: relative;
@@ -45,24 +35,11 @@ body.chords, body.chord-qualities, body.voicings {
         }
       }
 
-      p {
-        label {
-          font-weight: bold;
-        }
-      }
-
       .staff {
         position: absolute;
         top: -20px;
         right: 300px;
       }
-    }
-
-    nav.tabs {
-      margin-left: 0;
-      margin-right: 0;
-      width: 80%;
-      clear: none;
     }
     
     nav.related-modes, nav.related-voicings {
@@ -76,14 +53,12 @@ body.chords, body.chord-qualities, body.voicings {
 /* Potentially Used Elsewhere */
 ul.chords-list {
   @include clearfix;
-  list-style-type: none;
-  margin: 0;
 
   li.chord {
+    @include border-radius(5px);
     position: relative;
     float: left;
     border: 1px solid #CCC;
-    @include border-radius(5px);
     margin: 0 10px 10px 0;
     padding: 4px;
     width: 155px;
@@ -93,27 +68,9 @@ ul.chords-list {
       padding: 4px;
     }
 
-    span.comments-count {
-      position: absolute;
-      display: inline-block;
-      bottom: 5px;
-      right: 5px;
-      font-size: 0.9em;
-      text-align: right;
-      width: 30px;
-      height: 16px;
-      background: image-url("iconic/chat_alt_fill_16x16.png") left no-repeat;
-    }
-    
-    div.vex-tabdiv { padding-left: 0; }
+    a { text-decoration: none; }
 
-    a {
-      text-decoration: none;
-    }
-
-    &:hover {
-      border: 1px solid #333;
-    }
+    &:hover { border: 1px solid #333; }
   }
 }
 

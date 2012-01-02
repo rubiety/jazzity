@@ -1,4 +1,5 @@
 class ModesController < ApplicationController
+  before_filter :set_body_class
   before_filter :find_key
   before_filter :find_scale
   before_filter :find_mode
@@ -22,6 +23,10 @@ class ModesController < ApplicationController
 
 
   protected
+
+  def set_body_class
+    @body_class = "scales"
+  end
 
   def find_key
     if params[:key_id]

@@ -1,4 +1,5 @@
 class VoicingsController < ApplicationController
+  before_filter :set_body_class
   before_filter :find_key
   before_filter :find_chord
   before_filter :find_chord_qualities
@@ -17,6 +18,10 @@ class VoicingsController < ApplicationController
 
 
   protected
+
+  def set_body_class
+    @body_class = "chords"
+  end
 
   def find_key
     if params[:key_id]

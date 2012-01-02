@@ -1,4 +1,5 @@
 class DiscussionCategoriesController < ApplicationController
+  before_filter :set_body_class
   before_filter :find_discussion_categories
   before_filter :find_discussion_category, :except => [:index]
 
@@ -15,6 +16,10 @@ class DiscussionCategoriesController < ApplicationController
 
 
   protected
+
+  def set_body_class
+    @body_class = "discussions"
+  end
 
   def find_discussion_categories
     @discussion_categories = DiscussionCategory.all

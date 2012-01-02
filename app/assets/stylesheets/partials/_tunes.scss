@@ -1,42 +1,35 @@
 body.tunes {
 
   nav#filters {
-    @include columns(2);
-    @include alpha;
+    @include columns(2, 12);
+    @include alpha(12);
     background: #CCC;
 
     article {
       padding: 10px;
-      h2 { margin-bottom: 6px; }
       ul {
-        margin-left: 0;
-        @include no-bullets;
         li { padding-bottom: 4px; }
       }
     }
   }
   
   section#search {
-    @include columns(10);
-    @include omega;
+    @include columns(10, 12);
+    @include omega(12);
     margin-bottom: 15px;
   }
 
   section#tunes {
-    @include columns(10);
-    @include omega;
+    @include columns(10, 12);
+    @include omega(12);
   }
 
   article.tune {
     @include clearfix;
     position: relative;
     padding: 8px;
-    margin-bottom: 5;
+    margin-bottom: 5px;
 
-    a.like {
-      float: left;
-      margin-right: 10px;
-    }
     h3 {
       float: left;
       font-size: 1.0em;
@@ -51,9 +44,7 @@ body.tunes {
     ul.attributes {
       float: right;
       @include horizontal-list;
-      li {
-        font-style: italic;
-      }
+      li { font-style: italic; }
     }
   }
 
@@ -61,33 +52,13 @@ body.tunes {
     @include clearfix;
 
     header {
-      @include full;
-      background: #CCC;
       @include border-radius(6px);
+      background: #CCC;
       padding: 10px;
       position: relative;
       margin-bottom: 15px;
 
-      h1 {
-        margin-bottom: 5px;
-      }
-
-      img.avatar {
-        float: left;
-        margin-right: 10px;
-      }
-
-      dl {
-        dd { display: inline; }
-        dt { display: inline; margin-right: 20px; color: #666; }
-      }
-      
-      ul.social-media {
-        @include horizontal-list;
-        position: absolute;
-        top: 10px;
-        right: 10px;
-      }
+      h1 { margin-bottom: 5px; }
 
       p {
         border-top: 1px solid #666;
@@ -97,44 +68,22 @@ body.tunes {
       }
     }
 
-    section {
-      h2 {
-        margin-bottom: 10px;
-        font-size: 1.2em;
-      }
-    }
-
-    div.comments {
-      @include full;
-    }
-
     #tune-description {
-      @include columns(9);
-      @include alpha;
+      @include columns(9, 12);
+      @include alpha(12);
       
       p { margin-bottom: 0.8em; }
       ul { margin-left: 1em; margin-bottom: 0.8em; }
     }
 
     #tune-relateables {
-      @include columns(9);
-      @include alpha;
+      @include columns(9, 12);
+      @include alpha(12);
     }
 
     #tune-resources {
-      @include columns(3);
-      @include omega;
-    }
-
-    #tune-progressions, #tune-concepts, #tune-recordings, #tune-books {
-      margin: 10px 0 10px 0;
-      ul {
-        @include no-bullets;
-        margin: 0 0 10px 0;
-        li {
-          padding: 3px;
-        }
-      }
+      @include columns(3, 12);
+      @include omega(12);
     }
   }
 

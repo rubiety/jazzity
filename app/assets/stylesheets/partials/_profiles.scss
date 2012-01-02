@@ -1,5 +1,4 @@
 nav.profile {
-  @include full;
   margin-top: 10px;
   margin-bottom: 15px;
   font-size: 0.9em;
@@ -29,10 +28,6 @@ nav.profile {
 }
 
 body.musicians-authentications {
-  #main {
-    @include full;
-  }
-
   nav.profile {
     margin-left: 0;
     margin-right: 0;
@@ -50,18 +45,11 @@ body.musicians-authentications {
 
 body.musicians-profiles {
 
-  /* Activity */
-  section#musician-activity {
-    @include full;
-  }
-
   /* Edit Profile */
   form#update-profile-form {
-    @include full;
-
     fieldset#profile-basic {
-      @include columns(6);
-      @include alpha;
+      @include columns(6, 12);
+      @include alpha(12);
 
       input#musician_avatar {
         margin-left: 170px;
@@ -70,18 +58,10 @@ body.musicians-profiles {
 
     fieldset.buttons {
       clear: both;
-      @include full;
     }
 
 
-    &.disabled {
-      opacity: 0.6;
-    }
-  }
-
-  /* Edit Privacy */
-  form#update-profile-privacy-form {
-    @include full;
+    &.disabled { opacity: 0.6; }
   }
 
 }
