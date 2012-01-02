@@ -1,10 +1,3 @@
-%nav#filters
-  %article
-    %h2 By Instrument:
-    %ul
-      - Instrument.all.each do |instrument|
-        %li= link_to instrument, musicians_path(:instrument => instrument)
-
 %section#search
   = form_tag searches_path do
     = label_tag "Search Musicians: "
@@ -13,3 +6,11 @@
 
 %section#musicians
   = render @musicians
+  = render @musicians
+  = render @musicians
+  = render @musicians
+  = render @musicians
+
+%section#musician-resources
+  %section#musician-books
+    = render "resources/index", :resources => Resource.amazon_books.random.limit(5)

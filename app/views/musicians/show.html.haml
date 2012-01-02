@@ -6,17 +6,6 @@
   %section#musician-description
     = raw text_to_html(@musician.biography)
 
-  %section#musician-resources
-    - if @musician.resources.amazon_books.exists?
-      %section#musician-books
-        %h2 Resources:
-        = render "resources/index", :resources => @musician.resources.amazon_books.random.limit(3)
-
-    - if @musician.resources.itunes_tracks.exists?
-      %section#musician-recordings
-        %h2 Popular Recordings:
-        = render "resources/index", :resources => @musician.resources.itunes_tracks.random.limit(10)
-
   - if @musician.famous?
     %section#musician-comments
       %h2 Discussion:
@@ -29,4 +18,15 @@
         = render "timeline_events/index", :timeline_events => @timeline_events
         - if @timeline_events.empty?
           %p.no-results No activity yet!
+
+%section#musician-resources
+  - if @musician.resources.amazon_books.exists?
+    %section#musician-books
+      %h2 Resources:
+      = render "resources/index", :resources => @musician.resources.amazon_books.random.limit(3)
+
+  - if @musician.resources.itunes_tracks.exists?
+    %section#musician-recordings
+      %h2 Popular Recordings:
+      = render "resources/index", :resources => @musician.resources.itunes_tracks.random.limit(10)
 

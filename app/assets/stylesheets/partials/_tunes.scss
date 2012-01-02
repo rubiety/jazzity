@@ -21,15 +21,6 @@ body.tunes {
       font-size: 0.8em;
       padding-left: 15px;
     }
-
-    ul.attributes {
-      float: right;
-      @include horizontal-list;
-      li {
-        font-style: italic;
-        font-size: 0.9em;
-      }
-    }
   }
 
   #tune-resources {

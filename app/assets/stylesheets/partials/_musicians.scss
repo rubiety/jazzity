@@ -1,34 +1,20 @@
 body.musicians {
 
-  nav#filters {
-    @include columns(2, 12);
-    @include alpha(12);
-    background: #CCC;
-
-    article {
-      padding: 10px;
-    }
-  }
-  
-  section#search {
-    @include columns(10, 12);
-    @include omega(12);
-    margin-bottom: 15px;
-  }
-
   section#musicians {
-    @include columns(10, 12);
-    @include omega(12);
+    @include columns(9, 12);
+    @include alpha(12);
   }
 
   article.musician {
     @include clearfix;
     position: relative;
     padding: 8px;
-    min-height: 50px;
+    margin: 0;
+
+    &:first-child { margin-top: 0; }
+    &:last-child { margin-bottom: 0; }
 
     h3 {
-      float: left;
       font-size: 1.0em;
       font-weight: normal;
     }
@@ -37,15 +23,18 @@ body.musicians {
       font-size: 0.8em;
       padding-left: 15px;
     }
+    p { margin-left: 60px; }
 
-    ul.attributes {
-      float: right;
-      @include horizontal-list;
-      li { font-style: italic; }
-    }
+  }
+
+  #musician-resources {
+    @include columns(3, 12);
+    @include omega(12);
   }
 
   article#musician {
+    @include columns(9, 12);
+    @include alpha(12);
     @include clearfix;
 
     header {
@@ -65,32 +54,21 @@ body.musicians {
     }
 
     #musician-description {
-      @include columns(9, 12);
-      @include alpha(12);
+
     }
 
     #musician-comments {
-      @include columns(9, 12);
-      @include alpha(12);
-
       .comments {
         width: 90%;
       }
     }
 
     #musician-relateables {
-      @include columns(9, 12);
-      @include alpha(12);
-    }
 
-    #musician-resources {
-      @include columns(3, 12);
-      @include omega(12);
     }
 
     #musician-activity {
-      @include columns(3, 12);
-      @include omega(12);
+      
     }
   }
 

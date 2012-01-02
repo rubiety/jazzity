@@ -2,7 +2,8 @@ class Musician < ActiveRecord::Base
   PROFILE_FIELDS = [
     :instrument_id, :secondary_instrument_id, :biography,
     :location, :external_avatar_url, :website_url, :time_zone_offset, :facebook_url, :twitter_username, :youtube_username,
-    :music_school, :plays_professionally, :studies_privately, :avatar, :remote_avatar_url, :remove_avatar
+    :music_school, :plays_professionally, :studies_privately, :avatar, :remote_avatar_url, :remove_avatar,
+    :born_on, :died_on, :instrument, :secondary_instrument
   ]
 
   attr_accessible *(PROFILE_FIELDS + [

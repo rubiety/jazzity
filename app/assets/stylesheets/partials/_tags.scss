@@ -112,3 +112,12 @@ nav.tabs {
   clear: none;
 }
 
+ul.attributes {
+  float: right;
+  @include horizontal-list;
+  li {
+    font-style: italic;
+    font-size: 0.9em;
+    color: #666;
+  }
+}
