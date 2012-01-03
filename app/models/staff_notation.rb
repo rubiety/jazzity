@@ -10,7 +10,7 @@ class StaffNotation
         staff = matched
       end
 
-      text = text.gsub(/\{\{(.*)\}\}/, %{<span class="staff" data-clef="treble" data-width="500" data-staff='#{staff}' />}) if staff
+      text = text.gsub(/\{\{(.*)\}\}/, %{<span class="staff" data-clef="treble,bass" data-width="500" data-height="160" data-staff='#{staff}' />}) if staff
     end
     text
   end
