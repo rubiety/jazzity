@@ -71,7 +71,7 @@ namespace :deploy do
   end
   
   task :refresh_database, :roles => [:db] do
-    run "cd #{release_path} && export RAILS_ENV=#{rails_env} && bundle exec rake db:drop && bundle exec rake db:create && bundle exec rake db:migrate --trace && bundle exec rake db:seed --trace"
+    run "cd #{current_path} && export RAILS_ENV=#{rails_env} && bundle exec rake db:drop && bundle exec rake db:create && bundle exec rake db:migrate --trace && bundle exec rake db:seed --trace"
   end
   
   task :generate_friendly_ids, :roles => [:db] do
