@@ -17,14 +17,14 @@ ul.resources {
     &.amazon-book {
       .image {
         width: 60px;
-        img { max-height: 80px; }
+        img { max-height: 80px; max-width: 60px; }
       }
     }
 
     &.itunes-track {
       .image { 
         width: 30px;
-        img { max-height: 30px; }
+        img { max-height: 30px; max-width: 30px; }
       }
     }
   }

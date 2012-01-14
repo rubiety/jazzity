@@ -1,7 +1,9 @@
 = render "search_box"
 
 %section#tunes
+  = paginate @tunes
   = render @tunes
+  = paginate @tunes
 
 #tune-resources
   %section#tune-books

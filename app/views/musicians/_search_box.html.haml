@@ -1,0 +1,6 @@
+%section#search
+  = form_tag search_musicians_path, :method => :get do
+    = label_tag :query, "Search Musicians: "
+    = text_field_tag :query, params[:query]
+    = submit_tag "Go", :name => nil
+

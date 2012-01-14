@@ -1,11 +1,16 @@
 class TunesController < ApplicationController
-  before_filter :find_tune, :except => [:index, :new, :create]
-  before_filter :find_filters, :only => [:index]
+  before_filter :find_tune, :except => [:index, :search, :new, :create]
+  before_filter :find_filters, :only => [:index, :search]
 
   respond_to :html, :json
 
   def index
-    @tunes = Tune.page(params[:page])
+    @tunes = Tune.scoped
+    respond_with @tunes
+  end
+
+  def search
+    @tunes = Tune.search(params[:query]).page(params[:page])
     @tunes = @tunes.with_vehicle(@vehicle) if @vehicle
     @tunes = @tunes.with_form(@form) if @form
     @tunes = @tunes.with_meter(@meter) if @meter

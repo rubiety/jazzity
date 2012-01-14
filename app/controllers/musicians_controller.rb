@@ -1,10 +1,15 @@
 class MusiciansController < ApplicationController
-  before_filter :find_musician, :except => [:index, :new, :create]
+  before_filter :find_musician, :except => [:index, :search, :new, :create]
 
   respond_to :html, :json
 
   def index
     @musicians = Musician.famous.order(:prominence)
+    respond_with @musicians
+  end
+
+  def search
+    @musicians = Musician.famous.search(params[:query]).order(:prominence)
     respond_with @musicians
   end
 

@@ -26,6 +26,7 @@ class Musician < ActiveRecord::Base
   scope :without_profile, where(:has_profile => false)
   scope :famous, where(:famous => true)
   scope :featured, where(:featured => true)
+  scope :search, lambda {|q| where("CONCAT(first_name, ' ', last_name) LIKE ?", "%#{q}%") }
 
   friendly_id :name, :use => :slugged
   mount_uploader :avatar, AvatarUploader
