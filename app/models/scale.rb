@@ -2,20 +2,15 @@ class Scale < ActiveRecord::Base
   extend FriendlyId
   include KeyContext
   include ModeContext
+  include Toneable
   include Searchable::Model
   
   has_many :modes, :dependent => :destroy
-  has_many :tones, :class_name => 'ScaleTone', :extend => Tones, :dependent => :destroy
   has_many :comments, :through => :modes
 
   friendly_id :name, :use => :slugged
 
-  delegate :notes, :to => :tones
-  delegate :octavized_notes, :to => :tones
   delegate :chords, :to => :main_mode
-  delegate :intervals, :to => :tones
-  delegate :step_names, :to => :tones
-  delegate :interval_names, :to => :tones
 
   validates :name, :presence => true
 
@@ -41,10 +36,6 @@ class Scale < ActiveRecord::Base
 
   def staff_notes
     octavized_notes.map {|n| [n]}
-  end
-
-  def specify_tones=(values)
-    tones.specify(values)
   end
 
   def self.resolve(symbol)

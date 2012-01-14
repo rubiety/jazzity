@@ -2,6 +2,7 @@ class Chord < ActiveRecord::Base
   extend FriendlyId
   include KeyContext
   include Commentable
+  include Toneable
   include Searchable::Model
   
   acts_as_tree
@@ -14,16 +15,9 @@ class Chord < ActiveRecord::Base
 
   has_many :chord_scales
   has_many :modes, :through => :chord_scales
-  has_many :tones, :class_name => 'ChordTone', :extend => Tones
   has_many :voicings
   has_many :voice_leadings_to, :through => :voicings
   has_many :voice_leadings_from, :through => :voicings
-
-  delegate :notes, :to => :tones
-  delegate :octavized_notes, :to => :tones
-  delegate :intervals, :to => :tones
-  delegate :step_names, :to => :tones
-  delegate :interval_names, :to => :tones
 
   validates :name, :presence => true
   validates :chord_quality, :presence => true
@@ -57,15 +51,6 @@ class Chord < ActiveRecord::Base
     else
       name
     end
-  end
-
-  def specify_tones=(values)
-    @specify_tones = values
-    tones.specify(values)
-  end
-
-  def staff_notes
-    octavized_notes
   end
 
   def symbol_names

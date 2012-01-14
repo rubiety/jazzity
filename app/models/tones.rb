@@ -1,4 +1,5 @@
 module Tones
+
   # Takes manually specified key context for this collection or 
   # delegates to th association owner.
   def key
@@ -38,7 +39,7 @@ module Tones
     true
   end
 
-  # TODO: Have to use this until we figure out how to override find/default collection result
+  # TODO: Is this needed anymore? Have to use this until we figure out how to override find/default collection result
   def all
     in_key_context! if key
     in_mode_context! if mode
@@ -88,15 +89,4 @@ module Tones
     intervals.map {|step| Key::Intervals.invert[step] }
   end
 
-  def specify(values)
-    values = values.split(" ") if values.is_a?(String)
-    clear
-    values.each_with_index do |value, i|
-      tone = Key::Intervals[value]
-      letter_index = Key::IntervalLetterIndexes[value]
-      raise ArgumentError, "Could not find interval '#{value}' within '#{values.join(', ')}'" if tone.nil? or letter_index.nil?
-
-      build(:tone => tone, :letter_index => letter_index)
-    end
-  end
 end

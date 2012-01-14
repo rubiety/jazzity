@@ -11,6 +11,7 @@ class InitialJazzModels < ActiveRecord::Migration
       t.string :name
       t.text :synonyms
       t.text :information
+      t.string :tone_values, :limit => 4000
       t.integer :chord_tones_count, :default => 0
       t.timestamps
     end
@@ -30,33 +31,15 @@ class InitialJazzModels < ActiveRecord::Migration
     add_index :chord_symbols, :chord_id
     add_index :chord_symbols, :name
     
-    create_table :chord_tones do |t|
-      t.references :chord
-      t.integer :position
-      t.integer :tone
-      t.integer :letter_index
-      t.integer :strength
-      t.boolean :omitable, :default => false
-      t.text :information
-    end
-
-    add_index :chord_tones, :chord_id
-    
     create_table :scales do |t|
       t.string :name
       t.string :information
       t.integer :symmetry_index
-      t.integer :scale_tones_count, :default => 0
+      t.string :tone_values, :limit => 4000
+      t.integer :tones_count, :default => 0
       t.timestamps
     end
 
-    create_table :scale_tones do |t|
-      t.references :scale
-      t.integer :position
-      t.integer :tone
-      t.integer :letter_index
-    end
-    
     create_table :modes do |t|
       t.references :scale
       t.integer :mode
@@ -100,23 +83,12 @@ class InitialJazzModels < ActiveRecord::Migration
       t.integer :voicing_tones_count, :default => 0
       t.integer :upper_structure_chord_id
       t.integer :upper_structure_chord_offset, :default => 0
+      t.string :tone_values, :limit => 4000
       t.timestamps
     end
 
     add_index :voicings, :voicing_family_id
     add_index :voicings, :chord_id
-    
-    create_table :voicing_tones do |t|
-      t.references :voicing
-      t.integer :position
-      t.integer :tone
-      t.integer :letter_index
-      t.integer :strength
-      t.boolean :omitable, :default => false
-      t.text :information
-    end
-
-    add_index :voicing_tones, :voicing_id
     
     create_table :voice_leadings do |t|
       t.integer :from_voicing_id

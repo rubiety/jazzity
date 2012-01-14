@@ -2,7 +2,6 @@ body.dashboards {
 
   section#search-examples {
     @include columns(9, 12);
-    @include alpha(12);
     border-bottom: 5px solid #CCC;
     padding-bottom: 0.8em;
 
@@ -23,7 +22,6 @@ body.dashboards {
 
   section#features-overview {
     @include columns(9, 12);
-    @include alpha(12);
 
     article {
       @include clearfix;

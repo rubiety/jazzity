@@ -25,13 +25,10 @@
   chord_qualities
   chord_scales
   chord_symbols
-  chord_tones
   chords
   modes
-  scale_tones
   scales
   voicing_families
-  voicing_tones
   voicings
   searchables
   timeline_events

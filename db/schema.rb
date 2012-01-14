@@ -80,25 +80,14 @@ ActiveRecord::Schema.define(:version => 20111231205552) do
   add_index "chord_symbols", ["chord_id"], :name => "index_chord_symbols_on_chord_id"
   add_index "chord_symbols", ["name"], :name => "index_chord_symbols_on_name"
 
-  create_table "chord_tones", :force => true do |t|
-    t.integer "chord_id"
-    t.integer "position"
-    t.integer "tone"
-    t.integer "letter_index"
-    t.integer "strength"
-    t.boolean "omitable",     :default => false
-    t.text    "information"
-  end
-
-  add_index "chord_tones", ["chord_id"], :name => "index_chord_tones_on_chord_id"
-
   create_table "chords", :force => true do |t|
     t.integer  "chord_quality_id"
     t.integer  "parent_id"
     t.string   "name"
     t.text     "synonyms"
     t.text     "information"
-    t.integer  "chord_tones_count", :default => 0
+    t.string   "tone_values",       :limit => 4000
+    t.integer  "chord_tones_count",                 :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
@@ -350,18 +339,12 @@ ActiveRecord::Schema.define(:version => 20111231205552) do
 
   add_index "resources", ["identifier"], :name => "index_resources_on_identifier"
 
-  create_table "scale_tones", :force => true do |t|
-    t.integer "scale_id"
-    t.integer "position"
-    t.integer "tone"
-    t.integer "letter_index"
-  end
-
   create_table "scales", :force => true do |t|
     t.string   "name"
     t.string   "information"
     t.integer  "symmetry_index"
-    t.integer  "scale_tones_count", :default => 0
+    t.string   "tone_values",    :limit => 4000
+    t.integer  "tones_count",                    :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
@@ -489,29 +472,18 @@ ActiveRecord::Schema.define(:version => 20111231205552) do
 
   add_index "voicing_families", ["slug"], :name => "index_voicing_families_on_slug"
 
-  create_table "voicing_tones", :force => true do |t|
-    t.integer "voicing_id"
-    t.integer "position"
-    t.integer "tone"
-    t.integer "letter_index"
-    t.integer "strength"
-    t.boolean "omitable",     :default => false
-    t.text    "information"
-  end
-
-  add_index "voicing_tones", ["voicing_id"], :name => "index_voicing_tones_on_voicing_id"
-
   create_table "voicings", :force => true do |t|
     t.integer  "voicing_family_id"
     t.integer  "chord_id"
     t.integer  "parent_id"
-    t.boolean  "rootless",                     :default => false
+    t.boolean  "rootless",                                     :default => false
     t.string   "name"
-    t.integer  "octave_offset",                :default => 0
+    t.integer  "octave_offset",                                :default => 0
     t.text     "information"
-    t.integer  "voicing_tones_count",          :default => 0
+    t.integer  "voicing_tones_count",                          :default => 0
     t.integer  "upper_structure_chord_id"
-    t.integer  "upper_structure_chord_offset", :default => 0
+    t.integer  "upper_structure_chord_offset",                 :default => 0
+    t.string   "tone_values",                  :limit => 4000
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"

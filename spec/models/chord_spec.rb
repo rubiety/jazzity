@@ -7,7 +7,6 @@ describe Chord do
     it { should have_one(:primary_symbol) }
     it { should have_many(:chord_scales) }
     it { should have_many(:modes).through(:chord_scales) }
-    it { should have_many(:tones) }
     it { should have_many(:voicings) }
     it { should have_many(:voice_leadings_to).through(:voicings) }
     it { should have_many(:voice_leadings_from).through(:voicings) }
