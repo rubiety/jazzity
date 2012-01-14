@@ -59,6 +59,7 @@ module Jazzity
       g.orm :active_record
       g.template_engine :haml
       g.test_framework :rspec, :fixture => true, :views => false
+      g.integration_tool :rspec
       g.fixture_replacement :factory_girl, :dir => "spec/factories"
     end
   end
