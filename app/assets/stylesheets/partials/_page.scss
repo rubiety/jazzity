@@ -50,11 +50,14 @@ body {
     top: 10px;
     right: 0;
 
-    img.avatar {
+    .avatar {
       float: none;
-      max-width: 25px;
-      max-height: 25px;
       margin-right: 4px;
+
+      img {
+        max-width: 25px;
+        max-height: 25px;
+      }
     }
   }
 }

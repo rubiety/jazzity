@@ -2,7 +2,6 @@ body.discussions {
 
   nav#discussion-categories {
     @include columns(2, 12);
-    @include alpha(12);
     background: #CCC;
 
     ul {

@@ -14,8 +14,8 @@
 
 %aside{"data-current-musician-id" => current_musician.try(:id)}
   - if musician_signed_in?
-    = image_tag current_musician.avatar_url, :class => "avatar", :alt => "#{current_musician}'s Avatar" if current_musician.has_avatar?
-    = link_to "Welcome, #{current_musician}", musician_path(current_musician)
+    = link_to image_tag(current_musician.avatar_url, :alt => "#{current_musician}'s Avatar"), current_musician, :class => "avatar" if current_musician.has_avatar?
+    = link_to "Welcome, #{current_musician}", current_musician
     &nbsp;&nbsp;&nbsp;
     - if current_musician.authenticated_with?(:facebook)
       = link_to "Invite Facebook Friends", "#", :class => "invite-facebook-friends"

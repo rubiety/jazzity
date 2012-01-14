@@ -2,7 +2,7 @@
   - if @musician.famous?
     = render "shared/social_sharing"
 
-  = image_tag @musician.avatar_url(:thumb), :class => "avatar", :alt => "#{@musician}'s Avatar" if @musician.has_avatar?
+  = link_to image_tag(@musician.avatar_url(:thumb), :alt => "#{@musician}'s Avatar"), @musician, :class => "avatar" if @musician.has_avatar?
   %h1= @musician
   %dl
     - if @musician.location?

@@ -1,6 +1,6 @@
 %ul.activity-list
   - timeline_events.each do |timeline_event|
     %li
-      = image_tag timeline_event.actor.avatar_url, :alt => "#{timeline_event.actor}'s Avatar", :class => "avatar" if timeline_event.actor.has_avatar?
+      = link_to image_tag(timeline_event.actor.avatar_url, :alt => "#{timeline_event.actor}'s Avatar"), timeline_event.actor, :class => "avatar" if timeline_event.actor.has_avatar?
       %cite= timeline_event.actor
       %p= timeline_event_title(timeline_event)

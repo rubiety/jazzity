@@ -2,7 +2,6 @@ body.tunes {
 
   section#tunes {
     @include columns(9, 12);
-    @include alpha(12);
   }
 
   article.tune {
@@ -30,7 +29,6 @@ body.tunes {
 
   article#tune {
     @include columns(9, 12);
-    @include alpha(12);
     @include clearfix;
 
     header {

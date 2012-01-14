@@ -28,7 +28,7 @@
   -# SHOW TEMPLATE
   %script{:type => "text/template", :id => "comment-template"}
     :plain
-      <img class="avatar" src="<%= author_avatar_url %>" alt="<%= author_name %>'s Avatar'" />
+      <a class="avatar" href="/musicians/<%= author_param %>"><img src="<%= author_avatar_url %>" alt="<%= author_name %>'s Avatar'" /></a>
     %cite
       <%= author_name %>, <%= created_at_in_words %>
     <% if (subject) { %>

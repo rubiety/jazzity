@@ -9,17 +9,23 @@ ul.resources {
   .resource {
     @include clearfix;
 
-    img {
+    .image {
       float: left;
       margin-right: 10px;
     }
     
     &.amazon-book {
-      img { max-height: 80px; }
+      .image {
+        width: 60px;
+        img { max-height: 80px; }
+      }
     }
 
     &.itunes-track {
-      img { max-height: 30px; }
+      .image { 
+        width: 30px;
+        img { max-height: 30px; }
+      }
     }
   }
 }

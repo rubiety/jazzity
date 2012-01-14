@@ -2,7 +2,6 @@ body.musicians {
 
   section#musicians {
     @include columns(9, 12);
-    @include alpha(12);
   }
 
   article.musician {
@@ -34,7 +33,6 @@ body.musicians {
 
   article#musician {
     @include columns(9, 12);
-    @include alpha(12);
     @include clearfix;
 
     header {
