@@ -60,7 +60,6 @@ group :development do
   gem "guard"
   gem "guard-spork"
   gem "guard-rspec"
-  gem "guard-cucumber"
   gem "rb-inotify", :require => false
   gem "rb-fsevent", :require => false
   gem "rb-fchange", :require => false
@@ -71,7 +70,6 @@ group :test do
   gem "minitest"
   gem "faker"
   gem "rspec-rails"
-  gem "cucumber-rails"
   gem "capybara"
   gem "database_cleaner"
   gem "launchy"
@@ -82,7 +80,6 @@ group :test do
   gem "spork", ">= 0.9.0.rc5"
   gem "guard"
   gem "guard-bundler"
-  gem "guard-cucumber"
   gem "guard-rspec"
   gem "guard-spork"
 end
