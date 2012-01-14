@@ -1,6 +1,6 @@
 = render "musicians/profiles/tabs"
 
-= simple_nested_form_for @musician, :url => musicians_profile_path, :html => {:method => :put, :id => "update-profile-form"} do |f|
+= simple_form_for @musician, :url => musicians_profile_path, :html => {:method => :put, :id => "update-profile-form"} do |f|
   %h1 Your Profile
 
   %fieldset#profile-basic
