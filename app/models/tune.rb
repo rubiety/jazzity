@@ -24,6 +24,7 @@ class Tune < ActiveRecord::Base
   scope :with_meter, lambda {|m| where(:meter_id => m.id) }
   scope :with_based_on_progression, lambda {|p| where(:based_on_progression_id => p.id) }
   scope :search, lambda {|q| where("name LIKE ?", "%#{q}%") }
+  scope :featured, where(:featured => true)
 
   validates :name, :presence => true
   validates :tonality, :inclusion => ["Major", "Minor"]

@@ -235,6 +235,7 @@ ActiveRecord::Schema.define(:version => 20111231205552) do
     t.string   "studies_privately_with"
     t.string   "music_school"
     t.boolean  "seeding",                                                              :default => false
+    t.boolean  "featured",                                                             :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email",                                                                :default => "",    :null => false
@@ -425,6 +426,7 @@ ActiveRecord::Schema.define(:version => 20111231205552) do
     t.integer  "aebersold_playalong_number"
     t.text     "description"
     t.boolean  "seeding",                                 :default => false
+    t.boolean  "featured",                                :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"

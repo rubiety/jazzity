@@ -25,6 +25,7 @@ class Musician < ActiveRecord::Base
   scope :with_profile, where(:has_profile => true)
   scope :without_profile, where(:has_profile => false)
   scope :famous, where(:famous => true)
+  scope :featured, where(:featured => true)
 
   friendly_id :name, :use => :slugged
   mount_uploader :avatar, AvatarUploader

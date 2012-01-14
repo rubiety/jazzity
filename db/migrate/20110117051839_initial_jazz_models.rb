@@ -126,6 +126,7 @@ class InitialJazzModels < ActiveRecord::Migration
       t.integer :aebersold_playalong_number
       t.text :description
       t.boolean :seeding, :default => false
+      t.boolean :featured, :default => false
       t.timestamps
     end
 
