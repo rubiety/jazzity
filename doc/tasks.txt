@@ -15,10 +15,7 @@
 [ ] Tunes Database Build-Out
 [ ] Jazz Concepts Build-Out
 [ ] Musicians Contacting Each Other?
-
-[ ] Serialization of deeply-normalized data for performance?
 [ ] Full RSpec Test Suite
-[ ] Full Cucumber Integration Tests
 
 = Launch
 
