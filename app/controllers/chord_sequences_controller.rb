@@ -2,6 +2,8 @@ class ChordSequencesController < ApplicationController
   before_filter :find_key
   before_filter :find_chord_sequence, :except => [:index]
 
+  respond_to :html
+
   def index
   end
 
@@ -10,7 +12,9 @@ class ChordSequencesController < ApplicationController
   end
 
   def staff
-
+    respond_with @chord_sequence do |format|
+      format.html { render :layout => "staff" }
+    end
   end
 
 

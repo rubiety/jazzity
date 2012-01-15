@@ -19,7 +19,9 @@ class ProgressionsController < ApplicationController
   end
 
   def staff
-
+    respond_with @progression do |format|
+      format.html { render :layout => "staff" }
+    end
   end
 
 

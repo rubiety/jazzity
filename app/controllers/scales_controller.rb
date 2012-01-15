@@ -14,7 +14,9 @@ class ScalesController < ApplicationController
   end
 
   def staff
-
+    respond_with @scale do |format|
+      format.html { render :layout => "staff" }
+    end
   end
 
   def comments

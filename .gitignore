@@ -8,4 +8,6 @@ config/omniauth.yml
 config/amazon.yml
 public/assets
 public/system
+spec/fixtures
+public/images/rendered
 .sass-cache

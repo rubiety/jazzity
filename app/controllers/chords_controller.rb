@@ -16,7 +16,9 @@ class ChordsController < ApplicationController
   end
 
   def staff
-
+    respond_with @chord do |format|
+      format.html { render :layout => "staff" }
+    end
   end
 
 
