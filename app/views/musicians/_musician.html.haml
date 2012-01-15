@@ -8,13 +8,7 @@
       %li= musician.secondary_instrument
     - if musician.location
       %li= musician.location
-    - if musician.born_on?
-      %li
-        Born: 
-        = musician.born_on
-    - if musician.died_on?
-      %li
-        Died:
-        = musician.died_on
+    - if musician.born_on? or musician.died_on?
+      %li= [musician.born_on.try(:year), musician.died_on.try(:year)].join(" - ")
 
   %p= truncate musician.biography, :length => 200

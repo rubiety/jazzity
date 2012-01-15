@@ -1,3 +1,1 @@
-%div.resource.amazon-book
-  = link_to image_tag(resource.image_url, :alt => resource.title), resource.view_url, :class => "image"
-  = link_to resource.title, resource.view_url
+= link_to image_tag(resource.image_url, :alt => resource.title), resource.view_url, :class => "image", :title => resource.title
