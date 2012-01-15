@@ -13,7 +13,7 @@ class PngRenderer
     Capybara.current_driver = :webkit
 
     visit @url
-    page.driver.render file_path || "#{DEFAULT_PATH}#{@url}.png"
+    page.driver.render file_path || "#{DEFAULT_PATH}/#{Digest::MD5.hexdigest(@url)}.png"
   end
 end
 
