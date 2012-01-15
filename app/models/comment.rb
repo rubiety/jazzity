@@ -36,6 +36,7 @@ class Comment < ActiveRecord::Base
     super.slice("id", "author_id", "parent_id", "lft", "rgt", "content", "created_at").tap do |o|
       o["subject"] = subject.presence
       o["author_name"] = author.try(:name)
+      o["author_param"] = author.try(:to_param)
       o["author_avatar_url"] = author.avatar_url
       o["html_content"] = html_content
       o["children_attributes"] = children.as_json(options)

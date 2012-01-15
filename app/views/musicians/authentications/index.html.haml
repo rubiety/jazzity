@@ -9,8 +9,3 @@
       = link_to "Disconnect from Facebook", musicians_authentication_path(:facebook), :method => :delete, :class => "btn-auth btn-facebook large disconnect"
     - else
       = link_to "Connect to Facebook", musician_omniauth_authorize_path(:facebook), :class => "btn-auth btn-facebok large"
-  %li.twitter
-    - if current_musician.authenticated_with?(:twitter)
-      = link_to "Disconnect from Facebook", musicians_authentication_path(:twitter), :method => :delete, :class => "btn-auth btn-twitter large disconnect"
-    - else
-      = link_to "Connect to Facebook", musician_omniauth_authorize_path(:twitter), :class => "btn-auth btn-twitter large"

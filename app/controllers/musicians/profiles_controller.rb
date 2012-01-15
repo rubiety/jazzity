@@ -11,9 +11,6 @@ class Musicians::ProfilesController < ApplicationController
   def edit
   end
 
-  def discussions
-  end
-
   def update
     @musician.has_profile = true
     @musician.attributes = params[:musician]

@@ -11,13 +11,12 @@
       %h2 Discussion:
       = render "comments/index", :commentable => @musician
 
-  -# TODO:
-    %section#musician-activity
-      %h2 Recent Discussion:
-      %div.activity
-        = render "timeline_events/index", :timeline_events => @timeline_events
-        - if @timeline_events.empty?
-          %p.no-results No activity yet!
+  %section#musician-activity
+    %h2 Recent Discussion:
+    %div.activity
+      = render "timeline_events/index", :timeline_events => @timeline_events
+      - if @timeline_events.empty?
+        %p.no-results No activity yet!
 
 #sidebar
   - if @musician.resources.amazon_books.exists?
