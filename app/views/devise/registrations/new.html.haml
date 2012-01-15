@@ -1,0 +1,21 @@
+%section#sign-up-email
+  %h1 Sign Up for E-mail:
+  = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+    = f.error_notification
+    .inputs
+      = f.input :first_name, :label => "First Name", :required => true, :autofocus => true
+      = f.input :last_name, :label => "Last Name", :required => true, :autofocus => true
+      = f.input :email, :required => true
+      = f.input :password, :required => true
+      = f.input :password_confirmation, :label => "Confirm", :required => true
+    .actions
+      = f.button :submit, "Sign up"
+
+%section#sign-up-sign-in
+  %h1 Sign In with Other Services:
+  %p= link_to "Sign In with Facebook", musician_omniauth_authorize_path(:facebook), :class => "btn-auth btn-facebook large"
+  %p= link_to "Sign In with Twitter", musician_omniauth_authorize_path(:twitter), :class => "btn-auth btn-twitter large"
+
+%section#sign-up-registered
+  %h1
+    Already Registered? #{link_to "Sign In with E-mail", new_musician_session_path}
