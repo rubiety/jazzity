@@ -27,22 +27,6 @@ nav.profile {
   }
 }
 
-body.musicians-authentications {
-  nav.profile {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  ul.services {
-    @include no-bullets;
-    margin: 0 0 15px 0;
-
-    li {
-      margin: 10px 0 10px 0;
-    }
-  }
-}
-
 body.musicians-profiles {
 
   /* Edit Profile */
@@ -62,6 +46,7 @@ body.musicians-profiles {
 
     &.disabled { opacity: 0.6; }
   }
+
 
 }
 

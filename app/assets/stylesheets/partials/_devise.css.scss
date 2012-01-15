@@ -61,6 +61,20 @@ body.devise-registrations {
     @include alpha;
   }
 
+  section#external-servies {
+    @include columns(6);
+    @include omega;
+
+    ul.services {
+      @include no-bullets;
+      margin: 0 0 15px 0;
+
+      li {
+        margin: 10px 0 10px 0;
+      }
+    }
+  }
+
   section#cancel-account {
     @include columns(6);
     @include omega;
