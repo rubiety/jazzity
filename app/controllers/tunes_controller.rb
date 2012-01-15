@@ -1,6 +1,6 @@
 class TunesController < ApplicationController
   before_filter :find_tune, :except => [:index, :search, :new, :create]
-  before_filter :find_filters, :only => [:index, :search]
+  before_filter :find_filters, :only => [:index]
 
   respond_to :html, :json
 
@@ -9,6 +9,7 @@ class TunesController < ApplicationController
     @tunes = @tunes.with_vehicle(@vehicle) if @vehicle
     @tunes = @tunes.with_form(@form) if @form
     @tunes = @tunes.with_meter(@meter) if @meter
+    @tunes = @tunes.with_based_on_progression(@progression) if @progression
     @tunes = @tunes.search(params[:query]) if params[:query].present?
 
     respond_with @tunes
@@ -27,8 +28,9 @@ class TunesController < ApplicationController
   end
 
   def find_filters
-    @vehicle = Vehicle.find(params[:vehicle_id]) if params[:vehicle_id].present?
-    @form = Form.find(params[:form_id]) if params[:form_id].present?
-    @meter = Meter.find(params[:meter_id]) if params[:meter_id].present?
+    @vehicle = Vehicle.find(params[:vehicle]) if params[:vehicle].present?
+    @form = Form.find(params[:form]) if params[:form].present?
+    @meter = Meter.find(params[:meter]) if params[:meter].present?
+    @progression = Progression.find(params[:progression]) if params[:progression].present?
   end
 end

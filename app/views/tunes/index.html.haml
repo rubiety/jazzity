@@ -2,6 +2,9 @@
 
 %section#tunes
   = render @tunes
+  = paginate @tunes
+  - if @tunes.empty?
+    %p.no-results Sorry, but no tunes were found matching your search.
 
 #sidebar
   %section#tune-books
