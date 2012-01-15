@@ -21,7 +21,7 @@ body.dashboards {
   }
 
   section#features-overview {
-    @include columns(9, 12);
+    @include columns(5, 12);
 
     article {
       @include clearfix;
@@ -41,6 +41,11 @@ body.dashboards {
         }
       }
     }
+  }
+
+  section#searchable-examples {
+    @include columns(4, 12);
+
   }
 
 }

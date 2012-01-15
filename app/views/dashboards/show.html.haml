@@ -43,7 +43,7 @@
 
   %h1 What is Jazzity?
   %article.introduction
-    %p Jazzity is a community and knowledge engine for jazz musicians. Explore chord, scale, progression, and tune relationships, connect and learn with other musicians, and discuss jazz topics.
+    %p Jazzity is a community and knowledge engine for students of jazz.
 
   %article
     %h2 Explore Chord/Scale/Voicing Relationships
@@ -71,3 +71,12 @@
       The core of Jazzity is a mathematical model of jazz theory, allowing us to fully analyze - in real time - your input, sort of like 
       #{link_to "Wolfram Alpha", "http://www.wolframalpha.com/"}, but specific to Jazz!
 
+%section#searchable-examples
+
+  %ul.searchables-list
+    - @searchables.each do |result|
+      - model = result.respond_to?(:target) ? result.target : result
+
+      %li.searchable
+        = link_to path_to_searchable(result) do
+          = render "searches/searchables/#{model.class.name.underscore}", :model => model, :result => result
