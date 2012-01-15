@@ -1,6 +1,9 @@
 %section#search
   = form_tag tunes_path, :method => :get do
-    = label_tag :query, "Search Tunes: "
-    = text_field_tag :query, params[:query]
+    = label_tag :query, "Search: "
+    = text_field_tag :query, params[:query], :placeholder => "Name of Tune..."
+    = select_tag :form, options_for_select([['All Forms', '']]) + options_from_collection_for_select(Form.all, :to_param, :name, params[:form])
+    = select_tag :vehicle, options_for_select([['All Vehicles', '']]) + options_from_collection_for_select(Vehicle.all, :to_param, :name, params[:vehicle])
+    = select_tag :progression, options_for_select([['All Progressions', '']]) + options_from_collection_for_select(Progression.full_tune, :to_param, :name, params[:progression])
     = submit_tag "Go", :name => nil
 

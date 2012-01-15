@@ -1,5 +1,12 @@
 body.tunes {
 
+  #search {
+    form {
+      input#query { width: 250px; }
+      input[type=submit] { margin-left: 20px; }
+    }
+  }
+
   section#tunes {
     @include columns(9, 12);
   }
