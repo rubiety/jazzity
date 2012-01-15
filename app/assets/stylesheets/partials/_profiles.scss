@@ -31,12 +31,18 @@ body.musicians-profiles {
 
   /* Edit Profile */
   form#update-profile-form {
+
+    input#musician_avatar {
+      margin-left: 170px;
+    }
+
     fieldset#profile-basic {
       @include columns(6, 12);
+    }
 
-      input#musician_avatar {
-        margin-left: 170px;
-      }
+    fieldset#profile-extended {
+      @include columns(6, 12);
+      @include omega(12);
     }
 
     fieldset.buttons {
