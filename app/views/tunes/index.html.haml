@@ -3,6 +3,6 @@
 %section#tunes
   = render @tunes
 
-#tune-resources
+#sidebar
   %section#tune-books
     = render "resources/index", :resources => Resource.amazon_books.random.limit(5)

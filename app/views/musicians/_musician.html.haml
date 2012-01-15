@@ -1,4 +1,6 @@
 %article[musician]
+  = link_to image_tag(musician.avatar_url(:small), :alt => "#{musician}'s Avatar"), musician, :class => "avatar" if musician.has_avatar?
+  %h3= link_to musician, musician
   %ul.attributes
     - if musician.instrument
       %li= musician.instrument
@@ -15,6 +17,4 @@
         Died:
         = musician.died_on
 
-  = link_to image_tag(musician.avatar_url(:small), :alt => "#{musician}'s Avatar"), musician, :class => "avatar" if musician.has_avatar?
-  %h3= link_to_if musician.has_profile?, musician, musician
-  %p= truncate musician.biography, :length => 250
+  %p= truncate musician.biography, :length => 200

@@ -6,6 +6,7 @@ Musician.create!(
   :died_on => "1991-09-28",
   :instrument => Instrument["Trumpet"],
   :prominence => 1,
+  :featured => true,
   :remote_avatar_url => "http://host3.images.cdn.fotopedia.com/flickr-2193453631-medium.jpg",
   :biography => <<-END
 Spare ribs flank jowl corned beef ham short ribs t-bone rump tenderloin, biltong ground round beef ribs. Rump salami meatball, pastrami shankle ham hock beef ribs ribeye. Rump tri-tip shoulder ball tip, chicken pastrami salami capicola pork loin fatback pig. Biltong frankfurter spare ribs salami. Short loin brisket andouille chuck. Filet mignon short loin turducken jowl chuck, ball tip drumstick pig hamburger rump meatloaf. Flank corned beef frankfurter hamburger brisket short loin.
@@ -36,6 +37,7 @@ Musician.create!(
   :died_on => "2007-12-23",
   :instrument => Instrument["Piano"],
   :prominence => 2,
+  :featured => true,
   :remote_avatar_url => "http://host1.images.cdn.fotopedia.com/flickr-448361338-medium.jpg",
   :biography => <<-END
 Spare ribs flank jowl corned beef ham short ribs t-bone rump tenderloin, biltong ground round beef ribs. Rump salami meatball, pastrami shankle ham hock beef ribs ribeye. Rump tri-tip shoulder ball tip, chicken pastrami salami capicola pork loin fatback pig. Biltong frankfurter spare ribs salami. Short loin brisket andouille chuck. Filet mignon short loin turducken jowl chuck, ball tip drumstick pig hamburger rump meatloaf. Flank corned beef frankfurter hamburger brisket short loin.

@@ -10,7 +10,7 @@
   %ul.discussions
     - @discussions.each do |discussion|
       %li.discussion
-        = link_to image_tag(discussion.author.avatar_url, :alt => "#{discussion.author}'s Avatar'"), discussion.author, :class => "avatar"
+        = link_to image_tag(discussion.author.avatar_url, :alt => "#{discussion.author}'s Avatar'"), discussion.author, :class => "avatar" if discussion.author
         %cite= "#{discussion.author}, #{time_ago_in_words discussion.created_at}"
         %h2
           = link_to discussion_category_discussion_path(@discussion_category || discussion.discussion_category, discussion) do

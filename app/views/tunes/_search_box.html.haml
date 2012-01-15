@@ -1,5 +1,5 @@
 %section#search
-  = form_tag search_tunes_path, :method => :get do
+  = form_tag tunes_path, :method => :get do
     = label_tag :query, "Search Tunes: "
     = text_field_tag :query, params[:query]
     = submit_tag "Go", :name => nil

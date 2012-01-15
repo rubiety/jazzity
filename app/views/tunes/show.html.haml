@@ -29,7 +29,7 @@
     %h2 Discussion:
     = render "comments/index", :commentable => @tune
 
-#tune-resources
+#sidebar
   - if @tune.resources.amazon_books.exists?
     %section#tune-books
       %h2 Resources:

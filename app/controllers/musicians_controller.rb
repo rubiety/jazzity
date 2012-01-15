@@ -4,18 +4,16 @@ class MusiciansController < ApplicationController
   respond_to :html, :json
 
   def index
-    @musicians = Musician.famous.order(:prominence)
-    respond_with @musicians
-  end
+    @musicians = Musician.order(:prominence).page(params[:page])
+    @musicians = @musicians.search(params[:query]) if params[:query].present?
+    @musicians = @musicians.instrument(Instrument.find(params[:instrument])) if params[:instrument].present?
+    @musicians = @musicians.famous if params[:show] == "musicians" or params[:show].nil?
+    @musicians = @musicians.members if params[:show] == "members"
 
-  def search
-    @musicians = Musician.famous.search(params[:query]).order(:prominence)
     respond_with @musicians
   end
 
   def show
-    raise ActiveRecord::RecordNotFound unless @musician.has_profile? or @musician.famous? or @musician == current_musician
-
     flash.now[:warning] = "We're still seeding content for this page. Want to contribute?" if @musician.seeding?
     @timeline_events = @musician.timeline_events
 

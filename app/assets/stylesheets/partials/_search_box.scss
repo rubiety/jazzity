@@ -7,10 +7,8 @@
       display: inline;
       margin-right: 10px;
     }
-    input { margin-top: 0; }
+    input, select { margin-top: 0; font-size: 1.2em; margin-right: 10px; }
     input#query {
-      margin-right: 5px;
-      font-size: 1.2em;
       width: 400px;
     }
 

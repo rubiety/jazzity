@@ -12,9 +12,7 @@ Jazzity::Application.routes.draw do
     end
   end
 
-  resources :musicians, :only => [:index, :show] do
-    get :search, :on => :collection
-  end
+  resources :musicians, :only => [:index, :show]
 
   resources :searches, :only => [:create, :show] do
     get :autocomplete, :on => :collection
@@ -51,7 +49,6 @@ Jazzity::Application.routes.draw do
   end
   
   resources :tunes, :only => [:index, :show] do
-    get :search, :on => :collection
     get "/vehicle/:vehicle_id", :action => :index, :on => :collection, :as => :by_vehicle
     get "/form/:form_id", :action => :index, :on => :collection, :as => :by_form
     get "/meter/:meter_id", :action => :index, :on => :collection, :as => :by_meter

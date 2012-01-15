@@ -32,6 +32,7 @@ Tune.create!(
   :starting_chord   => Chord["Cmaj7"],
   :tempo            => 100,
   :aebersold_playalong_number => 54,
+  :featured => true,
   :description      => <<-END
 Spare ribs flank jowl corned beef ham short ribs t-bone rump tenderloin, biltong ground round beef ribs. Rump salami meatball, pastrami shankle ham hock beef ribs ribeye. Rump tri-tip shoulder ball tip, chicken pastrami salami capicola pork loin fatback pig. Biltong frankfurter spare ribs salami. Short loin brisket andouille chuck. Filet mignon short loin turducken jowl chuck, ball tip drumstick pig hamburger rump meatloaf. Flank corned beef frankfurter hamburger brisket short loin.
 
@@ -66,6 +67,7 @@ Tune.create!(
   :form_lengths     => "8-8-8-8",
   :starting_chord   => Chord["Ebmaj7"],
   :tempo            => 100,
+  :featured => true,
   :description      => <<-END
 Spare ribs flank jowl corned beef ham short ribs t-bone rump tenderloin, biltong ground round beef ribs. Rump salami meatball, pastrami shankle ham hock beef ribs ribeye. Rump tri-tip shoulder ball tip, chicken pastrami salami capicola pork loin fatback pig. Biltong frankfurter spare ribs salami. Short loin brisket andouille chuck. Filet mignon short loin turducken jowl chuck, ball tip drumstick pig hamburger rump meatloaf. Flank corned beef frankfurter hamburger brisket short loin.
 
@@ -100,6 +102,7 @@ Tune.create!(
   :form_lengths     => "8-8-8-8",
   :starting_chord   => Chord["Dmin7"],
   :tempo            => 100,
+  :featured => true,
   :description      => <<-END
 Spare ribs flank jowl corned beef ham short ribs t-bone rump tenderloin, biltong ground round beef ribs. Rump salami meatball, pastrami shankle ham hock beef ribs ribeye. Rump tri-tip shoulder ball tip, chicken pastrami salami capicola pork loin fatback pig. Biltong frankfurter spare ribs salami. Short loin brisket andouille chuck. Filet mignon short loin turducken jowl chuck, ball tip drumstick pig hamburger rump meatloaf. Flank corned beef frankfurter hamburger brisket short loin.
 

@@ -5,12 +5,7 @@ class TunesController < ApplicationController
   respond_to :html, :json
 
   def index
-    @tunes = Tune.scoped
-    respond_with @tunes
-  end
-
-  def search
-    @tunes = Tune.search(params[:query]).page(params[:page])
+    @tunes = Tune.scoped.page(params[:page])
     @tunes = @tunes.with_vehicle(@vehicle) if @vehicle
     @tunes = @tunes.with_form(@form) if @form
     @tunes = @tunes.with_meter(@meter) if @meter

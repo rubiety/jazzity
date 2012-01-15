@@ -24,9 +24,13 @@ class Musician < ActiveRecord::Base
 
   scope :with_profile, where(:has_profile => true)
   scope :without_profile, where(:has_profile => false)
+
   scope :famous, where(:famous => true)
+  scope :members, where(:famous => false)
   scope :featured, where(:featured => true)
   scope :search, lambda {|q| where("CONCAT(first_name, ' ', last_name) LIKE ?", "%#{q}%") }
+  scope :instrument, lambda {|i| where("instrument_id = ? OR secondary_instrument_id = ?", i, i) }
+  scope :recent, order("created_at DESC").limit(16)
 
   friendly_id :name, :use => :slugged
   mount_uploader :avatar, AvatarUploader

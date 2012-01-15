@@ -83,6 +83,11 @@ body {
   margin-top: 0;
 }
 
+#sidebar {
+  @include columns(3, 12);
+  @include omega(12);
+}
+
 #footer {
   @include full;
   margin-top: 10px;

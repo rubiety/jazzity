@@ -35,6 +35,9 @@
   discussion_categories
   resources
   resource_applications
+  comments
+  timeline_events
+  musician_authentications
 ).each do |table|
   ActiveRecord::Base.connection.execute "TRUNCATE TABLE `#{table}`"
 end

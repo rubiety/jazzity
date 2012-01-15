@@ -1,8 +1,10 @@
 = render "search_box"
 
-%section#musicians
+%section#featured-musicians
   = render @musicians
+  = paginate @musicians
+  - if @musicians.empty?
+    %p.no-results Sorry, but no musicians were found matching your search.
 
-%section#musician-resources
-  %section#musician-books
-    = render "resources/index", :resources => Resource.amazon_books.random.limit(5)
+#sidebar
+  = render "recent_members"

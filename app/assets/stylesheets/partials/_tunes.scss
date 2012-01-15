@@ -22,11 +22,6 @@ body.tunes {
     }
   }
 
-  #tune-resources {
-    @include columns(3, 12);
-    @include omega(12);
-  }
-
   article#tune {
     @include columns(9, 12);
     @include clearfix;

@@ -43,9 +43,4 @@ body.dashboards {
     }
   }
 
-  section#activity {
-    @include columns(3, 12);
-    @include omega(12);
-  }
-
 }

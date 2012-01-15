@@ -5,12 +5,15 @@
     = submit_tag "Go"
     = link_to "What can I search for?", "#"
 
-%section#activity
-  %h2 Recent Discussion:
-  %div.activity
-    = render "timeline_events/index", :timeline_events => @timeline_events
-    - if @timeline_events.empty?
-      %p.no-results No discussions yet!
+#sidebar
+  = render "musicians/recent_members"
+
+  %section#activity
+    %h2 Recent Discussion:
+    %div.activity
+      = render "timeline_events/index", :timeline_events => @timeline_events
+      - if @timeline_events.empty?
+        %p.no-results No discussions yet!
 
 %section#search-examples
   %h2 Examples: 
