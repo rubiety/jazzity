@@ -15,6 +15,10 @@ class ChordsController < ApplicationController
     respond_with @chord
   end
 
+  def staff
+
+  end
+
 
   protected
 

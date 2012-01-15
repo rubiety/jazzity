@@ -9,6 +9,11 @@ class ChordSequencesController < ApplicationController
     params[:v] ||= {}
   end
 
+  def staff
+
+  end
+
+
   protected
 
   def find_key

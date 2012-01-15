@@ -13,6 +13,10 @@ class ScalesController < ApplicationController
     respond_with @scale
   end
 
+  def staff
+
+  end
+
   def comments
     render "modes/comments"
   end

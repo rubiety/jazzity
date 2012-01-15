@@ -8,6 +8,11 @@ class ChordNoteSequencesController < ApplicationController
   def show
   end
 
+  def staff
+
+  end
+
+
   protected
 
   def find_key

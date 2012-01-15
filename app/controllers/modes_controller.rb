@@ -21,6 +21,10 @@ class ModesController < ApplicationController
     end
   end
 
+  def staff
+
+  end
+
 
   protected
 

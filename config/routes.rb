@@ -24,16 +24,26 @@ Jazzity::Application.routes.draw do
     resources :tunes, :only => [:index, :show]
     resources :chord_qualities, :only => [:index, :show]
     resources :chords, :only => [:index, :show] do
+      get :staff, :on => :member
       resources :voicings, :only => [:index, :show]
     end
 
     resources :progressions, :only => [:index, :show] do
+      get :staff, :on => :member
       get :comments, :on => :member
     end
 
-    resources :note_sequences, :path => "notes", :only => [:index, :show]
-    resources :chord_sequences, :path => "chord-sequences", :only => [:show]
-    resources :chord_note_sequences, :path => "chord-notes", :only => [:index, :show]
+    resources :note_sequences, :path => "notes", :only => [:index, :show] do
+      get :staff, :on => :member
+    end
+
+    resources :chord_sequences, :path => "chord-sequences", :only => [:show] do
+      get :staff, :on => :member
+    end
+
+    resources :chord_note_sequences, :path => "chord-notes", :only => [:index, :show] do
+      get :staff, :on => :member
+    end
 
     resources :scales, :only => [:index, :show] do
       resources :modes, :only => [:index, :show]
@@ -49,14 +59,20 @@ Jazzity::Application.routes.draw do
 
   resources :chord_qualities, :only => [:index, :show]
   resources :chords, :only => [:index, :show] do
+    get :staff, :on => :member
     resources :voicings, :only => [:index, :show]
   end
 
   resources :scales, :only => [:index, :show] do
-    resources :modes, :only => [:index, :show]
+    get :staff, :on => :member
+
+    resources :modes, :only => [:index, :show] do
+      get :staff, :on => :member
+    end
   end
 
   resources :progressions, :only => [:index, :show] do
+    get :staff, :on => :member
     get :comments, :on => :member
   end
 
@@ -64,9 +80,17 @@ Jazzity::Application.routes.draw do
     get :comments, :on => :member
   end
   
-  resources :note_sequences, :path => "notes", :only => [:show]
-  resources :chord_sequences, :path => "chord-sequences", :only => [:show]
-  resources :chord_note_sequences, :path => "chord-notes", :only => [:show]
+  resources :note_sequences, :path => "notes", :only => [:show] do
+    get :staff, :on => :member
+  end
+
+  resources :chord_sequences, :path => "chord-sequences", :only => [:show] do
+    get :staff, :on => :member
+  end
+
+  resources :chord_note_sequences, :path => "chord-notes", :only => [:show] do
+    get :staff, :on => :member
+  end
 
   resources :comments
   resources :discussions

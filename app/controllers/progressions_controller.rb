@@ -18,6 +18,10 @@ class ProgressionsController < ApplicationController
     respond_with @progression
   end
 
+  def staff
+
+  end
+
 
   protected
 
