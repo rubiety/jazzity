@@ -66,7 +66,9 @@ module Tones
     octave -= 1 if (8..11).include?(keys.first.index)
     last_index = keys.first.index
 
-    ["#{notes.first}/#{octave}"] + keys.from(1).map do |key|
+    effective_octave = (keys.first.name == "Cb") ? octave + 1 : octave  # Hack for Cb, which is a weird case...
+
+    ["#{notes.first}/#{effective_octave}"] + keys.from(1).map do |key|
       index = key.index > last_index ? key.index : key.index + 12
       octave += 1 if (last_index..index).include?(12)
       last_index = key.index
