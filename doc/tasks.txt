@@ -1,6 +1,5 @@
 = Functional Beta
 
-[ ] Auto Webkit PNG Generation of Object Staffs (for use in OpenGraph images) with Delayed Job
 [ ] Progression Position/Bar Support (For Blues/Rhythm, Mainly) - Requires Expansion of vexflow-json
 [ ] Better Octave Choosing... (octavized_notes implementation)
 [ ] "Include Roots" Checkbox for Voicings/Progressions
