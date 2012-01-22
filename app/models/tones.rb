@@ -70,7 +70,8 @@ module Tones
       index = key.index > last_index ? key.index : key.index + 12
       octave += 1 if (last_index..index).include?(12)
       last_index = key.index
-      "#{key.name}/#{octave}"
+      effective_octave = (key.name == "Cb") ? octave + 1 : octave  # Hack for Cb, which is a weird case...
+      "#{key.name}/#{effective_octave}"
     end
   end
 

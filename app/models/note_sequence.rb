@@ -63,7 +63,8 @@ class NoteSequence
       index = key.index > last_index ? key.index : key.index + 12
       octave += 1 if (last_index..index).include?(12)
       last_index = key.index
-      "#{key.name}/#{octave}"
+      effective_octave = (key.name == "Cb") ? octave + 1 : octave  # Hack for Cb, which is a weird case...
+      "#{key.name}/#{effective_octave}"
     end
   end
 
@@ -71,7 +72,7 @@ class NoteSequence
   class << self
     def resolve(value)
       sequence = new(value)
-      if sequence.invalid_keys.empty? and sequence.keys.size > 1
+      if sequence.invalid_keys.empty? and sequence.keys.size > 0
         sequence
       else
         nil
@@ -90,7 +91,7 @@ class NoteSequence
     else
       Key.primaries.map do |in_key|
         chords_in_key(in_key)
-      end.flatten
+      end.flatten.compact
     end.extend(Chords)
   end
 
