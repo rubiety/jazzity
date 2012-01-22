@@ -45,7 +45,18 @@ body.dashboards {
 
   section#searchable-examples {
     @include columns(4, 12);
-
+  
+    ul.searchables-list {
+      li {
+        .staff {
+          margin-bottom: -20px;
+        }
+        .scale-staff {
+          float: none;
+          text-align: right;
+        }
+      }
+    }
   }
 
 }
