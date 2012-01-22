@@ -30,6 +30,7 @@
     if (!render_options) { render_options = {}; }
     if (!render_options.width) { render_options.width = $(element).attr("data-width") || $(element).attr("width") || 600; }
     if (!render_options.height) { render_options.height = $(element).attr("data-height") || $(element).attr("height") || 110; }
+    if (!render_options.scale) { render_options.scale = parseFloat($(element).attr("data-scale") || "1"); }
     if (!render_options.clef && $(element).attr("data-clef")) { render_options.clef = $(element).attr("data-clef").split(","); }
 
     var canvas_element = $("<canvas width='" + render_options.width + "' height='" + render_options.height + "'></canvas>");
