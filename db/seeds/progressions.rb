@@ -62,7 +62,7 @@ end
 
 
 ProgressionFamily.create!(:name => "Blues").tap do |family|
-  family.progressions.create!(:name => "Basic Blues", :seeding => true, :bars => 12, :full_tune => true, :form => Form['A-B-C'], :summary => "The most commonly-played progression in Jazz, this 12-bar form has many variations.", :information => "").tap do |p|
+  family.progressions.create!(:name => "Basic Blues", :seeding => true, :bars => 12, :positions_per_bar => 2, :full_tune => true, :form => Form['A-B-C'], :summary => "The most commonly-played progression in Jazz, this 12-bar form has many variations.", :information => "").tap do |p|
     p.components.create([
       {:position => 1, :index => 0, :chord => Chord["7"]},
       {:position => 3, :index => 5, :chord => Chord["7"]},
@@ -78,7 +78,7 @@ ProgressionFamily.create!(:name => "Blues").tap do |family|
       {:position => 23, :index => 0, :chord => Chord["7"]}
     ])
 
-    p.variants.create!(:progression_family => family, :name => "Blues 2", :seeding => true, :bars => 12, :full_tune => true, :form => Form['A-B-C']).tap do |pp|
+    p.variants.create!(:progression_family => family, :name => "Blues 2", :seeding => true, :bars => 12, :positions_per_bar => 2, :full_tune => true, :form => Form['A-B-C']).tap do |pp|
       pp.components.create([
         {:position => 1, :index => 0, :chord => Chord["7"]},
         {:position => 3, :index => 5, :chord => Chord["7"]},
@@ -95,7 +95,7 @@ ProgressionFamily.create!(:name => "Blues").tap do |family|
       ])
     end
 
-    p.variants.create!(:progression_family => family, :name => "Jazz Blues", :seeding => true, :bars => 12, :full_tune => true, :form => Form['A-B-C']).tap do |pp|
+    p.variants.create!(:progression_family => family, :name => "Jazz Blues", :seeding => true, :bars => 12, :positions_per_bar => 2, :full_tune => true, :form => Form['A-B-C']).tap do |pp|
       pp.components.create([
         {:position => 1, :index => 0, :chord => Chord["7"]},
         {:position => 3, :index => 5, :chord => Chord["7"]},
@@ -112,7 +112,7 @@ ProgressionFamily.create!(:name => "Blues").tap do |family|
       ])
     end
 
-    p.variants.create!(:progression_family => family, :name => "Blues 4", :seeding => true, :bars => 12, :full_tune => true, :form => Form['A-B-C']).tap do |pp|
+    p.variants.create!(:progression_family => family, :name => "Blues 4", :seeding => true, :bars => 12, :positions_per_bar => 2, :full_tune => true, :form => Form['A-B-C']).tap do |pp|
       pp.components.create([
         {:position => 1, :index => 0, :chord => Chord["7"]},
         {:position => 3, :index => 5, :chord => Chord["7"]},

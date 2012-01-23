@@ -43,11 +43,27 @@ class Progression < ActiveRecord::Base
   end
 
   def component_index_offsets
-    last_i = nil
-    components.map(&:index).inject([]) do |offsets, i|
-      offsets << (i - last_i) % 12 if last_i
-      last_i = i
-      offsets
+    @component_index_offsets ||= begin
+      last_i = nil
+      components.map(&:index).inject([]) do |offsets, i|
+        offsets << (i - last_i) % 12 if last_i
+        last_i = i
+        offsets
+      end
+    end
+  end
+
+  def component_durations
+    @component_durations ||= begin
+      last_i = nil
+      final = components.map(&:position).inject([]) do |durations, i|
+        durations << (i - last_i) if last_i
+        last_i = i
+        durations
+      end
+
+      # final << (bars) ? bars * positions_per_bar - last_i + 1 : 1
+      final
     end
   end
 

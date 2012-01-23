@@ -291,6 +291,7 @@ ActiveRecord::Schema.define(:version => 20111231205552) do
     t.string   "name"
     t.integer  "variant_of_id"
     t.integer  "bars"
+    t.integer  "positions_per_bar",     :default => 4
     t.boolean  "full_tune",             :default => false
     t.integer  "meter_id"
     t.integer  "form_id"

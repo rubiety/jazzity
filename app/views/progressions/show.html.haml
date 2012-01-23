@@ -14,7 +14,7 @@
     = @progression.information
 
   %section#staff
-    .staff.progression-staff{"data-staff" => @staff_notes.to_json, "data-clef" => "treble,bass", "height" => 160}
+    .staff.progression-staff{"data-staff" => {"notes" => @staff_notes}.to_json, "data-clef" => "treble,bass", "height" => 160, "width" => 1000}
 
   %section#voice-leading
     = form_tag({}, :method => :get) do

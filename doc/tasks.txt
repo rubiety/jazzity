@@ -1,7 +1,8 @@
 = Functional Beta
 
-[ ] Progression Position/Bar Support (For Blues/Rhythm, Mainly) - Requires Expansion of vexflow-json
+[ ] Progressions Multiple Bars and Multiple Lines Support
 [ ] "Include Roots" Checkbox for Voicings/Progressions
+[ ] Split off Voicings into Separate Section with Voicing Groups
 [ ] ActiveAdmin Configuration & Expansion
 [ ] Musician Profile & Signup Refinement
 [ ] Resource Loading & Management
