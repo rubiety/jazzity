@@ -1,5 +1,7 @@
 = Functional Beta
 
+[ ] Rack Bouncer for Bad Browsers
+[ ] Staff Rendering with Labels
 [ ] Progressions Multiple Bars and Multiple Lines Support
 [ ] "Include Roots" Checkbox for Voicings/Progressions
 [ ] Split off Voicings into Separate Section with Voicing Groups
@@ -20,6 +22,9 @@
 [ ] Facebook Invite Friends
 [ ] Video Tutorial
 [ ] Mobile Styles
+[ ] Press Release
+[ ] Privacy Policy
+[ ] Copyright
 
 = Post-Launch Refinement
 
