@@ -51,7 +51,7 @@ class Tune < ActiveRecord::Base
   end
 
   def changes
-    @changes ||= Changes.new(JSON.parse(changes_json))
+    @changes ||= Changes.new(JSON.parse(changes_json)) if changes_json
   end
 
   def self.resolve(name)
