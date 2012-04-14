@@ -49,6 +49,7 @@ ChordQuality.create!(:name => 'Minor', :code => 'MIN').tap do |q|
   q.chords.create!(:name => 'Minor Triad', :specify_tones => "u m3 5").tap do |c|
     c.symbols.create!(:name => 'min', :primary => true)
     c.symbols.create!(:name => 'm', :case_sensitive => true)
+    c.symbols.create!(:name => '-')
     c.symbols.create!(:name => 'minor')
 
     c.chord_scales << ChordScale.new(:mode => Scale['Major'].modes[1], :offset => -2)
@@ -59,6 +60,7 @@ ChordQuality.create!(:name => 'Minor', :code => 'MIN').tap do |q|
   q.chords.create!(:name => 'Minor 7', :specify_tones => "u m3 5 b7").tap do |c|
     c.symbols.create!(:name => 'min7', :primary => true)
     c.symbols.create!(:name => 'm7', :case_sensitive => true)
+    c.symbols.create!(:name => '-7')
     c.symbols.create!(:name => 'minor7')
 
     c.chord_scales << ChordScale.new(:mode => Scale['Major'].modes[1], :offset => -2)
@@ -68,6 +70,7 @@ ChordQuality.create!(:name => 'Minor', :code => 'MIN').tap do |q|
   q.chords.create!(:name => 'Minor 6', :specify_tones => "u b3 5 6").tap do |c|
     c.symbols.create!(:name => 'min6', :primary => true)
     c.symbols.create!(:name => 'm6', :case_sensitive => true)
+    c.symbols.create!(:name => '-6')
     c.symbols.create!(:name => 'minor6')
 
     c.chord_scales << ChordScale.new(:mode => Scale['Major'].modes[1], :offset => -2)
@@ -87,7 +90,8 @@ ChordQuality.create!(:name => 'Minor', :code => 'MIN').tap do |q|
 
   q.chords.create!(:name => 'Minor b6', :specify_tones => "u b3 5 b6").tap do |c|
     c.symbols.create!(:name => 'minb6', :primary => true)
-    c.symbols.create!(:name => 'mb6')
+    c.symbols.create!(:name => 'mb6', :case_sensitive => true)
+    c.symbols.create!(:name => '-b6')
     c.symbols.create!(:name => 'minorb6')
     c.symbols.create!(:name => 'aeolian')
 
@@ -98,6 +102,7 @@ ChordQuality.create!(:name => 'Minor', :code => 'MIN').tap do |q|
     c.symbols.create!(:name => 'min#7', :primary => true)
     c.symbols.create!(:name => 'majmin')
     c.symbols.create!(:name => 'm#7', :case_sensitive => true)
+    c.symbols.create!(:name => '-#7')
     c.symbols.create!(:name => 'minor#7')
 
     c.chord_scales << ChordScale.new(:mode => Scale['Melodic Minor'].modes[0], :offset => 0)

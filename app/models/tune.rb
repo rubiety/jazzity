@@ -50,6 +50,10 @@ class Tune < ActiveRecord::Base
     Key[secondary_key_name]
   end
 
+  def changes
+    @changes ||= Changes.new(JSON.parse(changes_json))
+  end
+
   def self.resolve(name)
     find_by_name(name)
   end
