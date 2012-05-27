@@ -1,7 +1,7 @@
 source "http://rubygems.org"
 
 # Core Gems
-gem "rails", "3.1.3"
+gem "rails", "3.2.3"
 gem "mysql2"
 
 # Asset Template Engines
@@ -16,7 +16,6 @@ gem "haml"
 gem "haml-rails"
 gem "compass", "0.12.alpha.0"
 gem "compass-susy-plugin", :require => "susy"
-gem "html5-boilerplate"
 
 # Bread & Butter Gems
 gem "acts_as_list"
