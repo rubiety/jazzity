@@ -52,6 +52,9 @@ module Jazzity
     # Enable the asset pipeline
     config.assets.enabled = true
     config.assets.precompile += ["handheld.css.scss", "ie6.css.scss"]
+
+    # Sass Config
+    config.compass.require "susy"
     
     # Configure Tools
     config.generators do |g|

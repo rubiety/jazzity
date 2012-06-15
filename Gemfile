@@ -6,7 +6,7 @@ gem "mysql2"
 
 # Asset Template Engines
 gem "sass-rails"
-gem "coffee-script"
+gem "coffee-rails"
 gem "uglifier"
 gem "jquery-rails"
 gem "rails3-jquery-autocomplete"
@@ -14,7 +14,9 @@ gem "rails3-jquery-autocomplete"
 # Views
 gem "haml"
 gem "haml-rails"
-gem "compass", "0.12.alpha.0"
+gem "html5-rails"
+gem "compass-rails"
+gem "compass-h5bp"
 gem "compass-susy-plugin", :require => "susy"
 
 # Bread & Butter Gems
