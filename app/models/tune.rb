@@ -50,7 +50,7 @@ class Tune < ActiveRecord::Base
     Key[secondary_key_name]
   end
 
-  def changes
+  def chord_changes
     @changes ||= Changes.new(JSON.parse(changes_json)) if changes_json
   end
 
