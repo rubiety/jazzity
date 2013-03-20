@@ -7,14 +7,12 @@ module Musician::Authentication
     has_many :authentications, :class_name => "MusicianAuthentication", :dependent => :destroy
   end
 
-  module InstanceMethods
-    def authenticated_with?(service)
-      authentications.where(:provider => service).exists?
-    end
+  def authenticated_with?(service)
+    authentications.where(:provider => service).exists?
   end
 
-  module ClassMethods
 
+  module ClassMethods
     def new_with_session(params, session)
       super.tap do |musician|
         if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["user_hash"]
@@ -75,6 +73,6 @@ module Musician::Authentication
         end
       end
     end
-
   end
+
 end
