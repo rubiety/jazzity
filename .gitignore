@@ -3,6 +3,7 @@ db/*.sqlite3
 log/*.log
 tmp/**/*
 tmp/*
+doc/emails
 config/database.yml
 config/omniauth.yml
 config/amazon.yml
