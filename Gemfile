@@ -1,7 +1,8 @@
 source "http://rubygems.org"
+ruby "2.1.2"
 
 # Core Gems
-gem "rails", "3.2.13"
+gem "rails", "3.2.21"
 gem "mysql2"
 
 # Asset Template Engines
@@ -34,7 +35,6 @@ gem "carrierwave"
 gem "RedCloth"
 
 # API Integration
-gem "feedzirra"
 gem "twitter"
 gem "itunes"
 gem "amazon-ecs", :require => "amazon/ecs"
@@ -59,15 +59,6 @@ gem "capybara-webkit"
 group :development do
   gem "thin"
   gem "capistrano"
-  gem "factory_girl_rails"
-  gem "ruby-debug19"
-
-  gem "guard"
-  gem "guard-spork"
-  gem "guard-rspec"
-  gem "rb-inotify", :require => false
-  gem "rb-fsevent", :require => false
-  gem "rb-fchange", :require => false
 end
 
 group :test do
@@ -75,17 +66,22 @@ group :test do
   gem "minitest"
   gem "faker"
   gem "rspec-rails"
-  gem "capybara"
   gem "database_cleaner"
   gem "launchy"
   gem "pickle"
-  gem "factory_girl_rails"
   gem "shoulda-matchers"
   gem "growl"
   gem "spork", ">= 0.9.0.rc5"
+end
+
+group :development, :test do
+  gem "factory_girl_rails"
   gem "guard"
   gem "guard-bundler"
   gem "guard-rspec"
   gem "guard-spork"
+  gem "rb-inotify", :require => false
+  gem "rb-fsevent", :require => false
+  gem "rb-fchange", :require => false
 end
 

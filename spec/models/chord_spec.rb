@@ -1,15 +1,9 @@
-require "spec_helper"
-
 describe Chord do
   context "associations" do
     it { should belong_to(:chord_quality) }
-    it { should have_many(:symbols) }
-    it { should have_one(:primary_symbol) }
     it { should have_many(:chord_scales) }
     it { should have_many(:modes).through(:chord_scales) }
     it { should have_many(:voicings) }
-    it { should have_many(:voice_leadings_to).through(:voicings) }
-    it { should have_many(:voice_leadings_from).through(:voicings) }
   end
   
   context "validations" do
@@ -21,10 +15,8 @@ describe Chord do
     Chord.new(:name => "Test").to_s.should == "Test"
   end
   
-  it "should expose #symbols_list"
-  
   context "without key context" do
-    let(:chord) { Chord.new(:name => "Test") }
+    subject { Chord.new(:name => "Test") }
     
     it "should expose #title as name" do
       chord.title.should == "Test"
@@ -32,11 +24,11 @@ describe Chord do
   end
   
   context "with key context" do
-    let(:chord) { Chord.new(:name => "Test").in_key_of("Bb") }
+    subject { Chord.new(:name => "Test").in_key_of("Bb") }
     
     it "should expose #title as key and name" do
-      # TODO chord.title.should == "Bb Test"
+      chord.title.should == "Bb Test"
     end
   end
-  
 end
+
