@@ -41,10 +41,6 @@ gem "amazon-ecs", :require => "amazon/ecs"
 # Temporary: Fixes
 gem "curb", "0.7.15"
 
-# PNG Conversion
-gem "capybara"
-gem "capybara-webkit"
-
 group :development do
   gem "thin"
   gem "capistrano", "2.12.0"
@@ -60,6 +56,7 @@ group :test do
   gem "pickle"
   gem "shoulda-matchers"
   gem "growl"
+  gem "capybara"
 end
 
 group :development, :test do
