@@ -13,13 +13,15 @@
   %section#staff
     .staff.chord-staff{"data-staff" => @note_sequence.octavized_notes.to_json, "data-staff-clef" => "treble"}
 
-  %nav.related-chords
-    %h3 Related Chords:
-    %ul.chords-list
-      = render @note_sequence.chords
+  - unless @note_sequence.chords.empty?
+    %nav.related-chords
+      %h3 Related Chords:
+      %ul.chords-list
+        = render @note_sequence.chords
 
-  %nav.related-modes
-    %h3 Related Scales:
-    %ul.modes-list
-      = render @note_sequence.modes
+  - unless @note_sequence.modes.empty?
+    %nav.related-modes
+      %h3 Related Scales:
+      %ul.modes-list
+        = render @note_sequence.modes
 

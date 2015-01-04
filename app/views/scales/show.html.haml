@@ -29,9 +29,10 @@
     %section#staff
       .staff.scale-staff{"data-id" => @scale.id, "data-staff" => @mode.octavized_notes.map {|n| [n]}.to_json, "data-staff-clef" => "treble", "width" => 500}
 
-    %nav.related-chords
-      %h3 Related Chords:
-      %ul.chords-list
-        - @mode.chord_scales.each do |chord_scale|
-          = render chord_scale.chord, :key => (@scale.key || Key.default).shifted(-1 * chord_scale.offset)
+    - unless @mode.chord_spaces.empty?
+      %nav.related-chords
+        %h3 Related Chords:
+        %ul.chords-list
+          - @mode.chord_scales.each do |chord_scale|
+            = render chord_scale.chord, :key => (@scale.key || Key.default).shifted(-1 * chord_scale.offset)
 
