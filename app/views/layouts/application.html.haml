@@ -3,6 +3,8 @@
   = render :partial => 'layouts/head'
 
   %body{ :class => "#{controller.class.name.sub(/Controller$/, '').underscore.gsub('/', '_').dasherize} #{@body_class}" }
+    = render :partial => 'layouts/github_ribbon'
+
     #container
       %header#header
         = render :partial => 'layouts/header'
