@@ -1,4 +1,6 @@
 Jazzity::Application.routes.draw do
+
+  get "/contribute", :to => redirect("https://github.com/rubiety/jazzity/wiki/Contributions")
   
   resources :searches, :only => [:create, :show] do
     get :autocomplete, :on => :collection
