@@ -25,7 +25,7 @@ class Searchable < ActiveRecord::Base
   def self.regenerate_all
     delete_all
 
-    [Chord, Concept, Scale, Mode, Musician, Progression, Tune].each do |klass|
+    [Chord, Concept, Scale, Mode, Progression, Tune].each do |klass|
       klass.all.each(&:generate_searchables)
     end
   end

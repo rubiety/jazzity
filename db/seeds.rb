@@ -15,8 +15,6 @@
   tunes
   tune_progressions
   tune_concepts
-  instruments
-  musicians
   progression_families
   progressions
   progression_components
@@ -31,13 +29,6 @@
   voicing_families
   voicings
   searchables
-  timeline_events
-  discussion_categories
-  resources
-  resource_applications
-  comments
-  timeline_events
-  musician_authentications
 ).each do |table|
   ActiveRecord::Base.connection.execute "TRUNCATE TABLE `#{table}`"
 end
@@ -46,8 +37,6 @@ end
   meters
   forms
   vehicles
-  instruments
-  musicians
   concepts
   scales
   chords
@@ -55,8 +44,6 @@ end
   voice_leadings
   progressions
   tunes
-  discussion_categories
-  resources
 ).each {|f| require Rails.root.join("db/seeds/#{f}.rb") }
 
 Searchable.regenerate_all

@@ -1,5 +1,0 @@
-%nav.profile
-  %ul
-    = navigation_link_to "View Profile", musician_path(current_musician), MusiciansController
-    = navigation_link_to "Manage Profile", edit_musicians_profile_path, Musicians::ProfilesController, :edit
-    = navigation_link_to "Account & Password", edit_musician_registration_path, Devise::RegistrationsController

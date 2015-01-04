@@ -1,8 +1,6 @@
 class Concept < ActiveRecord::Base
   extend FriendlyId
   include Searchable::Model
-  include Commentable
-  include Resourceable
 
   belongs_to :concept_family
   has_many :tune_concepts, :dependent => :destroy

@@ -6,5 +6,3 @@
   = paginate @tunes
 
 #tune-resources
-  %section#tune-books
-    = render "resources/index", :resources => Resource.amazon_books.random.limit(5)

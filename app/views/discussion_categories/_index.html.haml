@@ -1,8 +1,0 @@
-%nav#discussion-categories
-  %ul
-    %li.discussion-category{:class => ("current" if @discussion_category.nil?)}
-      %h2= link_to "All Discussions", discussion_categories_path
-
-    - @discussion_categories.each do |category|
-      %li.discussion-category{:class => ("current" if @discussion_category == category)}
-        %h2= link_to category, category

@@ -10,6 +10,7 @@ gem "sass-rails"
 gem "coffee-rails"
 gem "uglifier"
 gem "jquery-rails"
+gem "jquery-ui-rails"
 gem "rails3-jquery-autocomplete"
 
 # Views
@@ -28,7 +29,6 @@ gem "simple_form"
 gem "paperclip"
 gem "friendly_id"
 gem "awesome_nested_set"
-gem "timeline_fu"
 gem "kaminari"
 gem "mini_magick"
 gem "carrierwave"
@@ -44,10 +44,6 @@ gem "devise"
 gem "omniauth"
 gem "omniauth-facebook"
 gem "omniauth-twitter"
-
-# Administration
-gem "activeadmin"
-gem "meta_search"
 
 # Temporary: Fixes
 gem "curb", "0.7.15"

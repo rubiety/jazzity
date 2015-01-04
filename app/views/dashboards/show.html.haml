@@ -6,14 +6,6 @@
     = link_to "What can I search for?", "#"
 
 #sidebar
-  = render "musicians/recent_members"
-
-  %section#activity
-    %h2 Recent Discussion:
-    %div.activity
-      = render "timeline_events/index", :timeline_events => @timeline_events
-      - if @timeline_events.empty?
-        %p.no-results No discussions yet!
 
 %section#search-examples
   %h2 Examples: 
@@ -61,10 +53,6 @@
     %h2 Discuss Jazz Concepts
     %p
       Any pieces of information on the site is open to discussion. Join the discussion and see what others have to say!
-  %article
-    %h2 Connect With Other Musicians
-    %p
-      Create a public profile to get yourself out there and connect with other local musicians. See what others are working on.
   %article
     %h2 So, how is this done?
     %p

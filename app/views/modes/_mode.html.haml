@@ -4,6 +4,4 @@
   = link_to [local_assigns[:key], mode.scale, mode].compact do
     .staff.scale-staff{"data-id" => mode.id, "data-staff" => mode.octavized_notes.map {|n| [n]}.to_json, "data-staff-clef" => "treble", "width" => 380}
     %h3= mode.title
-    - if mode.comments.exists?
-      %span.comments-count= mode.comments.count
     %p= truncate mode.information, :length => 80

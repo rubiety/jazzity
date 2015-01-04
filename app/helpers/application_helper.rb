@@ -1,13 +1,4 @@
 module ApplicationHelper
-  include CommentsHelper
-
-  def timeline_event_title(event)
-    case event.event_type.to_sym
-    when :new_comment
-      "Posted on #{link_to event.secondary_subject, path_to_model(event.secondary_subject)}: '#{truncate(event.subject.content, :length => 40)}'".html_safe
-    end
-  end
-
   def navigation_link_to(name, path, controllers = [], actions = nil)
     controllers = [controllers] unless controllers.is_a?(Array)
     actions = [actions] if actions && !actions.is_a?(Array)

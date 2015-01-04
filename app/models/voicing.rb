@@ -3,8 +3,6 @@ class Voicing < ActiveRecord::Base
   
   include KeyContext
   include OctaveContext
-  include Commentable
-  include Resourceable
   include Toneable
 
   acts_as_tree

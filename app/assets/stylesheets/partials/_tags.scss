@@ -88,18 +88,6 @@ cite {
   float: right;
 }
 
-span.comments-count {
-  position: absolute;
-  display: inline-block;
-  bottom: 5px;
-  right: 5px;
-  font-size: 0.9em;
-  text-align: right;
-  width: 30px;
-  height: 16px;
-  background: image-url("iconic/chat_alt_fill_16x16.png") left no-repeat;
-}
-
 ul.social-media {
   @include horizontal-list;
   position: absolute;

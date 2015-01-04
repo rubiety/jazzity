@@ -19,10 +19,6 @@ class ScalesController < ApplicationController
     end
   end
 
-  def comments
-    render "modes/comments"
-  end
-
 
   protected
 

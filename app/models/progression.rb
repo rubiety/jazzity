@@ -3,8 +3,6 @@ class Progression < ActiveRecord::Base
   
   include Searchable::Model
   include KeyContext
-  include Commentable
-  include Resourceable
   
   friendly_id :name, :use => :slugged
 

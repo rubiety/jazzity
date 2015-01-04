@@ -13,39 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20120414023034) do
 
-  create_table "active_admin_comments", :force => true do |t|
-    t.integer  "resource_id",   :null => false
-    t.string   "resource_type", :null => false
-    t.integer  "author_id"
-    t.string   "author_type"
-    t.text     "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "namespace"
-  end
-
-  add_index "active_admin_comments", ["author_type", "author_id"], :name => "index_active_admin_comments_on_author_type_and_author_id"
-  add_index "active_admin_comments", ["namespace"], :name => "index_active_admin_comments_on_namespace"
-  add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_admin_notes_on_resource_type_and_resource_id"
-
-  create_table "admin_users", :force => true do |t|
-    t.string   "email",                                 :default => "", :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                         :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
-  add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
-
   create_table "chord_qualities", :force => true do |t|
     t.string "name"
     t.string "code"
@@ -60,8 +27,8 @@ ActiveRecord::Schema.define(:version => 20120414023034) do
     t.integer  "offset",      :default => 0, :null => false
     t.integer  "strength",    :default => 1
     t.text     "information"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   add_index "chord_scales", ["chord_id"], :name => "index_chord_scales_on_chord_id"
@@ -73,8 +40,8 @@ ActiveRecord::Schema.define(:version => 20120414023034) do
     t.boolean  "case_sensitive", :default => false
     t.integer  "strength"
     t.boolean  "primary",        :default => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
   add_index "chord_symbols", ["chord_id"], :name => "index_chord_symbols_on_chord_id"
@@ -88,8 +55,8 @@ ActiveRecord::Schema.define(:version => 20120414023034) do
     t.text     "information"
     t.string   "tone_values",       :limit => 4000
     t.integer  "chord_tones_count",                 :default => 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
     t.string   "slug"
   end
 
@@ -97,26 +64,10 @@ ActiveRecord::Schema.define(:version => 20120414023034) do
   add_index "chords", ["parent_id"], :name => "index_chords_on_parent_id"
   add_index "chords", ["slug"], :name => "index_chords_on_slug"
 
-  create_table "comments", :force => true do |t|
-    t.integer  "commentable_id"
-    t.string   "commentable_type"
-    t.integer  "author_id"
-    t.integer  "parent_id"
-    t.integer  "lft"
-    t.integer  "rgt"
-    t.string   "subject"
-    t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "comments", ["author_id"], :name => "index_comments_on_author_id"
-  add_index "comments", ["commentable_type", "commentable_id"], :name => "index_comments_on_commentable_type_and_commentable_id"
-
   create_table "concept_families", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "slug"
   end
 
@@ -128,53 +79,29 @@ ActiveRecord::Schema.define(:version => 20120414023034) do
     t.string   "summary"
     t.text     "content"
     t.boolean  "seeding",           :default => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
     t.string   "slug"
   end
 
   add_index "concepts", ["concept_family_id"], :name => "index_concepts_on_concept_family_id"
   add_index "concepts", ["slug"], :name => "index_concepts_on_slug"
 
-  create_table "discussion_categories", :force => true do |t|
-    t.integer  "position"
-    t.string   "name"
-    t.string   "slug"
-    t.string   "description"
-    t.string   "discussable_type"
-    t.string   "discussable_type_2"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "discussion_categories", ["slug"], :name => "index_discussion_categories_on_slug", :unique => true
-
   create_table "forms", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "slug"
   end
 
   add_index "forms", ["slug"], :name => "index_forms_on_slug"
 
-  create_table "instruments", :force => true do |t|
-    t.string   "name"
-    t.string   "cached_slug"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "slug"
-  end
-
-  add_index "instruments", ["cached_slug"], :name => "index_instruments_on_cached_slug", :unique => true
-  add_index "instruments", ["slug"], :name => "index_instruments_on_slug"
-
   create_table "meters", :force => true do |t|
     t.string   "name"
     t.integer  "beats"
     t.integer  "division"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "slug"
   end
 
@@ -187,8 +114,8 @@ ActiveRecord::Schema.define(:version => 20120414023034) do
     t.text     "synonyms"
     t.integer  "dissonance"
     t.text     "information"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.string   "slug"
   end
 
@@ -196,81 +123,14 @@ ActiveRecord::Schema.define(:version => 20120414023034) do
   add_index "modes", ["scale_id"], :name => "index_modes_on_scale_id"
   add_index "modes", ["slug"], :name => "index_modes_on_slug"
 
-  create_table "musician_authentications", :force => true do |t|
-    t.integer  "musician_id"
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "token"
-    t.string   "secret"
-    t.text     "user_information"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "musician_authentications", ["musician_id"], :name => "index_musician_authentications_on_musician_id"
-
-  create_table "musicians", :force => true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "nickname"
-    t.string   "cached_slug"
-    t.string   "avatar"
-    t.boolean  "famous",                                                               :default => false, :null => false
-    t.boolean  "has_profile",                                                          :default => false, :null => false
-    t.date     "born_on"
-    t.date     "died_on"
-    t.integer  "prominence"
-    t.integer  "instrument_id"
-    t.integer  "secondary_instrument_id"
-    t.text     "biography"
-    t.string   "location"
-    t.string   "website_url"
-    t.string   "facebook_url"
-    t.string   "twitter_username"
-    t.string   "youtube_username"
-    t.string   "external_avatar_url"
-    t.decimal  "time_zone_offset",                       :precision => 5, :scale => 2
-    t.boolean  "plays_professionally",                                                 :default => false, :null => false
-    t.boolean  "studies_privately",                                                    :default => false, :null => false
-    t.string   "studies_privately_with"
-    t.string   "music_school"
-    t.boolean  "seeding",                                                              :default => false
-    t.boolean  "featured",                                                             :default => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "email",                                                                :default => "",    :null => false
-    t.string   "encrypted_password",      :limit => 128,                               :default => "",    :null => false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                                                        :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string   "authentication_token"
-    t.string   "slug"
-  end
-
-  add_index "musicians", ["authentication_token"], :name => "index_musicians_on_authentication_token", :unique => true
-  add_index "musicians", ["cached_slug"], :name => "index_musicians_on_cached_slug", :unique => true
-  add_index "musicians", ["confirmation_token"], :name => "index_musicians_on_confirmation_token", :unique => true
-  add_index "musicians", ["email"], :name => "index_musicians_on_email"
-  add_index "musicians", ["instrument_id"], :name => "index_musicians_on_instrument_id"
-  add_index "musicians", ["reset_password_token"], :name => "index_musicians_on_reset_password_token", :unique => true
-  add_index "musicians", ["slug"], :name => "index_musicians_on_slug"
-
   create_table "progression_components", :force => true do |t|
     t.integer  "progression_id"
     t.integer  "position"
     t.integer  "chord_id"
     t.integer  "index"
     t.string   "comment"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   add_index "progression_components", ["chord_id"], :name => "index_progression_components_on_chord_id"
@@ -279,8 +139,8 @@ ActiveRecord::Schema.define(:version => 20120414023034) do
 
   create_table "progression_families", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "slug"
   end
 
@@ -298,8 +158,8 @@ ActiveRecord::Schema.define(:version => 20120414023034) do
     t.string   "summary"
     t.text     "information"
     t.boolean  "seeding",               :default => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
     t.string   "slug"
   end
 
@@ -307,48 +167,14 @@ ActiveRecord::Schema.define(:version => 20120414023034) do
   add_index "progressions", ["progression_family_id"], :name => "index_progressions_on_progression_family_id"
   add_index "progressions", ["slug"], :name => "index_progressions_on_slug"
 
-  create_table "resource_applications", :force => true do |t|
-    t.integer "resource_id"
-    t.integer "resourceable_id"
-    t.string  "resourceable_type"
-    t.string  "comment"
-    t.integer "hits"
-    t.decimal "expected_payout",   :precision => 9, :scale => 2
-  end
-
-  add_index "resource_applications", ["resource_id"], :name => "index_resource_applications_on_resource_id"
-  add_index "resource_applications", ["resourceable_type", "resourceable_id"], :name => "resource_applications_resourceable"
-
-  create_table "resources", :force => true do |t|
-    t.string   "type"
-    t.string   "subtype"
-    t.string   "identifier"
-    t.string   "name"
-    t.string   "collection_identifier"
-    t.string   "collection_name"
-    t.integer  "collection_track_number"
-    t.string   "author_identifier"
-    t.string   "author_name"
-    t.decimal  "price",                   :precision => 9, :scale => 2
-    t.string   "image_url"
-    t.string   "view_url"
-    t.string   "audio_preview_url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.text     "description"
-    t.integer  "volume"
-  end
-
-  add_index "resources", ["identifier"], :name => "index_resources_on_identifier"
-
   create_table "scales", :force => true do |t|
     t.string   "name"
     t.string   "information"
     t.integer  "symmetry_index"
     t.string   "tone_values",    :limit => 4000
     t.integer  "tones_count",                    :default => 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
     t.string   "slug"
   end
 
@@ -369,26 +195,14 @@ ActiveRecord::Schema.define(:version => 20120414023034) do
   add_index "searchables", ["name"], :name => "index_searchables_on_name"
   add_index "searchables", ["parent_id"], :name => "index_searchables_on_parent_id"
 
-  create_table "timeline_events", :force => true do |t|
-    t.string   "event_type"
-    t.string   "subject_type"
-    t.string   "actor_type"
-    t.string   "secondary_subject_type"
-    t.integer  "subject_id"
-    t.integer  "actor_id"
-    t.integer  "secondary_subject_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "tune_concepts", :force => true do |t|
     t.integer  "tune_id"
     t.integer  "concept_id"
     t.string   "comment"
     t.integer  "start_measure"
     t.integer  "end_measure"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   add_index "tune_concepts", ["concept_id"], :name => "index_tune_concepts_on_concept_id"
@@ -400,8 +214,8 @@ ActiveRecord::Schema.define(:version => 20120414023034) do
     t.string   "comment"
     t.integer  "start_measure"
     t.integer  "end_measure"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   add_index "tune_progressions", ["progression_id"], :name => "index_tune_progressions_on_progression_id"
@@ -428,8 +242,8 @@ ActiveRecord::Schema.define(:version => 20120414023034) do
     t.text     "description"
     t.boolean  "seeding",                                 :default => false
     t.boolean  "featured",                                :default => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                                          :null => false
+    t.datetime "updated_at",                                                          :null => false
     t.string   "slug"
     t.text     "changes_json"
   end
@@ -445,8 +259,8 @@ ActiveRecord::Schema.define(:version => 20120414023034) do
   create_table "vehicles", :force => true do |t|
     t.string   "name"
     t.integer  "parent_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "slug"
   end
 
@@ -458,8 +272,8 @@ ActiveRecord::Schema.define(:version => 20120414023034) do
     t.integer  "to_voicing_id"
     t.integer  "offset"
     t.integer  "changed_tones",   :default => 1
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   add_index "voice_leadings", ["from_voicing_id"], :name => "index_voice_leadings_on_from_voicing_id"
@@ -469,8 +283,8 @@ ActiveRecord::Schema.define(:version => 20120414023034) do
     t.string   "name"
     t.integer  "voicing_tones_count", :default => 0
     t.boolean  "rootless",            :default => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
     t.string   "slug"
   end
 
@@ -488,8 +302,8 @@ ActiveRecord::Schema.define(:version => 20120414023034) do
     t.integer  "upper_structure_chord_id"
     t.integer  "upper_structure_chord_offset",                 :default => 0
     t.string   "tone_values",                  :limit => 4000
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                                      :null => false
+    t.datetime "updated_at",                                                      :null => false
     t.string   "slug"
   end
 

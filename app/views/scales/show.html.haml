@@ -35,6 +35,3 @@
         - @mode.chord_scales.each do |chord_scale|
           = render chord_scale.chord, :key => (@scale.key || Key.default).shifted(-1 * chord_scale.offset)
 
-    %section#scale-comments
-      %h2 Discussion:
-      = render "comments/index", :commentable => @mode

@@ -1,4 +1,0 @@
-%ul.resources
-  - resources.each do |resource|
-    %li{:class => resource.type_code.dasherize}
-      = render "resources/types/#{resource.type_code}", :resource => resource

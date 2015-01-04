@@ -3,6 +3,4 @@
 %li[chord]
   = link_to chord do
     %h3= chord.title
-    - if chord.comments.exists?
-      %span.comments-count= chord.comments.count
     .staff.chord-staff{"data-id" => chord.id, "data-staff" => chord.octavized_notes.to_json, "data-staff-clef" => "treble", "width" => 150}

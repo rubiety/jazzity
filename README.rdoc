@@ -1,7 +1,11 @@
 == Jazzity
 
-=== The Jazz Knowledge Engine
+This is a web application for exploring jazz theory.
 
-This is a web application for exploring jazz theory and serves as a community for jazz musicians and those beginning to learn the jazz language.
+=== Setup
 
-This application makes heavy use of cucumber, so check out features/ to see what this application is all about!
+  $ rake db:migrate
+  $ rake db:seeds
+  $ bin/rails server
+  $ open http://localhost:3000
+

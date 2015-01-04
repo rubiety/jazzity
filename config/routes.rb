@@ -1,17 +1,5 @@
 Jazzity::Application.routes.draw do
   
-  ActiveAdmin.routes(self)
-
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  devise_for :musicians, :controllers => { :omniauth_callbacks => "musicians/authentications" }
-
-  namespace :musicians do
-    resources :authentications, :only => [:index, :destroy]
-    resource :profile, :only => [:show, :edit, :update, :destroy]
-  end
-
-  resources :musicians, :only => [:index, :show]
-
   resources :searches, :only => [:create, :show] do
     get :autocomplete, :on => :collection
   end
@@ -26,7 +14,6 @@ Jazzity::Application.routes.draw do
 
     resources :progressions, :only => [:index, :show] do
       get :staff, :on => :member
-      get :comments, :on => :member
     end
 
     resources :note_sequences, :path => "notes", :only => [:index, :show] do
@@ -64,12 +51,9 @@ Jazzity::Application.routes.draw do
 
   resources :progressions, :only => [:index, :show] do
     get :staff, :on => :member
-    get :comments, :on => :member
   end
 
-  resources :concepts, :only => [:index, :show] do
-    get :comments, :on => :member
-  end
+  resources :concepts, :only => [:index, :show]
   
   resources :note_sequences, :path => "notes", :only => [:show] do
     get :staff, :on => :member
@@ -83,12 +67,6 @@ Jazzity::Application.routes.draw do
     get :staff, :on => :member
   end
 
-  resources :comments
-  resources :discussions
-  resources :discussion_categories, :path => "discussion" do
-    resources :discussions, :path => "d"
-  end
-  
   root :to => "dashboards#show"
   
 end

@@ -48,11 +48,6 @@ body.scales {
       margin-top: 15px;
     }
 
-    #scale-comments {
-      margin-top: 1em;
-      .comments { width: 90%; }
-    }
-
     nav.related-chords {
       @include clearfix;
       h3 { margin-bottom: 0.4em; }

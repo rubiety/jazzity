@@ -1,2 +1,0 @@
-module Musicians::TunesHelper
-end

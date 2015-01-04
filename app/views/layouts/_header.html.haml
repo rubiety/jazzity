@@ -1,30 +1,13 @@
 %h1 Jazzity
-%h2 The Jazz Community &amp; Knowledge Engine...
+%h2 The Jazz Knowledge Engine...
 
 %nav
   %ul
     = navigation_link_to "Home", root_path, DashboardsController
-    = navigation_link_to "Discussion", discussion_categories_path, [DiscussionCategoriesController, DiscussionsController]
     = navigation_link_to "Tunes", tunes_path, TunesController
-    = navigation_link_to "Musicians", musicians_path, MusiciansController
     = navigation_link_to "Scales", scales_path, [ScalesController, ModesController]
     = navigation_link_to "Chords/Voicings", chords_path, [ChordsController, VoicingsController, ChordSequencesController, NoteSequencesController]
     = navigation_link_to "Progressions/Form", progressions_path, [ProgressionsController, ChordNoteSequencesController]
     = navigation_link_to "Concepts", concepts_path, ConceptsController
 
-%aside{"data-current-musician-id" => current_musician.try(:id)}
-  - if musician_signed_in?
-    = link_to image_tag(current_musician.avatar_url, :alt => "#{current_musician}'s Avatar"), current_musician, :class => "avatar" if current_musician.has_avatar?
-    = link_to "Welcome, #{current_musician}", current_musician
-    &nbsp;&nbsp;&nbsp;
-    - if current_musician.authenticated_with?(:facebook)
-      = link_to "Invite Facebook Friends", "#", :class => "invite-facebook-friends"
-      &nbsp;&nbsp;&nbsp;
-    = link_to "Sign Out", destroy_musician_session_path, :method => :delete
-  - else
-    = link_to "Sign In with Facebook", musician_omniauth_authorize_path(:facebook), :class => "btn-auth btn-facebook"
-    &nbsp;&nbsp;&nbsp;
-    = link_to "Sign In", new_musician_session_path
-    &nbsp;&nbsp;&nbsp;
-    = link_to "Sign Up", new_musician_registration_path
-
+%aside

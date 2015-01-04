@@ -1,4 +1,3 @@
 %nav.tabs
   %ul
     = navigation_link_to "Information", {:action => :show}, ConceptsController, :show
-    = navigation_link_to "Comments (#{@concept.comments.count})", {:action => :comments}, ConceptsController, :comments

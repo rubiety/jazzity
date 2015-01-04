@@ -1,8 +1,0 @@
-= render "search_box"
-
-%section#musicians
-  = render @musicians
-
-%section#musician-resources
-  %section#musician-books
-    = render "resources/index", :resources => Resource.amazon_books.random.limit(5)

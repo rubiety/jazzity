@@ -6,7 +6,6 @@ class Scale < ActiveRecord::Base
   include Searchable::Model
   
   has_many :modes, :dependent => :destroy
-  has_many :comments, :through => :modes
 
   friendly_id :name, :use => :slugged
 
