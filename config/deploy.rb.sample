@@ -3,7 +3,7 @@ require 'rvm/capistrano'
 
 require 'bundler/capistrano'
 
-set :rvm_ruby_string, '1.9.2-p290@jazzity'
+set :rvm_ruby_string, '2.1.2'
 
 ## Configuration
 set :application, "jazzity"
@@ -14,7 +14,6 @@ set :deploy_via, :remote_cache
 set :use_sudo, false
 set :scm_verbose, true
 set :ssh_options, {:forward_agent => true}
-ssh_options[:port] = 2234
 
 task :staging do
   role :app, "stage.jazzity.com"
