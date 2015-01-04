@@ -34,13 +34,12 @@ end
 
 set :shared_paths, %w(
   config/database.yml
-  config/amazon.yml
 )
 
-after "deploy:symlink", "deploy:shared"
-after "deploy:symlink", "deploy:compile_stylesheets"
-after "deploy:symlink", "deploy:migrate_database"
-after "deploy:symlink", "deploy:generate_friendly_ids"
+after "deploy:create_symlink", "deploy:shared"
+after "deploy:create_symlink", "deploy:compile_stylesheets"
+after "deploy:create_symlink", "deploy:migrate_database"
+after "deploy:create_symlink", "deploy:generate_friendly_ids"
 
 namespace :deploy do
   task :restart do
