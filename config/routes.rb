@@ -53,8 +53,6 @@ Jazzity::Application.routes.draw do
     get :staff, :on => :member
   end
 
-  resources :concepts, :only => [:index, :show]
-  
   resources :note_sequences, :path => "notes", :only => [:show] do
     get :staff, :on => :member
   end

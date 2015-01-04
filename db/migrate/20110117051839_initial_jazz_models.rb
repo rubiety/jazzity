@@ -149,18 +149,6 @@ class InitialJazzModels < ActiveRecord::Migration
     add_index :tune_progressions, :tune_id
     add_index :tune_progressions, :progression_id
     
-    create_table :tune_concepts do |t|
-      t.references :tune
-      t.references :concept
-      t.string :comment
-      t.integer :start_measure
-      t.integer :end_measure
-      t.timestamps
-    end
-    
-    add_index :tune_concepts, :tune_id
-    add_index :tune_concepts, :concept_id
-    
     create_table :vehicles do |t|
       t.string :name
       t.integer :parent_id
@@ -211,21 +199,5 @@ class InitialJazzModels < ActiveRecord::Migration
     add_index :progression_components, :progression_id
     add_index :progression_components, :position
     add_index :progression_components, :chord_id
-    
-    create_table :concept_families do |t|
-      t.string :name
-      t.timestamps
-    end
-
-    create_table :concepts do |t|
-      t.references :concept_family
-      t.string :name
-      t.string :summary
-      t.text :content
-      t.boolean :seeding, :default => false
-      t.timestamps
-    end
-
-    add_index :concepts, :concept_family_id
   end
 end

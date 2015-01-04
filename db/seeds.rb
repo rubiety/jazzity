@@ -13,12 +13,9 @@
   forms
   tunes
   tune_progressions
-  tune_concepts
   progression_families
   progressions
   progression_components
-  concept_families
-  concepts
   chord_qualities
   chord_scales
   chord_symbols
@@ -35,7 +32,6 @@ end
 %w(
   meters
   forms
-  concepts
   scales
   chords
   voicings

@@ -1,6 +1,6 @@
 class CreateSlugs < ActiveRecord::Migration
   TABLES = [
-    :chord_qualities, :chords, :concept_families, :concepts, :forms, :meters, :modes,
+    :chord_qualities, :chords, :forms, :meters, :modes,
     :progression_families, :progressions, :scales, :tunes, :vehicles, :voicings, :voicing_families
   ]
   

@@ -11,8 +11,6 @@ class Tune < ActiveRecord::Base
   belongs_to :based_on_progression, :class_name => "Progression"
   has_many :tune_progressions, :dependent => :destroy
   has_many :progressions, :through => :tune_progressions
-  has_many :tune_concepts, :dependent => :destroy
-  has_many :concepts, :through => :tune_concepts
 
   friendly_id :name, :use => :slugged
 

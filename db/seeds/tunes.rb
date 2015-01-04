@@ -8,7 +8,6 @@
 #   :meter => Meter["4/4"],
 #   :primary_key_name => "Ab",
 #   :tonality => "Major",
-#   :concept => "Instrumental",
 #   :form => Form["A-A-B-A"],
 #   :form_length => 8,
 #   :form_lengths => "8-8-8-8",
@@ -18,7 +17,6 @@
 #   :based_on_progression => Progression["Blues"]
 # ).tap do |tune|
 #   tune.tune_progressions.create(:progression => ::Progression["ii-V-I"])
-#   tune.tune_concepts.create(:concept => ::Concept["Drop-2"], :start_measure => 8, :end_measure => 10)
 # end
 
 # Tune.create!(
@@ -27,7 +25,6 @@
 #   :meter            => Meter["4/4"],
 #   :primary_key_name => "G",
 #   :tonality         => "Minor",
-#   :concept          => "Instrumental",
 #   :form             => Form["A-A-B-C"],
 #   :form_length      => 32,
 #   :form_lengths     => "8-8-8-8",
@@ -54,7 +51,6 @@
 # ).tap do |tune|
 #   tune.tune_progressions.create(:progression => Progression["Major ii-V-I"])
 #   tune.tune_progressions.create(:progression => Progression["Major iii-iv-ii-V"])
-#   tune.tune_concepts.create(:concept => Concept["Drop-2"], :start_measure => 8, :end_measure => 10)
 # end
 # 
 # Tune.create!(
@@ -89,7 +85,6 @@
 # ).tap do |tune|
 #   tune.tune_progressions.create(:progression => Progression["Major ii-V-I"])
 #   tune.tune_progressions.create(:progression => Progression["Major iii-iv-ii-V"])
-#   tune.tune_concepts.create(:concept => Concept["Drop-2"], :start_measure => 8, :end_measure => 10)
 # end
 # 
 # Tune.create!(
@@ -98,7 +93,6 @@
 #   :meter            => Meter["4/4"],
 #   :primary_key_name => "D",
 #   :tonality         => "Minor",
-#   :concept          => "Instrumental",
 #   :form             => Form["A-A-B-A"],
 #   :form_length      => 32,
 #   :form_lengths     => "8-8-8-8",
@@ -123,7 +117,6 @@
 #   END
 # ).tap do |tune|
 #   tune.tune_progressions.create(:progression => Progression["Major ii-V-I"])
-#   tune.tune_concepts.create(:concept => Concept["Drop-2"], :start_measure => 8, :end_measure => 10)
 # end
 
 # # From "Learn Tunes" Book:

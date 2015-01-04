@@ -64,29 +64,6 @@ ActiveRecord::Schema.define(:version => 20150104200448) do
   add_index "chords", ["parent_id"], :name => "index_chords_on_parent_id"
   add_index "chords", ["slug"], :name => "index_chords_on_slug"
 
-  create_table "concept_families", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.string   "slug"
-  end
-
-  add_index "concept_families", ["slug"], :name => "index_concept_families_on_slug"
-
-  create_table "concepts", :force => true do |t|
-    t.integer  "concept_family_id"
-    t.string   "name"
-    t.string   "summary"
-    t.text     "content"
-    t.boolean  "seeding",           :default => false
-    t.datetime "created_at",                           :null => false
-    t.datetime "updated_at",                           :null => false
-    t.string   "slug"
-  end
-
-  add_index "concepts", ["concept_family_id"], :name => "index_concepts_on_concept_family_id"
-  add_index "concepts", ["slug"], :name => "index_concepts_on_slug"
-
   create_table "forms", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
@@ -194,19 +171,6 @@ ActiveRecord::Schema.define(:version => 20150104200448) do
   add_index "searchables", ["model_type", "model_id"], :name => "index_searchables_on_model_type_and_model_id"
   add_index "searchables", ["name"], :name => "index_searchables_on_name"
   add_index "searchables", ["parent_id"], :name => "index_searchables_on_parent_id"
-
-  create_table "tune_concepts", :force => true do |t|
-    t.integer  "tune_id"
-    t.integer  "concept_id"
-    t.string   "comment"
-    t.integer  "start_measure"
-    t.integer  "end_measure"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
-  add_index "tune_concepts", ["concept_id"], :name => "index_tune_concepts_on_concept_id"
-  add_index "tune_concepts", ["tune_id"], :name => "index_tune_concepts_on_tune_id"
 
   create_table "tune_progressions", :force => true do |t|
     t.integer  "tune_id"
