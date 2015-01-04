@@ -12,11 +12,13 @@ class TunesController < ApplicationController
     @tunes = @tunes.with_based_on_progression(@progression) if @progression
     @tunes = @tunes.search(params[:query]) if params[:query].present?
 
+    flash.now[:warning] = "We're still seeding content for this section. <a href='/contribute'>Want to contribute</a>?"
+
     respond_with @tunes
   end
 
   def show
-    flash.now[:warning] = "We're still seeding content for this page. Want to contribute?" if @tune.seeding?
+    flash.now[:warning] = "We're still seeding content for this page. <a href='/contribute'>Want to contribute</a>?" if @tune.seeding?
     respond_with @tune
   end
 

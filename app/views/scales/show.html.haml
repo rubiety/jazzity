@@ -29,7 +29,7 @@
     %section#staff
       .staff.scale-staff{"data-id" => @scale.id, "data-staff" => @mode.octavized_notes.map {|n| [n]}.to_json, "data-staff-clef" => "treble", "width" => 500}
 
-    - unless @mode.chord_spaces.empty?
+    - unless @mode.chord_scales.empty?
       %nav.related-chords
         %h3 Related Chords:
         %ul.chords-list

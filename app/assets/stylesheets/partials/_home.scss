@@ -1,7 +1,7 @@
 body.dashboards {
 
   section#search-examples {
-    @include columns(9, 12);
+    @include columns(12, 12);
     border-bottom: 5px solid #CCC;
     padding-bottom: 0.8em;
 
@@ -21,7 +21,9 @@ body.dashboards {
   }
 
   section#features-overview {
-    @include columns(5, 12);
+    @include columns(8, 12);
+
+    h1 { font-size: 3em; }
 
     article {
       @include clearfix;
@@ -32,6 +34,8 @@ body.dashboards {
         margin-right: 0;
         margin-left: 5px;
       }
+      
+      p { color: #333; font-size: 1.05em; line-height: 1.2em; }
 
       &.introduction {
         margin-bottom: 20px;
@@ -45,14 +49,16 @@ body.dashboards {
 
   section#searchable-examples {
     @include columns(4, 12);
+    margin-right: 0;
   
     ul.searchables-list {
       li {
+        h2 { clear: left; }
         .staff {
           margin-bottom: -20px;
         }
         .scale-staff {
-          float: none;
+          float: left;
           text-align: right;
         }
       }

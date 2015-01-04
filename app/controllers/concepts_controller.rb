@@ -12,7 +12,7 @@ class ConceptsController < ApplicationController
   end
 
   def show
-    flash.now[:warning] = "We're still seeding content for this page. Want to <a href='#'>contribute some content</a>?" if @concept.seeding?
+    flash.now[:warning] = "We're still seeding content for this page. Want to <a href='/contribute'>contribute some content</a>?" if @concept.seeding?
     respond_with @concept
   end
 

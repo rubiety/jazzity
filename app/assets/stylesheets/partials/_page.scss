@@ -11,11 +11,10 @@ body {
 
 #container {
   @include container;
-  @include border-radius(6px);
-  @include single-box-shadow(#999, 0, 0, 12px);
   background: #FFF;
   margin-top: 15px;
   margin-bottom: 15px;
+  border: 2px solid #DDD;
 }
 
 #header {
@@ -26,25 +25,29 @@ body {
   border-bottom: 0;
   position: relative;
   
-  h1 { font-size: 3em; margin-bottom: 4px; }
-  h2 { font-size: 0.8em; }
+  h1 {
+    font-size: 4.5em;
+    margin-bottom: 15px;
+    span { padding-left: 20px; font-size: 0.5em; color: #AAA; }
+  }
 
   nav {
     padding: 4px;
-    border-top: 1px solid #000;
-    border-bottom: 1px solid #000;
     margin-bottom: 0;
     
     ul {
       @include inline-block-list;
+      border-bottom: 1px solid #333;
       li {
-        margin: 0 15px 0 0;
-        padding: 5px;
+        margin: 0 10px 0 0;
+        padding: 10px 15px;
+        a { text-decoration: none; }
 
         &.current {
-          @include border-radius(4px);
-          background: #DDD;
+          background: #333;
+          a { color: white; }
           font-weight: bold;
+          border-bottom: none;
         }
       }
     }

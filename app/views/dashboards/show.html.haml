@@ -3,12 +3,11 @@
     = label_tag :query, "Explore Jazz: "
     = text_field_tag :query, params[:query], "data-autocomplete" => "/searches/autocomplete"
     = submit_tag "Go"
-    = link_to "What can I search for?", "#"
 
 #sidebar
 
 %section#search-examples
-  %h2 Examples: 
+  %h2 Search Examples: 
   %ul
     %li= link_to_search_example "Alone Together"
     %li= link_to_search_example "Autumn Leaves"
@@ -35,7 +34,7 @@
 
   %h1 What is Jazzity?
   %article.introduction
-    %p Jazzity is a community and knowledge engine for students of jazz.
+    %p Jazzity is a knowledge engine for students of jazz.
 
   %article
     %h2 Explore Chord/Scale/Voicing Relationships
@@ -48,11 +47,7 @@
   %article
     %h2 Explore &amp; Track Jazz Tunes
     %p
-      Jazzity's database of jazz standards connects you with the tunes you know and love. See which jazz concepts are used in your tune, explore progressions found therein, and find famous recordings and other resources to help you learn. You can also "like" tunes and specify which ones are part of your repetoire. 
-  %article
-    %h2 Discuss Jazz Concepts
-    %p
-      Any pieces of information on the site is open to discussion. Join the discussion and see what others have to say!
+      Jazzity's database of jazz standards connects you with the tunes you know and love. See which jazz concepts are used in your tune, explore progressions found therein, and find famous recordings and other resources to help you learn.
   %article
     %h2 So, how is this done?
     %p

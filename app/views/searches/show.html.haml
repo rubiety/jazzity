@@ -3,7 +3,6 @@
     = label_tag :query, "Explore Jazz: "
     = text_field_tag :query, params[:query], "data-autocomplete" => "/searches/autocomplete"
     = submit_tag "Go"
-    = link_to "What can I search for?", "#"
 
 %section#search-results
   %h1 #{@results.count} Search Results for "#{params[:id]}":
