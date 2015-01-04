@@ -67,17 +67,9 @@ group :test do
   gem "pickle"
   gem "shoulda-matchers"
   gem "growl"
-  gem "spork", ">= 0.9.0.rc5"
 end
 
 group :development, :test do
   gem "factory_girl_rails"
-  gem "guard"
-  gem "guard-bundler"
-  gem "guard-rspec"
-  gem "guard-spork"
-  gem "rb-inotify", :require => false
-  gem "rb-fsevent", :require => false
-  gem "rb-fchange", :require => false
 end
 
