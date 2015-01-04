@@ -1,5 +1,4 @@
 source "http://rubygems.org"
-ruby "2.1.2"
 
 # Core Gems
 gem "rails", "3.2.21"
@@ -54,7 +53,7 @@ gem "capybara-webkit"
 
 group :development do
   gem "thin"
-  gem "capistrano"
+  gem "capistrano", "2.12.0"
 end
 
 group :test do
