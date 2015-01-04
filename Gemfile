@@ -38,12 +38,6 @@ gem "twitter"
 gem "itunes"
 gem "amazon-ecs", :require => "amazon/ecs"
 
-# Authentication
-gem "devise"
-gem "omniauth"
-gem "omniauth-facebook"
-gem "omniauth-twitter"
-
 # Temporary: Fixes
 gem "curb", "0.7.15"
 

@@ -41,7 +41,6 @@ GEM
     arel (3.0.3)
     awesome_nested_set (2.1.6)
       activerecord (>= 3.0.0)
-    bcrypt (3.1.9)
     buftok (0.2.0)
     builder (3.0.4)
     capistrano (2.12.0)
@@ -105,13 +104,6 @@ GEM
     curb (0.7.15)
     daemons (1.1.9)
     database_cleaner (1.4.0)
-    devise (3.4.1)
-      bcrypt (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 3.2.6, < 5)
-      responders
-      thread_safe (~> 0.1)
-      warden (~> 1.2.3)
     diff-lcs (1.2.5)
     equalizer (0.0.9)
     erubis (2.7.0)
@@ -165,7 +157,6 @@ GEM
     jquery-ui-rails (5.0.0)
       railties (>= 3.2.16)
     json (1.8.1)
-    jwt (1.2.0)
     kaminari (0.16.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -182,7 +173,6 @@ GEM
     minitest (4.7.5)
     multi_json (1.10.1)
     multi_test (0.1.1)
-    multi_xml (0.5.5)
     multipart-post (2.0.0)
     mysql2 (0.3.17)
     naught (1.0.0)
@@ -195,30 +185,6 @@ GEM
       net-ssh (>= 2.6.5)
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
-    oauth (0.4.7)
-    oauth2 (1.0.0)
-      faraday (>= 0.8, < 0.10)
-      jwt (~> 1.0)
-      multi_json (~> 1.3)
-      multi_xml (~> 0.5)
-      rack (~> 1.2)
-    omniauth (1.2.2)
-      hashie (>= 1.2, < 4)
-      rack (~> 1.0)
-    omniauth-facebook (2.0.0)
-      omniauth-oauth2 (~> 1.2)
-    omniauth-oauth (1.0.1)
-      oauth
-      omniauth (~> 1.0)
-    omniauth-oauth2 (1.2.0)
-      faraday (>= 0.8, < 0.10)
-      multi_json (~> 1.3)
-      oauth2 (~> 1.0)
-      omniauth (~> 1.2)
-    omniauth-twitter (1.1.0)
-      multi_json (~> 1.3)
-      omniauth-oauth (~> 1.0)
-    orm_adapter (0.5.0)
     paperclip (4.2.1)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -260,8 +226,6 @@ GEM
       ffi (>= 0.5.0)
     rdoc (3.12.2)
       json (~> 1.4)
-    responders (1.1.2)
-      railties (>= 3.2, < 4.2)
     rspec-core (3.1.7)
       rspec-support (~> 3.1.0)
     rspec-expectations (3.1.2)
@@ -323,8 +287,6 @@ GEM
     uglifier (2.6.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    warden (1.2.3)
-      rack (>= 1.0)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -347,7 +309,6 @@ DEPENDENCIES
   compass-susy-plugin
   curb (= 0.7.15)
   database_cleaner
-  devise
   factory_girl_rails
   faker
   fancy-buttons
@@ -364,9 +325,6 @@ DEPENDENCIES
   mini_magick
   minitest
   mysql2
-  omniauth
-  omniauth-facebook
-  omniauth-twitter
   paperclip
   pickle
   rails (= 3.2.21)
