@@ -2,7 +2,6 @@ require "spec_helper"
 
 describe Tune do
   context "associations" do
-    it { should belong_to(:vehicle) }
     it { should belong_to(:meter) }
     it { should belong_to(:form) }
     it { should belong_to(:starting_chord) }
@@ -11,40 +10,37 @@ describe Tune do
     it { should belong_to(:based_on_progression) }
     it { should have_many(:tune_progressions) }
     it { should have_many(:progressions).through(:tune_progressions) }
-    it { should have_many(:tune_concepts) }
-    it { should have_many(:concepts).through(:tune_concepts) }
   end
 
   context "validations" do
     it { should validate_presence_of(:name) }
-    # it { should validate_inclusion_of(:tonality).in("Major", "Minor") }
-    # it { should validate_inclusion_of(:concept).in("Instrumental", "Vocal") }
+    it { should validate_inclusion_of(:tonality).in_array(%w(Major Minor)) }
   end
 
   it "should expose title as #to_s" do
     described_class.new.tap do |tune|
-      tune.should_receive(:title).and_return("Test")
-      tune.to_s.should == "Test"
+      expect(tune).to receive(:title).and_return("Test")
+      expect(tune.to_s).to eq("Test")
     end
   end
 
   describe "title" do
     it "should be name when no alternate name" do
-      described_class.new(:name => "Tune").title.should == "Tune"
+      expect(described_class.new(:name => "Tune").title).to eq("Tune")
     end
 
     it "should be name with alternate name in parenthesis when no alternate name" do
-      described_class.new(:name => "Tune", :alternate_name => "Alt").title.should == "Tune (Alt)"
+      expect(described_class.new(:name => "Tune", :alternate_name => "Alt").title).to eq("Tune (Alt)")
     end
   end
 
   it "should delegate resolve to find_by_name" do
-    described_class.should_receive(:find_by_name).with("Test")
+    expect(described_class).to receive(:find_by_name).with("Test")
     described_class.resolve("Test")
   end
 
   it "should delegate [] to find_by_name" do
-    described_class.should_receive(:find_by_name).with("Test")
+    expect(described_class).to receive(:find_by_name).with("Test")
     described_class["Test"]
   end
 end

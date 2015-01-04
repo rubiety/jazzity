@@ -12,14 +12,14 @@ describe Chord do
   end
   
   it "should expose name as #to_s" do
-    Chord.new(:name => "Test").to_s.should == "Test"
+    expect(Chord.new(:name => "Test").to_s).to eq("Test")
   end
   
   context "without key context" do
     subject { Chord.new(:name => "Test") }
     
     it "should expose #title as name" do
-      chord.title.should == "Test"
+      expect(subject.title).to eq("Test")
     end
   end
   
@@ -27,7 +27,7 @@ describe Chord do
     subject { Chord.new(:name => "Test").in_key_of("Bb") }
     
     it "should expose #title as key and name" do
-      chord.title.should == "Bb Test"
+      expect(subject.title).to eq("Bb Test")
     end
   end
 end

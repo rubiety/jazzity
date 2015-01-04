@@ -11,7 +11,7 @@ describe Form do
   end
   
   it "should expose #resolve as find_by_name" do
-    described_class.should_receive(:find_by_name).with("Blues").once
+    expect(described_class).to receive(:find_by_name).with("Blues").once
     described_class.resolve("Blues")
   end
 end

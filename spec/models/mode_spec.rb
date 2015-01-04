@@ -19,7 +19,7 @@ describe Mode do
   end
   
   it "should expose #to_s as name" do
-    described_class.new(:name => "Test").to_s.should == "Test"
+    expect(described_class.new(:name => "Test").to_s).to eq("Test")
   end
   
   # TODO

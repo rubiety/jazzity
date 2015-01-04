@@ -8,11 +8,11 @@ describe Meter do
   end
   
   it "should expose #to_s as name" do
-    described_class.new(:name => "Test").to_s.should == "Test"
+    expect(described_class.new(:name => "Test").to_s).to eq("Test")
   end
   
   it "should expose #resolve as find_by_name" do
-    described_class.should_receive(:find_by_name).with("4/4").once
+    expect(described_class).to receive(:find_by_name).with("4/4").once
     described_class.resolve("4/4")
   end
 end
