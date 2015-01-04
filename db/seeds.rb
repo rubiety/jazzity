@@ -11,7 +11,6 @@
 %w(
   meters
   forms
-  vehicles
   tunes
   tune_progressions
   tune_concepts
@@ -36,7 +35,6 @@ end
 %w(
   meters
   forms
-  vehicles
   concepts
   scales
   chords

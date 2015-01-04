@@ -12,6 +12,10 @@ class Changes
     end
   end
 
+  def form
+    sections.map(&:letter).join("-")
+  end
+
 
   class Grouping
     attr_accessor :time
@@ -19,6 +23,7 @@ class Changes
 
   class Section < Grouping
     attr_accessor :letter
+    attr_accessor :time
     attr_accessor :repeat
     attr_accessor :bars
 
@@ -50,12 +55,6 @@ class Changes
           last_bar = bar
         end
       end
-    end
-  end
-
-  class Bar
-    def initialize(data)
-
     end
   end
 end

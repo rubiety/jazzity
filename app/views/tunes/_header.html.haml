@@ -3,15 +3,12 @@
 
   %h1= @tune.title
   %dl
-    - if @tune.vehicle
-      %dd Vehicle: 
-      %dt= @tune.vehicle
+    - if @tune.style
+      %dd Style: 
+      %dt= @tune.style
     - if @tune.meter
       %dd Meter: 
       %dt= @tune.meter
-    - if @tune.concept
-      %dd Concept: 
-      %dt= @tune.concept
     - if @tune.primary_key
       %dd Key:
       %dt
@@ -27,3 +24,9 @@
     - if @tune.based_on_progression
       %dd Based on Progression:
       %dt= link_to @tune.based_on_progression, @tune.based_on_progression
+    - if @tune.starting_chord
+      %dd Starts On:
+      %dt= @tune.starting_chord
+    - if @tune.ending_chord
+      %dd Ends On:
+      %dt= @tune.ending_chord

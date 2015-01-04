@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120414023034) do
+ActiveRecord::Schema.define(:version => 20150104200448) do
 
   create_table "chord_qualities", :force => true do |t|
     t.string "name"
@@ -225,12 +225,10 @@ ActiveRecord::Schema.define(:version => 20120414023034) do
     t.string   "name"
     t.string   "alternate_name"
     t.integer  "based_on_progression_id"
-    t.integer  "vehicle_id"
     t.integer  "meter_id"
     t.string   "primary_key_name",           :limit => 3
     t.string   "secondary_key_name",         :limit => 3
     t.string   "tonality",                                :default => "Major"
-    t.string   "concept",                                 :default => "Instrumental"
     t.integer  "form_id"
     t.integer  "form_length"
     t.string   "form_lengths"
@@ -242,10 +240,12 @@ ActiveRecord::Schema.define(:version => 20120414023034) do
     t.text     "description"
     t.boolean  "seeding",                                 :default => false
     t.boolean  "featured",                                :default => false
-    t.datetime "created_at",                                                          :null => false
-    t.datetime "updated_at",                                                          :null => false
+    t.datetime "created_at",                                                   :null => false
+    t.datetime "updated_at",                                                   :null => false
     t.string   "slug"
     t.text     "changes_json"
+    t.string   "composer"
+    t.string   "style"
   end
 
   add_index "tunes", ["aebersold_playalong_number"], :name => "index_tunes_on_aebersold_playalong_number"
@@ -254,18 +254,6 @@ ActiveRecord::Schema.define(:version => 20120414023034) do
   add_index "tunes", ["primary_key_name"], :name => "index_tunes_on_primary_key_name"
   add_index "tunes", ["secondary_key_name"], :name => "index_tunes_on_secondary_key_name"
   add_index "tunes", ["slug"], :name => "index_tunes_on_slug"
-  add_index "tunes", ["vehicle_id"], :name => "index_tunes_on_vehicle_id"
-
-  create_table "vehicles", :force => true do |t|
-    t.string   "name"
-    t.integer  "parent_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.string   "slug"
-  end
-
-  add_index "vehicles", ["parent_id"], :name => "index_vehicles_on_parent_id"
-  add_index "vehicles", ["slug"], :name => "index_vehicles_on_slug"
 
   create_table "voice_leadings", :force => true do |t|
     t.integer  "from_voicing_id"

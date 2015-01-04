@@ -30,7 +30,7 @@ body.tunes {
   }
 
   article#tune {
-    @include columns(9, 12);
+    @include columns(12, 12);
     @include clearfix;
 
     header {

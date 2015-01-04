@@ -1,12 +1,10 @@
 %article[tune]
   %h3= link_to tune.title, tune
-  %cite by Ben Hughes
+  %cite by #{tune.composer}
 
   %ul.attributes
-    - if tune.concept
-      %li= tune.concept
-    - if tune.vehicle
-      %li= tune.vehicle
+    - if tune.style?
+      %li= tune.style
     - if tune.meter
       %li= tune.meter
     - if tune.primary_key
@@ -20,4 +18,3 @@
         = tune.form
         = "#{tune.form_length} Bars" if tune.form_length
         = tune.form_lengths if tune.form_lengths
-

@@ -5,8 +5,8 @@ class TunesController < ApplicationController
   respond_to :html, :json
 
   def index
-    @tunes = Tune.scoped.page(params[:page])
-    @tunes = @tunes.with_vehicle(@vehicle) if @vehicle
+    @tunes = Tune.scoped.page(params[:page]).per(100)
+    @tunes = @tunes.with_style(@style) if @style
     @tunes = @tunes.with_form(@form) if @form
     @tunes = @tunes.with_meter(@meter) if @meter
     @tunes = @tunes.with_based_on_progression(@progression) if @progression
@@ -18,7 +18,7 @@ class TunesController < ApplicationController
   end
 
   def show
-    flash.now[:warning] = "We're still seeding content for this page. <a href='/contribute'>Want to contribute</a>?" if @tune.seeding?
+    flash.now[:warning] = "We're still seeding content for this page. <a href='/contribute'>Want to contribute</a>?"
     respond_with @tune
   end
 
@@ -30,7 +30,7 @@ class TunesController < ApplicationController
   end
 
   def find_filters
-    @vehicle = Vehicle.find(params[:vehicle]) if params[:vehicle].present?
+    @style = params[:style] if params[:style].present?
     @form = Form.find(params[:form]) if params[:form].present?
     @meter = Meter.find(params[:meter]) if params[:meter].present?
     @progression = Progression.find(params[:progression]) if params[:progression].present?

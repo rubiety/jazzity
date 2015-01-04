@@ -10,7 +10,7 @@ ul.searchables-list {
   @include no-bullets;
   margin: 0;
 
-  li {
+  > li {
     @include border-radius(5px);
     @include clearfix;
     position: relative;
@@ -24,6 +24,11 @@ ul.searchables-list {
     &:hover { border: 1px solid #333; }
 
     h2 { font-size: 1.2em; }
+    cite {
+      float: left;
+      font-size: 0.8em;
+      padding-left: 15px;
+    }
 
     .staff {
       float: right;
